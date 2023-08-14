@@ -1,0 +1,27 @@
+{
+  "name": "@tomasevich/tinkoff-invest-api",
+  "version": "0.1.0",
+  "main": "./src/index.js",
+  "types": "./src/main.d.ts",
+  "scripts": {
+    "build": "rm -rf ./dist && tsc",
+    "release": "npm publish --access=public"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomasevich/tinkoff-invest-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tomasevich/tinkoff-invest-api/issues"
+  },
+  "homepage": "https://github.com/tomasevich/tinkoff-invest-api#readme",
+  "description": "`Неофициальная` библиотека для работы с Тинькофф Инвестиции",
+  "keywords": [
+    "tinkoff-invest-api"
+  ],
+  "author": "Tomasevich V.S.",
+  "license": "MIT"
+}
