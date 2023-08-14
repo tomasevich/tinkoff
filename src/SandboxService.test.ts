@@ -2,6 +2,7 @@ import dotenv from 'dotenv'
 
 import {
   CloseSandboxAccountResponse,
+  GetAccountsResponse,
   OpenSandboxAccountResponse,
   Sandbox,
   SandboxService
@@ -28,6 +29,15 @@ describe('SandboxService', () => {
 
       tempAccountId = data.accountId
       expect(data).toHaveProperty('accountId')
+    })
+  })
+
+  describe('GetSandboxAccounts', () => {
+    test('Должен вернуть массив минимум с 1-м аккаунтом', async () => {
+      const response: any = await sandboxService.GetSandboxAccounts({})
+      const data: GetAccountsResponse = await response.json()
+
+      expect(data.accounts.length).toBeGreaterThanOrEqual(1)
     })
   })
 
