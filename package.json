@@ -7,7 +7,7 @@
     "docs": "typedoc",
     "build": "rm -rf ./dist && tsc",
     "test": "jest",
-    "prerelease": "npm run build && npm test",
+    "prerelease": "npm run build && npm test && npm run docs",
     "release": "npm publish --access=public"
   },
   "devDependencies": {
