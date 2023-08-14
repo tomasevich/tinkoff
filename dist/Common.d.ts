@@ -5,7 +5,7 @@ export type Service = 'InstrumentsService' | 'MarketDataService' | 'OperationsSe
 /**
  * Список методов
  */
-export type Method = 'GetOrders' | 'GetSandboxOrders';
+export type Method = 'GetOrders' | 'GetSandboxOrders' | 'OpenSandboxAccount' | 'CloseSandboxAccount' | 'GetSandboxAccounts';
 /**
  * Денежная сумма в определенной валюте
  *
