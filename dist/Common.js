@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Core = void 0;
+exports.Common = void 0;
 /**
- * Класс для взаимодействия с сервисами Tinkoff Invest API
+ * Общий класс для взаимодействия с сервисами Tinkoff Invest API
  */
-class Core {
+class Common {
     /**
      * Конструктор
      *
@@ -48,4 +48,4 @@ class Core {
         return fetch(url, opt);
     }
 }
-exports.Core = Core;
+exports.Common = Common;

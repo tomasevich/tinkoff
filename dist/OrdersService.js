@@ -1,9 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrdersService = exports.OrderExecutionReportStatus = exports.OrderType = exports.OrderDirection = void 0;
-const Core_1 = require("../Core");
+const Common_1 = require("./Common");
 /**
  * Направление операции
+ *
+ * @see https://tinkoff.github.io/investAPI/orders/#orderdirection
  */
 var OrderDirection;
 (function (OrderDirection) {
@@ -22,6 +24,8 @@ var OrderDirection;
 })(OrderDirection || (exports.OrderDirection = OrderDirection = {}));
 /**
  * Тип заявки
+ *
+ * @see https://tinkoff.github.io/investAPI/orders/#ordertype
  */
 var OrderType;
 (function (OrderType) {
@@ -44,6 +48,8 @@ var OrderType;
 })(OrderType || (exports.OrderType = OrderType = {}));
 /**
  * Текущий статус заявки (поручения)
+ *
+ * @see https://tinkoff.github.io/investAPI/orders/#orderexecutionreportstatus
  */
 var OrderExecutionReportStatus;
 (function (OrderExecutionReportStatus) {
@@ -79,8 +85,10 @@ var OrderExecutionReportStatus;
  * 3. получение статуса;
  * 4. расчёт полной стоимости;
  * 5. получение списка заявок.
+ *
+ * @see https://tinkoff.github.io/investAPI/orders/#getorders
  */
-class OrdersService extends Core_1.Core {
+class OrdersService extends Common_1.Common {
     GetOrders(body) {
         return this.request('OrdersService', 'GetOrders', body);
     }
