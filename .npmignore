@@ -3,3 +3,6 @@
 
 # TEST
 jest.config.js
+
+# ENV
+.env.test
