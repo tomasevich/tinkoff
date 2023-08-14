@@ -1,0 +1,5 @@
+# IDE
+.vscode
+
+# TEST
+jest.config.js
