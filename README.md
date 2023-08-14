@@ -2,8 +2,6 @@
 
 `Неофициальная` библиотека для работы с [Тинькофф Инвестиции](https://www.tinkoff.ru/invest/)
 
-> Внимание! Сборка пока не готова для продуктивного использования
-
 ## Установка
 
 ```sh
@@ -12,20 +10,17 @@ npm i @tomasevich/tinkoff
 
 ## Использование
 
-### CommonJS
-
 ```js
-const { TinkoffInvestApi } = require('@tomasevich/tinkoff')
+import { SandboxService } from '@tomasevich/tinkoff'
 
-console.log(TinkoffInvestApi()) // work
-```
+const sandboxService = new SandboxService('<TOKEN>', true)
 
-### Module
-
-```ts
-import { TinkoffInvestApi } from '@tomasevich/tinkoff'
-
-console.log(TinkoffInvestApi()) // work
+sandboxService
+  .GetOrders({
+    accountId: '<ACCOUNT_ID>'
+  })
+  .then(response => response.json())
+  .then(data => console.log(data))
 ```
 
 ## Разработка
@@ -34,13 +29,13 @@ console.log(TinkoffInvestApi()) // work
 
 Для запуска тестов, необходимо настроить переменные окружения
 
-#### Копируем настройки окружения
+1. Копируем настройки окружения
 
 ```sh
 cp .env .env.test
 ```
 
-#### Заполняем поля своими данными и запускаем тесты
+2. Заполняем поля своими данными и запускаем тесты
 
 ```sh
 npm test
