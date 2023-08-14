@@ -13,7 +13,11 @@ export type Service =
 /**
  * Список методов
  */
-export type Method = 'GetOrders' | 'GetSandboxOrders'
+export type Method =
+  | 'GetOrders'
+  | 'GetSandboxOrders'
+  | 'OpenSandboxAccount'
+  | 'CloseSandboxAccount'
 
 /**
  * Денежная сумма в определенной валюте
