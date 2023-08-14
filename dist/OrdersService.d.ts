@@ -220,6 +220,16 @@ export interface Orders {
      * @param {GetOrdersRequest} body Тело запроса
      *
      * @returns Возвращает список ордеров
+     *
+     * @see https://tinkoff.github.io/investAPI/orders/#getorders
+     *
+     * @example
+     * ```js
+     * const ordersService = new OrdersService('<TOKEN>', false)
+     * ordersService.GetOrders({})
+     *   .then(response => response.json())
+     *   .then(data => console.log(data))
+     * ```
      */
     GetOrders: (body: GetOrdersRequest) => Promise<GetOrdersResponse>;
 }
@@ -230,8 +240,6 @@ export interface Orders {
  * 3. получение статуса;
  * 4. расчёт полной стоимости;
  * 5. получение списка заявок.
- *
- * @see https://tinkoff.github.io/investAPI/orders/#getorders
  */
 export declare class OrdersService extends Common implements Orders {
     GetOrders(body: GetOrdersRequest): Promise<GetOrdersResponse>;

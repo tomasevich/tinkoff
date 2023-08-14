@@ -85,8 +85,6 @@ var OrderExecutionReportStatus;
  * 3. получение статуса;
  * 4. расчёт полной стоимости;
  * 5. получение списка заявок.
- *
- * @see https://tinkoff.github.io/investAPI/orders/#getorders
  */
 class OrdersService extends Common_1.Common {
     GetOrders(body) {
