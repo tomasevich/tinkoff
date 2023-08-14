@@ -6,3 +6,6 @@ jest.config.js
 
 # ENV
 .env.test
+
+# DOCS
+docs
