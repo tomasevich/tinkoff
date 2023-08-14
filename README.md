@@ -2,6 +2,8 @@
 
 `Неофициальная` библиотека для работы с [Тинькофф Инвестиции](https://www.tinkoff.ru/invest/)
 
+Описание методов находится [здесь](https://github.com/tomasevich/tinkoff/docs), официальная документация [здесь](https://tinkoff.github.io/investAPI/)
+
 ## Установка
 
 ```sh
