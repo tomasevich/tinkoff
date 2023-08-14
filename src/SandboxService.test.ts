@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
 
-import { SandboxService } from './Sandbox'
-import { GetOrdersResponse } from './Orders'
+import { SandboxService } from './SandboxService'
+import { GetOrdersResponse } from './OrdersService'
 
 dotenv.config({ path: './.env.test' })
 

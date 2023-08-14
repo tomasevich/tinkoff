@@ -1,30 +1,4 @@
-import { Core } from '../Core'
-
-/**
- * Денежная сумма в определенной валюте
- *
- * @see https://tinkoff.github.io/investAPI/common/#moneyvalue
- */
-export interface MoneyValue {
-  /**
-   * Строковый ISO-код валюты
-   */
-  currency: string
-
-  /**
-   * Целая часть суммы, может быть отрицательным числом
-   *
-   * @remarks Число в формате `int64`
-   */
-  units: string
-
-  /**
-   * Дробная часть суммы, может быть отрицательным числом
-   *
-   * @remarks Число в формате `int32`
-   */
-  nano: number
-}
+import { Common, MoneyValue } from './Common'
 
 /**
  * Направление операции
@@ -294,7 +268,7 @@ export interface Orders {
  *
  * @see https://tinkoff.github.io/investAPI/orders/#getorders
  */
-export class OrdersService extends Core implements Orders {
+export class OrdersService extends Common implements Orders {
   public GetOrders(body: GetOrdersRequest): Promise<GetOrdersResponse> {
     return this.request('OrdersService', 'GetOrders', body)
   }
