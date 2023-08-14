@@ -16,7 +16,7 @@ export type Service =
 export type Method = 'GetOrders' | 'GetSandboxOrders'
 
 /**
- * Класс для расширения возможностей сервиса
+ * Класс для взаимодействия с сервисами Tinkoff Invest API
  */
 export class Core {
   /**
@@ -29,6 +29,12 @@ export class Core {
    */
   private sandbox = 'https://sandbox-invest-public-api.tinkoff.ru'
 
+  /**
+   * Конструктор
+   *
+   * @param {string} token Токен приложения
+   * @param {boolean} isSandbox Флаг включения режима "Песочницы"
+   */
   constructor(private token: string, private isSandbox: boolean) {}
 
   /**
