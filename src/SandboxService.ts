@@ -1,5 +1,117 @@
 import { Common } from './Common'
-import { GetOrdersRequest, GetOrdersResponse, Orders } from './OrdersService'
+import { GetOrdersRequest, GetOrdersResponse } from './OrdersService'
+
+/**
+ * Тип счёта
+ */
+export enum AccountType {
+  /**
+   * Тип аккаунта не определён
+   */
+  ACCOUNT_TYPE_UNSPECIFIED,
+  /**
+   * Брокерский счёт Тинькофф
+   */
+  ACCOUNT_TYPE_TINKOFF,
+  /**
+   * ИИС счёт
+   */
+  ACCOUNT_TYPE_TINKOFF_IIS,
+  /**
+   * Инвесткопилка
+   */
+  ACCOUNT_TYPE_INVEST_BOX
+}
+
+/**
+ * Статус счёта
+ */
+export enum AccountStatus {
+  /**
+   * Статус счёта не определён
+   */
+  ACCOUNT_STATUS_UNSPECIFIED,
+  /**
+   * Новый, в процессе открытия
+   */
+  ACCOUNT_STATUS_NEW,
+  /**
+   * Открытый и активный счёт
+   */
+  ACCOUNT_STATUS_OPEN,
+  /**
+   * Закрытый счёт
+   */
+  ACCOUNT_STATUS_CLOSED
+}
+
+/**
+ * Уровень доступа к счёту
+ */
+export enum AccessLevel {
+  /**
+   * Уровень доступа не определён
+   */
+  ACCOUNT_ACCESS_LEVEL_UNSPECIFIED,
+  /**
+   * Полный доступ к счёту
+   */
+  ACCOUNT_ACCESS_LEVEL_FULL_ACCESS,
+  /**
+   * Доступ с уровнем прав "только чтение"
+   */
+  ACCOUNT_ACCESS_LEVEL_READ_ONLY,
+  /**
+   * Доступ отсутствует
+   */
+  ACCOUNT_ACCESS_LEVEL_NO_ACCESS
+}
+
+/**
+ * Информация о счёте
+ */
+export interface Account {
+  /**
+   * Идентификатор счёта
+   */
+  id: string
+
+  /**
+   * Тип счёта
+   *
+   * @default ACCOUNT_TYPE_UNSPECIFIED
+   */
+  type: AccountType
+
+  /**
+   * Название счёта
+   */
+  name: string
+
+  /**
+   * Статус счёта
+   *
+   * @default ACCOUNT_STATUS_UNSPECIFIED
+   */
+  status: AccountStatus
+
+  /**
+   * Дата открытия счёта в часовом поясе UTC
+   */
+  openedDate: string
+
+  /**
+   * Дата закрытия счёта в часовом поясе UTC
+   */
+  closedDate: string
+
+  /**
+   * Уровень доступа к счёту
+   *
+   * @default ACCOUNT_ACCESS_LEVEL_UNSPECIFIED
+   */
+  accessLevel: AccessLevel
+}
 
 /**
  * Запрос открытия счёта в песочнице
@@ -16,6 +128,23 @@ export interface OpenSandboxAccountResponse {
    * Номер счёта
    */
   accountId: string
+}
+
+/**
+ * Запрос получения счетов пользователя
+ */
+export interface GetAccountsRequest {
+  // Пустой запрос
+}
+
+/**
+ * Список счетов пользователя
+ */
+export interface GetAccountsResponse {
+  /**
+   * Массив счетов клиента
+   */
+  accounts: Account[]
 }
 
 /**
@@ -59,6 +188,25 @@ export interface Sandbox {
   OpenSandboxAccount(
     body: OpenSandboxAccountRequest
   ): Promise<OpenSandboxAccountResponse>
+
+  /**
+   * Метод получения счетов в песочнице
+   *
+   * @param {GetAccountsRequest} body Тело запроса
+   *
+   * @returns Пустой ответ
+   *
+   * @see https://tinkoff.github.io/investAPI/sandbox/#getsandboxaccounts
+   *
+   * @example
+   * ```js
+   * const sandboxService = new SandboxService('<TOKEN>', true)
+   * sandboxService.GetSandboxAccounts({})
+   *   .then(response => response.json())
+   *   .then(data => console.log(data))
+   * ```
+   */
+  GetSandboxAccounts(body: GetAccountsRequest): Promise<GetAccountsResponse>
 
   /**
    * Метод закрытия счёта в песочнице
@@ -111,6 +259,12 @@ export class SandboxService extends Common implements Sandbox {
     body: OpenSandboxAccountRequest
   ): Promise<OpenSandboxAccountResponse> {
     return this.request('SandboxService', 'OpenSandboxAccount', body)
+  }
+
+  public GetSandboxAccounts(
+    body: GetAccountsRequest
+  ): Promise<GetAccountsResponse> {
+    return this.request('SandboxService', 'GetSandboxAccounts', body)
   }
 
   public CloseSandboxAccount(

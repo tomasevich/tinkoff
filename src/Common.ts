@@ -18,6 +18,7 @@ export type Method =
   | 'GetSandboxOrders'
   | 'OpenSandboxAccount'
   | 'CloseSandboxAccount'
+  | 'GetSandboxAccounts'
 
 /**
  * Денежная сумма в определенной валюте
