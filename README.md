@@ -2,7 +2,9 @@
 
 `Неофициальная` библиотека для работы с [Тинькофф Инвестиции](https://www.tinkoff.ru/invest/)
 
-Описание методов находится [здесь](https://github.com/tomasevich/tinkoff/docs), официальная документация [здесь](https://tinkoff.github.io/investAPI/)
+- Проект на [GitHub](https://github.com/tomasevich/tinkoff)
+- [Документация](https://tomasevich.github.io/tinkoff) по API
+- [Обсуждения](https://github.com/tomasevich/tinkoff/discussions) идей и предложений
 
 ## Установка
 
