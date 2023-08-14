@@ -1,4 +1,4 @@
-import { Common, MoneyValue } from './Common'
+import { Common, MoneyValue, Quotation } from './Common'
 
 /**
  * Направление операции
@@ -221,6 +221,163 @@ export interface OrderState {
 }
 
 /**
+ * Запрос выставления торгового поручения
+ *
+ * @see https://tinkoff.github.io/investAPI/orders/#postorderrequest
+ */
+export interface PostOrderRequest {
+  /**
+   * Deprecated Figi-идентификатор инструмента
+   *
+   * @remarks Необходимо использовать `instrumentId`
+   */
+  figi: string
+
+  /**
+   * Количество лотов
+   *
+   * @remarks Число в формате `int64`
+   */
+  quantity: string
+
+  /**
+   * Цена за 1 инструмент
+   *
+   * @remarks Для получения стоимости лота требуется умножить на лотность инструмента. Игнорируется для рыночных поручений
+   */
+  price: Quotation
+
+  /**
+   * Направление операции
+   */
+  direction: OrderDirection
+
+  /**
+   * Номер счёта
+   */
+  accountId: string
+
+  /**
+   * Тип заявки
+   */
+  orderType: OrderType
+
+  /**
+   * Идентификатор запроса выставления поручения для целей идемпотентности в формате UID
+   *
+   * @remarks Максимальная длина 36 символов
+   */
+  orderId: string
+
+  /**
+   * Идентификатор инструмента, принимает значения `Figi` или `InstrumentUid`
+   */
+  instrumentId: string
+}
+
+/**
+ * Информация о выставлении поручения
+ *
+ * @see https://tinkoff.github.io/investAPI/orders/#postorderresponse
+ */
+export interface PostOrderResponse {
+  /**
+   * Биржевой идентификатор заявки
+   */
+  orderId: string
+
+  /**
+   * Текущий статус заявки
+   */
+  executionReportStatus: OrderExecutionReportStatus
+
+  /**
+   * Запрошено лотов
+   *
+   * @remarks Число в формате `int64`
+   */
+  lotsRequested: string
+
+  /**
+   * Исполнено лотов
+   *
+   * @remarks Число в формате `int64`
+   */
+  lotsExecuted: string
+
+  /**
+   * Начальная цена заявки
+   *
+   * @remarks Произведение количества запрошенных лотов на цену
+   */
+  initialOrderPrice: MoneyValue
+
+  /**
+   * Исполненная средняя цена одного инструмента в заявке
+   */
+  executedOrderPrice: MoneyValue
+
+  /**
+   * Итоговая стоимость заявки, включающая все комиссии
+   */
+  totalOrderAmount: MoneyValue
+
+  /**
+   * Начальная комиссия. Комиссия рассчитанная при выставлении заявки
+   */
+  initialCommission: MoneyValue
+
+  /**
+   * Фактическая комиссия по итогам исполнения заявки
+   */
+  executedCommission: MoneyValue
+
+  /**
+   * Значение НКД (накопленного купонного дохода) на дату
+   *
+   * @remarks Подробнее: НКД при выставлении торговых поручени
+   */
+  aciValue: MoneyValue
+
+  /**
+   * Figi-идентификатор инструмента
+   */
+  figi: string
+
+  /**
+   * Направление сделки
+   */
+  direction: OrderDirection
+
+  /**
+   * Начальная цена за 1 инструмент
+   *
+   * @remarks Для получения стоимости лота требуется умножить на лотность инструмента
+   */
+  initialSecurityPrice: MoneyValue
+
+  /**
+   * Тип заявки
+   */
+  orderType: OrderType
+
+  /**
+   * Дополнительные данные об исполнении заявки
+   */
+  message: string
+
+  /**
+   * Начальная цена заявки в пунктах (для фьючерсов)
+   */
+  initialOrderPricePt: Quotation
+
+  /**
+   * UID идентификатор инструмента
+   */
+  instrumentUid: string
+}
+
+/**
  * Запрос получения списка активных торговых поручений
  *
  * @see https://tinkoff.github.io/investAPI/orders/#getordersrequest
@@ -253,6 +410,25 @@ export interface Orders {
    *
    * @param {GetOrdersRequest} body Тело запроса
    *
+   * @returns Информация о выставлении поручения
+   *
+   * @see https://tinkoff.github.io/investAPI/orders/#postorder
+   *
+   * @example
+   * ```js
+   * const ordersService = new OrdersService('<TOKEN>', false)
+   * ordersService.PostOrder({})
+   *   .then(response => response.json())
+   *   .then(data => console.log(data))
+   * ```
+   */
+  PostOrder: (body: PostOrderRequest) => Promise<PostOrderResponse>
+
+  /**
+   * Метод получения списка активных заявок по счёту
+   *
+   * @param {GetOrdersRequest} body Тело запроса
+   *
    * @returns Возвращает список ордеров
    *
    * @see https://tinkoff.github.io/investAPI/orders/#getorders
@@ -277,6 +453,10 @@ export interface Orders {
  * 5. получение списка заявок.
  */
 export class OrdersService extends Common implements Orders {
+  public PostOrder(body: PostOrderRequest): Promise<PostOrderResponse> {
+    return this.request('OrdersService', 'GetOrders', body)
+  }
+
   public GetOrders(body: GetOrdersRequest): Promise<GetOrdersResponse> {
     return this.request('OrdersService', 'GetOrders', body)
   }

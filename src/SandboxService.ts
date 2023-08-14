@@ -1,5 +1,10 @@
 import { Common } from './Common'
-import { GetOrdersRequest, GetOrdersResponse } from './OrdersService'
+import {
+  GetOrdersRequest,
+  GetOrdersResponse,
+  PostOrderRequest,
+  PostOrderResponse
+} from './OrdersService'
 
 /**
  * Тип счёта
@@ -230,6 +235,19 @@ export interface Sandbox {
   ): Promise<CloseSandboxAccountResponse>
 
   /**
+   * Метод выставления торгового поручения в песочнице
+   *
+   * @param {PostOrderRequest} body Тело запроса
+   */
+  PostSandboxOrder(body: PostOrderRequest): Promise<PostOrderResponse>
+
+  /**
+   * Метод изменения выставленной заявки
+   * @todo
+   */
+  // ReplaceSandboxOrder(body: ReplaceOrderRequest): Promise<ReplaceOrderResponse>
+
+  /**
    * Метод получения списка активных заявок по счёту
    *
    * @param {GetOrdersRequest} body Тело запроса
@@ -247,6 +265,58 @@ export interface Sandbox {
    * ```
    */
   GetSandboxOrders(body: GetOrdersRequest): Promise<GetOrdersResponse>
+
+  /**
+   * Метод отмены торгового поручения в песочнице
+   * @todo
+   */
+  // CancelSandboxOrder(body: CancelOrderRequest): Promise<CancelOrderResponse>
+
+  /**
+   * Метод отмены торгового поручения в песочнице
+   * @todo
+   */
+  // GetSandboxOrderState(body: GetOrderStateRequest): Promise<OrderState>
+
+  /**
+   * Метод получения позиций по виртуальному счёту песочницы
+   * @todo
+   */
+  // GetSandboxPositions(body: PositionsRequest): Promise<PositionsResponse>
+
+  /**
+   * Метод получения операций в песочнице по номеру счёта
+   * @todo
+   */
+  // GetSandboxOperations(body: OperationsRequest): Promise<OperationsResponse>
+
+  /**
+   * Метод получения операций в песочнице по номеру счета с пагинацией
+   * @todo
+   */
+  // GetSandboxOperationsByCursor(
+  //   body: GetOperationsByCursorRequest
+  // ): Promise<GetOperationsByCursorResponse>
+
+  /**
+   * Метод получения портфолио в песочнице
+   * @todo
+   */
+  // GetSandboxPortfolio(body: PortfolioRequest): Promise<PortfolioResponse>
+
+  /**
+   * Метод пополнения счёта в песочнице
+   * @todo
+   */
+  // SandboxPayIn(body: SandboxPayInRequest): Promise<SandboxPayInResponse>
+
+  /**
+   * Метод получения доступного остатка для вывода средств в песочнице
+   * @todo
+   */
+  // GetSandboxWithdrawLimits(
+  //   body: WithdrawLimitsRequest
+  // ): Promise<WithdrawLimitsResponse>
 }
 
 /**
@@ -255,6 +325,10 @@ export interface Sandbox {
  * @see https://tinkoff.github.io/investAPI/sandbox/#getsandboxorders
  */
 export class SandboxService extends Common implements Sandbox {
+  public PostSandboxOrder(body: PostOrderRequest): Promise<PostOrderResponse> {
+    return this.request('SandboxService', 'PostSandboxOrder', body)
+  }
+
   public OpenSandboxAccount(
     body: OpenSandboxAccountRequest
   ): Promise<OpenSandboxAccountResponse> {

@@ -19,6 +19,7 @@ export type Method =
   | 'OpenSandboxAccount'
   | 'CloseSandboxAccount'
   | 'GetSandboxAccounts'
+  | 'PostSandboxOrder'
 
 /**
  * Статус безопасной торговли
