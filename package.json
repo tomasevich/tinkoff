@@ -1,20 +1,22 @@
 {
   "name": "@tomasevich/tinkoff",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
+    "docs": "typedoc",
     "build": "rm -rf ./dist && tsc",
     "test": "jest",
-    "prerelease": "npm run build && npm test",
+    "prerelease": "npm run build && npm test && npm run docs",
     "release": "npm publish --access=public"
   },
   "devDependencies": {
-    "dotenv": "^16.3.1",
     "@types/jest": "^29.5.3",
     "@types/node": "^20.5.0",
+    "dotenv": "^16.3.1",
     "jest": "^29.6.2",
     "ts-jest": "^29.1.1",
+    "typedoc": "^0.24.8",
     "typescript": "^5.1.6"
   },
   "repository": {

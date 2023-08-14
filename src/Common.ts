@@ -16,9 +16,35 @@ export type Service =
 export type Method = 'GetOrders' | 'GetSandboxOrders'
 
 /**
- * Класс для взаимодействия с сервисами Tinkoff Invest API
+ * Денежная сумма в определенной валюте
+ *
+ * @see https://tinkoff.github.io/investAPI/common/#moneyvalue
  */
-export class Core {
+export interface MoneyValue {
+  /**
+   * Строковый ISO-код валюты
+   */
+  currency: string
+
+  /**
+   * Целая часть суммы, может быть отрицательным числом
+   *
+   * @remarks Число в формате `int64`
+   */
+  units: string
+
+  /**
+   * Дробная часть суммы, может быть отрицательным числом
+   *
+   * @remarks Число в формате `int32`
+   */
+  nano: number
+}
+
+/**
+ * Общий класс для взаимодействия с сервисами Tinkoff Invest API
+ */
+export class Common {
   /**
    * Публичный адрес работы с Биржей
    */

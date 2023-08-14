@@ -1,31 +1,9 @@
-import { Core } from '../Core'
-
-/**
- * Денежная сумма в определенной валюте
- */
-export interface MoneyValue {
-  /**
-   * Строковый ISO-код валюты
-   */
-  currency: string
-
-  /**
-   * Целая часть суммы, может быть отрицательным числом
-   *
-   * @type int64
-   */
-  units: string
-
-  /**
-   * Дробная часть суммы, может быть отрицательным числом
-   *
-   * @type int32
-   */
-  nano: number
-}
+import { Common, MoneyValue } from './Common'
 
 /**
  * Направление операции
+ *
+ * @see https://tinkoff.github.io/investAPI/orders/#orderdirection
  */
 export enum OrderDirection {
   /**
@@ -46,6 +24,8 @@ export enum OrderDirection {
 
 /**
  * Сделки в рамках торгового поручения
+ *
+ * @see https://tinkoff.github.io/investAPI/orders/#orderstage
  */
 export interface OrderStage {
   /**
@@ -66,6 +46,8 @@ export interface OrderStage {
 
 /**
  * Тип заявки
+ *
+ * @see https://tinkoff.github.io/investAPI/orders/#ordertype
  */
 export enum OrderType {
   /**
@@ -91,6 +73,8 @@ export enum OrderType {
 
 /**
  * Текущий статус заявки (поручения)
+ *
+ * @see https://tinkoff.github.io/investAPI/orders/#orderexecutionreportstatus
  */
 export enum OrderExecutionReportStatus {
   /**
@@ -121,6 +105,8 @@ export enum OrderExecutionReportStatus {
 
 /**
  * Информация о торговом поручении
+ *
+ * @see https://tinkoff.github.io/investAPI/orders/#orderstate
  */
 export interface OrderState {
   /**
@@ -138,14 +124,14 @@ export interface OrderState {
   /**
    * Запрошено лотов
    *
-   * @type int64
+   * @remarks Число в формате `int64`
    */
   lotsRequested: string
 
   /**
    * Исполнено лотов
    *
-   * @type int64
+   * @remarks Число в формате `int64`
    */
   lotsExecuted: string
 
@@ -236,6 +222,8 @@ export interface OrderState {
 
 /**
  * Запрос получения списка активных торговых поручений
+ *
+ * @see https://tinkoff.github.io/investAPI/orders/#getordersrequest
  */
 export interface GetOrdersRequest {
   /**
@@ -246,6 +234,8 @@ export interface GetOrdersRequest {
 
 /**
  * Список активных торговых поручений
+ *
+ * @see https://tinkoff.github.io/investAPI/orders/#getordersresponse
  */
 export interface GetOrdersResponse {
   /**
@@ -263,7 +253,7 @@ export interface Orders {
    *
    * @param {GetOrdersRequest} body Тело запроса
    *
-   * @returns {GetOrdersResponse} Возвращает список ордеров
+   * @returns Возвращает список ордеров
    */
   GetOrders: (body: GetOrdersRequest) => Promise<GetOrdersResponse>
 }
@@ -275,8 +265,10 @@ export interface Orders {
  * 3. получение статуса;
  * 4. расчёт полной стоимости;
  * 5. получение списка заявок.
+ *
+ * @see https://tinkoff.github.io/investAPI/orders/#getorders
  */
-export class OrdersService extends Core implements Orders {
+export class OrdersService extends Common implements Orders {
   public GetOrders(body: GetOrdersRequest): Promise<GetOrdersResponse> {
     return this.request('OrdersService', 'GetOrders', body)
   }

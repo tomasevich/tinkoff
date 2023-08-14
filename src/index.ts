@@ -1,4 +1,4 @@
-import { OrdersService } from './services/Orders'
-import { SandboxService } from './services/Sandbox'
+import { OrdersService } from './OrdersService'
+import { SandboxService } from './SandboxService'
 
 export { OrdersService, SandboxService }
