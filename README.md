@@ -27,3 +27,21 @@ import { TinkoffInvestApi } from '@tomasevich/tinkoff'
 
 console.log(TinkoffInvestApi()) // work
 ```
+
+## Разработка
+
+### Тестирование
+
+Для запуска тестов, необходимо настроить переменные окружения
+
+#### Копируем настройки окружения
+
+```sh
+cp .env .env.test
+```
+
+#### Заполняем поля своими данными и запускаем тесты
+
+```sh
+npm test
+```
