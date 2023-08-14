@@ -1,1 +1,3 @@
-export declare function TinkoffInvestAPI(): string;
+import { OrdersService } from './services/Orders';
+import { SandboxService } from './services/Sandbox';
+export { OrdersService, SandboxService };

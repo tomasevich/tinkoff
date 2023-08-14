@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TinkoffInvestAPI = void 0;
-function TinkoffInvestAPI() {
-    return 'work';
-}
-exports.TinkoffInvestAPI = TinkoffInvestAPI;
+exports.SandboxService = exports.OrdersService = void 0;
+const Orders_1 = require("./services/Orders");
+Object.defineProperty(exports, "OrdersService", { enumerable: true, get: function () { return Orders_1.OrdersService; } });
+const Sandbox_1 = require("./services/Sandbox");
+Object.defineProperty(exports, "SandboxService", { enumerable: true, get: function () { return Sandbox_1.SandboxService; } });
