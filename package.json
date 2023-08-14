@@ -1,5 +1,5 @@
 {
-  "name": "@tomasevich/tinkoff-invest-api",
+  "name": "@tomasevich/tinkoff",
   "version": "0.1.0",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
