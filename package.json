@@ -2,7 +2,7 @@
   "name": "@tomasevich/tinkoff-invest-api",
   "version": "0.1.0",
   "main": "./src/index.js",
-  "types": "./src/main.d.ts",
+  "types": "./src/index.d.ts",
   "scripts": {
     "build": "rm -rf ./dist && tsc",
     "test": "jest",
