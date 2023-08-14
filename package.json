@@ -22,7 +22,7 @@
     "url": "https://github.com/tomasevich/tinkoff-invest-api/issues"
   },
   "homepage": "https://github.com/tomasevich/tinkoff-invest-api#readme",
-  "description": "`Неофициальная` библиотека для работы с Тинькофф Инвестиции",
+  "description": "Неофициальная библиотека для работы с Тинькофф Инвестиции",
   "keywords": [
     "tinkoff-invest-api"
   ],
