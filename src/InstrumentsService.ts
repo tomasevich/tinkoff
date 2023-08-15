@@ -16,47 +16,25 @@ export interface GetBondCouponsRequest {}
 
 export interface GetBondCouponsResponse {}
 
-export interface InstrumentRequest {}
-
 export interface CurrencyResponse {}
-
-export interface InstrumentsRequest {}
 
 export interface CurrenciesResponse {}
 
-export interface InstrumentRequest {}
-
 export interface EtfResponse {}
-
-export interface InstrumentsRequest {}
 
 export interface EtfsResponse {}
 
-export interface InstrumentRequest {}
-
 export interface FutureResponse {}
-
-export interface InstrumentsRequest {}
 
 export interface FuturesResponse {}
 
-export interface InstrumentRequest {}
-
 export interface OptionResponse {}
-
-export interface InstrumentsRequest {}
 
 export interface OptionsResponse {}
 
 export interface FilterOptionsRequest {}
 
-export interface OptionsResponse {}
-
-export interface InstrumentRequest {}
-
 export interface ShareResponse {}
-
-export interface InstrumentsRequest {}
 
 export interface SharesResponse {}
 
@@ -67,8 +45,6 @@ export interface GetAccruedInterestsResponse {}
 export interface GetFuturesMarginRequest {}
 
 export interface GetFuturesMarginResponse {}
-
-export interface InstrumentRequest {}
 
 export interface InstrumentResponse {}
 
