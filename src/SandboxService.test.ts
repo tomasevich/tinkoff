@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 import {
   CloseSandboxAccountResponse,
   OpenSandboxAccountResponse,
-  Sandbox,
+  iSandbox,
   SandboxService,
   GetOrdersResponse,
   GetAccountsResponse,
@@ -12,7 +12,7 @@ import {
 
 dotenv.config({ path: './.env.test' })
 
-let sandboxService: Sandbox
+let sandboxService: iSandbox
 let tempAccountId: string
 
 describe('SandboxService', () => {
