@@ -122,7 +122,9 @@ export interface Account {
  * Запрос открытия счёта в песочнице
  */
 export interface OpenSandboxAccountRequest {
-  // Пустой запрос
+  /**
+   * @remarks Пустой запрос
+   */
 }
 
 /**
@@ -139,7 +141,9 @@ export interface OpenSandboxAccountResponse {
  * Запрос получения счетов пользователя
  */
 export interface GetAccountsRequest {
-  // Пустой запрос
+  /**
+   * @remarks Пустой запрос
+   */
 }
 
 /**
@@ -166,7 +170,9 @@ export interface CloseSandboxAccountRequest {
  * Результат закрытия счёта в песочнице
  */
 export interface CloseSandboxAccountResponse {
-  // Пустой ответ
+  /**
+   * @remarks Пустой ответ
+   */
 }
 
 /**
