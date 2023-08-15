@@ -24,6 +24,11 @@ import {
   OpenSandboxAccountResponse,
   CloseSandboxAccountRequest,
   CloseSandboxAccountResponse,
+  PositionsSecurities,
+  PositionsFutures,
+  PositionsOptions,
+  PositionsRequest,
+  PositionsResponse,
   Sandbox,
   SandboxService
 } from './SandboxService'
@@ -57,6 +62,11 @@ export {
   OpenSandboxAccountResponse,
   CloseSandboxAccountRequest,
   CloseSandboxAccountResponse,
+  PositionsSecurities,
+  PositionsFutures,
+  PositionsOptions,
+  PositionsRequest,
+  PositionsResponse,
   Sandbox,
   SandboxService
 }

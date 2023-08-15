@@ -6,7 +6,8 @@ import {
   Sandbox,
   SandboxService,
   GetOrdersResponse,
-  GetAccountsResponse
+  GetAccountsResponse,
+  PositionsResponse
 } from './'
 
 dotenv.config({ path: './.env.test' })
@@ -33,11 +34,33 @@ describe('SandboxService', () => {
   })
 
   describe('GetSandboxAccounts', () => {
-    test('Должен вернуть массив минимум с 1-м аккаунтом', async () => {
+    test('Должен вернуть список счетов пользователя', async () => {
       const response: any = await sandboxService.GetSandboxAccounts({})
       const data: GetAccountsResponse = await response.json()
 
-      expect(data.accounts.length).toBeGreaterThanOrEqual(1)
+      expect(data.accounts[0]).toHaveProperty('id')
+      expect(data.accounts[0]).toHaveProperty('type')
+      expect(data.accounts[0]).toHaveProperty('name')
+      expect(data.accounts[0]).toHaveProperty('status')
+      expect(data.accounts[0]).toHaveProperty('openedDate')
+      // expect(data.accounts[0]).toHaveProperty('closedDate') Почему-то не возвращает (хотя в доке есть это свойство)
+      expect(data.accounts[0]).toHaveProperty('accessLevel')
+    })
+  })
+
+  describe('GetSandboxPositions', () => {
+    test('Должен вернуть список позиций по счёту', async () => {
+      const response: any = await sandboxService.GetSandboxPositions({
+        accountId: tempAccountId
+      })
+      const data: PositionsResponse = await response.json()
+
+      expect(data).toHaveProperty('money')
+      expect(data).toHaveProperty('blocked')
+      expect(data).toHaveProperty('securities')
+      expect(data).toHaveProperty('limitsLoadingInProgress')
+      expect(data).toHaveProperty('futures')
+      expect(data).toHaveProperty('options')
     })
   })
 
@@ -52,6 +75,7 @@ describe('SandboxService', () => {
     })
   })
 
+  // Ордера будем тестировать позже
   describe('GetOrders', () => {
     test('Должен вернуть массив ордеров', async () => {
       const response: any = await sandboxService.GetSandboxOrders({
