@@ -81,11 +81,11 @@ export interface Users {
   /**
    * Метод получения счетов в песочнице
    * @param {GetAccountsRequest} body Тело запроса
-   * @returns Пустой ответ
+   * @returns Массив счетов клиента
    * @see https://tinkoff.github.io/investAPI/users/#getaccounts
    * @example
    * ```js
-   * const usersService = new UsersService('<TOKEN>', true)
+   * const usersService = new UsersService('<TOKEN>', false)
    * usersService.GetAccounts({})
    *   .then(response => response.json())
    *   .then(data => console.log(data))
