@@ -20,7 +20,7 @@ import { SandboxService } from '@tomasevich/tinkoff'
 const sandboxService = new SandboxService('<TOKEN>', true)
 
 sandboxService
-  .GetOrders({
+  .GetSandboxOrders({
     accountId: '<ACCOUNT_ID>'
   })
   .then(response => response.json())

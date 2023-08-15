@@ -1,79 +1,42 @@
-/**
- * Список Сервисов
- */
-export type Service =
-  | 'InstrumentsService'
-  | 'MarketDataService'
-  | 'OperationsService'
-  | 'OrdersService'
-  | 'SandboxService'
-  | 'StopOrdersService'
-  | 'UsersService'
+export enum SecurityTradingStatus {
+  SECURITY_TRADING_STATUS_UNSPECIFIED,
+  SECURITY_TRADING_STATUS_NOT_AVAILABLE_FOR_TRADING,
+  SECURITY_TRADING_STATUS_OPENING_PERIOD,
+  SECURITY_TRADING_STATUS_CLOSING_PERIOD,
+  SECURITY_TRADING_STATUS_BREAK_IN_TRADING,
+  SECURITY_TRADING_STATUS_NORMAL_TRADING,
+  SECURITY_TRADING_STATUS_CLOSING_AUCTION,
+  SECURITY_TRADING_STATUS_DARK_POOL_AUCTION,
+  SECURITY_TRADING_STATUS_DISCRETE_AUCTION,
+  SECURITY_TRADING_STATUS_OPENING_AUCTION_PERIOD,
+  SECURITY_TRADING_STATUS_TRADING_AT_CLOSING_AUCTION_PRICE,
+  SECURITY_TRADING_STATUS_SESSION_ASSIGNED,
+  SECURITY_TRADING_STATUS_SESSION_CLOSE,
+  SECURITY_TRADING_STATUS_SESSION_OPEN,
+  SECURITY_TRADING_STATUS_DEALER_NORMAL_TRADING,
+  SECURITY_TRADING_STATUS_DEALER_BREAK_IN_TRADING,
+  SECURITY_TRADING_STATUS_DEALER_NOT_AVAILABLE_FOR_TRADING
+}
 
-/**
- * Список методов
- */
-export type Method = 'GetOrders' | 'GetSandboxOrders'
-
-/**
- * Денежная сумма в определенной валюте
- *
- * @see https://tinkoff.github.io/investAPI/common/#moneyvalue
- */
 export interface MoneyValue {
-  /**
-   * Строковый ISO-код валюты
-   */
   currency: string
-
-  /**
-   * Целая часть суммы, может быть отрицательным числом
-   *
-   * @remarks Число в формате `int64`
-   */
   units: string
-
-  /**
-   * Дробная часть суммы, может быть отрицательным числом
-   *
-   * @remarks Число в формате `int32`
-   */
   nano: number
 }
 
-/**
- * Общий класс для взаимодействия с сервисами Tinkoff Invest API
- */
+export interface Quotation {
+  units: string
+  nano: number
+}
+
 export class Common {
-  /**
-   * Публичный адрес работы с Биржей
-   */
-  private public = 'https://invest-public-api.tinkoff.ru'
+  private production = 'https://invest-public-api.tinkoff.ru'
+  private development = 'https://sandbox-invest-public-api.tinkoff.ru'
 
-  /**
-   * Адрес для работы в Песочнице
-   */
-  private sandbox = 'https://sandbox-invest-public-api.tinkoff.ru'
-
-  /**
-   * Конструктор
-   *
-   * @param {string} token Токен приложения
-   * @param {boolean} isSandbox Флаг включения режима "Песочницы"
-   */
   constructor(private token: string, private isSandbox: boolean) {}
 
-  /**
-   * Метод HTTPs запроса к Tinkoff Invest API
-   *
-   * @param {Service} service Имя сервиса
-   * @param {Method} method Метод сервиса
-   * @param {any} body Тело запроса
-   *
-   * @returns {Promise<any>}
-   */
-  protected request(service: Service, method: Method, body: any): Promise<any> {
-    const server = this.isSandbox ? this.sandbox : this.public
+  protected request(service: string, method: string, body: any): Promise<any> {
+    const server = this.isSandbox ? this.development : this.production
     const contract = '/rest/tinkoff.public.invest.api.contract.v1.'
 
     const url = server + contract + service + '/' + method
