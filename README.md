@@ -2,9 +2,24 @@
 
 `Неофициальная` библиотека для работы с [Тинькофф Инвестиции](https://www.tinkoff.ru/invest/)
 
+## Мотивация
+
+- Отсутствует официальная библиотека для зыков `JavaScript`/`TypeScript`
+- [Swagger](https://tinkoff.github.io/investAPI/swagger-ui/) `v1.4` покрывает все `API`, но толком не описан
+- [Документация](https://tinkoff.github.io/investAPI/) `v1.5` описана с ошибками, но отличается от **Swagger**
+
+## Приемущества
+
+- Написано на **Typescript**
+- Протестировано с **Jest**
+- Покрыто документацией **TypeDoc**
+
+## Сообщество
+
 - Проект на [GitHub](https://github.com/tomasevich/tinkoff)
 - [Документация](https://tomasevich.github.io/tinkoff) по API
-- [Обсуждения](https://github.com/tomasevich/tinkoff/discussions) идей и предложений
+- [Обсуждения](https://github.com/tomasevich/tinkoff/discussions) идей
+- [Предложения](https://github.com/tomasevich/tinkoff/issues) по развитию
 
 ## Установка
 
@@ -12,19 +27,21 @@
 npm i @tomasevich/tinkoff
 ```
 
+## Настройка
+
+Для получения **Токена** читаем [инструкцию](https://tinkoff.github.io/investAPI/token/)
+
 ## Использование
 
 ```js
 import { SandboxService } from '@tomasevich/tinkoff'
 
-const sandboxService = new SandboxService('<TOKEN>', true)
+const sandboxService = new SandboxService('TOKEN', true)
+const { orders } = await sandboxService.GetSandboxOrders({
+  accountId: 'ACCOUNT_ID'
+})
 
-sandboxService
-  .GetSandboxOrders({
-    accountId: '<ACCOUNT_ID>'
-  })
-  .then(response => response.json())
-  .then(data => console.log(data))
+console.log(orders)
 ```
 
 ## Разработка
@@ -44,3 +61,7 @@ cp .env .env.test
 ```sh
 npm test
 ```
+
+### Контрибютерам
+
+Присылаем **PR** & **Issue** без фанатизма, проект `домашний` (некоммерческий)
