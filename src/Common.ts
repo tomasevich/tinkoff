@@ -19,7 +19,6 @@ export type Method =
 
 /**
  * Статус безопасной торговли
- *
  * @see https://tinkoff.github.io/investAPI/common/#securitytradingstatus
  */
 export enum SecurityTradingStatus {
@@ -77,45 +76,46 @@ export enum SecurityTradingStatus {
 
 /**
  * Денежная сумма в определенной валюте
- *
  * @see https://tinkoff.github.io/investAPI/common/#moneyvalue
  */
 export interface MoneyValue {
-  /** Строковый ISO-код валюты */
+  /**
+   * Строковый ISO-код валюты
+   * @example RUB
+   */
   currency: string
 
   /**
    * Целая часть суммы, может быть отрицательным числом
-   *
    * @remarks Число в формате `int64`
+   * @example "1"
    */
   units: string
 
   /**
    * Дробная часть суммы, может быть отрицательным числом
-   *
    * @remarks Число в формате `int32`
+   * @example 500000000
    */
   nano: number
 }
 
 /**
  * Котировка - денежная сумма без указания валюты
- *
  * @see https://tinkoff.github.io/investAPI/common/#quotation
  */
 export interface Quotation {
   /**
    * Целая часть суммы, может быть отрицательным числом
-   *
    * @remarks Число в формате `int64`
+   * @example "1"
    */
   units: string
 
   /**
    * Дробная часть суммы, может быть отрицательным числом
-   *
    * @remarks Число в формате `int32`
+   * @example 500000000
    */
   nano: number
 }
@@ -130,23 +130,18 @@ export class Common {
 
   /**
    * Конструктор
-   *
    * @param {string} token Токен приложения
    * @param {boolean} isSandbox Флаг включения режима `Песочницы`
-   *
    * @remarks Получить `Токен` можно по ссылке
-   *
    * @see https://tinkoff.github.io/investAPI/token
    */
   constructor(private token: string, private isSandbox: boolean) {}
 
   /**
    * Метод HTTPs запроса к Tinkoff Invest API
-   *
    * @param {Service} service Имя сервиса
    * @param {Method} method Метод сервиса
    * @param {any} body Тело запроса
-   *
    * @returns {Promise<any>}
    */
   protected request(service: Service, method: Method, body: any): Promise<any> {

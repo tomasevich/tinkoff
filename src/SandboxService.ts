@@ -6,188 +6,115 @@ import {
   PostOrderResponse
 } from './OrdersService'
 
-/**
- * Тип счёта
- */
+/** Тип счёта */
 export enum AccountType {
-  /**
-   * Тип аккаунта не определён
-   */
+  /** Тип аккаунта не определён */
   ACCOUNT_TYPE_UNSPECIFIED,
-  /**
-   * Брокерский счёт Тинькофф
-   */
+  /** Брокерский счёт Тинькофф */
   ACCOUNT_TYPE_TINKOFF,
-  /**
-   * ИИС счёт
-   */
+  /** ИИС счёт */
   ACCOUNT_TYPE_TINKOFF_IIS,
-  /**
-   * Инвесткопилка
-   */
+  /** Инвесткопилка */
   ACCOUNT_TYPE_INVEST_BOX
 }
 
-/**
- * Статус счёта
- */
+/** Статус счёта */
 export enum AccountStatus {
-  /**
-   * Статус счёта не определён
-   */
+  /** Статус счёта не определён */
   ACCOUNT_STATUS_UNSPECIFIED,
-  /**
-   * Новый, в процессе открытия
-   */
+  /** Новый, в процессе открытия */
   ACCOUNT_STATUS_NEW,
-  /**
-   * Открытый и активный счёт
-   */
+  /** Открытый и активный счёт */
   ACCOUNT_STATUS_OPEN,
-  /**
-   * Закрытый счёт
-   */
+  /** Закрытый счёт */
   ACCOUNT_STATUS_CLOSED
 }
 
-/**
- * Уровень доступа к счёту
- */
+/** Уровень доступа к счёту */
 export enum AccessLevel {
-  /**
-   * Уровень доступа не определён
-   */
+  /** Уровень доступа не определён */
   ACCOUNT_ACCESS_LEVEL_UNSPECIFIED,
-  /**
-   * Полный доступ к счёту
-   */
+  /** Полный доступ к счёту */
   ACCOUNT_ACCESS_LEVEL_FULL_ACCESS,
-  /**
-   * Доступ с уровнем прав "только чтение"
-   */
+  /** Доступ с уровнем прав "только чтение" */
   ACCOUNT_ACCESS_LEVEL_READ_ONLY,
-  /**
-   * Доступ отсутствует
-   */
+  /** Доступ отсутствует */
   ACCOUNT_ACCESS_LEVEL_NO_ACCESS
 }
 
-/**
- * Информация о счёте
- */
+/** Информация о счёте */
 export interface Account {
-  /**
-   * Идентификатор счёта
-   */
+  /** Идентификатор счёта */
   id: string
-
   /**
    * Тип счёта
-   *
    * @default ACCOUNT_TYPE_UNSPECIFIED
    */
   type: AccountType
-
-  /**
-   * Название счёта
-   */
+  /** Название счёта */
   name: string
-
   /**
    * Статус счёта
-   *
    * @default ACCOUNT_STATUS_UNSPECIFIED
    */
   status: AccountStatus
-
-  /**
-   * Дата открытия счёта в часовом поясе UTC
-   */
+  /** Дата открытия счёта в часовом поясе UTC */
   openedDate: string
-
-  /**
-   * Дата закрытия счёта в часовом поясе UTC
-   */
+  /** Дата закрытия счёта в часовом поясе UTC */
   closedDate: string
-
   /**
    * Уровень доступа к счёту
-   *
    * @default ACCOUNT_ACCESS_LEVEL_UNSPECIFIED
    */
   accessLevel: AccessLevel
 }
 
-/**
- * Запрос открытия счёта в песочнице
- */
+/** Запрос открытия счёта в песочнице */
 export interface OpenSandboxAccountRequest {
   /**
    * @remarks Пустой запрос
    */
 }
 
-/**
- * Номер открытого счёта в песочнице
- */
+/** Номер открытого счёта в песочнице */
 export interface OpenSandboxAccountResponse {
-  /**
-   * Номер счёта
-   */
+  /** Номер счёта */
   accountId: string
 }
 
-/**
- * Запрос получения счетов пользователя
- */
+/** Запрос получения счетов пользователя */
 export interface GetAccountsRequest {
   /**
    * @remarks Пустой запрос
    */
 }
 
-/**
- * Список счетов пользователя
- */
+/** Список счетов пользователя */
 export interface GetAccountsResponse {
-  /**
-   * Массив счетов клиента
-   */
+  /** Массив счетов клиента */
   accounts: Account[]
 }
 
-/**
- * Запрос закрытия счёта в песочнице
- */
+/** Запрос закрытия счёта в песочнице */
 export interface CloseSandboxAccountRequest {
-  /**
-   * Номер счёта
-   */
+  /** Номер счёта */
   accountId: string
 }
 
-/**
- * Результат закрытия счёта в песочнице
- */
+/** Результат закрытия счёта в песочнице */
 export interface CloseSandboxAccountResponse {
   /**
    * @remarks Пустой ответ
    */
 }
 
-/**
- * Интерфейс сервиса Песочницы
- */
+/** Интерфейс сервиса Песочницы */
 export interface Sandbox {
   /**
    * Метод регистрации счёта в песочнице
-   *
    * @param {OpenSandboxAccountRequest} body Тело запроса
-   *
    * @returns Номер счёта
-   *
    * @see https://tinkoff.github.io/investAPI/sandbox/#opensandboxaccount
-   *
    * @example
    * ```js
    * const sandboxService = new SandboxService('<TOKEN>', true)
@@ -202,13 +129,9 @@ export interface Sandbox {
 
   /**
    * Метод получения счетов в песочнице
-   *
    * @param {GetAccountsRequest} body Тело запроса
-   *
    * @returns Пустой ответ
-   *
    * @see https://tinkoff.github.io/investAPI/sandbox/#getsandboxaccounts
-   *
    * @example
    * ```js
    * const sandboxService = new SandboxService('<TOKEN>', true)
@@ -221,13 +144,9 @@ export interface Sandbox {
 
   /**
    * Метод закрытия счёта в песочнице
-   *
    * @param {CloseSandboxAccountRequest} body Тело запроса
-   *
    * @returns Пустой ответ
-   *
    * @see https://tinkoff.github.io/investAPI/sandbox/#closesandboxaccount
-   *
    * @example
    * ```js
    * const sandboxService = new SandboxService('<TOKEN>', true)
@@ -242,7 +161,6 @@ export interface Sandbox {
 
   /**
    * Метод выставления торгового поручения в песочнице
-   *
    * @param {PostOrderRequest} body Тело запроса
    */
   PostSandboxOrder(body: PostOrderRequest): Promise<PostOrderResponse>
@@ -255,13 +173,9 @@ export interface Sandbox {
 
   /**
    * Метод получения списка активных заявок по счёту
-   *
    * @param {GetOrdersRequest} body Тело запроса
-   *
    * @returns Возвращает список ордеров
-   *
    * @see https://tinkoff.github.io/investAPI/orders/#getorders
-   *
    * @example
    * ```js
    * const sandboxService = new SandboxService('<TOKEN>', true)
@@ -327,7 +241,6 @@ export interface Sandbox {
 
 /**
  * Сервис для работы с песочницей TINKOFF INVEST API
- *
  * @see https://tinkoff.github.io/investAPI/sandbox/#getsandboxorders
  */
 export class SandboxService extends Common implements Sandbox {
