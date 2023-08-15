@@ -17,7 +17,11 @@ export type Method =
   | 'GetSandboxAccounts'
   | 'PostSandboxOrder'
 
-/** Статус безопасной торговли */
+/**
+ * Статус безопасной торговли
+ *
+ * @see https://tinkoff.github.io/investAPI/common/#securitytradingstatus
+ */
 export enum SecurityTradingStatus {
   /** Торговый статус не определён */
   SECURITY_TRADING_STATUS_UNSPECIFIED,
@@ -95,7 +99,11 @@ export interface MoneyValue {
   nano: number
 }
 
-/** Котировка - денежная сумма без указания валюты */
+/**
+ * Котировка - денежная сумма без указания валюты
+ *
+ * @see https://tinkoff.github.io/investAPI/common/#quotation
+ */
 export interface Quotation {
   /**
    * Целая часть суммы, может быть отрицательным числом
@@ -124,7 +132,11 @@ export class Common {
    * Конструктор
    *
    * @param {string} token Токен приложения
-   * @param {boolean} isSandbox Флаг включения режима "Песочницы"
+   * @param {boolean} isSandbox Флаг включения режима `Песочницы`
+   *
+   * @remarks Получить `Токен` можно по ссылке
+   *
+   * @see https://tinkoff.github.io/investAPI/token
    */
   constructor(private token: string, private isSandbox: boolean) {}
 
