@@ -111,11 +111,7 @@ export interface OperationsResponse {
   operations: Operation[]
 }
 
-export interface iOperations {
-  GetOperations(body: OperationsRequest): Promise<OperationsResponse>
-}
-
-export class OperationsService extends Common implements iOperations {
+export class OperationsService extends Common {
   public GetOperations(body: OperationsRequest): Promise<OperationsResponse> {
     return this.request('OperationsService', 'GetOperations', body)
   }

@@ -90,12 +90,7 @@ export interface GetOrdersResponse {
   orders: OrderState[]
 }
 
-export interface iOrders {
-  PostOrder: (body: PostOrderRequest) => Promise<PostOrderResponse>
-  GetOrders: (body: GetOrdersRequest) => Promise<GetOrdersResponse>
-}
-
-export class OrdersService extends Common implements iOrders {
+export class OrdersService extends Common {
   public PostOrder(body: PostOrderRequest): Promise<PostOrderResponse> {
     return this.request('OrdersService', 'GetOrders', body)
   }

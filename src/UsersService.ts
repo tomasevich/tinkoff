@@ -37,11 +37,7 @@ export interface GetAccountsResponse {
   accounts: Account[]
 }
 
-export interface iUsers {
-  GetAccounts(body: GetAccountsRequest): Promise<GetAccountsResponse>
-}
-
-export class UsersService extends Common implements iUsers {
+export class UsersService extends Common {
   public GetAccounts(body: GetAccountsRequest): Promise<GetAccountsResponse> {
     return this.request('UsersService', 'GetAccounts', body)
   }

@@ -61,27 +61,7 @@ export interface PositionsResponse {
   options: PositionsOptions[]
 }
 
-export interface iSandbox {
-  OpenSandboxAccount(
-    body: OpenSandboxAccountRequest
-  ): Promise<OpenSandboxAccountResponse>
-
-  GetSandboxAccounts(body: GetAccountsRequest): Promise<GetAccountsResponse>
-
-  CloseSandboxAccount(
-    body: CloseSandboxAccountRequest
-  ): Promise<CloseSandboxAccountResponse>
-
-  PostSandboxOrder(body: PostOrderRequest): Promise<PostOrderResponse>
-
-  GetSandboxOrders(body: GetOrdersRequest): Promise<GetOrdersResponse>
-
-  GetSandboxPositions(body: PositionsRequest): Promise<PositionsResponse>
-
-  GetSandboxOperations(body: OperationsRequest): Promise<OperationsResponse>
-}
-
-export class SandboxService extends Common implements iSandbox {
+export class SandboxService extends Common {
   public OpenSandboxAccount(
     body: OpenSandboxAccountRequest
   ): Promise<OpenSandboxAccountResponse> {

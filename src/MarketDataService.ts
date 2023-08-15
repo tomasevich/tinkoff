@@ -28,27 +28,7 @@ export interface GetClosePricesRequest {}
 
 export interface GetClosePricesResponse {}
 
-export interface iMarketData {
-  GetCandles(body: GetCandlesRequest): Promise<GetCandlesResponse>
-
-  GetLastPrices(body: GetLastPricesRequest): Promise<GetLastPricesResponse>
-
-  GetOrderBook(body: GetOrderBookRequest): Promise<GetOrderBookResponse>
-
-  GetTradingStatus(
-    body: GetTradingStatusRequest
-  ): Promise<GetTradingStatusResponse>
-
-  GetTradingStatuses(
-    body: GetTradingStatusesRequest
-  ): Promise<GetTradingStatusesResponse>
-
-  GetLastTrades(body: GetLastTradesRequest): Promise<GetLastTradesResponse>
-
-  GetClosePrices(body: GetClosePricesRequest): Promise<GetClosePricesResponse>
-}
-
-export class MarketDataService extends Common implements iMarketData {
+export class MarketDataService extends Common {
   GetCandles(body: GetCandlesRequest): Promise<GetCandlesResponse> {
     return this.request('MarketDataService', 'GetCandles', body)
   }

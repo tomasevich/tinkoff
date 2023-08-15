@@ -68,17 +68,7 @@ export interface CancelStopOrderResponse {
   // time	google.protobuf.Timestamp	Время отмены заявки в часовом поясе UTC.
 }
 
-export interface iStopOrders {
-  PostStopOrder(body: PostStopOrderRequest): Promise<PostStopOrderResponse>
-
-  GetStopOrders(body: GetStopOrdersRequest): Promise<GetStopOrdersResponse>
-
-  CancelStopOrder(
-    body: CancelStopOrderRequest
-  ): Promise<CancelStopOrderResponse>
-}
-
-export class StopOrdersService extends Common implements iStopOrders {
+export class StopOrdersService extends Common {
   public PostStopOrder(
     body: PostStopOrderRequest
   ): Promise<PostStopOrderResponse> {

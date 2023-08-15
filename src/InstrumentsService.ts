@@ -84,69 +84,7 @@ export interface GetBrandRequest {}
 
 export interface Brand {}
 
-export interface iInstruments {
-  TradingSchedules(
-    body: TradingSchedulesRequest
-  ): Promise<TradingSchedulesResponse>
-
-  BondBy(body: InstrumentRequest): Promise<BondResponse>
-
-  Bonds(body: InstrumentsRequest): Promise<BondsResponse>
-
-  GetBondCoupons(body: GetBondCouponsRequest): Promise<GetBondCouponsResponse>
-
-  CurrencyBy(body: InstrumentRequest): Promise<CurrencyResponse>
-
-  Currencies(body: InstrumentsRequest): Promise<CurrenciesResponse>
-
-  EtfBy(body: InstrumentRequest): Promise<EtfResponse>
-
-  Etfs(body: InstrumentsRequest): Promise<EtfsResponse>
-
-  FutureBy(body: InstrumentRequest): Promise<FutureResponse>
-
-  Futures(body: InstrumentsRequest): Promise<FuturesResponse>
-
-  OptionBy(body: InstrumentRequest): Promise<OptionResponse>
-
-  Options(body: InstrumentsRequest): Promise<OptionsResponse>
-
-  OptionsBy(body: FilterOptionsRequest): Promise<OptionsResponse>
-
-  ShareBy(body: InstrumentRequest): Promise<ShareResponse>
-
-  Shares(body: InstrumentsRequest): Promise<SharesResponse>
-
-  GetAccruedInterests(
-    body: GetAccruedInterestsRequest
-  ): Promise<GetAccruedInterestsResponse>
-
-  GetFuturesMargin(
-    body: GetFuturesMarginRequest
-  ): Promise<GetFuturesMarginResponse>
-
-  GetInstrumentBy(body: InstrumentRequest): Promise<InstrumentResponse>
-
-  GetDividends(body: GetDividendsRequest): Promise<GetDividendsResponse>
-
-  GetAssetBy(body: AssetRequest): Promise<AssetResponse>
-
-  GetAssets(body: AssetsRequest): Promise<AssetsResponse>
-
-  GetFavorites(body: GetFavoritesRequest): Promise<GetFavoritesResponse>
-
-  EditFavorites(body: EditFavoritesRequest): Promise<EditFavoritesResponse>
-
-  GetCountries(body: GetCountriesRequest): Promise<GetCountriesResponse>
-
-  FindInstrument(body: FindInstrumentRequest): Promise<FindInstrumentResponse>
-
-  GetBrands(body: GetBrandsRequest): Promise<GetBrandsResponse>
-
-  GetBrandBy(body: GetBrandRequest): Promise<Brand>
-}
-
-export class InstrumentsService extends Common implements iInstruments {
+export class InstrumentsService extends Common {
   TradingSchedules(
     body: TradingSchedulesRequest
   ): Promise<TradingSchedulesResponse> {
