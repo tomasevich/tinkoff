@@ -198,7 +198,7 @@ export interface PostOrderRequest {
    *
    * @deprecated Необходимо использовать `instrumentId`
    */
-  figi: string
+  figi?: string
 
   /**
    * Количество лотов
@@ -348,7 +348,15 @@ export interface Orders {
    * @example
    * ```js
    * const ordersService = new OrdersService('<TOKEN>', false)
-   * ordersService.PostOrder({})
+   * ordersService.PostOrder({
+        quantity: '1',
+        price: { units: '5', nano: 50000000 },
+        direction: OrderDirection.ORDER_DIRECTION_BUY,
+        accountId: '<ACCOUNT_ID>',
+        orderType: OrderType.ORDER_TYPE_MARKET,
+        orderId: '<ORDER_ID>',
+        instrumentId: '<INSTRUMENT_ID>'
+      })
    *   .then(response => response.json())
    *   .then(data => console.log(data))
    * ```
