@@ -5,69 +5,7 @@ import {
   PostOrderRequest,
   PostOrderResponse
 } from './OrdersService'
-
-/** Тип счёта */
-export enum AccountType {
-  /** Тип аккаунта не определён */
-  ACCOUNT_TYPE_UNSPECIFIED,
-  /** Брокерский счёт Тинькофф */
-  ACCOUNT_TYPE_TINKOFF,
-  /** ИИС счёт */
-  ACCOUNT_TYPE_TINKOFF_IIS,
-  /** Инвесткопилка */
-  ACCOUNT_TYPE_INVEST_BOX
-}
-
-/** Статус счёта */
-export enum AccountStatus {
-  /** Статус счёта не определён */
-  ACCOUNT_STATUS_UNSPECIFIED,
-  /** Новый, в процессе открытия */
-  ACCOUNT_STATUS_NEW,
-  /** Открытый и активный счёт */
-  ACCOUNT_STATUS_OPEN,
-  /** Закрытый счёт */
-  ACCOUNT_STATUS_CLOSED
-}
-
-/** Уровень доступа к счёту */
-export enum AccessLevel {
-  /** Уровень доступа не определён */
-  ACCOUNT_ACCESS_LEVEL_UNSPECIFIED,
-  /** Полный доступ к счёту */
-  ACCOUNT_ACCESS_LEVEL_FULL_ACCESS,
-  /** Доступ с уровнем прав "только чтение" */
-  ACCOUNT_ACCESS_LEVEL_READ_ONLY,
-  /** Доступ отсутствует */
-  ACCOUNT_ACCESS_LEVEL_NO_ACCESS
-}
-
-/** Информация о счёте */
-export interface Account {
-  /** Идентификатор счёта */
-  id: string
-  /**
-   * Тип счёта
-   * @default ACCOUNT_TYPE_UNSPECIFIED
-   */
-  type: AccountType
-  /** Название счёта */
-  name: string
-  /**
-   * Статус счёта
-   * @default ACCOUNT_STATUS_UNSPECIFIED
-   */
-  status: AccountStatus
-  /** Дата открытия счёта в часовом поясе UTC */
-  openedDate: string
-  /** Дата закрытия счёта в часовом поясе UTC */
-  closedDate: string
-  /**
-   * Уровень доступа к счёту
-   * @default ACCOUNT_ACCESS_LEVEL_UNSPECIFIED
-   */
-  accessLevel: AccessLevel
-}
+import { GetAccountsRequest, GetAccountsResponse } from './UsersService'
 
 /** Запрос открытия счёта в песочнице */
 export interface OpenSandboxAccountRequest {
@@ -80,19 +18,6 @@ export interface OpenSandboxAccountRequest {
 export interface OpenSandboxAccountResponse {
   /** Номер счёта */
   accountId: string
-}
-
-/** Запрос получения счетов пользователя */
-export interface GetAccountsRequest {
-  /**
-   * @remarks Пустой запрос
-   */
-}
-
-/** Список счетов пользователя */
-export interface GetAccountsResponse {
-  /** Массив счетов клиента */
-  accounts: Account[]
 }
 
 /** Запрос закрытия счёта в песочнице */

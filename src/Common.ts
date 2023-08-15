@@ -14,6 +14,7 @@ export type Method =
   | 'GetSandboxOrders'
   | 'OpenSandboxAccount'
   | 'CloseSandboxAccount'
+  | 'GetAccounts'
   | 'GetSandboxAccounts'
   | 'PostSandboxOrder'
 

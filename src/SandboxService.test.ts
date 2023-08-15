@@ -2,12 +2,12 @@ import dotenv from 'dotenv'
 
 import {
   CloseSandboxAccountResponse,
-  GetAccountsResponse,
   OpenSandboxAccountResponse,
   Sandbox,
   SandboxService
 } from './SandboxService'
 import { GetOrdersResponse } from './OrdersService'
+import { GetAccountsResponse } from './UsersService'
 
 dotenv.config({ path: './.env.test' })
 
