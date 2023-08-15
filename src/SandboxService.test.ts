@@ -4,10 +4,10 @@ import {
   CloseSandboxAccountResponse,
   OpenSandboxAccountResponse,
   Sandbox,
-  SandboxService
-} from './SandboxService'
-import { GetOrdersResponse } from './OrdersService'
-import { GetAccountsResponse } from './UsersService'
+  SandboxService,
+  GetOrdersResponse,
+  GetAccountsResponse
+} from './'
 
 dotenv.config({ path: './.env.test' })
 
