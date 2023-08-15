@@ -68,17 +68,38 @@ export interface CancelStopOrderResponse {
   // time	google.protobuf.Timestamp	Время отмены заявки в часовом поясе UTC.
 }
 
+/**
+ * Сервис предназначен для работы со стоп-заявками:
+ * 1. выставление;
+ * 2. отмена;
+ * 3. получение списка стоп-заявок.
+ * @see https://tinkoff.github.io/investAPI/stoporders/#stopordersservice
+ */
 export class StopOrdersService extends Common {
+  /**
+   * Метод выставления стоп-заявки
+   * @see https://tinkoff.github.io/investAPI/stoporders/#poststoporder
+   */
   public PostStopOrder(
     body: PostStopOrderRequest
   ): Promise<PostStopOrderResponse> {
     return this.request('StopOrdersService', 'PostStopOrder', body)
   }
+
+  /**
+   * Метод получения списка активных стоп заявок по счёту
+   * @see https://tinkoff.github.io/investAPI/stoporders/#getstoporders
+   */
   public GetStopOrders(
     body: GetStopOrdersRequest
   ): Promise<GetStopOrdersResponse> {
     return this.request('StopOrdersService', 'GetStopOrders', body)
   }
+  
+  /**
+   * Метод отмены стоп-заявки
+   * @see https://tinkoff.github.io/investAPI/stoporders/#cancelstoporder
+   */
   public CancelStopOrder(
     body: CancelStopOrderRequest
   ): Promise<CancelStopOrderResponse> {
