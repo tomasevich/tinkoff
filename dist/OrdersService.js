@@ -4,7 +4,6 @@ exports.OrdersService = exports.OrderExecutionReportStatus = exports.OrderType =
 const Common_1 = require("./Common");
 /**
  * Направление операции
- *
  * @see https://tinkoff.github.io/investAPI/orders/#orderdirection
  */
 var OrderDirection;
@@ -18,7 +17,6 @@ var OrderDirection;
 })(OrderDirection || (exports.OrderDirection = OrderDirection = {}));
 /**
  * Тип заявки
- *
  * @see https://tinkoff.github.io/investAPI/orders/#ordertype
  */
 var OrderType;
@@ -34,7 +32,6 @@ var OrderType;
 })(OrderType || (exports.OrderType = OrderType = {}));
 /**
  * Текущий статус заявки (поручения)
- *
  * @see https://tinkoff.github.io/investAPI/orders/#orderexecutionreportstatus
  */
 var OrderExecutionReportStatus;

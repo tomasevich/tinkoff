@@ -1,7 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Common = exports.SecurityTradingStatus = void 0;
-/** Статус безопасной торговли */
+/**
+ * Статус безопасной торговли
+ * @see https://tinkoff.github.io/investAPI/common/#securitytradingstatus
+ */
 var SecurityTradingStatus;
 (function (SecurityTradingStatus) {
     /** Торговый статус не определён */
@@ -43,9 +46,10 @@ var SecurityTradingStatus;
 class Common {
     /**
      * Конструктор
-     *
      * @param {string} token Токен приложения
-     * @param {boolean} isSandbox Флаг включения режима "Песочницы"
+     * @param {boolean} isSandbox Флаг включения режима `Песочницы`
+     * @remarks Получить `Токен` можно по ссылке
+     * @see https://tinkoff.github.io/investAPI/token
      */
     constructor(token, isSandbox) {
         this.token = token;
@@ -57,11 +61,9 @@ class Common {
     }
     /**
      * Метод HTTPs запроса к Tinkoff Invest API
-     *
      * @param {Service} service Имя сервиса
      * @param {Method} method Метод сервиса
      * @param {any} body Тело запроса
-     *
      * @returns {Promise<any>}
      */
     request(service, method, body) {
