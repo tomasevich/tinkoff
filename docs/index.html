@@ -13,14 +13,26 @@
 <div class="tsd-page-title">
 <h2>@tomasevich/tinkoff</h2></div>
 <div class="tsd-panel tsd-typography"><a id="md:tinkoff-invest-api" class="tsd-anchor"></a><h1><a href="#md:tinkoff-invest-api">Tinkoff Invest API</a></h1><p><code>Неофициальная</code> библиотека для работы с <a href="https://www.tinkoff.ru/invest/">Тинькофф Инвестиции</a></p>
-<ul>
+<a id="md:мотивация" class="tsd-anchor"></a><h2><a href="#md:мотивация">Мотивация</a></h2><ul>
+<li>Отсутствует официальная библиотека для зыков <code>JavaScript</code>/<code>TypeScript</code></li>
+<li><a href="https://tinkoff.github.io/investAPI/swagger-ui/">Swagger</a> <code>v1.4</code> покрывает все <code>API</code>, но толком не описан</li>
+<li><a href="https://tinkoff.github.io/investAPI/">Документация</a> <code>v1.5</code> описана с ошибками, но отличается от <strong>Swagger</strong></li>
+</ul>
+<a id="md:приемущества" class="tsd-anchor"></a><h2><a href="#md:приемущества">Приемущества</a></h2><ul>
+<li>Написано на <strong>Typescript</strong></li>
+<li>Протестировано с <strong>Jest</strong></li>
+<li>Покрыто документацией <strong>TypeDoc</strong></li>
+</ul>
+<a id="md:сообщество" class="tsd-anchor"></a><h2><a href="#md:сообщество">Сообщество</a></h2><ul>
 <li>Проект на <a href="https://github.com/tomasevich/tinkoff">GitHub</a></li>
 <li><a href="https://tomasevich.github.io/tinkoff">Документация</a> по API</li>
-<li><a href="https://github.com/tomasevich/tinkoff/discussions">Обсуждения</a> идей и предложений</li>
+<li><a href="https://github.com/tomasevich/tinkoff/discussions">Обсуждения</a> идей</li>
+<li><a href="https://github.com/tomasevich/tinkoff/issues">Предложения</a> по развитию</li>
 </ul>
 <a id="md:установка" class="tsd-anchor"></a><h2><a href="#md:установка">Установка</a></h2><pre><code class="language-sh"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">i</span><span class="hl-1"> </span><span class="hl-2">@tomasevich/tinkoff</span>
 </code><button>Copy</button></pre>
-<a id="md:использование" class="tsd-anchor"></a><h2><a href="#md:использование">Использование</a></h2><pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><br/><span class="hl-4">sandboxService</span><br/><span class="hl-1">  .</span><span class="hl-0">GetSandboxOrders</span><span class="hl-1">({</span><br/><span class="hl-1">    </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ACCOUNT_ID&gt;&#39;</span><br/><span class="hl-1">  })</span><br/><span class="hl-1">  .</span><span class="hl-0">then</span><span class="hl-1">(</span><span class="hl-4">response</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> </span><span class="hl-4">response</span><span class="hl-1">.</span><span class="hl-0">json</span><span class="hl-1">())</span><br/><span class="hl-1">  .</span><span class="hl-0">then</span><span class="hl-1">(</span><span class="hl-4">data</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> </span><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">data</span><span class="hl-1">))</span>
+<a id="md:настройка" class="tsd-anchor"></a><h2><a href="#md:настройка">Настройка</a></h2><p>Для получения <strong>Токена</strong> читаем <a href="https://tinkoff.github.io/investAPI/token/">инструкцию</a></p>
+<a id="md:использование" class="tsd-anchor"></a><h2><a href="#md:использование">Использование</a></h2><pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;TOKEN&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">orders</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">sandboxService</span><span class="hl-1">.</span><span class="hl-0">GetSandboxOrders</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;ACCOUNT_ID&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">orders</span><span class="hl-1">)</span>
 </code><button>Copy</button></pre>
 <a id="md:разработка" class="tsd-anchor"></a><h2><a href="#md:разработка">Разработка</a></h2><a id="md:тестирование" class="tsd-anchor"></a><h3><a href="#md:тестирование">Тестирование</a></h3><p>Для запуска тестов, необходимо настроить переменные окружения</p>
 <ol>
@@ -33,6 +45,7 @@
 </ol>
 <pre><code class="language-sh"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">test</span>
 </code><button>Copy</button></pre>
+<a id="md:контрибютерам" class="tsd-anchor"></a><h3><a href="#md:контрибютерам">Контрибютерам</a></h3><p>Присылаем <strong>PR</strong> &amp; <strong>Issue</strong> без фанатизма, проект <code>домашний</code> (некоммерческий)</p>
 </div></div>
 <div class="col-sidebar">
 <div class="page-menu">
@@ -58,12 +71,17 @@
 <li><a href="#md:tinkoff-invest-api"><span>Tinkoff <wbr/>Invest API</span></a></li>
 <li>
 <ul>
+<li><a href="#md:мотивация"><span>Мотивация</span></a></li>
+<li><a href="#md:приемущества"><span>Приемущества</span></a></li>
+<li><a href="#md:сообщество"><span>Сообщество</span></a></li>
 <li><a href="#md:установка"><span>Установка</span></a></li>
+<li><a href="#md:настройка"><span>Настройка</span></a></li>
 <li><a href="#md:использование"><span>Использование</span></a></li>
 <li><a href="#md:разработка"><span>Разработка</span></a></li>
 <li>
 <ul>
-<li><a href="#md:тестирование"><span>Тестирование</span></a></li></ul></li></ul></li></ul></li></ul></div></details></div>
+<li><a href="#md:тестирование"><span>Тестирование</span></a></li>
+<li><a href="#md:контрибютерам"><span>Контрибютерам</span></a></li></ul></li></ul></li></ul></li></ul></div></details></div>
 <div class="site-menu">
 <nav class="tsd-navigation"><a href="index.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-4"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-namespace)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.33 16V7.24H10.77L13.446 14.74C13.43 14.54 13.41 14.296 13.386 14.008C13.37 13.712 13.354 13.404 13.338 13.084C13.33 12.756 13.326 12.448 13.326 12.16V7.24H14.37V16H12.93L10.266 8.5C10.282 8.692 10.298 8.936 10.314 9.232C10.33 9.52 10.342 9.828 10.35 10.156C10.366 10.476 10.374 10.784 10.374 11.08V16H9.33Z" fill="var(--color-text)"></path></g></svg><span>@tomasevich/tinkoff</span></a>
 <ul class="tsd-small-nested-navigation">
