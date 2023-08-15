@@ -74,6 +74,9 @@ var AccessLevel;
  * @see https://tinkoff.github.io/investAPI/sandbox/#getsandboxorders
  */
 class SandboxService extends Common_1.Common {
+    PostSandboxOrder(body) {
+        return this.request('SandboxService', 'PostSandboxOrder', body);
+    }
     OpenSandboxAccount(body) {
         return this.request('SandboxService', 'OpenSandboxAccount', body);
     }

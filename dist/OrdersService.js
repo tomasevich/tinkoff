@@ -9,17 +9,11 @@ const Common_1 = require("./Common");
  */
 var OrderDirection;
 (function (OrderDirection) {
-    /**
-     * Значение не указано
-     */
+    /** Значение не указано */
     OrderDirection[OrderDirection["ORDER_DIRECTION_UNSPECIFIED"] = 0] = "ORDER_DIRECTION_UNSPECIFIED";
-    /**
-     * Покупка
-     */
+    /** Покупка */
     OrderDirection[OrderDirection["ORDER_DIRECTION_BUY"] = 1] = "ORDER_DIRECTION_BUY";
-    /**
-     * Продажа
-     */
+    /** Продажа */
     OrderDirection[OrderDirection["ORDER_DIRECTION_SELL"] = 2] = "ORDER_DIRECTION_SELL";
 })(OrderDirection || (exports.OrderDirection = OrderDirection = {}));
 /**
@@ -29,21 +23,13 @@ var OrderDirection;
  */
 var OrderType;
 (function (OrderType) {
-    /**
-     * Значение не указано
-     */
+    /** Значение не указано */
     OrderType[OrderType["ORDER_TYPE_UNSPECIFIED"] = 0] = "ORDER_TYPE_UNSPECIFIED";
-    /**
-     * Лимитная
-     */
+    /** Лимитная */
     OrderType[OrderType["ORDER_TYPE_LIMIT"] = 1] = "ORDER_TYPE_LIMIT";
-    /**
-     * Рыночная
-     */
+    /** Рыночная */
     OrderType[OrderType["ORDER_TYPE_MARKET"] = 2] = "ORDER_TYPE_MARKET";
-    /**
-     * Лучшая цена
-     */
+    /** Лучшая цена */
     OrderType[OrderType["ORDER_TYPE_BESTPRICE"] = 3] = "ORDER_TYPE_BESTPRICE";
 })(OrderType || (exports.OrderType = OrderType = {}));
 /**
@@ -53,29 +39,17 @@ var OrderType;
  */
 var OrderExecutionReportStatus;
 (function (OrderExecutionReportStatus) {
-    /**
-     * none
-     */
+    /** none */
     OrderExecutionReportStatus[OrderExecutionReportStatus["EXECUTION_REPORT_STATUS_UNSPECIFIED"] = 0] = "EXECUTION_REPORT_STATUS_UNSPECIFIED";
-    /**
-     * Исполнена
-     */
+    /** Исполнена */
     OrderExecutionReportStatus[OrderExecutionReportStatus["EXECUTION_REPORT_STATUS_FILL"] = 1] = "EXECUTION_REPORT_STATUS_FILL";
-    /**
-     * Отклонена
-     */
+    /** Отклонена */
     OrderExecutionReportStatus[OrderExecutionReportStatus["EXECUTION_REPORT_STATUS_REJECTED"] = 2] = "EXECUTION_REPORT_STATUS_REJECTED";
-    /**
-     * Отменена пользователем
-     */
+    /** Отменена пользователем */
     OrderExecutionReportStatus[OrderExecutionReportStatus["EXECUTION_REPORT_STATUS_CANCELLED"] = 3] = "EXECUTION_REPORT_STATUS_CANCELLED";
-    /**
-     * Новая
-     */
+    /** Новая */
     OrderExecutionReportStatus[OrderExecutionReportStatus["EXECUTION_REPORT_STATUS_NEW"] = 4] = "EXECUTION_REPORT_STATUS_NEW";
-    /**
-     * Частично исполнена
-     */
+    /** Частично исполнена */
     OrderExecutionReportStatus[OrderExecutionReportStatus["EXECUTION_REPORT_STATUS_PARTIALLYFILL"] = 5] = "EXECUTION_REPORT_STATUS_PARTIALLYFILL";
 })(OrderExecutionReportStatus || (exports.OrderExecutionReportStatus = OrderExecutionReportStatus = {}));
 /**
@@ -85,8 +59,13 @@ var OrderExecutionReportStatus;
  * 3. получение статуса;
  * 4. расчёт полной стоимости;
  * 5. получение списка заявок.
+ *
+ * @see https://tinkoff.github.io/investAPI/orders/#ordersservice
  */
 class OrdersService extends Common_1.Common {
+    PostOrder(body) {
+        return this.request('OrdersService', 'GetOrders', body);
+    }
     GetOrders(body) {
         return this.request('OrdersService', 'GetOrders', body);
     }

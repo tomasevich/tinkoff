@@ -1,5 +1,5 @@
 import { Common } from './Common';
-import { GetOrdersRequest, GetOrdersResponse } from './OrdersService';
+import { GetOrdersRequest, GetOrdersResponse, PostOrderRequest, PostOrderResponse } from './OrdersService';
 /**
  * Тип счёта
  */
@@ -203,6 +203,16 @@ export interface Sandbox {
      */
     CloseSandboxAccount(body: CloseSandboxAccountRequest): Promise<CloseSandboxAccountResponse>;
     /**
+     * Метод выставления торгового поручения в песочнице
+     *
+     * @param {PostOrderRequest} body Тело запроса
+     */
+    PostSandboxOrder(body: PostOrderRequest): Promise<PostOrderResponse>;
+    /**
+     * Метод изменения выставленной заявки
+     * @todo
+     */
+    /**
      * Метод получения списка активных заявок по счёту
      *
      * @param {GetOrdersRequest} body Тело запроса
@@ -227,6 +237,7 @@ export interface Sandbox {
  * @see https://tinkoff.github.io/investAPI/sandbox/#getsandboxorders
  */
 export declare class SandboxService extends Common implements Sandbox {
+    PostSandboxOrder(body: PostOrderRequest): Promise<PostOrderResponse>;
     OpenSandboxAccount(body: OpenSandboxAccountRequest): Promise<OpenSandboxAccountResponse>;
     GetSandboxAccounts(body: GetAccountsRequest): Promise<GetAccountsResponse>;
     CloseSandboxAccount(body: CloseSandboxAccountRequest): Promise<CloseSandboxAccountResponse>;

@@ -1,21 +1,15 @@
-import { Common, MoneyValue } from './Common';
+import { Common, MoneyValue, Quotation } from './Common';
 /**
  * Направление операции
  *
  * @see https://tinkoff.github.io/investAPI/orders/#orderdirection
  */
 export declare enum OrderDirection {
-    /**
-     * Значение не указано
-     */
+    /** Значение не указано */
     ORDER_DIRECTION_UNSPECIFIED = 0,
-    /**
-     * Покупка
-     */
+    /** Покупка */
     ORDER_DIRECTION_BUY = 1,
-    /**
-     * Продажа
-     */
+    /** Продажа */
     ORDER_DIRECTION_SELL = 2
 }
 /**
@@ -25,16 +19,14 @@ export declare enum OrderDirection {
  */
 export interface OrderStage {
     /**
-     * Цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента
+     * Цена за 1 инструмент
+     *
+     * @remarks Для получения стоимости лота требуется умножить на лотность инструмента
      */
     price: MoneyValue;
-    /**
-     * Количество лотов
-     */
+    /** Количество лотов */
     quantity: string;
-    /**
-     * Идентификатор сделки
-     */
+    /** Идентификатор сделки */
     tradeId: string;
 }
 /**
@@ -43,21 +35,13 @@ export interface OrderStage {
  * @see https://tinkoff.github.io/investAPI/orders/#ordertype
  */
 export declare enum OrderType {
-    /**
-     * Значение не указано
-     */
+    /** Значение не указано */
     ORDER_TYPE_UNSPECIFIED = 0,
-    /**
-     * Лимитная
-     */
+    /** Лимитная */
     ORDER_TYPE_LIMIT = 1,
-    /**
-     * Рыночная
-     */
+    /** Рыночная */
     ORDER_TYPE_MARKET = 2,
-    /**
-     * Лучшая цена
-     */
+    /** Лучшая цена */
     ORDER_TYPE_BESTPRICE = 3
 }
 /**
@@ -66,29 +50,17 @@ export declare enum OrderType {
  * @see https://tinkoff.github.io/investAPI/orders/#orderexecutionreportstatus
  */
 export declare enum OrderExecutionReportStatus {
-    /**
-     * none
-     */
+    /** none */
     EXECUTION_REPORT_STATUS_UNSPECIFIED = 0,
-    /**
-     * Исполнена
-     */
+    /** Исполнена */
     EXECUTION_REPORT_STATUS_FILL = 1,
-    /**
-     * Отклонена
-     */
+    /** Отклонена */
     EXECUTION_REPORT_STATUS_REJECTED = 2,
-    /**
-     * Отменена пользователем
-     */
+    /** Отменена пользователем */
     EXECUTION_REPORT_STATUS_CANCELLED = 3,
-    /**
-     * Новая
-     */
+    /** Новая */
     EXECUTION_REPORT_STATUS_NEW = 4,
-    /**
-     * Частично исполнена
-     */
+    /** Частично исполнена */
     EXECUTION_REPORT_STATUS_PARTIALLYFILL = 5
 }
 /**
@@ -97,9 +69,7 @@ export declare enum OrderExecutionReportStatus {
  * @see https://tinkoff.github.io/investAPI/orders/#orderstate
  */
 export interface OrderState {
-    /**
-     * Биржевой идентификатор заявки
-     */
+    /** Биржевой идентификатор заявки */
     orderId: string;
     /**
      * Текущий статус заявки (поручения)
@@ -120,32 +90,30 @@ export interface OrderState {
      */
     lotsExecuted: string;
     /**
-     * Начальная цена заявки. Произведение количества запрошенных лотов на цену
+     * Начальная цена заявки
+     *
+     * @remarks Произведение количества запрошенных лотов на цену
      */
     initialOrderPrice: MoneyValue;
     /**
-     * Исполненная цена заявки. Произведение средней цены покупки на количество лотов
+     * Исполненная цена заявки
+     *
+     * @remarks Произведение средней цены покупки на количество лотов
      */
     executedOrderPrice: MoneyValue;
-    /**
-     * Итоговая стоимость заявки, включающая все комиссии
-     */
+    /** Итоговая стоимость заявки, включающая все комиссии */
     totalOrderAmount: MoneyValue;
-    /**
-     * Средняя цена позиции по сделке
-     */
+    /** Средняя цена позиции по сделке */
     averagePositionPrice: MoneyValue;
     /**
-     * Начальная комиссия. Комиссия, рассчитанная на момент подачи заявки
+     * Начальная комиссия
+     *
+     * @remarks Комиссия, рассчитанная на момент подачи заявки
      */
     initialCommission: MoneyValue;
-    /**
-     * Фактическая комиссия по итогам исполнения заявки
-     */
+    /** Фактическая комиссия по итогам исполнения заявки */
     executedCommission: MoneyValue;
-    /**
-     * Figi-идентификатор инструмента
-     */
+    /** Figi-идентификатор инструмента */
     figi: string;
     /**
      * Направление операции
@@ -154,20 +122,16 @@ export interface OrderState {
      */
     direction: OrderDirection;
     /**
-     * Начальная цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента
+     * Начальная цена за 1 инструмент
+     *
+     * @remarks Для получения стоимости лота требуется умножить на лотность инструмента
      */
     initialSecurityPrice: MoneyValue;
-    /**
-     * Стадии выполнения заявки
-     */
+    /** Стадии выполнения заявки */
     stages: OrderStage[];
-    /**
-     * Сервисная комиссия
-     */
+    /** Сервисная комиссия */
     serviceCommission: MoneyValue;
-    /**
-     * Валюта заявки
-     */
+    /** Валюта заявки */
     currency: string;
     /**
      * Тип заявки
@@ -175,18 +139,116 @@ export interface OrderState {
      * @default ORDER_TYPE_UNSPECIFIED
      */
     orderType: OrderType;
-    /**
-     * Дата и время выставления заявки в часовом поясе UTC
-     */
+    /** Дата и время выставления заявки в часовом поясе UTC */
     orderDate: string;
-    /**
-     * UID идентификатор инструмента
-     */
+    /** UID идентификатор инструмента */
     instrumentUid: string;
     /**
-     * Идентификатор ключа идемпотентности, переданный клиентом, в формате UID. Максимальная длина 36 символов
+     * Идентификатор ключа идемпотентности, переданный клиентом, в формате UID
+     *
+     * @remarks Максимальная длина 36 символов
      */
     orderRequestId: string;
+}
+/**
+ * Запрос выставления торгового поручения
+ *
+ * @see https://tinkoff.github.io/investAPI/orders/#postorderrequest
+ */
+export interface PostOrderRequest {
+    /**
+     * Figi-идентификатор инструмента
+     *
+     * @deprecated Необходимо использовать `instrumentId`
+     */
+    figi: string;
+    /**
+     * Количество лотов
+     *
+     * @remarks Число в формате `int64`
+     */
+    quantity: string;
+    /**
+     * Цена за 1 инструмент
+     *
+     * @remarks Для получения стоимости лота требуется умножить на лотность инструмента. Игнорируется для рыночных поручений
+     */
+    price: Quotation;
+    /** Направление операции */
+    direction: OrderDirection;
+    /** Номер счёта */
+    accountId: string;
+    /** Тип заявки */
+    orderType: OrderType;
+    /**
+     * Идентификатор запроса выставления поручения для целей идемпотентности в формате UID
+     *
+     * @remarks Максимальная длина 36 символов
+     */
+    orderId: string;
+    /** Идентификатор инструмента, принимает значения `Figi` или `InstrumentUid` */
+    instrumentId: string;
+}
+/**
+ * Информация о выставлении поручения
+ *
+ * @see https://tinkoff.github.io/investAPI/orders/#postorderresponse
+ */
+export interface PostOrderResponse {
+    /** Биржевой идентификатор заявки */
+    orderId: string;
+    /** Текущий статус заявки */
+    executionReportStatus: OrderExecutionReportStatus;
+    /**
+     * Запрошено лотов
+     *
+     * @remarks Число в формате `int64`
+     */
+    lotsRequested: string;
+    /**
+     * Исполнено лотов
+     *
+     * @remarks Число в формате `int64`
+     */
+    lotsExecuted: string;
+    /**
+     * Начальная цена заявки
+     *
+     * @remarks Произведение количества запрошенных лотов на цену
+     */
+    initialOrderPrice: MoneyValue;
+    /** Исполненная средняя цена одного инструмента в заявке */
+    executedOrderPrice: MoneyValue;
+    /** Итоговая стоимость заявки, включающая все комиссии */
+    totalOrderAmount: MoneyValue;
+    /** Начальная комиссия. Комиссия рассчитанная при выставлении заявки */
+    initialCommission: MoneyValue;
+    /** Фактическая комиссия по итогам исполнения заявки */
+    executedCommission: MoneyValue;
+    /**
+     * Значение НКД (накопленного купонного дохода) на дату
+     *
+     * @remarks Подробнее: НКД при выставлении торговых поручени
+     */
+    aciValue: MoneyValue;
+    /** Figi-идентификатор инструмента */
+    figi: string;
+    /** Направление сделки */
+    direction: OrderDirection;
+    /**
+     * Начальная цена за 1 инструмент
+     *
+     * @remarks Для получения стоимости лота требуется умножить на лотность инструмента
+     */
+    initialSecurityPrice: MoneyValue;
+    /** Тип заявки */
+    orderType: OrderType;
+    /** Дополнительные данные об исполнении заявки */
+    message: string;
+    /** Начальная цена заявки в пунктах (для фьючерсов) */
+    initialOrderPricePt: Quotation;
+    /** UID идентификатор инструмента */
+    instrumentUid: string;
 }
 /**
  * Запрос получения списка активных торговых поручений
@@ -194,9 +256,7 @@ export interface OrderState {
  * @see https://tinkoff.github.io/investAPI/orders/#getordersrequest
  */
 export interface GetOrdersRequest {
-    /**
-     * Номер счёта
-     */
+    /** Номер счёта */
     accountId: string;
 }
 /**
@@ -205,15 +265,31 @@ export interface GetOrdersRequest {
  * @see https://tinkoff.github.io/investAPI/orders/#getordersresponse
  */
 export interface GetOrdersResponse {
-    /**
-     * Массив объектов OrderState
-     */
+    /** Массив объектов OrderState */
     orders: OrderState[];
 }
 /**
  * Интерфейс сервиса Ордеров
  */
 export interface Orders {
+    /**
+     * Запрос выставления торгового поручения
+     *
+     * @param {PostOrderRequest} body Тело запроса
+     *
+     * @returns Информация о выставлении поручения
+     *
+     * @see https://tinkoff.github.io/investAPI/orders/#postorder
+     *
+     * @example
+     * ```js
+     * const ordersService = new OrdersService('<TOKEN>', false)
+     * ordersService.PostOrder({})
+     *   .then(response => response.json())
+     *   .then(data => console.log(data))
+     * ```
+     */
+    PostOrder: (body: PostOrderRequest) => Promise<PostOrderResponse>;
     /**
      * Метод получения списка активных заявок по счёту
      *
@@ -226,7 +302,7 @@ export interface Orders {
      * @example
      * ```js
      * const ordersService = new OrdersService('<TOKEN>', false)
-     * ordersService.GetOrders({})
+     * ordersService.GetOrders({ accountId: '<ACCOUNT_ID>' })
      *   .then(response => response.json())
      *   .then(data => console.log(data))
      * ```
@@ -240,7 +316,10 @@ export interface Orders {
  * 3. получение статуса;
  * 4. расчёт полной стоимости;
  * 5. получение списка заявок.
+ *
+ * @see https://tinkoff.github.io/investAPI/orders/#ordersservice
  */
 export declare class OrdersService extends Common implements Orders {
+    PostOrder(body: PostOrderRequest): Promise<PostOrderResponse>;
     GetOrders(body: GetOrdersRequest): Promise<GetOrdersResponse>;
 }
