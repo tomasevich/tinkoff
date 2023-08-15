@@ -33,7 +33,7 @@
 <ul class="tsd-hierarchy">
 <li><a href="../interfaces/SandboxService.Sandbox.html" class="tsd-signature-type tsd-kind-interface">Sandbox</a></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/4c2b536/src/SandboxService.ts#L333">SandboxService.ts:333</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/2f6dd5b/src/SandboxService.ts#L171">SandboxService.ts:171</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -71,14 +71,18 @@
 <div class="tsd-comment tsd-typography"></div></li>
 <li>
 <h5><span class="tsd-kind-parameter">isSandbox</span>: <span class="tsd-signature-type">boolean</span></h5>
-<div class="tsd-comment tsd-typography"><p>Флаг включения режима &quot;Песочницы&quot;</p>
+<div class="tsd-comment tsd-typography"><p>Флаг включения режима <code>Песочницы</code></p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="SandboxService.SandboxService.html" class="tsd-signature-type tsd-kind-class">SandboxService</a></h4>
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<div class="tsd-comment tsd-typography">
+<h4>Remarks</h4><p>Получить <code>Токен</code> можно по ссылке</p>
+
+<h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/token">https://tinkoff.github.io/investAPI/token</a></p>
+</div><aside class="tsd-sources">
 <p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#constructor">constructor</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/4c2b536/src/Common.ts#L129">Common.ts:129</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/2f6dd5b/src/Common.ts#L139">Common.ts:139</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member"><a id="CloseSandboxAccount" class="tsd-anchor"></a>
@@ -106,11 +110,11 @@
 </div><aside class="tsd-sources">
 <p>Implementation of <a href="../interfaces/SandboxService.Sandbox.html">Sandbox</a>.<a href="../interfaces/SandboxService.Sandbox.html#CloseSandboxAccount">CloseSandboxAccount</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/4c2b536/src/SandboxService.ts#L350">SandboxService.ts:350</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/2f6dd5b/src/SandboxService.ts#L188">SandboxService.ts:188</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxAccounts" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Accounts</span><a href="#GetSandboxAccounts" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="GetSandboxAccounts.GetSandboxAccounts-1"><span class="tsd-kind-call-signature">Get<wbr/>Sandbox<wbr/>Accounts</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/SandboxService.GetAccountsResponse.html" class="tsd-signature-type tsd-kind-interface">GetAccountsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetSandboxAccounts.GetSandboxAccounts-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="GetSandboxAccounts.GetSandboxAccounts-1"><span class="tsd-kind-call-signature">Get<wbr/>Sandbox<wbr/>Accounts</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/UsersService.GetAccountsResponse.html" class="tsd-signature-type tsd-kind-interface">GetAccountsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetSandboxAccounts.GetSandboxAccounts-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения счетов в песочнице</p>
 </div>
@@ -118,11 +122,11 @@
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5><span class="tsd-kind-parameter">body</span>: <a href="../interfaces/SandboxService.GetAccountsRequest.html" class="tsd-signature-type tsd-kind-interface">GetAccountsRequest</a></h5>
+<h5><span class="tsd-kind-parameter">body</span>: <a href="../interfaces/UsersService.GetAccountsRequest.html" class="tsd-signature-type tsd-kind-interface">GetAccountsRequest</a></h5>
 <div class="tsd-comment tsd-typography"><p>Тело запроса</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/SandboxService.GetAccountsResponse.html" class="tsd-signature-type tsd-kind-interface">GetAccountsResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><p>Пустой ответ</p>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/UsersService.GetAccountsResponse.html" class="tsd-signature-type tsd-kind-interface">GetAccountsResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><p>Пустой ответ</p>
 
 <div class="tsd-comment tsd-typography">
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxaccounts">https://tinkoff.github.io/investAPI/sandbox/#getsandboxaccounts</a></p>
@@ -132,7 +136,7 @@
 </div><aside class="tsd-sources">
 <p>Implementation of <a href="../interfaces/SandboxService.Sandbox.html">Sandbox</a>.<a href="../interfaces/SandboxService.Sandbox.html#GetSandboxAccounts">GetSandboxAccounts</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/4c2b536/src/SandboxService.ts#L344">SandboxService.ts:344</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/2f6dd5b/src/SandboxService.ts#L182">SandboxService.ts:182</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxOrders" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Orders</span><a href="#GetSandboxOrders" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -158,7 +162,7 @@
 </div><aside class="tsd-sources">
 <p>Implementation of <a href="../interfaces/SandboxService.Sandbox.html">Sandbox</a>.<a href="../interfaces/SandboxService.Sandbox.html#GetSandboxOrders">GetSandboxOrders</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/4c2b536/src/SandboxService.ts#L356">SandboxService.ts:356</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/2f6dd5b/src/SandboxService.ts#L194">SandboxService.ts:194</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="OpenSandboxAccount" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Open<wbr/>Sandbox<wbr/>Account</span><a href="#OpenSandboxAccount" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -184,7 +188,7 @@
 </div><aside class="tsd-sources">
 <p>Implementation of <a href="../interfaces/SandboxService.Sandbox.html">Sandbox</a>.<a href="../interfaces/SandboxService.Sandbox.html#OpenSandboxAccount">OpenSandboxAccount</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/4c2b536/src/SandboxService.ts#L338">SandboxService.ts:338</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/2f6dd5b/src/SandboxService.ts#L176">SandboxService.ts:176</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="PostSandboxOrder" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Post<wbr/>Sandbox<wbr/>Order</span><a href="#PostSandboxOrder" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -204,7 +208,7 @@
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Implementation of <a href="../interfaces/SandboxService.Sandbox.html">Sandbox</a>.<a href="../interfaces/SandboxService.Sandbox.html#PostSandboxOrder">PostSandboxOrder</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/4c2b536/src/SandboxService.ts#L334">SandboxService.ts:334</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/2f6dd5b/src/SandboxService.ts#L172">SandboxService.ts:172</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-protected tsd-is-inherited"><a id="request" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagProtected">Protected</code> <span>request</span><a href="#request" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-protected tsd-is-inherited">
@@ -234,7 +238,7 @@
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#request">request</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/4c2b536/src/Common.ts#L140">Common.ts:140</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/2f6dd5b/src/Common.ts#L148">Common.ts:148</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -270,18 +274,13 @@
 <details class="tsd-index-accordion" open data-key="SandboxService"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="#icon-chevronDown"></use></svg><a href="../modules/SandboxService.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Sandbox<wbr/>Service</span></a></summary>
 <div class="tsd-accordion-details">
 <ul class="tsd-nested-navigation">
-<li><a href="../enums/SandboxService.AccessLevel.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-8"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-enum)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.45 16V7.24H14.49V8.224H10.518V10.936H14.07V11.908H10.518V15.016H14.49V16H9.45Z" fill="var(--color-text)"></path></g></svg><span>Access<wbr/>Level</span></a></li>
-<li><a href="../enums/SandboxService.AccountStatus.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-8"></use></svg><span>Account<wbr/>Status</span></a></li>
-<li><a href="../enums/SandboxService.AccountType.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-8"></use></svg><span>Account<wbr/>Type</span></a></li>
 <li><a href="SandboxService.SandboxService.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-128"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-class)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z" fill="var(--color-text)"></path></g></svg><span>Sandbox<wbr/>Service</span></a></li>
-<li><a href="../interfaces/SandboxService.Account.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-256"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-interface)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.51 16V15.016H11.298V8.224H9.51V7.24H14.19V8.224H12.402V15.016H14.19V16H9.51Z" fill="var(--color-text)"></path></g></svg><span>Account</span></a></li>
-<li><a href="../interfaces/SandboxService.CloseSandboxAccountRequest.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Close<wbr/>Sandbox<wbr/>Account<wbr/>Request</span></a></li>
+<li><a href="../interfaces/SandboxService.CloseSandboxAccountRequest.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-256"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-interface)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.51 16V15.016H11.298V8.224H9.51V7.24H14.19V8.224H12.402V15.016H14.19V16H9.51Z" fill="var(--color-text)"></path></g></svg><span>Close<wbr/>Sandbox<wbr/>Account<wbr/>Request</span></a></li>
 <li><a href="../interfaces/SandboxService.CloseSandboxAccountResponse.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Close<wbr/>Sandbox<wbr/>Account<wbr/>Response</span></a></li>
-<li><a href="../interfaces/SandboxService.GetAccountsRequest.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Get<wbr/>Accounts<wbr/>Request</span></a></li>
-<li><a href="../interfaces/SandboxService.GetAccountsResponse.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Get<wbr/>Accounts<wbr/>Response</span></a></li>
 <li><a href="../interfaces/SandboxService.OpenSandboxAccountRequest.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Open<wbr/>Sandbox<wbr/>Account<wbr/>Request</span></a></li>
 <li><a href="../interfaces/SandboxService.OpenSandboxAccountResponse.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Open<wbr/>Sandbox<wbr/>Account<wbr/>Response</span></a></li>
 <li><a href="../interfaces/SandboxService.Sandbox.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Sandbox</span></a></li></ul></div></details></li>
+<li><a href="../modules/UsersService.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Users<wbr/>Service</span></a></li>
 <li><a href="../modules/index.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>index</span></a></li></ul></nav></div></div></div>
 <div class="tsd-generator">
 <p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
