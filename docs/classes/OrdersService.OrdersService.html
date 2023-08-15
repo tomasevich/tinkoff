@@ -26,7 +26,9 @@
 <li>получение списка заявок.</li>
 </ol>
 </div>
-<div class="tsd-comment tsd-typography"></div></section>
+<div class="tsd-comment tsd-typography">
+<h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/orders/#ordersservice">https://tinkoff.github.io/investAPI/orders/#ordersservice</a></p>
+</div></section>
 <section class="tsd-panel tsd-hierarchy">
 <h4>Hierarchy</h4>
 <ul class="tsd-hierarchy">
@@ -38,7 +40,7 @@
 <ul class="tsd-hierarchy">
 <li><a href="../interfaces/OrdersService.Orders.html" class="tsd-signature-type tsd-kind-interface">Orders</a></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/e536921/src/OrdersService.ts#L455">OrdersService.ts:455</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/ac5aaa1/src/OrdersService.ts#L388">OrdersService.ts:388</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -80,7 +82,7 @@
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#constructor">constructor</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/e536921/src/Common.ts#L179">Common.ts:179</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/ac5aaa1/src/Common.ts#L129">Common.ts:129</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member"><a id="GetOrders" class="tsd-anchor"></a>
@@ -103,18 +105,18 @@
 <div class="tsd-comment tsd-typography">
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/orders/#getorders">https://tinkoff.github.io/investAPI/orders/#getorders</a></p>
 
-<h4>Example</h4><pre><code class="language-js"><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">ordersService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">OrdersService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">false</span><span class="hl-1">)</span><br/><span class="hl-4">ordersService</span><span class="hl-1">.</span><span class="hl-0">GetOrders</span><span class="hl-1">({})</span><br/><span class="hl-1">  .</span><span class="hl-0">then</span><span class="hl-1">(</span><span class="hl-4">response</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> </span><span class="hl-4">response</span><span class="hl-1">.</span><span class="hl-0">json</span><span class="hl-1">())</span><br/><span class="hl-1">  .</span><span class="hl-0">then</span><span class="hl-1">(</span><span class="hl-4">data</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> </span><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">data</span><span class="hl-1">))</span>
+<h4>Example</h4><pre><code class="language-js"><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">ordersService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">OrdersService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">false</span><span class="hl-1">)</span><br/><span class="hl-4">ordersService</span><span class="hl-1">.</span><span class="hl-0">GetOrders</span><span class="hl-1">({ </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ACCOUNT_ID&gt;&#39;</span><span class="hl-1"> })</span><br/><span class="hl-1">  .</span><span class="hl-0">then</span><span class="hl-1">(</span><span class="hl-4">response</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> </span><span class="hl-4">response</span><span class="hl-1">.</span><span class="hl-0">json</span><span class="hl-1">())</span><br/><span class="hl-1">  .</span><span class="hl-0">then</span><span class="hl-1">(</span><span class="hl-4">data</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> </span><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">data</span><span class="hl-1">))</span>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
 <p>Implementation of <a href="../interfaces/OrdersService.Orders.html">Orders</a>.<a href="../interfaces/OrdersService.Orders.html#GetOrders">GetOrders</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/e536921/src/OrdersService.ts#L460">OrdersService.ts:460</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/ac5aaa1/src/OrdersService.ts#L393">OrdersService.ts:393</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="PostOrder" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Post<wbr/>Order</span><a href="#PostOrder" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="PostOrder.PostOrder-1"><span class="tsd-kind-call-signature">Post<wbr/>Order</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/OrdersService.PostOrderResponse.html" class="tsd-signature-type tsd-kind-interface">PostOrderResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#PostOrder.PostOrder-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Метод получения списка активных заявок по счёту</p>
+<div class="tsd-comment tsd-typography"><p>Запрос выставления торгового поручения</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -134,7 +136,7 @@
 </div><aside class="tsd-sources">
 <p>Implementation of <a href="../interfaces/OrdersService.Orders.html">Orders</a>.<a href="../interfaces/OrdersService.Orders.html#PostOrder">PostOrder</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/e536921/src/OrdersService.ts#L456">OrdersService.ts:456</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/ac5aaa1/src/OrdersService.ts#L389">OrdersService.ts:389</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-protected tsd-is-inherited"><a id="request" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagProtected">Protected</code> <span>request</span><a href="#request" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-protected tsd-is-inherited">
@@ -164,7 +166,7 @@
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#request">request</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/e536921/src/Common.ts#L190">Common.ts:190</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/ac5aaa1/src/Common.ts#L140">Common.ts:140</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
