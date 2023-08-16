@@ -343,7 +343,7 @@ export interface PortfolioPosition {
    * Возможна задержка до секунды для пересчёта
    * @deprecated
    */
-  averagePositionPricePt: Quotation
+  averagePositionPricePt?: Quotation
   /**
    * Текущая цена за 1 инструмент
    * @description Для получения стоимости лота требуется умножить на лотность инструмента
@@ -358,7 +358,7 @@ export interface PortfolioPosition {
    * Количество лотов в портфеле
    * @deprecated
    */
-  quantityLots: Quotation
+  quantityLots?: Quotation
   /** Заблокировано на бирже */
   blocked: boolean
   /** Количество бумаг, заблокированных выставленными заявками */
