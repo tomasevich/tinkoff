@@ -1,53 +1,197 @@
-import { Common } from './Common'
+import { Common, MoneyValue, Quotation } from './Common'
 
+/**
+ * Тип счёта
+ * @see https://tinkoff.github.io/investAPI/users/#accounttype
+ */
 export enum AccountType {
+  /** Тип аккаунта не определён */
   ACCOUNT_TYPE_UNSPECIFIED,
+  /** Брокерский счёт Тинькофф */
   ACCOUNT_TYPE_TINKOFF,
+  /** ИИС счёт */
   ACCOUNT_TYPE_TINKOFF_IIS,
+  /** Инвесткопилка */
   ACCOUNT_TYPE_INVEST_BOX
 }
 
+/**
+ * Статус счёта
+ * @see https://tinkoff.github.io/investAPI/users/#accountstatus
+ */
 export enum AccountStatus {
+  /** Статус счёта не определён */
   ACCOUNT_STATUS_UNSPECIFIED,
+  /** Новый, в процессе открытия */
   ACCOUNT_STATUS_NEW,
+  /** Открытый и активный счёт */
   ACCOUNT_STATUS_OPEN,
+  /** Закрытый счёт */
   ACCOUNT_STATUS_CLOSED
 }
 
+/**
+ * Уровень доступа к счёту
+ * @see https://tinkoff.github.io/investAPI/users/#accesslevel
+ */
 export enum AccessLevel {
+  /** Уровень доступа не определён */
   ACCOUNT_ACCESS_LEVEL_UNSPECIFIED,
+  /** Полный доступ к счёту */
   ACCOUNT_ACCESS_LEVEL_FULL_ACCESS,
+  /** Доступ с уровнем прав "только чтение" */
   ACCOUNT_ACCESS_LEVEL_READ_ONLY,
+  /** Доступ отсутствует */
   ACCOUNT_ACCESS_LEVEL_NO_ACCESS
 }
 
+/**
+ * Информация о счёте
+ * @see https://tinkoff.github.io/investAPI/users/#account
+ */
 export interface Account {
+  /** Идентификатор счёта */
   id: string
+  /** Тип счёта */
   type: AccountType
+  /** Название счёта */
   name: string
+  /** Статус счёта */
   status: AccountStatus
+  /**
+   * Дата открытия счёта в часовом поясе UTC
+   * @type `google.protobuf.Timestamp`
+   */
   openedDate: string
-  closedDate: string
+  /** Уровень доступа к текущему счёту (определяется токеном) */
   accessLevel: AccessLevel
+  /**
+   * Дата закрытия счёта в часовом поясе UTC
+   * @type `google.protobuf.Timestamp`
+   * @deprecated ???
+   */
+  closedDate?: string
 }
 
+/**
+ * Запрос получения счетов пользователя
+ * @see https://tinkoff.github.io/investAPI/users/#getaccountsrequest
+ */
 export interface GetAccountsRequest {}
 
+/**
+ * Список счетов пользователя
+ * @see https://tinkoff.github.io/investAPI/users/#getaccountsresponse
+ */
 export interface GetAccountsResponse {
+  /** Массив счетов клиента */
   accounts: Account[]
 }
 
-export interface GetMarginAttributesRequest {}
+/**
+ * Запрос маржинальных показателей по счёту
+ * @see https://tinkoff.github.io/investAPI/users/#getmarginattributesrequest
+ */
+export interface GetMarginAttributesRequest {
+  /** Идентификатор счёта пользователя */
+  accountId: string
+}
 
-export interface GetMarginAttributesResponse {}
+/**
+ * Маржинальные показатели по счёту
+ * @see https://tinkoff.github.io/investAPI/users/#getmarginattributesresponse
+ */
+export interface GetMarginAttributesResponse {
+  /** Ликвидная стоимость портфеля */
+  liquidPortfolio: MoneyValue
+  /** Начальная маржа — начальное обеспечение для совершения новой сделки */
+  startingMargin: MoneyValue
+  /** Минимальная маржа — это минимальное обеспечение для поддержания позиции, которую вы уже открыли */
+  minimalMargin: MoneyValue
+  /**
+   * Уровень достаточности средств
+   * @description Соотношение стоимости ликвидного портфеля к начальной марже
+   */
+  fundsSufficiencyLevel: Quotation
+  /**
+   * Объем недостающих средств
+   * @description Разница между стартовой маржой и ликвидной стоимости портфеля
+   */
+  amountOfMissingFunds: MoneyValue
+  /** Скорректированная маржа.Начальная маржа, в которой плановые позиции рассчитываются с учётом активных заявок на покупку позиций лонг или продажу позиций шорт */
+  correctedMargin: MoneyValue
+}
 
+/**
+ * Лимит unary-методов
+ * @see https://tinkoff.github.io/investAPI/users/#unarylimit
+ */
+export interface UnaryLimit {
+  /**
+   * Количество unary-запросов в минуту
+   * @type `int32`
+   */
+  limitPerMinute: number
+  /** Названия методов */
+  methods: string[]
+}
+
+/**
+ * Лимит stream-соединений
+ * @see https://tinkoff.github.io/investAPI/users/#streamlimit
+ */
+export interface StreamLimit {
+  /**
+   * Максимальное количество stream-соединений
+   * @type `int32`
+   */
+  limit: number
+  /** Названия stream-методов */
+  streams: string[]
+  /**
+   * Текущее количество открытых stream-соединений
+   * @type `int32`
+   */
+  open: number
+}
+
+/**
+ * Запрос текущих лимитов пользователя
+ * @see https://tinkoff.github.io/investAPI/users/#getusertariffrequest
+ */
 export interface GetUserTariffRequest {}
 
-export interface GetUserTariffResponse {}
+/**
+ * Текущие лимиты пользователя
+ * @see https://tinkoff.github.io/investAPI/users/#getusertariffresponse
+ */
+export interface GetUserTariffResponse {
+  /** Массив лимитов пользователя по unary-запросам */
+  unaryLimits: UnaryLimit[]
+  /** Массив лимитов пользователей для stream-соединений */
+  streamLimits: StreamLimit[]
+}
 
+/**
+ * Запрос информации о пользователе
+ * @see https://tinkoff.github.io/investAPI/users/#getinforequest
+ */
 export interface GetInfoRequest {}
 
-export interface GetInfoResponse {}
+/**
+ * Информация о пользователе
+ * @see https://tinkoff.github.io/investAPI/users/#getinforesponse
+ */
+export interface GetInfoResponse {
+  /** Признак премиум клиента */
+  premStatus: boolean
+  /** Признак квалифицированного инвестора */
+  qualStatus: boolean
+  /** Набор требующих тестирования инструментов и возможностей, с которыми может работать пользователь */
+  qualifiedForWorkWith: string[]
+  /** Наименование тарифа пользователя */
+  tariff: string
+}
 
 /**
  * Сервис предназначен для получения:
