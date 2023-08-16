@@ -1,4 +1,5 @@
-import { Common, MoneyValue } from './Common'
+import { Common, MoneyValue, Quotation } from './Common'
+import { InstrumentType } from './InstrumentsService'
 
 /**
  * Статус запрашиваемых операций
@@ -164,28 +165,59 @@ export enum PortfolioRequestCurrencyRequest {
  * @see https://tinkoff.github.io/investAPI/operations/#operation
  */
 export interface Operation {
-  // id	string	Идентификатор операции.
-  // parent_operation_id	string	Идентификатор родительской операции.
-  // currency	string	Валюта операции.
-  // payment	MoneyValue	Сумма операции.
-  // price	MoneyValue	Цена операции за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента.
-  // state	OperationState	Статус операции.
-  // quantity	int64	Количество единиц инструмента.
-  // quantity_rest	int64	Неисполненный остаток по сделке.
-  // figi	string	Figi-идентификатор инструмента, связанного с операцией.
-  // instrument_type	string	Тип инструмента. Возможные значения:
-  // bond — облигация;
-  // share — акция;
-  // currency — валюта;
-  // etf — фонд;
-  // futures — фьючерс.
-  // date	google.protobuf.Timestamp	Дата и время операции в формате часовом поясе UTC.
-  // type	string	Текстовое описание типа операции.
-  // operation_type	OperationType	Тип операции.
-  // trades	Массив объектов OperationTrade	Массив сделок.
-  // asset_uid	string	Идентификатор актива
-  // position_uid	string	position_uid-идентификатора инструмента.
-  // instrument_uid	string	Уникальный идентификатор инструмента.
+  /** Идентификатор операции */
+  id: string
+  /** Идентификатор родительской операции */
+  parent_operation_id: string
+  /** Валюта операции */
+  currency: string
+  /** Сумма операции */
+  payment: MoneyValue
+  /**
+   * Цена операции за 1 инструмент
+   * @description Для получения стоимости лота требуется умножить на лотность инструмента
+   */
+  price: MoneyValue
+  /** Статус операции */
+  state: OperationState
+  /**
+   * Количество единиц инструмента
+   * @type `int64`
+   */
+  quantity: string
+  /**
+   * Неисполненный остаток по сделке
+   * @type `int64`
+   */
+  quantity_rest: string
+  /** Figi-идентификатор инструмента, связанного с операцией */
+  figi: string
+  /**
+   * Тип инструмента. Возможные значения:
+   * `bond` — облигация;
+   * `share` — акция;
+   * `currency` — валюта;
+   * `etf` — фонд;
+   * `futures` — фьючерс.
+   */
+  instrument_type: string
+  /**
+   * Дата и время операции в формате часовом поясе UTC
+   * @type `google.protobuf.Timestamp`
+   */
+  date: string
+  /** Текстовое описание типа операции */
+  type: string
+  /** Тип операции */
+  operation_type: OperationType
+  /** Массив сделок */
+  trades: OperationTrade[]
+  /** Идентификатор актива */
+  asset_uid: string
+  /** position_uid-идентификатора инструмента */
+  position_uid: string
+  /** Уникальный идентификатор инструмента */
+  instrument_uid: string
 }
 
 /**
@@ -193,10 +225,23 @@ export interface Operation {
  * @see https://tinkoff.github.io/investAPI/operations/#operationtrade
  */
 export interface OperationTrade {
-  // trade_id	string	Идентификатор сделки.
-  // date_time	google.protobuf.Timestamp	Дата и время сделки в часовом поясе UTC.
-  // quantity	int64	Количество инструментов.
-  // price	MoneyValue	Цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента.
+  /** Идентификатор сделки */
+  trade_id: string
+  /**
+   * Дата и время сделки в часовом поясе UTC
+   * @type `google.protobuf.Timestamp`
+   */
+  date_time: string
+  /**
+   * Количество инструментов
+   * @type `int64`
+   */
+  quantity: string
+  /**
+   * Цена за 1 инструмент
+   * @description Для получения стоимости лота требуется умножить на лотность инструмента.
+   */
+  price: MoneyValue
 }
 
 /**
@@ -204,11 +249,22 @@ export interface OperationTrade {
  * @see https://tinkoff.github.io/investAPI/operations/#operationsrequest
  */
 export interface OperationsRequest {
-  // account_id	string	Идентификатор счёта клиента.
-  // from	google.protobuf.Timestamp	Начало периода (по UTC).
-  // to	google.protobuf.Timestamp	Окончание периода (по UTC).
-  // state	OperationState	Статус запрашиваемых операций.
-  // figi	string	Figi-идентификатор инструмента для фильтрации.
+  /** Идентификатор счёта клиента */
+  account_id: string
+  /**
+   * Начало периода (по UTC).
+   * @type `google.protobuf.Timestamp`
+   */
+  from: string
+  /**
+   * Окончание периода (по UTC).
+   * @type `google.protobuf.Timestamp`
+   */
+  to: string
+  /** Статус запрашиваемых операций */
+  state: OperationState
+  /** Figi-идентификатор инструмента для фильтрации */
+  figi: string
 }
 
 /**
@@ -225,8 +281,10 @@ export interface OperationsResponse {
  * @see https://tinkoff.github.io/investAPI/operations/#portfoliorequest
  */
 export interface PortfolioRequest {
-  // account_id	string	Идентификатор счёта пользователя.
-  // currency	PortfolioRequest.CurrencyRequest	Валюта, в которой требуется рассчитать портфель
+  /** Идентификатор счёта пользователя */
+  account_id: string
+  /** Валюта, в которой требуется рассчитать портфель */
+  currency: PortfolioRequestCurrencyRequest
 }
 
 /**
@@ -234,18 +292,30 @@ export interface PortfolioRequest {
  * @see https://tinkoff.github.io/investAPI/operations/#portfolioresponse
  */
 export interface PortfolioResponse {
-  // total_amount_shares	MoneyValue	Общая стоимость акций в портфеле.
-  // total_amount_bonds	MoneyValue	Общая стоимость облигаций в портфеле.
-  // total_amount_etf	MoneyValue	Общая стоимость фондов в портфеле.
-  // total_amount_currencies	MoneyValue	Общая стоимость валют в портфеле.
-  // total_amount_futures	MoneyValue	Общая стоимость фьючерсов в портфеле.
-  // expected_yield	Quotation	Текущая относительная доходность портфеля, в %.
-  // positions	Массив объектов PortfolioPosition	Список позиций портфеля.
-  // account_id	string	Идентификатор счёта пользователя.
-  // total_amount_options	MoneyValue	Общая стоимость опционов в портфеле.
-  // total_amount_sp	MoneyValue	Общая стоимость структурных нот в портфеле.
-  // total_amount_portfolio	MoneyValue	Общая стоимость портфеля.
-  // virtual_positions	Массив объектов VirtualPortfolioPosition	Массив виртуальных позиций портфеля.
+  /** Общая стоимость акций в портфеле */
+  total_amount_shares: MoneyValue
+  /** Общая стоимость облигаций в портфеле */
+  total_amount_bonds: MoneyValue
+  /** Общая стоимость фондов в портфеле */
+  total_amount_etf: MoneyValue
+  /** Общая стоимость валют в портфеле */
+  total_amount_currencies: MoneyValue
+  /** Общая стоимость фьючерсов в портфеле */
+  total_amount_futures: MoneyValue
+  /** Текущая относительная доходность портфеля, в % */
+  expected_yield: Quotation
+  /** Список позиций портфеля */
+  positions: PortfolioPosition[]
+  /** Идентификатор счёта пользователя */
+  account_id: string
+  /** Общая стоимость опционов в портфеле */
+  total_amount_options: MoneyValue
+  /** Общая стоимость структурных нот в портфеле */
+  total_amount_sp: MoneyValue
+  /** Общая стоимость портфеля */
+  total_amount_portfolio: MoneyValue
+  /** Массив виртуальных позиций портфеля */
+  virtual_positions: VirtualPortfolioPosition[]
 }
 
 /**
@@ -253,22 +323,54 @@ export interface PortfolioResponse {
  * @see https://tinkoff.github.io/investAPI/operations/#portfolioposition
  */
 export interface PortfolioPosition {
-  // figi	string	Figi-идентификатора инструмента.
-  // instrument_type	string	Тип инструмента.
-  // quantity	Quotation	Количество инструмента в портфеле в штуках.
-  // average_position_price	MoneyValue	Средневзвешенная цена позиции. Возможна задержка до секунды для пересчёта.
-  // expected_yield	Quotation	Текущая рассчитанная доходность позиции.
-  // current_nkd	MoneyValue	Текущий НКД.
-  // average_position_price_pt	Quotation	Deprecated Средняя цена позиции в пунктах (для фьючерсов). Возможна задержка до секунды для пересчёта.
-  // current_price	MoneyValue	Текущая цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента.
-  // average_position_price_fifo	MoneyValue	Средняя цена позиции по методу FIFO. Возможна задержка до секунды для пересчёта.
-  // quantity_lots	Quotation	Deprecated Количество лотов в портфеле.
-  // blocked	bool	Заблокировано на бирже.
-  // blocked_lots	Quotation	Количество бумаг, заблокированных выставленными заявками.
-  // position_uid	string	position_uid-идентификатора инструмента
-  // instrument_uid	string	instrument_uid-идентификатора инструмента
-  // var_margin	MoneyValue	Вариационная маржа
-  // expected_yield_fifo	Quotation	Текущая рассчитанная доходность позиции.
+  /** Figi-идентификатора инструмента */
+  figi: string
+  /** Тип инструмента */
+  instrument_type: string
+  /** Количество инструмента в портфеле в штуках */
+  quantity: Quotation
+  /**
+   * Средневзвешенная цена позиции
+   * @description Возможна задержка до секунды для пересчёта
+   */
+  average_position_price: MoneyValue
+  /** Текущая рассчитанная доходность позиции */
+  expected_yield: Quotation
+  /** Текущий НКД */
+  current_nkd: MoneyValue
+  /**
+   * Средняя цена позиции в пунктах (для фьючерсов)
+   * Возможна задержка до секунды для пересчёта
+   * @deprecated
+   */
+  average_position_price_pt: Quotation
+  /**
+   * Текущая цена за 1 инструмент
+   * @description Для получения стоимости лота требуется умножить на лотность инструмента
+   */
+  current_price: MoneyValue
+  /**
+   * Средняя цена позиции по методу FIFO
+   * @description Возможна задержка до секунды для пересчёта
+   */
+  average_position_price_fifo: MoneyValue
+  /**
+   * Количество лотов в портфеле
+   * @deprecated
+   */
+  quantity_lots: Quotation
+  /** Заблокировано на бирже */
+  blocked: boolean
+  /** Количество бумаг, заблокированных выставленными заявками */
+  blocked_lots: Quotation
+  /** position_uid-идентификатора инструмент */
+  position_uid: string
+  /** instrument_uid-идентификатора инструмент */
+  instrument_uid: string
+  /** Вариационная маржа */
+  var_margin: MoneyValue
+  /** Текущая рассчитанная доходность позиции */
+  expected_yield_fifo: Quotation
 }
 
 /**
@@ -276,17 +378,37 @@ export interface PortfolioPosition {
  * @see https://tinkoff.github.io/investAPI/operations/#virtualportfolioposition
  */
 export interface VirtualPortfolioPosition {
-  // position_uid	string	position_uid-идентификатора инструмента
-  // instrument_uid	string	instrument_uid-идентификатора инструмента
-  // figi	string	Figi-идентификатора инструмента.
-  // instrument_type	string	Тип инструмента.
-  // quantity	Quotation	Количество инструмента в портфеле в штуках.
-  // average_position_price	MoneyValue	Средневзвешенная цена позиции. Возможна задержка до секунды для пересчёта.
-  // expected_yield	Quotation	Текущая рассчитанная доходность позиции.
-  // expected_yield_fifo	Quotation	Текущая рассчитанная доходность позиции.
-  // expire_date	google.protobuf.Timestamp	Дата до которой нужно продать виртуальные бумаги, после этой даты виртуальная позиция "сгорит"
-  // current_price	MoneyValue	Текущая цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента.
-  // average_position_price_fifo	MoneyValue	Средняя цена позиции по методу FIFO. Возможна задержка до секунды для пересчёта.
+  /** position_uid-идентификатора инструмент */
+  position_uid: string
+  /** instrument_uid-идентификатора инструмент */
+  instrument_uid: string
+  /** Figi-идентификатора инструмента */
+  figi: string
+  /** Тип инструмента */
+  instrument_type: string
+  /** Количество инструмента в портфеле в штуках */
+  quantity: Quotation
+  /**
+   * Средневзвешенная цена позиции
+   * @description Возможна задержка до секунды для пересчёта
+   */
+  average_position_price: MoneyValue
+  /** Текущая рассчитанная доходность позиции */
+  expected_yield: Quotation
+  /** Текущая рассчитанная доходность позиции */
+  expected_yield_fifo: Quotation
+  /**
+   * Дата до которой нужно продать виртуальные бумаги, после этой даты виртуальная позиция "сгорит"
+   * @type `google.protobuf.Timestamp`
+   */
+  expire_date: string
+  /** Текущая цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента */
+  current_price: MoneyValue
+  /**
+   * Средняя цена позиции по методу FIFO
+   * @description Возможна задержка до секунды для пересчёта
+   */
+  average_position_price_fifo: MoneyValue
 }
 
 /**
@@ -294,13 +416,26 @@ export interface VirtualPortfolioPosition {
  * @see https://tinkoff.github.io/investAPI/operations/#positionssecurities
  */
 export interface PositionsSecurities {
-  // figi	string	Figi-идентификатор бумаги.
-  // blocked	int64	Количество бумаг заблокированных выставленными заявками.
-  // balance	int64	Текущий незаблокированный баланс.
-  // position_uid	string	Уникальный идентификатор позиции.
-  // instrument_uid	string	Уникальный идентификатор инструмента.
-  // exchange_blocked	bool	Заблокировано на бирже.
-  // instrument_type	string	Тип инструмента.
+  /** Figi-идентификатор бумаги */
+  figi: string
+  /**
+   * Количество бумаг заблокированных выставленными заявками
+   * @type `int64`
+   */
+  blocked: string
+  /**
+   * Текущий незаблокированный баланс
+   * @type `int64`
+   */
+  balance: string
+  /** Уникальный идентификатор позиции */
+  position_uid: string
+  /** Уникальный идентификатор инструмента */
+  instrument_uid: string
+  /** Заблокировано на бирже */
+  exchange_blocked: boolean
+  /** Тип инструмента */
+  instrument_type: string
 }
 
 /**
@@ -308,21 +443,42 @@ export interface PositionsSecurities {
  * @see https://tinkoff.github.io/investAPI/operations/#positionsfutures
  */
 export interface PositionsFutures {
-  // figi	string	Figi-идентификатор фьючерса.
-  // blocked	int64	Количество бумаг заблокированных выставленными заявками.
-  // balance	int64	Текущий незаблокированный баланс.
-  // position_uid	string	Уникальный идентификатор позиции.
-  // instrument_uid	string	Уникальный идентификатор инструмента.
+  /** Figi-идентификатор фьючерса */
+  figi: string
+  /**
+   * Количество бумаг заблокированных выставленными заявками
+   * @type `int64`
+   */
+  blocked: string
+  /**
+   * Текущий незаблокированный баланс
+   * @type `int64`
+   */
+  balance: string
+  /** Уникальный идентификатор позиции */
+  position_uid: string
+  /** Уникальный идентификатор инструмента */
+  instrument_uid: string
 }
 
 /**
  * @see https://tinkoff.github.io/investAPI/operations/#positionsoptions
  */
 export interface PositionsOptions {
-  // position_uid	string	Уникальный идентификатор позиции опциона.
-  // instrument_uid	string	Уникальный идентификатор инструмента.
-  // blocked	int64	Количество бумаг заблокированных выставленными заявками.
-  // balance	int64	Текущий незаблокированный баланс.
+  /** Уникальный идентификатор позиции опциона */
+  position_uid: string
+  /** Уникальный идентификатор инструмента */
+  instrument_uid: string
+  /**
+   * Количество бумаг заблокированных выставленными заявками
+   * @type `int64`
+   */
+  blocked: string
+  /**
+   * Текущий незаблокированный баланс
+   * @type `int64`
+   */
+  balance: string
 }
 
 /**
@@ -339,12 +495,18 @@ export interface PositionsRequest {
  * @see https://tinkoff.github.io/investAPI/operations/#positionsresponse
  */
 export interface PositionsResponse {
-  // money	Массив объектов MoneyValue	Массив валютных позиций портфеля.
-  // blocked	Массив объектов MoneyValue	Массив заблокированных валютных позиций портфеля.
-  // securities	Массив объектов PositionsSecurities	Список ценно-бумажных позиций портфеля.
-  // limits_loading_in_progress	bool	Признак идущей в данный момент выгрузки лимитов.
-  // futures	Массив объектов PositionsFutures	Список фьючерсов портфеля.
-  // options	Массив объектов PositionsOptions	Список опционов портфеля.
+  /** Массив валютных позиций портфеля */
+  money: MoneyValue[]
+  /** Массив заблокированных валютных позиций портфеля */
+  blocked: MoneyValue[]
+  /** Список ценно-бумажных позиций портфеля */
+  securities: PositionsSecurities[]
+  /** Признак идущей в данный момент выгрузки лимитов */
+  limits_loading_in_progress: boolean
+  /** Список фьючерсов портфеля */
+  futures: PositionsFutures[]
+  /** Список опционов портфеля */
+  options: PositionsOptions[]
 }
 
 /**
@@ -352,7 +514,8 @@ export interface PositionsResponse {
  * @see https://tinkoff.github.io/investAPI/operations/#withdrawlimitsrequest
  */
 export interface WithdrawLimitsRequest {
-  // account_id	string	Идентификатор счёта пользователя.
+  /** Идентификатор счёта пользователя */
+  account_id: string
 }
 
 /**
@@ -360,108 +523,188 @@ export interface WithdrawLimitsRequest {
  * @see https://tinkoff.github.io/investAPI/operations/#withdrawlimitsresponse
  */
 export interface WithdrawLimitsResponse {
-  // money	Массив объектов MoneyValue	Массив валютных позиций портфеля.
-  // blocked	Массив объектов MoneyValue	Массив заблокированных валютных позиций портфеля.
-  // blocked_guarantee	Массив объектов MoneyValue	Заблокировано под гарантийное обеспечение фьючерсов.
+  /** Массив валютных позиций портфеля */
+  money: MoneyValue[]
+  /** Массив заблокированных валютных позиций портфеля */
+  blocked: MoneyValue[]
+  /** Заблокировано под гарантийное обеспечение фьючерсов */
+  blocked_guarantee: MoneyValue[]
 }
 
 /**
  * @see https://tinkoff.github.io/investAPI/operations/#generatebrokerreportrequest
  */
 export interface GenerateBrokerReportRequest {
-  // account_id	string	Идентификатор счёта клиента.
-  // from	google.protobuf.Timestamp	Начало периода в часовом поясе UTC.
-  // to	google.protobuf.Timestamp	Окончание периода в часовом поясе UTC.
+  /** Идентификатор счёта клиента */
+  account_id: string
+  /**
+   * Начало периода в часовом поясе UTC
+   * @type `google.protobuf.Timestamp`
+   */
+  from: string
+  /**
+   * Окончание периода в часовом поясе UTC
+   * @type `google.protobuf.Timestamp`
+   */
+  to: string
 }
 
 /**
  * @see https://tinkoff.github.io/investAPI/operations/#generatebrokerreportresponse
  */
 export interface GenerateBrokerReportResponse {
-  // task_id	string	Идентификатор задачи формирования брокерского отчёта.
+  /** Идентификатор задачи формирования брокерского отчёта */
+  task_id: string
 }
 
 /**
  * @see https://tinkoff.github.io/investAPI/operations/#brokerreportrequest
  */
 export interface BrokerReportRequest {
-  // generate_broker_report_request	GenerateBrokerReportRequest
-  // get_broker_report_request	GetBrokerReportRequest
+  /** @todo Нет описания */
+  generate_broker_report_request: GenerateBrokerReportRequest
+  /** @todo Нет описания */
+  get_broker_report_request: GetBrokerReportRequest
 }
 
 /**
  * @see https://tinkoff.github.io/investAPI/operations/#brokerreportresponse
  */
 export interface BrokerReportResponse {
-  // generate_broker_report_response	GenerateBrokerReportResponse
-  // get_broker_report_response	GetBrokerReportResponse
+  /** @todo Нет описания */
+  generate_broker_report_response: GenerateBrokerReportResponse
+  /** @todo Нет описания */
+  get_broker_report_response: GetBrokerReportResponse
 }
 
 /**
  * @see https://tinkoff.github.io/investAPI/operations/#getbrokerreportrequest
  */
 export interface GetBrokerReportRequest {
-  // task_id	string	Идентификатор задачи формирования брокерского отчёта.
-  // page	int32	Номер страницы отчета (начинается с 1), значение по умолчанию: 0.
+  /** Идентификатор задачи формирования брокерского отчёта */
+  task_id: string
+  /**
+   * Номер страницы отчета (начинается с 1), значение по умолчанию: 0
+   * @type `int32`
+   */
+  page: number
 }
 
 /**
  * @see https://tinkoff.github.io/investAPI/operations/#getbrokerreportresponse
  */
 export interface GetBrokerReportResponse {
-  // broker_report	Массив объектов BrokerReport
-  // itemsCount	int32	Количество записей в отчете.
-  // pagesCount	int32	Количество страниц с данными отчета (начинается с 0).
-  // page	int32	Текущая страница (начинается с 0).
+  /** @todo Нет описания */
+  broker_report: BrokerReport[]
+  /**
+   * Количество записей в отчете
+   * @type `int32`
+   */
+  itemsCount: number
+  /**
+   * Количество страниц с данными отчета (начинается с 0)
+   * @type `int32`
+   */
+  pagesCount: number
+  /**
+   * Текущая страница (начинается с 0)
+   * @type `int32`
+   */
+  page: number
 }
 
 /**
  * @see https://tinkoff.github.io/investAPI/operations/#brokerreport
  */
 export interface BrokerReport {
-  // trade_id	string	Номер сделки.
-  // order_id	string	Номер поручения.
-  // figi	string	Figi-идентификатор инструмента.
-  // execute_sign	string	Признак исполнения.
-  // trade_datetime	google.protobuf.Timestamp	Дата и время заключения в часовом поясе UTC.
-  // exchange	string	Торговая площадка.
-  // class_code	string	Режим торгов.
-  // direction	string	Вид сделки.
-  // name	string	Сокращённое наименование актива.
-  // ticker	string	Код актива.
-  // price	MoneyValue	Цена за единицу.
-  // quantity	int64	Количество.
-  // order_amount	MoneyValue	Сумма (без НКД).
-  // aci_value	Quotation	НКД.
-  // total_order_amount	MoneyValue	Сумма сделки.
-  // broker_commission	MoneyValue	Комиссия брокера.
-  // exchange_commission	MoneyValue	Комиссия биржи.
-  // exchange_clearing_commission	MoneyValue	Комиссия клир. центра.
-  // repo_rate	Quotation	Ставка РЕПО (%).
-  // party	string	Контрагент/Брокер.
-  // clear_value_date	google.protobuf.Timestamp	Дата расчётов в часовом поясе UTC.
-  // sec_value_date	google.protobuf.Timestamp	Дата поставки в часовом поясе UTC.
-  // broker_status	string	Статус брокера.
-  // separate_agreement_type	string	Тип дог.
-  // separate_agreement_number	string	Номер дог.
-  // separate_agreement_date	string	Дата дог.
-  // delivery_type	string	Тип расчёта по сделке.
+  /** Номер сделки */
+  trade_id: string
+  /** Номер поручения */
+  order_id: string
+  /** Figi-идентификатор инструмента */
+  figi: string
+  /** Признак исполнения */
+  execute_sign: string
+  /**
+   * Дата и время заключения в часовом поясе UTC
+   * @type `google.protobuf.Timestamp`
+   */
+  trade_datetime: string
+  /** Торговая площадка */
+  exchange: string
+  /** Режим торгов */
+  class_code: string
+  /** Вид сделки */
+  direction: string
+  /** Сокращённое наименование актива */
+  name: string
+  /** Код актива */
+  ticker: string
+  /**
+   * Цена за единицу.
+   */
+  price: MoneyValue
+  /**
+   * Количество
+   * @type `int64`
+   */
+  quantity: string
+  /** Сумма (без НКД) */
+  order_amount: MoneyValue
+  /** НКД */
+  aci_value: Quotation
+  /** Сумма сделки */
+  total_order_amount: MoneyValue
+  /** Комиссия брокера */
+  broker_commission: MoneyValue
+  /** Комиссия биржи */
+  exchange_commission: MoneyValue
+  /** Комиссия клир. центра */
+  exchange_clearing_commission: MoneyValue
+  /** Ставка РЕПО (%) */
+  repo_rate: Quotation
+  /** Контрагент/Брокер */
+  party: string
+  /**
+   * Дата расчётов в часовом поясе UTC
+   * @type `google.protobuf.Timestamp`
+   */
+  clear_value_date: string
+  /**
+   * Дата поставки в часовом поясе UTC
+   * @type `google.protobuf.Timestamp`
+   */
+  sec_value_date: string
+  /** Статус брокера */
+  broker_status: string
+  /** Тип дог */
+  separate_agreement_type: string
+  /** Номер дог */
+  separate_agreement_number: string
+  /** Дата дог */
+  separate_agreement_date: string
+  /** Тип расчёта по сделке */
+  delivery_type: string
 }
 
 /**
  * @see https://tinkoff.github.io/investAPI/operations/#getdividendsforeignissuerrequest
  */
 export interface GetDividendsForeignIssuerRequest {
-  // generate_div_foreign_issuer_report	GenerateDividendsForeignIssuerReportRequest	Объект запроса формирования отчёта.
-  // get_div_foreign_issuer_report	GetDividendsForeignIssuerReportRequest	Объект запроса сформированного отчёта.
+  /** Объект запроса формирования отчёта */
+  generate_div_foreign_issuer_report: GenerateDividendsForeignIssuerReportRequest
+  /** Объект запроса сформированного отчёта */
+  get_div_foreign_issuer_report: GetDividendsForeignIssuerReportRequest
 }
 
 /**
  * @see https://tinkoff.github.io/investAPI/operations/#getdividendsforeignissuerresponse
  */
 export interface GetDividendsForeignIssuerResponse {
-  // generate_div_foreign_issuer_report_response	GenerateDividendsForeignIssuerReportResponse	Объект результата задачи запуска формирования отчёта.
-  // div_foreign_issuer_report	GetDividendsForeignIssuerReportResponse	Отчёт "Справка о доходах за пределами РФ".
+  /** Объект результата задачи запуска формирования отчёта */
+  generate_div_foreign_issuer_report_response: GenerateDividendsForeignIssuerReportResponse
+  /** Отчёт "Справка о доходах за пределами РФ" */
+  div_foreign_issuer_report: GetDividendsForeignIssuerReportResponse
 }
 
 /**
@@ -469,9 +712,18 @@ export interface GetDividendsForeignIssuerResponse {
  * @see https://tinkoff.github.io/investAPI/operations/#generatedividendsforeignissuerreportrequest
  */
 export interface GenerateDividendsForeignIssuerReportRequest {
-  // account_id	string	Идентификатор счёта клиента.
-  // from	google.protobuf.Timestamp	Начало периода (по UTC).
-  // to	google.protobuf.Timestamp	Окончание периода (по UTC).
+  /** Идентификатор счёта клиента */
+  account_id: string
+  /**
+   * Начало периода (по UTC).
+   * @type `google.protobuf.Timestamp`
+   */
+  from: string
+  /**
+   * Окончание периода (по UTC).
+   * @type `google.protobuf.Timestamp`
+   */
+  to: string
 }
 
 /**
@@ -479,8 +731,13 @@ export interface GenerateDividendsForeignIssuerReportRequest {
  * @see https://tinkoff.github.io/investAPI/operations/#getdividendsforeignissuerreportrequest
  */
 export interface GetDividendsForeignIssuerReportRequest {
-  // task_id	string	Идентификатор задачи формирования отчёта.
-  // page	int32	Номер страницы отчета (начинается с 0), значение по умолчанию: 0.
+  /** Идентификатор задачи формирования отчёта */
+  task_id: string
+  /**
+   * Номер страницы отчета (начинается с 0), значение по умолчанию: 0
+   * @type `int32`
+   */
+  page: number
 }
 
 /**
@@ -488,17 +745,31 @@ export interface GetDividendsForeignIssuerReportRequest {
  * @see https://tinkoff.github.io/investAPI/operations/#generatedividendsforeignissuerreportresponse
  */
 export interface GenerateDividendsForeignIssuerReportResponse {
-  // task_id	string	Идентификатор задачи формирования отчёта.
+  /** Идентификатор задачи формирования отчёта */
+  task_id: string
 }
 
 /**
  * @see https://tinkoff.github.io/investAPI/operations/#getdividendsforeignissuerreportresponse
  */
 export interface GetDividendsForeignIssuerReportResponse {
-  // dividends_foreign_issuer_report	Массив объектов DividendsForeignIssuerReport
-  // itemsCount	int32	Количество записей в отчете.
-  // pagesCount	int32	Количество страниц с данными отчета (начинается с 0).
-  // page	int32	Текущая страница (начинается с 0).
+  /** @todo Нет описания */
+  dividends_foreign_issuer_report: DividendsForeignIssuerReport[]
+  /**
+   * Количество записей в отчете
+   * @type `int32`
+   */
+  itemsCount: number
+  /**
+   * Количество страниц с данными отчета (начинается с 0)
+   * @type `int32`
+   */
+  pagesCount: number
+  /**
+   * Текущая страница (начинается с 0)
+   * @type `int32`
+   */
+  page: number
 }
 
 /**
@@ -506,18 +777,42 @@ export interface GetDividendsForeignIssuerReportResponse {
  * @see https://tinkoff.github.io/investAPI/operations/#dividendsforeignissuerreport
  */
 export interface DividendsForeignIssuerReport {
-  // record_date	google.protobuf.Timestamp	Дата фиксации реестра.
-  // payment_date	google.protobuf.Timestamp	Дата выплаты.
-  // security_name	string	Наименование ценной бумаги.
-  // isin	string	ISIN-идентификатор ценной бумаги.
-  // issuer_country	string	Страна эмитента. Для депозитарных расписок указывается страна эмитента базового актива.
-  // quantity	int64	Количество ценных бумаг.
-  // dividend	Quotation	Выплаты на одну бумагу
-  // external_commission	Quotation	Комиссия внешних платёжных агентов.
-  // dividend_gross	Quotation	Сумма до удержания налога.
-  // tax	Quotation	Сумма налога, удержанного агентом.
-  // dividend_amount	Quotation	Итоговая сумма выплаты.
-  // currency	string	Валюта.
+  /**
+   * Дата фиксации реестра.
+   * @type `google.protobuf.Timestamp`
+   */
+  record_date: string
+  /**
+   * Дата выплаты.
+   * @type `google.protobuf.Timestamp`
+   */
+  payment_date: string
+  /** Наименование ценной бумаги */
+  security_name: string
+  /** ISIN-идентификатор ценной бумаги */
+  isin: string
+  /**
+   * Страна эмитента
+   * @description Для депозитарных расписок указывается страна эмитента базового актива
+   */
+  issuer_country: string
+  /**
+   * Количество ценных бумаг
+   * @type `int64`
+   */
+  quantity: string
+  /** Выплаты на одну бумаг */
+  dividend: Quotation
+  /** Комиссия внешних платёжных агентов */
+  external_commission: Quotation
+  /** Сумма до удержания налога */
+  dividend_gross: Quotation
+  /** Сумма налога, удержанного агентом */
+  tax: Quotation
+  /** Итоговая сумма выплаты */
+  dividend_amount: Quotation
+  /** Валюта */
+  currency: string
 }
 
 /**
@@ -525,17 +820,40 @@ export interface DividendsForeignIssuerReport {
  * @see https://tinkoff.github.io/investAPI/operations/#getoperationsbycursorrequest
  */
 export interface GetOperationsByCursorRequest {
-  // account_id	string	Идентификатор счёта клиента. Обязательный параметр для данного метода, остальные параметры опциональны.
-  // instrument_id	string	Идентификатор инструмента (Figi инструмента или uid инструмента)
-  // from	google.protobuf.Timestamp	Начало периода (по UTC).
-  // to	google.protobuf.Timestamp	Окончание периода (по UTC).
-  // cursor	string	Идентификатор элемента, с которого начать формировать ответ.
-  // limit	int32	Лимит количества операций. По умолчанию устанавливается значение 100, максимальное значение 1000.
-  // operation_types	Массив объектов OperationType	Тип операции. Принимает значение из списка OperationType.
-  // state	OperationState	Статус запрашиваемых операций, возможные значения указаны в OperationState.
-  // without_commissions	bool	Флаг возвращать ли комиссии, по умолчанию false
-  // without_trades	bool	Флаг получения ответа без массива сделок.
-  // without_overnights	bool	Флаг не показывать overnight операций.
+  /** Идентификатор счёта клиента. Обязательный параметр для данного метода, остальные параметры опциональны */
+  account_id: string
+  /** Идентификатор инструмента (Figi инструмента или uid инструмента) */
+  instrument_id: string
+  /**
+   * Начало периода (по UTC).
+   * @type `google.protobuf.Timestamp`
+   */
+  from: string
+  /**
+   * Окончание периода (по UTC).
+   * @type `google.protobuf.Timestamp`
+   */
+  to: string
+  /** Идентификатор элемента, с которого начать формировать ответ */
+  cursor: string
+  /**
+   * Лимит количества операций. По умолчанию устанавливается значение 100, максимальное значение 1000
+   * @type `int32`
+   */
+  limit: number
+  /**
+   * Тип операции
+   * @description Принимает значение из списка OperationType
+   */
+  operation_types: OperationType[]
+  /** Статус запрашиваемых операций, возможные значения указаны в OperationState */
+  state: OperationState
+  /** Флаг возвращать ли комиссии, по умолчанию false */
+  without_commissions: boolean
+  /** Флаг получения ответа без массива сделок. */
+  without_trades: boolean
+  /** Флаг не показывать overnight операций. */
+  without_overnights: boolean
 }
 
 /**
@@ -543,9 +861,12 @@ export interface GetOperationsByCursorRequest {
  * @see https://tinkoff.github.io/investAPI/operations/#getoperationsbycursorresponse
  */
 export interface GetOperationsByCursorResponse {
-  // has_next	bool	Признак, есть ли следующий элемент.
-  // next_cursor	string	Следующий курсор.
-  // items	Массив объектов OperationItem	Список операций.
+  /** Признак, есть ли следующий элемент */
+  has_next: boolean
+  /** Следующий курсор */
+  next_cursor: string
+  /** Список операций */
+  items: OperationItem[]
 }
 
 /**
@@ -553,33 +874,77 @@ export interface GetOperationsByCursorResponse {
  * @see https://tinkoff.github.io/investAPI/operations/#operationitem
  */
 export interface OperationItem {
-  // cursor	string	Курсор.
-  // broker_account_id	string	Номер счета клиента.
-  // id	string	Идентификатор операции, может меняться с течением времени.
-  // parent_operation_id	string	Идентификатор родительской операции, может измениться, если изменился id родительской операции.
-  // name	string	Название операции.
-  // date	google.protobuf.Timestamp	Дата поручения.
-  // type	OperationType	Тип операции.
-  // description	string	Описание операции.
-  // state	OperationState	Статус поручения.
-  // instrument_uid	string	Уникальный идентификатор инструмента.
-  // figi	string	Figi.
-  // instrument_type	string	Тип инструмента.
-  // instrument_kind	InstrumentType	Тип инструмента.
-  // position_uid	string	position_uid-идентификатора инструмента.
-  // payment	MoneyValue	Сумма операции.
-  // price	MoneyValue	Цена операции за 1 инструмент.
-  // commission	MoneyValue	Комиссия.
-  // yield	MoneyValue	Доходность.
-  // yield_relative	Quotation	Относительная доходность.
-  // accrued_int	MoneyValue	Накопленный купонный доход.
-  // quantity	int64	Количество единиц инструмента.
-  // quantity_rest	int64	Неисполненный остаток по сделке.
-  // quantity_done	int64	Исполненный остаток.
-  // cancel_date_time	google.protobuf.Timestamp	Дата и время снятия заявки.
-  // cancel_reason	string	Причина отмены операции.
-  // trades_info	OperationItemTrades	Массив сделок.
-  // asset_uid	string	Идентификатор актива
+  /** Курсор */
+  cursor: string
+  /** Номер счета клиента */
+  broker_account_id: string
+  /** Идентификатор операции, может меняться с течением времени */
+  id: string
+  /** Идентификатор родительской операции, может измениться, если изменился id родительской операции */
+  parent_operation_id: string
+  /** Название операции */
+  name: string
+  /**
+   * Дата поручения.
+   * @type `google.protobuf.Timestamp`
+   */
+  date: string
+  /** Тип операции */
+  type: OperationType
+  /** Описание операции */
+  description: string
+  /** Статус поручения */
+  state: OperationState
+  /** Уникальный идентификатор инструмента */
+  instrument_uid: string
+  /** Figi */
+  figi: string
+  /** Тип инструмента */
+  instrument_type: string
+  /** Тип инструмента */
+  instrument_kind: InstrumentType
+  /** position_uid-идентификатора инструмента */
+  position_uid: string
+  /** Сумма операции */
+  payment: MoneyValue
+  /**
+   * Цена операции за 1 инструмент.
+   */
+  price: MoneyValue
+  /** Комиссия */
+  commission: MoneyValue
+  /** Доходность */
+  yield: MoneyValue
+  /** Относительная доходность */
+  yield_relative: Quotation
+  /** Накопленный купонный доход */
+  accrued_int: MoneyValue
+  /**
+   * Количество единиц инструмента
+   * @type `int64`
+   */
+  quantity: string
+  /**
+   * Неисполненный остаток по сделке
+   * @type `int64`
+   */
+  quantity_rest: string
+  /**
+   * Исполненный остаток
+   * @type `int64`
+   */
+  quantity_done: string
+  /**
+   * Дата и время снятия заявки.
+   * @type `google.protobuf.Timestamp`
+   */
+  cancel_date_time: string
+  /** Причина отмены операции */
+  cancel_reason: string
+  /** Массив сделок */
+  trades_info: OperationItemTrades
+  /** Идентификатор актива */
+  asset_uid: string
 }
 
 /**
@@ -587,7 +952,8 @@ export interface OperationItem {
  * @see https://tinkoff.github.io/investAPI/operations/#operationitemtrades
  */
 export interface OperationItemTrades {
-  // trades	Массив объектов OperationItemTrade
+  /** @todo Нет описания */
+  trades: OperationItemTrade[]
 }
 
 /**
@@ -595,12 +961,26 @@ export interface OperationItemTrades {
  * @see https://tinkoff.github.io/investAPI/operations/#operationitemtrade
  */
 export interface OperationItemTrade {
-  // num	string	Номер сделки
-  // date	google.protobuf.Timestamp	Дата сделки
-  // quantity	int64	Количество в единицах.
-  // price	MoneyValue	Цена.
-  // yield	MoneyValue	Доходность.
-  // yield_relative	Quotation	Относительная доходность.
+  /** Номер сделки */
+  num: string
+  /**
+   * Дата сделки
+   * @type `google.protobuf.Timestamp`
+   */
+  date: string
+  /**
+   * Количество в единицах
+   * @type `int64`
+   */
+  quantity: string
+  /**
+   * Цена.
+   */
+  price: MoneyValue
+  /** Доходность. */
+  yield: MoneyValue
+  /** Относительная доходность. */
+  yield_relative: Quotation
 }
 
 /**
@@ -608,12 +988,21 @@ export interface OperationItemTrade {
  * @see https://tinkoff.github.io/investAPI/operations/#positiondata
  */
 export interface PositionData {
-  // account_id	string	Идентификатор счёта.
-  // money	Массив объектов PositionsMoney	Массив валютных позиций портфеля.
-  // securities	Массив объектов PositionsSecurities	Список ценно-бумажных позиций портфеля.
-  // futures	Массив объектов PositionsFutures	Список фьючерсов портфеля.
-  // options	Массив объектов PositionsOptions	Список опционов портфеля.
-  // date	google.protobuf.Timestamp	Дата и время операции в формате UTC.
+  /** Идентификатор счёта */
+  account_id: string
+  /** Массив валютных позиций портфеля */
+  money: PositionsMoney[]
+  /** Список ценно-бумажных позиций портфеля */
+  securities: PositionsSecurities[]
+  /** Список фьючерсов портфеля */
+  futures: PositionsFutures[]
+  /** Список опционов портфеля */
+  options: PositionsOptions[]
+  /**
+   * Дата и время операции в формате UTC
+   * @type `google.protobuf.Timestamp`
+   */
+  date: string
 }
 
 /**
@@ -621,8 +1010,10 @@ export interface PositionData {
  * @see https://tinkoff.github.io/investAPI/operations/#positionsmoney
  */
 export interface PositionsMoney {
-  // available_value	MoneyValue	Доступное количество валютный позиций.
-  // blocked_value	MoneyValue	Заблокированное количество валютный позиций.
+  /** Доступное количество валютный позиций */
+  available_value: MoneyValue
+  /** Заблокированное количество валютный позиций */
+  blocked_value: MoneyValue
 }
 
 /**
