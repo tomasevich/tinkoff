@@ -58,6 +58,8 @@ export class SandboxService extends Common {
   /**
    * Метод получения счетов в песочнице
    * ```js
+   * import { SandboxService } from '@tomasevich/tinkoff'
+   *
    * const sandboxService = new SandboxService('TOKEN', true)
    * const { accounts } = await sandboxService.GetSandboxAccounts({})
    *

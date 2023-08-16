@@ -206,6 +206,8 @@ export class UsersService extends Common {
   /**
    * Метод получения счетов пользователя
    * ```js
+   * import { UsersService } from '@tomasevich/tinkoff'
+   *
    * const usersService = new UsersService('TOKEN', false)
    * const { accounts } = await usersService.GetAccounts({})
    *
@@ -220,6 +222,8 @@ export class UsersService extends Common {
   /**
    * Расчёт маржинальных показателей по счёту
    * ```js
+   * import { UsersService } from '@tomasevich/tinkoff'
+   *
    * const usersService = new UsersService('TOKEN', false)
    * const marginAttributes = await usersService.GetMarginAttributes({ accountId: 'ACCOUNT_ID' })
    *
@@ -236,6 +240,8 @@ export class UsersService extends Common {
   /**
    * Запрос тарифа пользователя
    * ```js
+   * import { UsersService } from '@tomasevich/tinkoff'
+   *
    * const usersService = new UsersService('TOKEN', false)
    * const userTariff = await usersService.GetUserTariff({})
    *
@@ -252,6 +258,8 @@ export class UsersService extends Common {
   /**
    * Метод получения информации о пользователе
    * ```js
+   * import { UsersService } from '@tomasevich/tinkoff'
+   *
    * const usersService = new UsersService('TOKEN', false)
    * const info = await usersService.GetInfo({})
    *
