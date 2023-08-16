@@ -29,7 +29,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">SandboxService</span></li></ul></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/3650134/src/SandboxService.ts#L47">SandboxService.ts:47</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b95dca0/src/SandboxService.ts#L47">SandboxService.ts:47</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -83,7 +83,7 @@
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#constructor">constructor</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/3650134/src/Common.ts#L53">Common.ts:53</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b95dca0/src/Common.ts#L53">Common.ts:53</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member"><a id="CancelSandboxOrder" class="tsd-anchor"></a>
@@ -103,7 +103,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#cancelsandboxorder">https://tinkoff.github.io/investAPI/sandbox/#cancelsandboxorder</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/3650134/src/SandboxService.ts#L108">SandboxService.ts:108</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b95dca0/src/SandboxService.ts#L115">SandboxService.ts:115</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="CloseSandboxAccount" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Close<wbr/>Sandbox<wbr/>Account</span><a href="#CloseSandboxAccount" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -121,7 +121,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#closesandboxaccount">https://tinkoff.github.io/investAPI/sandbox/#closesandboxaccount</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/3650134/src/SandboxService.ts#L72">SandboxService.ts:72</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b95dca0/src/SandboxService.ts#L79">SandboxService.ts:79</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxAccounts" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Accounts</span><a href="#GetSandboxAccounts" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -136,10 +136,13 @@
 <h5><span class="tsd-kind-parameter">body</span>: <a href="../interfaces/UsersService.GetAccountsRequest.html" class="tsd-signature-type tsd-kind-interface">GetAccountsRequest</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/UsersService.GetAccountsResponse.html" class="tsd-signature-type tsd-kind-interface">GetAccountsResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography">
+<h4>Example</h4><pre><code class="language-js"><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;TOKEN&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">accounts</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">sandboxService</span><span class="hl-1">.</span><span class="hl-0">GetSandboxAccounts</span><span class="hl-1">({})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">accounts</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
+
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxaccounts">https://tinkoff.github.io/investAPI/sandbox/#getsandboxaccounts</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/3650134/src/SandboxService.ts#L62">SandboxService.ts:62</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b95dca0/src/SandboxService.ts#L69">SandboxService.ts:69</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxOperations" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Operations</span><a href="#GetSandboxOperations" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -157,7 +160,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxoperations">https://tinkoff.github.io/investAPI/sandbox/#getsandboxoperations</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/3650134/src/SandboxService.ts#L137">SandboxService.ts:137</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b95dca0/src/SandboxService.ts#L144">SandboxService.ts:144</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxOperationsByCursor" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Operations<wbr/>By<wbr/>Cursor</span><a href="#GetSandboxOperationsByCursor" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -175,7 +178,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxoperationsbycursor">https://tinkoff.github.io/investAPI/sandbox/#getsandboxoperationsbycursor</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/3650134/src/SandboxService.ts#L147">SandboxService.ts:147</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b95dca0/src/SandboxService.ts#L154">SandboxService.ts:154</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxOrderState" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Order<wbr/>State</span><a href="#GetSandboxOrderState" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -195,7 +198,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxorderstate">https://tinkoff.github.io/investAPI/sandbox/#getsandboxorderstate</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/3650134/src/SandboxService.ts#L119">SandboxService.ts:119</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b95dca0/src/SandboxService.ts#L126">SandboxService.ts:126</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxOrders" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Orders</span><a href="#GetSandboxOrders" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -213,7 +216,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxorders">https://tinkoff.github.io/investAPI/sandbox/#getsandboxorders</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/3650134/src/SandboxService.ts#L100">SandboxService.ts:100</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b95dca0/src/SandboxService.ts#L107">SandboxService.ts:107</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxPortfolio" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Portfolio</span><a href="#GetSandboxPortfolio" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -231,7 +234,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxportfolio">https://tinkoff.github.io/investAPI/sandbox/#getsandboxportfolio</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/3650134/src/SandboxService.ts#L157">SandboxService.ts:157</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b95dca0/src/SandboxService.ts#L164">SandboxService.ts:164</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxPositions" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Positions</span><a href="#GetSandboxPositions" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -249,7 +252,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxpositions">https://tinkoff.github.io/investAPI/sandbox/#getsandboxpositions</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/3650134/src/SandboxService.ts#L127">SandboxService.ts:127</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b95dca0/src/SandboxService.ts#L134">SandboxService.ts:134</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxWithdrawLimits" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Withdraw<wbr/>Limits</span><a href="#GetSandboxWithdrawLimits" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -267,7 +270,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxwithdrawlimits">https://tinkoff.github.io/investAPI/sandbox/#getsandboxwithdrawlimits</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/3650134/src/SandboxService.ts#L177">SandboxService.ts:177</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b95dca0/src/SandboxService.ts#L184">SandboxService.ts:184</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="OpenSandboxAccount" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Open<wbr/>Sandbox<wbr/>Account</span><a href="#OpenSandboxAccount" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -285,7 +288,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#opensandboxaccount">https://tinkoff.github.io/investAPI/sandbox/#opensandboxaccount</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/3650134/src/SandboxService.ts#L52">SandboxService.ts:52</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b95dca0/src/SandboxService.ts#L52">SandboxService.ts:52</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="PostSandboxOrder" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Post<wbr/>Sandbox<wbr/>Order</span><a href="#PostSandboxOrder" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -303,7 +306,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#postsandboxorder">https://tinkoff.github.io/investAPI/sandbox/#postsandboxorder</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/3650134/src/SandboxService.ts#L82">SandboxService.ts:82</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b95dca0/src/SandboxService.ts#L89">SandboxService.ts:89</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="ReplaceSandboxOrder" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Replace<wbr/>Sandbox<wbr/>Order</span><a href="#ReplaceSandboxOrder" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -321,7 +324,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#replacesandboxorder">https://tinkoff.github.io/investAPI/sandbox/#replacesandboxorder</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/3650134/src/SandboxService.ts#L90">SandboxService.ts:90</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b95dca0/src/SandboxService.ts#L97">SandboxService.ts:97</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="SandboxPayIn" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Sandbox<wbr/>Pay<wbr/>In</span><a href="#SandboxPayIn" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -339,7 +342,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#sandboxpayin">https://tinkoff.github.io/investAPI/sandbox/#sandboxpayin</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/3650134/src/SandboxService.ts#L167">SandboxService.ts:167</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b95dca0/src/SandboxService.ts#L174">SandboxService.ts:174</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-protected tsd-is-inherited"><a id="request" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagProtected">Protected</code> <span>request</span><a href="#request" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-protected tsd-is-inherited">
@@ -369,7 +372,7 @@
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#request">request</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/3650134/src/Common.ts#L61">Common.ts:61</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b95dca0/src/Common.ts#L61">Common.ts:61</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
