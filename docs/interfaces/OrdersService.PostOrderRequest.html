@@ -16,12 +16,18 @@
 <li><a href="../modules/OrdersService.html">OrdersService</a></li>
 <li><a href="OrdersService.PostOrderRequest.html">PostOrderRequest</a></li></ul>
 <h1>Interface PostOrderRequest</h1></div>
+<section class="tsd-panel tsd-comment">
+<div class="tsd-comment tsd-typography"><p>Запрос выставления торгового поручения</p>
+</div>
+<div class="tsd-comment tsd-typography">
+<h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/orders/#postorderrequest">https://tinkoff.github.io/investAPI/orders/#postorderrequest</a></p>
+</div></section>
 <section class="tsd-panel tsd-hierarchy">
 <h4>Hierarchy</h4>
 <ul class="tsd-hierarchy">
 <li><span class="target">PostOrderRequest</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/a592ba7/src/OrdersService.ts#L54">OrdersService.ts:54</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/a7f695a/src/OrdersService.ts#L86">OrdersService.ts:86</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -31,7 +37,7 @@
 <h3 class="tsd-index-heading">Properties</h3>
 <div class="tsd-index-list"><a href="OrdersService.PostOrderRequest.html#accountId" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-1024"><rect fill="var(--color-icon-background)" stroke="#FF984D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M9.354 16V7.24H12.174C12.99 7.24 13.638 7.476 14.118 7.948C14.606 8.412 14.85 9.036 14.85 9.82C14.85 10.604 14.606 11.232 14.118 11.704C13.638 12.168 12.99 12.4 12.174 12.4H10.434V16H9.354ZM10.434 11.428H12.174C12.646 11.428 13.022 11.284 13.302 10.996C13.59 10.7 13.734 10.308 13.734 9.82C13.734 9.324 13.59 8.932 13.302 8.644C13.022 8.356 12.646 8.212 12.174 8.212H10.434V11.428Z" fill="var(--color-text)"></path></g></svg><span>account<wbr/>Id</span></a>
 <a href="OrdersService.PostOrderRequest.html#direction" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>direction</span></a>
-<a href="OrdersService.PostOrderRequest.html#figi" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>figi?</span></a>
+<a href="OrdersService.PostOrderRequest.html#figi" class="tsd-index-link deprecated"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>figi?</span></a>
 <a href="OrdersService.PostOrderRequest.html#instrumentId" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>instrument<wbr/>Id</span></a>
 <a href="OrdersService.PostOrderRequest.html#orderId" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>order<wbr/>Id</span></a>
 <a href="OrdersService.PostOrderRequest.html#orderType" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>order<wbr/>Type</span></a>
@@ -42,44 +48,74 @@
 <h2>Properties</h2>
 <section class="tsd-panel tsd-member"><a id="accountId" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>account<wbr/>Id</span><a href="#accountId" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><g stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" id="icon-anchor"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></g></svg></a></h3>
-<div class="tsd-signature"><span class="tsd-kind-property">account<wbr/>Id</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div><aside class="tsd-sources">
+<div class="tsd-signature"><span class="tsd-kind-property">account<wbr/>Id</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+<div class="tsd-comment tsd-typography"><p>Номер счёта</p>
+</div>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/a592ba7/src/OrdersService.ts#L59">OrdersService.ts:59</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/a7f695a/src/OrdersService.ts#L100">OrdersService.ts:100</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="direction" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>direction</span><a href="#direction" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<div class="tsd-signature"><span class="tsd-kind-property">direction</span><span class="tsd-signature-symbol">:</span> <a href="../enums/OrdersService.OrderDirection.html" class="tsd-signature-type tsd-kind-enum">OrderDirection</a></div><aside class="tsd-sources">
+<div class="tsd-signature"><span class="tsd-kind-property">direction</span><span class="tsd-signature-symbol">:</span> <a href="../enums/OrdersService.OrderDirection.html" class="tsd-signature-type tsd-kind-enum">OrderDirection</a></div>
+<div class="tsd-comment tsd-typography"><p>Направление операции</p>
+</div>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/a592ba7/src/OrdersService.ts#L58">OrdersService.ts:58</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/a7f695a/src/OrdersService.ts#L98">OrdersService.ts:98</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="figi" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>figi</span><a href="#figi" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<div class="tsd-signature"><span class="tsd-kind-property">figi</span><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">string</span></div><aside class="tsd-sources">
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span class="deprecated">figi</span><a href="#figi" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<div class="tsd-signature"><span class="tsd-kind-property">figi</span><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">string</span></div>
+<div class="tsd-comment tsd-typography"><p>Figi-идентификатор инструмента</p>
+</div>
+<div class="tsd-comment tsd-typography">
+<h4>Deprecated</h4><p>Необходимо использовать <code>instrumentId</code></p>
+</div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/a592ba7/src/OrdersService.ts#L55">OrdersService.ts:55</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/a7f695a/src/OrdersService.ts#L114">OrdersService.ts:114</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="instrumentId" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>instrument<wbr/>Id</span><a href="#instrumentId" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<div class="tsd-signature"><span class="tsd-kind-property">instrument<wbr/>Id</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div><aside class="tsd-sources">
+<div class="tsd-signature"><span class="tsd-kind-property">instrument<wbr/>Id</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+<div class="tsd-comment tsd-typography"><p>Идентификатор инструмента, принимает значения <code>Figi</code> или <code>InstrumentUid</code></p>
+</div>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/a592ba7/src/OrdersService.ts#L62">OrdersService.ts:62</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/a7f695a/src/OrdersService.ts#L109">OrdersService.ts:109</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="orderId" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>order<wbr/>Id</span><a href="#orderId" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<div class="tsd-signature"><span class="tsd-kind-property">order<wbr/>Id</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div><aside class="tsd-sources">
+<div class="tsd-signature"><span class="tsd-kind-property">order<wbr/>Id</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+<div class="tsd-comment tsd-typography"><p>Идентификатор запроса выставления поручения для целей идемпотентности в формате <code>UID</code></p>
+</div>
+<div class="tsd-comment tsd-typography">
+<h4>Description</h4><p>Максимальная длина 36 символов</p>
+</div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/a592ba7/src/OrdersService.ts#L61">OrdersService.ts:61</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/a7f695a/src/OrdersService.ts#L107">OrdersService.ts:107</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="orderType" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>order<wbr/>Type</span><a href="#orderType" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<div class="tsd-signature"><span class="tsd-kind-property">order<wbr/>Type</span><span class="tsd-signature-symbol">:</span> <a href="../enums/OrdersService.OrderType.html" class="tsd-signature-type tsd-kind-enum">OrderType</a></div><aside class="tsd-sources">
+<div class="tsd-signature"><span class="tsd-kind-property">order<wbr/>Type</span><span class="tsd-signature-symbol">:</span> <a href="../enums/OrdersService.OrderType.html" class="tsd-signature-type tsd-kind-enum">OrderType</a></div>
+<div class="tsd-comment tsd-typography"><p>Тип заявки</p>
+</div>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/a592ba7/src/OrdersService.ts#L60">OrdersService.ts:60</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/a7f695a/src/OrdersService.ts#L102">OrdersService.ts:102</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="price" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>price</span><a href="#price" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<div class="tsd-signature"><span class="tsd-kind-property">price</span><span class="tsd-signature-symbol">:</span> <a href="Common.Quotation.html" class="tsd-signature-type tsd-kind-interface">Quotation</a></div><aside class="tsd-sources">
+<div class="tsd-signature"><span class="tsd-kind-property">price</span><span class="tsd-signature-symbol">:</span> <a href="Common.Quotation.html" class="tsd-signature-type tsd-kind-interface">Quotation</a></div>
+<div class="tsd-comment tsd-typography"><p>Цена за 1 инструмент</p>
+</div>
+<div class="tsd-comment tsd-typography">
+<h4>Description</h4><p>Для получения стоимости лота требуется умножить на лотность инструмента. Игнорируется для рыночных поручений</p>
+</div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/a592ba7/src/OrdersService.ts#L57">OrdersService.ts:57</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/a7f695a/src/OrdersService.ts#L96">OrdersService.ts:96</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="quantity" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>quantity</span><a href="#quantity" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<div class="tsd-signature"><span class="tsd-kind-property">quantity</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div><aside class="tsd-sources">
+<div class="tsd-signature"><span class="tsd-kind-property">quantity</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+<div class="tsd-comment tsd-typography"><p>Количество лотов</p>
+</div>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/a592ba7/src/OrdersService.ts#L56">OrdersService.ts:56</a></li></ul></aside></section></section></div>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/a7f695a/src/OrdersService.ts#L91">OrdersService.ts:91</a></li></ul></aside></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -121,6 +157,7 @@
 <li><a href="../enums/OrdersService.OrderDirection.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-8"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-enum)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.45 16V7.24H14.49V8.224H10.518V10.936H14.07V11.908H10.518V15.016H14.49V16H9.45Z" fill="var(--color-text)"></path></g></svg><span>Order<wbr/>Direction</span></a></li>
 <li><a href="../enums/OrdersService.OrderExecutionReportStatus.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-8"></use></svg><span>Order<wbr/>Execution<wbr/>Report<wbr/>Status</span></a></li>
 <li><a href="../enums/OrdersService.OrderType.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-8"></use></svg><span>Order<wbr/>Type</span></a></li>
+<li><a href="../enums/OrdersService.PriceType.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-8"></use></svg><span>Price<wbr/>Type</span></a></li>
 <li><a href="../classes/OrdersService.OrdersService.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-128"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-class)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z" fill="var(--color-text)"></path></g></svg><span>Orders<wbr/>Service</span></a></li>
 <li><a href="OrdersService.CancelOrderRequest.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-256"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-interface)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.51 16V15.016H11.298V8.224H9.51V7.24H14.19V8.224H12.402V15.016H14.19V16H9.51Z" fill="var(--color-text)"></path></g></svg><span>Cancel<wbr/>Order<wbr/>Request</span></a></li>
 <li><a href="OrdersService.CancelOrderResponse.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Cancel<wbr/>Order<wbr/>Response</span></a></li>
