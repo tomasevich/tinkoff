@@ -402,7 +402,10 @@ export interface VirtualPortfolioPosition {
    * @type `google.protobuf.Timestamp`
    */
   expireDate: string
-  /** Текущая цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента */
+  /**
+   * Текущая цена за 1 инструмент
+   * @description Для получения стоимости лота требуется умножить на лотность инструмента
+   */
   currentPrice: MoneyValue
   /**
    * Средняя цена позиции по методу FIFO
@@ -820,7 +823,10 @@ export interface DividendsForeignIssuerReport {
  * @see https://tinkoff.github.io/investAPI/operations/#getoperationsbycursorrequest
  */
 export interface GetOperationsByCursorRequest {
-  /** Идентификатор счёта клиента. Обязательный параметр для данного метода, остальные параметры опциональны */
+  /**
+   * Идентификатор счёта клиента
+   * @description Обязательный параметр для данного метода, остальные параметры опциональны
+   */
   accountId: string
   /** Идентификатор инструмента (Figi инструмента или uid инструмента) */
   instrumentId: string
@@ -837,7 +843,8 @@ export interface GetOperationsByCursorRequest {
   /** Идентификатор элемента, с которого начать формировать ответ */
   cursor: string
   /**
-   * Лимит количества операций. По умолчанию устанавливается значение 100, максимальное значение 1000
+   * Лимит количества операций
+   * @description По умолчанию устанавливается значение 100, максимальное значение 1000
    * @type `int32`
    */
   limit: number
@@ -850,9 +857,9 @@ export interface GetOperationsByCursorRequest {
   state: OperationState
   /** Флаг возвращать ли комиссии, по умолчанию false */
   withoutCommissions: boolean
-  /** Флаг получения ответа без массива сделок. */
+  /** Флаг получения ответа без массива сделок */
   withoutTrades: boolean
-  /** Флаг не показывать overnight операций. */
+  /** Флаг не показывать overnight операций */
   withoutOvernights: boolean
 }
 
@@ -977,9 +984,9 @@ export interface OperationItemTrade {
    * Цена.
    */
   price: MoneyValue
-  /** Доходность. */
+  /** Доходность */
   yield: MoneyValue
-  /** Относительная доходность. */
+  /** Относительная доходность */
   yieldRelative: Quotation
 }
 
