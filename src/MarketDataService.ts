@@ -1,32 +1,421 @@
-import { Common } from './Common'
+import { Common, Quotation, SecurityTradingStatus } from './Common'
 
-export interface GetCandlesRequest {}
+/**
+ * Направление сделки
+ * @see https://tinkoff.github.io/investAPI/marketdata/#tradedirection
+ */
+export enum TradeDirection {
+  /** Направление сделки не определено */
+  TRADE_DIRECTION_UNSPECIFIED,
+  /** Покупка */
+  TRADE_DIRECTION_BUY,
+  /** Продажа */
+  TRADE_DIRECTION_SELL
+}
 
-export interface GetCandlesResponse {}
+/**
+ * Интервал свечей
+ * @see https://tinkoff.github.io/investAPI/marketdata/#candleinterval
+ */
+export enum CandleInterval {
+  /** Интервал не определён */
+  CANDLE_INTERVAL_UNSPECIFIED,
+  /** от 1 минуты до 1 дня */
+  CANDLE_INTERVAL_1_MIN,
+  /** от 5 минут до 1 дня */
+  CANDLE_INTERVAL_5_MIN,
+  /** от 15 минут до 1 дня */
+  CANDLE_INTERVAL_15_MIN,
+  /** от 1 часа до 1 недели */
+  CANDLE_INTERVAL_HOUR,
+  /** от 1 дня до 1 года */
+  CANDLE_INTERVAL_DAY,
+  /** от 2 минут до 1 дня */
+  CANDLE_INTERVAL_2_MIN,
+  /** от 3 минут до 1 дня */
+  CANDLE_INTERVAL_3_MIN,
+  /** от 10 минут до 1 дня */
+  CANDLE_INTERVAL_10_MIN,
+  /** от 30 минут до 2 дней */
+  CANDLE_INTERVAL_30_MIN,
+  /** от 2 часов до 1 месяца */
+  CANDLE_INTERVAL_2_HOUR,
+  /** от 4 часов до 1 месяца */
+  CANDLE_INTERVAL_4_HOUR,
+  /** от 1 недели до 2 лет */
+  CANDLE_INTERVAL_WEEK,
+  /** от 1 месяца до 10 лет */
+  CANDLE_INTERVAL_MONTH
+}
 
-export interface GetLastPricesRequest {}
+/**
+ * Информация о свече
+ * @see https://tinkoff.github.io/investAPI/marketdata/#historiccandle
+ */
+export interface HistoricCandle {
+  /**
+   * Цена открытия за 1 инструмент
+   * @description Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать информацию со страницы
+   */
+  open: Quotation
+  /**
+   * Максимальная цена за 1 инструмент
+   * @description Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать информацию со страницы
+   */
+  high: Quotation
+  /**
+   * Минимальная цена за 1 инструмент
+   * @description Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать информацию со страницы
+   */
+  low: Quotation
+  /**
+   * Цена закрытия за 1 инструмент
+   * @description Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать информацию со страницы
+   */
+  close: Quotation
+  /**
+   * Объём торгов в лотах
+   * @type `int64`
+   */
+  volume: string
+  /**
+   * Время свечи в часовом поясе UTC
+   * @type `google.protobuf.Timestamp`
+   */
+  time: string
+  /**
+   * Признак завершённости свечи
+   * @description `false` значит, свеча за текущие интервал ещё сформирована не полностью
+   */
+  isComplete: boolean
+}
 
-export interface GetLastPricesResponse {}
+/**
+ * Информация о цене последней сделки
+ * @see https://tinkoff.github.io/investAPI/marketdata/#lastprice
+ */
+export interface LastPrice {
+  /** Figi инструмента */
+  figi: string
+  /**
+   * Цена последней сделки за 1 инструмент
+   * @description Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать информацию со страницы
+   */
+  price: Quotation
+  /**
+   * Время получения последней цены в часовом поясе UTC по времени биржи
+   * @type `google.protobuf.Timestamp`
+   */
+  time: string
+  /** Uid инструмента */
+  instrumentUid: string
+}
 
-export interface GetOrderBookRequest {}
+/**
+ * Запрос исторических свечей
+ * @see https://tinkoff.github.io/investAPI/marketdata/#getcandlesrequest
+ */
+export interface GetCandlesRequest {
+  /**
+   * Figi-идентификатор инструмента
+   * @deprecated Необходимо использовать instrumentId
+   */
+  figi?: string
+  /**
+   * Начало запрашиваемого периода в часовом поясе UTC
+   * @type `google.protobuf.Timestamp`
+   */
+  from: string
+  /**
+   * Окончание запрашиваемого периода в часовом поясе UTC
+   * @type `google.protobuf.Timestamp`
+   */
+  to: string
+  /** Интервал запрошенных свечей */
+  interval: CandleInterval
+  /** Идентификатор инструмента, принимает значение figi или instrumentUid. */
+  instrumentId: string
+}
 
-export interface GetOrderBookResponse {}
+/**
+ * Массив предложений/спроса
+ * @see https://tinkoff.github.io/investAPI/marketdata/#order
+ */
+export interface Order {
+  /**
+   * Цена за 1 инструмент
+   * @description Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать информацию со страницы
+   */
+  price: Quotation
+  /**
+   * Количество в лотах
+   * @type `int64`
+   */
+  quantity: string
+}
 
-export interface GetTradingStatusRequest {}
+/**
+ * Информация о сделке
+ * @see https://tinkoff.github.io/investAPI/marketdata/#trade
+ */
+export interface Trade {
+  /** Figi-идентификатор инструмента */
+  figi: string
+  /** Направление сделки */
+  direction: TradeDirection
+  /**
+   * Цена за 1 инструмент
+   * @description Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать информацию со страницы
+   */
+  price: Quotation
+  /**
+   * Количество лотов
+   * @type `int64`
+   */
+  quantity: string
+  /**
+   * Время сделки в часовом поясе UTC по времени биржи
+   * @type `google.protobuf.Timestamp`
+   */
+  time: string
+  /** Uid инструмента */
+  instrumentUid: string
+}
 
-export interface GetTradingStatusResponse {}
+/**
+ * Список свечей
+ * @see https://tinkoff.github.io/investAPI/marketdata/#getcandlesresponse
+ */
+export interface GetCandlesResponse {
+  /** Массив свечей */
+  candles: HistoricCandle[]
+}
 
-export interface GetTradingStatusesRequest {}
+/**
+ * Запрос получения цен последних сделок
+ * @see https://tinkoff.github.io/investAPI/marketdata/#getlastpricesrequest
+ */
+export interface GetLastPricesRequest {
+  /**
+   * Figi-идентификатор инструмента
+   * @deprecated Необходимо использовать instrumentId
+   */
+  figi?: string[]
+  /** Массив идентификаторов инструмента, принимает значения figi или instrumentUid */
+  instrumentId: string[]
+}
 
-export interface GetTradingStatusesResponse {}
+/**
+ * Список цен последних сделок
+ * @see https://tinkoff.github.io/investAPI/marketdata/#getlastpricesresponse
+ */
+export interface GetLastPricesResponse {
+  /** Массив цен последних сделок */
+  lastPrices: LastPrice[]
+}
 
-export interface GetLastTradesRequest {}
+/**
+ * Запрос стакана
+ * @see https://tinkoff.github.io/investAPI/marketdata/#getorderbookrequest
+ */
+export interface GetOrderBookRequest {
+  /**
+   * Figi-идентификатор инструмента
+   * @deprecated Необходимо использовать instrumentId
+   */
+  figi?: string
+  /**
+   * Глубина стакана
+   * @type `int32`
+   */
+  depth: number
+  /** Идентификатор инструмента, принимает значение figi или instrumentUid. */
+  instrumentId: string
+}
 
-export interface GetLastTradesResponse {}
+/**
+ * Информация о стакане
+ * @see https://tinkoff.github.io/investAPI/marketdata/#getorderbookresponse
+ */
+export interface GetOrderBookResponse {
+  /** Figi-идентификатор инструмента */
+  figi: string
+  /**
+   * Глубина стакана
+   * @type `int32`
+   */
+  depth: number
+  /** Множество пар значений на покупку */
+  bids: Order[]
+  /** Множество пар значений на продажу */
+  asks: Order[]
+  /**
+   * Цена последней сделки за 1 инструмент
+   * @description Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать информацию со страницы
+   */
+  lastPrice: Quotation
+  /**
+   * Цена закрытия за 1 инструмент
+   * @description Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать информацию со страницы
+   */
+  closePrice: Quotation
+  /**
+   * Верхний лимит цены за 1 инструмент
+   * @description Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать информацию со страницы
+   */
+  limitUp: Quotation
+  /**
+   * Нижний лимит цены за 1 инструмент
+   * @description Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать информацию со страницы
+   */
+  limitDown: Quotation
+  /**
+   * Время получения цены последней сделки
+   * @type `google.protobuf.Timestamp`
+   */
+  lastPriceTs: string
+  /**
+   * Время получения цены закрытия
+   * @type `google.protobuf.Timestamp`
+   */
+  closePriceTs: string
+  /**
+   * Время формирования стакана на бирже
+   * @type `google.protobuf.Timestamp`
+   */
+  orderbookTs: string
+  /** Uid инструмента. */
+  instrumentUid: string
+}
 
-export interface GetClosePricesRequest {}
+/**
+ * Запрос получения торгового статуса
+ * @see https://tinkoff.github.io/investAPI/marketdata/#gettradingstatusrequest
+ */
+export interface GetTradingStatusRequest {
+  /**
+   * Figi-идентификатор инструмента
+   * @deprecated Необходимо использовать instrumentId
+   */
+  figi?: string
+  /** Идентификатор инструмента, принимает значение figi или instrumentUid. */
+  instrumentId: string
+}
 
-export interface GetClosePricesResponse {}
+/**
+ * Информация о торговом статусе
+ * @see https://tinkoff.github.io/investAPI/marketdata/#gettradingstatusresponse
+ */
+export interface GetTradingStatusResponse {
+  /** Figi-идентификатор инструмента */
+  figi: string
+  /** Статус торговли инструментом */
+  tradingStatus: SecurityTradingStatus
+  /** Признак доступности выставления лимитной заявки по инструменту */
+  limitOrderAvailableFlag: boolean
+  /** Признак доступности выставления рыночной заявки по инструменту */
+  marketOrderAvailableFlag: boolean
+  /** Признак доступности торгов через API */
+  apiTradeAvailableFlag: boolean
+  /** Uid инструмента. */
+  instrumentUid: string
+}
+
+/**
+ * Запрос получения торгового статуса
+ * @see https://tinkoff.github.io/investAPI/marketdata/#gettradingstatusesrequest
+ */
+export interface GetTradingStatusesRequest {
+  /** Идентификатор инструмента, принимает значение figi или instrumentUi */
+  instrumentId: string[]
+}
+
+/**
+ * Информация о торговом статусе
+ * @see https://tinkoff.github.io/investAPI/marketdata/#gettradingstatusesresponse
+ */
+export interface GetTradingStatusesResponse {
+  /** Массив информации о торговых статусах */
+  tradingStatuses: GetTradingStatusResponse[]
+}
+
+/**
+ * Запрос обезличенных сделок за последний час
+ * @see https://tinkoff.github.io/investAPI/marketdata/#getlasttradesrequest
+ */
+export interface GetLastTradesRequest {
+  /**
+   * Figi-идентификатор инструмента
+   * @deprecated Необходимо использовать instrumentId
+   */
+  figi?: string
+  /**
+   * Начало запрашиваемого периода в часовом поясе UTC
+   * @type `google.protobuf.Timestamp`
+   */
+  from: string
+  /**
+   * Окончание запрашиваемого периода в часовом поясе UTC
+   * @type `google.protobuf.Timestamp`
+   */
+  to: string
+  /** Идентификатор инструмента, принимает значение figi или instrumentUid. */
+  instrumentId: string
+}
+
+/**
+ * Обезличенных сделок за последний час
+ * @see https://tinkoff.github.io/investAPI/marketdata/#getlasttradesresponse
+ */
+export interface GetLastTradesResponse {
+  /** Массив сделок */
+  trades: Trade[]
+}
+
+/**
+ * Запрос цен закрытия торговой сессии по инструментам
+ * @see https://tinkoff.github.io/investAPI/marketdata/#getclosepricesrequest
+ */
+export interface GetClosePricesRequest {
+  /** Массив по инструментам */
+  instruments: InstrumentClosePriceRequest[]
+}
+
+/**
+ * Цены закрытия торговой сессии по инструментам
+ * @see https://tinkoff.github.io/investAPI/marketdata/#getclosepricesresponse
+ */
+export interface GetClosePricesResponse {
+  /** Массив по инструментам */
+  closePrices: InstrumentClosePriceResponse[]
+}
+
+/**
+ * Запрос цен закрытия торговой сессии по инструменту
+ * @see https://tinkoff.github.io/investAPI/marketdata/#instrumentclosepricerequest
+ */
+export interface InstrumentClosePriceRequest {
+  /** Идентификатор инструмента, принимает значение figi или instrumentUid. */
+  instrumentId: string
+}
+
+/**
+ * Цена закрытия торговой сессии по инструменту
+ * @see https://tinkoff.github.io/investAPI/marketdata/#instrumentclosepriceresponse
+ */
+export interface InstrumentClosePriceResponse {
+  /** Figi инструмента */
+  figi: string
+  /** Uid инструмента. */
+  instrumentUid: string
+  /** Цена закрытия торговой сессии. */
+  price: Quotation
+  /**
+   * Дата совершения торгов
+   * @type `google.protobuf.Timestamp`
+   */
+  time: string
+}
 
 /**
  * Сервис получения биржевой информации:
