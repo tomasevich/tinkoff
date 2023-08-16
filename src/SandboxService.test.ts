@@ -21,41 +21,36 @@ describe('SandboxService', () => {
       tempAccounts = accounts
     })
 
-    describe('Expect returned "Accounts" length', () => {
+    describe('Expect "Accounts" length', () => {
       test('To be greater than "0"', () => {
         expect(tempAccounts.length).toBeGreaterThan(0)
       })
-    })
 
-    describe('Expect returned "Account"', () => {
-      test('To have property "id"', () => {
-        expect(tempAccounts[0]).toHaveProperty('id')
+      describe('Expect "Account" properies', () => {
+        test('To have "id"', () => {
+          expect(tempAccounts[0]).toHaveProperty('id')
+        })
+        test('To have "type"', () => {
+          expect(tempAccounts[0]).toHaveProperty('type')
+        })
+        test('To have "name"', () => {
+          expect(tempAccounts[0]).toHaveProperty('name')
+        })
+        test('To have "status"', () => {
+          expect(tempAccounts[0]).toHaveProperty('status')
+        })
+        test('To have "openedDate"', () => {
+          expect(tempAccounts[0]).toHaveProperty('openedDate')
+        })
+        test('To have "accessLevel"', () => {
+          expect(tempAccounts[0]).toHaveProperty('accessLevel')
+        })
+
+        // test('To have "closedDate"', () => {
+        // Почему-то не возвращает дату закрытия, хотя в оф.документации есть это свойство
+        // expect(tempAccounts[0]).toHaveProperty('closedDate')
+        // })
       })
-
-      test('To have property "type"', () => {
-        expect(tempAccounts[0]).toHaveProperty('type')
-      })
-
-      test('To have property "name"', () => {
-        expect(tempAccounts[0]).toHaveProperty('name')
-      })
-
-      test('To have property "status"', () => {
-        expect(tempAccounts[0]).toHaveProperty('status')
-      })
-
-      test('To have property "openedDate"', () => {
-        expect(tempAccounts[0]).toHaveProperty('openedDate')
-      })
-
-      test('To have property "accessLevel"', () => {
-        expect(tempAccounts[0]).toHaveProperty('accessLevel')
-      })
-
-      // test('To have property "closedDate"', () => {
-      // Почему-то не возвращает дату закрытия, хотя в оф.документации есть это свойство
-      // expect(tempAccounts[0]).toHaveProperty('closedDate')
-      // })
     })
   })
 })
