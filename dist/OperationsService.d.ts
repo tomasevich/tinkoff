@@ -104,9 +104,104 @@ export interface OperationsRequest {
 export interface OperationsResponse {
     operations: Operation[];
 }
-export interface iOperations {
-    GetOperations(body: OperationsRequest): Promise<OperationsResponse>;
+export interface PortfolioRequest {
 }
-export declare class OperationsService extends Common implements iOperations {
+export interface PortfolioResponse {
+}
+export interface PositionsSecurities {
+    figi: string;
+    blocked: string;
+    balance: string;
+    positionUid: string;
+    instrumentUid: string;
+    exchangeBlocked: boolean;
+    instrumentType: string;
+}
+export interface PositionsFutures {
+    figi: string;
+    blocked: string;
+    balance: string;
+    positionUid: string;
+    instrumentUid: string;
+}
+export interface PositionsOptions {
+    blocked: string;
+    balance: string;
+    positionUid: string;
+    instrumentUid: string;
+}
+export interface PositionsRequest {
+    accountId: string;
+}
+export interface PositionsResponse {
+    money: MoneyValue[];
+    blocked: MoneyValue[];
+    securities: PositionsSecurities[];
+    limitsLoadingInProgress: boolean;
+    futures: PositionsFutures[];
+    options: PositionsOptions[];
+}
+export interface WithdrawLimitsRequest {
+}
+export interface WithdrawLimitsResponse {
+}
+export interface BrokerReportRequest {
+}
+export interface BrokerReportResponse {
+}
+export interface GetDividendsForeignIssuerRequest {
+}
+export interface GetDividendsForeignIssuerResponse {
+}
+export interface GetOperationsByCursorRequest {
+}
+export interface GetOperationsByCursorResponse {
+}
+/**
+ * Сервис предназначен для получения:
+ * 1. списка операций по счёту;
+ * 2. портфеля по счёту;
+ * 3. позиций ценных бумаг на счёте;
+ * 4. доступного остатка для вывода средств;
+ * 5. получения различных отчётов.
+ * @see https://tinkoff.github.io/investAPI/operations/#operationsservice
+ */
+export declare class OperationsService extends Common {
+    /**
+     * Метод получения списка операций по счёту
+     * @description При работе с данным методом необходимо учитывать особенности взаимодействия с данным методом
+     * @see https://tinkoff.github.io/investAPI/operations/#getoperations
+     */
     GetOperations(body: OperationsRequest): Promise<OperationsResponse>;
+    /**
+     * Метод получения портфеля по счёту
+     * @see https://tinkoff.github.io/investAPI/operations/#getportfolio
+     */
+    GetPortfolio(body: PortfolioRequest): Promise<PortfolioResponse>;
+    /**
+     * Метод получения списка позиций по счёту
+     * @see https://tinkoff.github.io/investAPI/operations/#getpositions
+     */
+    GetPositions(body: PositionsRequest): Promise<PositionsResponse>;
+    /**
+     * Метод получения доступного остатка для вывода средств
+     * @see https://tinkoff.github.io/investAPI/operations/#getwithdrawlimits
+     */
+    GetWithdrawLimits(body: WithdrawLimitsRequest): Promise<WithdrawLimitsResponse>;
+    /**
+     * Метод получения брокерского отчёта
+     * @see https://tinkoff.github.io/investAPI/operations/#getbrokerreport
+     */
+    GetBrokerReport(body: BrokerReportRequest): Promise<BrokerReportResponse>;
+    /**
+     * Метод получения отчёта "Справка о доходах за пределами РФ"
+     * @see https://tinkoff.github.io/investAPI/operations/#getdividendsforeignissuer
+     */
+    GetDividendsForeignIssuer(body: GetDividendsForeignIssuerRequest): Promise<GetDividendsForeignIssuerResponse>;
+    /**
+     * Метод получения списка операций по счёту с пагинацией
+     * @description При работе с данным методом необходимо учитывать особенности взаимодействия с данным методом
+     * @see https://tinkoff.github.io/investAPI/operations/#getoperationsbycursor
+     */
+    GetOperationsByCursor(body: GetOperationsByCursorRequest): Promise<GetOperationsByCursorResponse>;
 }

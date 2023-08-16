@@ -1,6 +1,6 @@
-import { Common, MoneyValue } from './Common';
-import { OperationsRequest, OperationsResponse } from './OperationsService';
-import { GetOrdersRequest, GetOrdersResponse, PostOrderRequest, PostOrderResponse } from './OrdersService';
+import { Common } from './Common';
+import { GetOperationsByCursorRequest, GetOperationsByCursorResponse, OperationsRequest, OperationsResponse, PortfolioRequest, PortfolioResponse, PositionsRequest, PositionsResponse, WithdrawLimitsRequest, WithdrawLimitsResponse } from './OperationsService';
+import { CancelOrderRequest, CancelOrderResponse, GetOrderStateRequest, GetOrdersRequest, GetOrdersResponse, OrderState, PostOrderRequest, PostOrderResponse, ReplaceOrderRequest } from './OrdersService';
 import { GetAccountsRequest, GetAccountsResponse } from './UsersService';
 export interface OpenSandboxAccountRequest {
 }
@@ -12,54 +12,84 @@ export interface CloseSandboxAccountRequest {
 }
 export interface CloseSandboxAccountResponse {
 }
-export interface PositionsSecurities {
-    figi: string;
-    blocked: string;
-    balance: string;
-    positionUid: string;
-    instrumentUid: string;
-    exchangeBlocked: boolean;
-    instrumentType: string;
+export interface SandboxPayInRequest {
 }
-export interface PositionsFutures {
-    figi: string;
-    blocked: string;
-    balance: string;
-    positionUid: string;
-    instrumentUid: string;
+export interface SandboxPayInResponse {
 }
-export interface PositionsOptions {
-    blocked: string;
-    balance: string;
-    positionUid: string;
-    instrumentUid: string;
-}
-export interface PositionsRequest {
-    accountId: string;
-}
-export interface PositionsResponse {
-    money: MoneyValue[];
-    blocked: MoneyValue[];
-    securities: PositionsSecurities[];
-    limitsLoadingInProgress: boolean;
-    futures: PositionsFutures[];
-    options: PositionsOptions[];
-}
-export interface iSandbox {
+/**
+ * Сервис для работы с песочницей TINKOFF INVEST API
+ * @see https://tinkoff.github.io/investAPI/sandbox/#sandboxservice
+ */
+export declare class SandboxService extends Common {
+    /**
+     * Метод регистрации счёта в песочнице
+     * @see https://tinkoff.github.io/investAPI/sandbox/#opensandboxaccount
+     */
     OpenSandboxAccount(body: OpenSandboxAccountRequest): Promise<OpenSandboxAccountResponse>;
+    /**
+     * Метод получения счетов в песочнице
+     * @see https://tinkoff.github.io/investAPI/sandbox/#getsandboxaccounts
+     */
     GetSandboxAccounts(body: GetAccountsRequest): Promise<GetAccountsResponse>;
+    /**
+     * Метод закрытия счёта в песочнице
+     * @see https://tinkoff.github.io/investAPI/sandbox/#closesandboxaccount
+     */
     CloseSandboxAccount(body: CloseSandboxAccountRequest): Promise<CloseSandboxAccountResponse>;
+    /**
+     * Метод выставления торгового поручения в песочнице
+     * @see https://tinkoff.github.io/investAPI/sandbox/#postsandboxorder
+     */
     PostSandboxOrder(body: PostOrderRequest): Promise<PostOrderResponse>;
+    /**
+     * Метод изменения выставленной заявки
+     * @see https://tinkoff.github.io/investAPI/sandbox/#replacesandboxorder
+     */
+    ReplaceSandboxOrder(body: ReplaceOrderRequest): Promise<PostOrderResponse>;
+    /**
+     * Метод получения списка активных заявок по счёту в песочнице
+     * @see https://tinkoff.github.io/investAPI/sandbox/#getsandboxorders
+     */
     GetSandboxOrders(body: GetOrdersRequest): Promise<GetOrdersResponse>;
+    /**
+     * Метод отмены торгового поручения в песочнице
+     * @see https://tinkoff.github.io/investAPI/sandbox/#cancelsandboxorder
+     */
+    CancelSandboxOrder(body: CancelOrderRequest): Promise<CancelOrderResponse>;
+    /**
+     * Метод получения статуса заявки в песочнице
+     * @description Заявки хранятся в таблице 7 дней
+     * @see https://tinkoff.github.io/investAPI/sandbox/#getsandboxorderstate
+     */
+    GetSandboxOrderState(body: GetOrderStateRequest): Promise<OrderState>;
+    /**
+     * Метод получения позиций по виртуальному счёту
+     * @see https://tinkoff.github.io/investAPI/sandbox/#getsandboxpositions
+     */
     GetSandboxPositions(body: PositionsRequest): Promise<PositionsResponse>;
+    /**
+     * Метод получения операций в песочнице по номеру счёта
+     * @see https://tinkoff.github.io/investAPI/sandbox/#getsandboxoperations
+     */
     GetSandboxOperations(body: OperationsRequest): Promise<OperationsResponse>;
-}
-export declare class SandboxService extends Common implements iSandbox {
-    OpenSandboxAccount(body: OpenSandboxAccountRequest): Promise<OpenSandboxAccountResponse>;
-    GetSandboxAccounts(body: GetAccountsRequest): Promise<GetAccountsResponse>;
-    CloseSandboxAccount(body: CloseSandboxAccountRequest): Promise<CloseSandboxAccountResponse>;
-    PostSandboxOrder(body: PostOrderRequest): Promise<PostOrderResponse>;
-    GetSandboxOrders(body: GetOrdersRequest): Promise<GetOrdersResponse>;
-    GetSandboxPositions(body: PositionsRequest): Promise<PositionsResponse>;
-    GetSandboxOperations(body: OperationsRequest): Promise<OperationsResponse>;
+    /**
+     * Метод получения операций в песочнице по номеру счета с пагинацией
+     * @see https://tinkoff.github.io/investAPI/sandbox/#getsandboxoperationsbycursor
+     */
+    GetSandboxOperationsByCursor(body: GetOperationsByCursorRequest): Promise<GetOperationsByCursorResponse>;
+    /**
+     * Метод получения портфолио в песочнице
+     * @see https://tinkoff.github.io/investAPI/sandbox/#getsandboxportfolio
+     */
+    GetSandboxPortfolio(body: PortfolioRequest): Promise<PortfolioResponse>;
+    /**
+     * Метод пополнения счёта в песочнице
+     * @see https://tinkoff.github.io/investAPI/sandbox/#sandboxpayin
+     */
+    SandboxPayIn(body: SandboxPayInRequest): Promise<SandboxPayInResponse>;
+    /**
+     * Метод получения доступного остатка для вывода средств в песочнице
+     * @see https://tinkoff.github.io/investAPI/sandbox/#getsandboxwithdrawlimits
+     */
+    GetSandboxWithdrawLimits(body: WithdrawLimitsRequest): Promise<WithdrawLimitsResponse>;
 }

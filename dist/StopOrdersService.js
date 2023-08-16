@@ -21,13 +21,32 @@ var StopOrderType;
     StopOrderType[StopOrderType["STOP_ORDER_TYPE_STOP_LOSS"] = 2] = "STOP_ORDER_TYPE_STOP_LOSS";
     StopOrderType[StopOrderType["STOP_ORDER_TYPE_STOP_LIMIT"] = 3] = "STOP_ORDER_TYPE_STOP_LIMIT";
 })(StopOrderType || (exports.StopOrderType = StopOrderType = {}));
+/**
+ * Сервис предназначен для работы со стоп-заявками:
+ * 1. выставление;
+ * 2. отмена;
+ * 3. получение списка стоп-заявок.
+ * @see https://tinkoff.github.io/investAPI/stoporders/#stopordersservice
+ */
 class StopOrdersService extends Common_1.Common {
+    /**
+     * Метод выставления стоп-заявки
+     * @see https://tinkoff.github.io/investAPI/stoporders/#poststoporder
+     */
     PostStopOrder(body) {
         return this.request('StopOrdersService', 'PostStopOrder', body);
     }
+    /**
+     * Метод получения списка активных стоп заявок по счёту
+     * @see https://tinkoff.github.io/investAPI/stoporders/#getstoporders
+     */
     GetStopOrders(body) {
         return this.request('StopOrdersService', 'GetStopOrders', body);
     }
+    /**
+     * Метод отмены стоп-заявки
+     * @see https://tinkoff.github.io/investAPI/stoporders/#cancelstoporder
+     */
     CancelStopOrder(body) {
         return this.request('StopOrdersService', 'CancelStopOrder', body);
     }

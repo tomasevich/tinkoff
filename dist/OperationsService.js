@@ -74,9 +74,66 @@ var OperationType;
     OperationType[OperationType["OPERATION_TYPE_OVER_INCOME"] = 60] = "OPERATION_TYPE_OVER_INCOME";
     OperationType[OperationType["OPERATION_TYPE_OPTION_EXPIRATION"] = 61] = "OPERATION_TYPE_OPTION_EXPIRATION";
 })(OperationType || (exports.OperationType = OperationType = {}));
+/**
+ * Сервис предназначен для получения:
+ * 1. списка операций по счёту;
+ * 2. портфеля по счёту;
+ * 3. позиций ценных бумаг на счёте;
+ * 4. доступного остатка для вывода средств;
+ * 5. получения различных отчётов.
+ * @see https://tinkoff.github.io/investAPI/operations/#operationsservice
+ */
 class OperationsService extends Common_1.Common {
+    /**
+     * Метод получения списка операций по счёту
+     * @description При работе с данным методом необходимо учитывать особенности взаимодействия с данным методом
+     * @see https://tinkoff.github.io/investAPI/operations/#getoperations
+     */
     GetOperations(body) {
-        return this.request('OperationsService', 'GetOperations', body);
+        return this.request('OperationsService', 'OperationsResponse', body);
+    }
+    /**
+     * Метод получения портфеля по счёту
+     * @see https://tinkoff.github.io/investAPI/operations/#getportfolio
+     */
+    GetPortfolio(body) {
+        return this.request('OperationsService', 'PortfolioResponse', body);
+    }
+    /**
+     * Метод получения списка позиций по счёту
+     * @see https://tinkoff.github.io/investAPI/operations/#getpositions
+     */
+    GetPositions(body) {
+        return this.request('OperationsService', 'PositionsResponse', body);
+    }
+    /**
+     * Метод получения доступного остатка для вывода средств
+     * @see https://tinkoff.github.io/investAPI/operations/#getwithdrawlimits
+     */
+    GetWithdrawLimits(body) {
+        return this.request('OperationsService', 'WithdrawLimitsResponse', body);
+    }
+    /**
+     * Метод получения брокерского отчёта
+     * @see https://tinkoff.github.io/investAPI/operations/#getbrokerreport
+     */
+    GetBrokerReport(body) {
+        return this.request('OperationsService', 'BrokerReportResponse', body);
+    }
+    /**
+     * Метод получения отчёта "Справка о доходах за пределами РФ"
+     * @see https://tinkoff.github.io/investAPI/operations/#getdividendsforeignissuer
+     */
+    GetDividendsForeignIssuer(body) {
+        return this.request('OperationsService', 'GetDividendsForeignIssuerResponse', body);
+    }
+    /**
+     * Метод получения списка операций по счёту с пагинацией
+     * @description При работе с данным методом необходимо учитывать особенности взаимодействия с данным методом
+     * @see https://tinkoff.github.io/investAPI/operations/#getoperationsbycursor
+     */
+    GetOperationsByCursor(body) {
+        return this.request('OperationsService', 'GetOperationsByCursorResponse', body);
     }
 }
 exports.OperationsService = OperationsService;

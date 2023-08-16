@@ -31,9 +31,43 @@ export interface GetAccountsRequest {
 export interface GetAccountsResponse {
     accounts: Account[];
 }
-export interface iUsers {
-    GetAccounts(body: GetAccountsRequest): Promise<GetAccountsResponse>;
+export interface GetMarginAttributesRequest {
 }
-export declare class UsersService extends Common implements iUsers {
+export interface GetMarginAttributesResponse {
+}
+export interface GetUserTariffRequest {
+}
+export interface GetUserTariffResponse {
+}
+export interface GetInfoRequest {
+}
+export interface GetInfoResponse {
+}
+/**
+ * Сервис предназначен для получения:
+ * 1. списка счетов пользователя;
+ * 2. маржинальных показателей по счёту.
+ * @see https://tinkoff.github.io/investAPI/users/#usersservice
+ */
+export declare class UsersService extends Common {
+    /**
+     * Метод получения счетов пользователя
+     * @see https://tinkoff.github.io/investAPI/users/#getaccounts
+     */
     GetAccounts(body: GetAccountsRequest): Promise<GetAccountsResponse>;
+    /**
+     * Расчёт маржинальных показателей по счёту
+     * @see https://tinkoff.github.io/investAPI/users/#getmarginattributes
+     */
+    GetMarginAttributes(body: GetMarginAttributesRequest): Promise<GetMarginAttributesResponse>;
+    /**
+     * Запрос тарифа пользователя
+     * @see https://tinkoff.github.io/investAPI/users/#getusertariff
+     */
+    GetUserTariff(body: GetUserTariffRequest): Promise<GetUserTariffResponse>;
+    /**
+     * Метод получения информации о пользователе
+     * @see https://tinkoff.github.io/investAPI/users/#getinfo
+     */
+    GetInfo(body: GetInfoRequest): Promise<GetInfoResponse>;
 }

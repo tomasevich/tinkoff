@@ -29,13 +29,27 @@ export interface CancelStopOrderRequest {
 }
 export interface CancelStopOrderResponse {
 }
-export interface iStopOrders {
+/**
+ * Сервис предназначен для работы со стоп-заявками:
+ * 1. выставление;
+ * 2. отмена;
+ * 3. получение списка стоп-заявок.
+ * @see https://tinkoff.github.io/investAPI/stoporders/#stopordersservice
+ */
+export declare class StopOrdersService extends Common {
+    /**
+     * Метод выставления стоп-заявки
+     * @see https://tinkoff.github.io/investAPI/stoporders/#poststoporder
+     */
     PostStopOrder(body: PostStopOrderRequest): Promise<PostStopOrderResponse>;
+    /**
+     * Метод получения списка активных стоп заявок по счёту
+     * @see https://tinkoff.github.io/investAPI/stoporders/#getstoporders
+     */
     GetStopOrders(body: GetStopOrdersRequest): Promise<GetStopOrdersResponse>;
-    CancelStopOrder(body: CancelStopOrderRequest): Promise<CancelStopOrderResponse>;
-}
-export declare class StopOrdersService extends Common implements iStopOrders {
-    PostStopOrder(body: PostStopOrderRequest): Promise<PostStopOrderResponse>;
-    GetStopOrders(body: GetStopOrdersRequest): Promise<GetStopOrdersResponse>;
+    /**
+     * Метод отмены стоп-заявки
+     * @see https://tinkoff.github.io/investAPI/stoporders/#cancelstoporder
+     */
     CancelStopOrder(body: CancelStopOrderRequest): Promise<CancelStopOrderResponse>;
 }

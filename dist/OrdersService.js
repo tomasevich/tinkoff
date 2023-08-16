@@ -24,12 +24,50 @@ var OrderExecutionReportStatus;
     OrderExecutionReportStatus[OrderExecutionReportStatus["EXECUTION_REPORT_STATUS_NEW"] = 4] = "EXECUTION_REPORT_STATUS_NEW";
     OrderExecutionReportStatus[OrderExecutionReportStatus["EXECUTION_REPORT_STATUS_PARTIALLYFILL"] = 5] = "EXECUTION_REPORT_STATUS_PARTIALLYFILL";
 })(OrderExecutionReportStatus || (exports.OrderExecutionReportStatus = OrderExecutionReportStatus = {}));
+/**
+ * Сервис предназначен для работы с торговыми поручениями:
+ * 1. выставление;
+ * 2. отмена;
+ * 3. получение статуса;
+ * 4. расчёт полной стоимости;
+ * 5. получение списка заявок.
+ * @see https://tinkoff.github.io/investAPI/orders/#ordersservice
+ */
 class OrdersService extends Common_1.Common {
+    /**
+     * Метод выставления заявки
+     * @see https://tinkoff.github.io/investAPI/orders/#postorder
+     */
     PostOrder(body) {
-        return this.request('OrdersService', 'GetOrders', body);
+        return this.request('OrdersService', 'PostOrder', body);
     }
+    /**
+     * Метод отмены биржевой заявки
+     * @see https://tinkoff.github.io/investAPI/orders/#cancelorder
+     */
+    CancelOrder(body) {
+        return this.request('OrdersService', 'CancelOrder', body);
+    }
+    /**
+     * Метод получения статуса торгового поручения
+     * @see https://tinkoff.github.io/investAPI/orders/#getorderstate
+     */
+    GetOrderState(body) {
+        return this.request('OrdersService', 'GetOrderState', body);
+    }
+    /**
+     * Метод получения списка активных заявок по счёту
+     * @see https://tinkoff.github.io/investAPI/orders/#getorders
+     */
     GetOrders(body) {
         return this.request('OrdersService', 'GetOrders', body);
+    }
+    /**
+     * Метод изменения выставленной заявки
+     * @see https://tinkoff.github.io/investAPI/orders/#replaceorder
+     */
+    ReplaceOrder(body) {
+        return this.request('OrdersService', 'ReplaceOrder', body);
     }
 }
 exports.OrdersService = OrdersService;
