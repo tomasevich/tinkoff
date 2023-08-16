@@ -1,13 +1,14 @@
 import dotenv from 'dotenv'
 
-import { SandboxService, GetAccountsResponse } from './'
+import { SandboxService, Account } from './'
 
 dotenv.config({ path: './.env.test' })
 
 let sandboxService: SandboxService
+let tempAccounts: Account[]
 
 describe('SandboxService', () => {
-  beforeAll(() => {
+  beforeAll(async () => {
     sandboxService = new SandboxService(
       process.env.TINKOFF_INVEST_API_TOKEN ?? '',
       true
@@ -15,17 +16,46 @@ describe('SandboxService', () => {
   })
 
   describe('GetSandboxAccounts', () => {
-    test('Должен вернуть список счетов пользователя', async () => {
+    beforeAll(async () => {
       const { accounts } = await sandboxService.GetSandboxAccounts({})
+      tempAccounts = accounts
+    })
 
-      expect(accounts[0]).toHaveProperty('id')
-      expect(accounts[0]).toHaveProperty('type')
-      expect(accounts[0]).toHaveProperty('name')
-      expect(accounts[0]).toHaveProperty('status')
-      expect(accounts[0]).toHaveProperty('openedDate')
-      expect(accounts[0]).toHaveProperty('accessLevel')
+    describe('Expect returned "Accounts" length', () => {
+      test('To be greater than "0"', () => {
+        expect(tempAccounts.length).toBeGreaterThan(0)
+      })
+    })
+
+    describe('Expect returned "Account"', () => {
+      test('To have property "id"', () => {
+        expect(tempAccounts[0]).toHaveProperty('id')
+      })
+
+      test('To have property "type"', () => {
+        expect(tempAccounts[0]).toHaveProperty('type')
+      })
+
+      test('To have property "name"', () => {
+        expect(tempAccounts[0]).toHaveProperty('name')
+      })
+
+      test('To have property "status"', () => {
+        expect(tempAccounts[0]).toHaveProperty('status')
+      })
+
+      test('To have property "openedDate"', () => {
+        expect(tempAccounts[0]).toHaveProperty('openedDate')
+      })
+
+      test('To have property "accessLevel"', () => {
+        expect(tempAccounts[0]).toHaveProperty('accessLevel')
+      })
+
+      // test('To have property "closedDate"', () => {
       // Почему-то не возвращает дату закрытия, хотя в оф.документации есть это свойство
-      // expect(accounts[0]).toHaveProperty('closedDate')
+      // expect(tempAccounts[0]).toHaveProperty('closedDate')
+      // })
     })
   })
 })
