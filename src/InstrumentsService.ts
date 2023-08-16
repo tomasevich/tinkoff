@@ -1,5 +1,29 @@
 import { Common } from './Common'
 
+/**
+ * Тип инструмента
+ */
+export enum InstrumentType {
+  /** @todo Нет описания */
+  INSTRUMENT_TYPE_UNSPECIFIED,
+  /** @todo Нет описания */
+  INSTRUMENT_TYPE_BOND,
+  /** @todo Нет описания */
+  INSTRUMENT_TYPE_SHARE,
+  /** @todo Нет описания */
+  INSTRUMENT_TYPE_CURRENCY,
+  /** @todo Нет описания */
+  INSTRUMENT_TYPE_ETF,
+  /** @todo Нет описания */
+  INSTRUMENT_TYPE_FUTURES,
+  /** @todo Нет описания */
+  INSTRUMENT_TYPE_SP,
+  /** @todo Нет описания */
+  INSTRUMENT_TYPE_OPTION,
+  /** @todo Нет описания */
+  INSTRUMENT_TYPE_CLEARING_CERTIFICATE
+}
+
 export interface TradingSchedulesRequest {}
 
 export interface TradingSchedulesResponse {}
