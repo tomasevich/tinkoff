@@ -1,71 +1,186 @@
-import { Common } from './Common'
+import { Common, MoneyValue, Quotation } from './Common'
 
+/**
+ * Направление сделки стоп-заявки
+ * @see https://tinkoff.github.io/investAPI/stoporders/#stoporderdirection
+ */
 export enum StopOrderDirection {
+  /** Значение не указано */
   STOP_ORDER_DIRECTION_UNSPECIFIED,
+  /** Покупка */
   STOP_ORDER_DIRECTION_BUY,
+  /** Продажа */
   STOP_ORDER_DIRECTION_SELL
 }
 
+/**
+ * Тип экспирации стоп-заявке
+ * @see https://tinkoff.github.io/investAPI/stoporders/#stoporderexpirationtype
+ */
 export enum StopOrderExpirationType {
+  /** Значение не указано */
   STOP_ORDER_EXPIRATION_TYPE_UNSPECIFIED,
+  /** Действительно до отмены */
   STOP_ORDER_EXPIRATION_TYPE_GOOD_TILL_CANCEL,
+  /** Действительно до даты снятия */
   STOP_ORDER_EXPIRATION_TYPE_GOOD_TILL_DATE
 }
 
+/**
+ * Тип стоп-заявки
+ * @see https://tinkoff.github.io/investAPI/stoporders/#stopordertype
+ */
 export enum StopOrderType {
+  /** Значение не указано */
   STOP_ORDER_TYPE_UNSPECIFIED,
+  /** Take-profit заявка */
   STOP_ORDER_TYPE_TAKE_PROFIT,
+  /** Stop-loss заявка */
   STOP_ORDER_TYPE_STOP_LOSS,
+  /** Stop-limit заявка */
   STOP_ORDER_TYPE_STOP_LIMIT
 }
 
+/**
+ * Информация о стоп-заявке
+ * @see https://tinkoff.github.io/investAPI/stoporders/#stoporder
+ */
 export interface StopOrder {
-  // stop_order_id	string	Идентификатор-идентификатор стоп-заявки.
-  // lots_requested	int64	Запрошено лотов.
-  // figi	string	Figi-идентификатор инструмента.
-  // direction	StopOrderDirection	Направление операции.
-  // currency	string	Валюта стоп-заявки.
-  // order_type	StopOrderType	Тип стоп-заявки.
-  // create_date	google.protobuf.Timestamp	Дата и время выставления заявки в часовом поясе UTC.
-  // activation_date_time	google.protobuf.Timestamp	Дата и время конвертации стоп-заявки в биржевую в часовом поясе UTC.
-  // expiration_time	google.protobuf.Timestamp	Дата и время снятия заявки в часовом поясе UTC.
-  // price	MoneyValue	Цена заявки за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента.
-  // stop_price	MoneyValue	Цена активации стоп-заявки за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента.
-  // instrument_uid	string	instrument_uid идентификатор инструмента.
+  /** Идентификатор-идентификатор стоп-заявки */
+  stopOrderId: string
+  /**
+   * Запрошено лотов
+   * @type `int64`
+   */
+  lotsRequested: string
+  /** Figi-идентификатор инструмента */
+  figi: string
+  /** Направление операции */
+  direction: StopOrderDirection
+  /** Валюта стоп-заявки */
+  currency: string
+  /** Тип стоп-заявки */
+  orderType: StopOrderType
+  /**
+   * Дата и время выставления заявки в часовом поясе UTC
+   * @type `google.protobuf.Timestamp`
+   */
+  createDate: string
+  /**
+   * Дата и время конвертации стоп-заявки в биржевую в часовом поясе UTC
+   * @type `google.protobuf.Timestamp`
+   */
+  activationDateTime: string
+  /**
+   * Дата и время снятия заявки в часовом поясе UTC
+   * @type `google.protobuf.Timestamp`
+   */
+  expirationTime: string
+  /**
+   * Цена заявки за 1 инструмент
+   * @description Для получения стоимости лота требуется умножить на лотность инструмента
+   */
+  price: MoneyValue
+  /**
+   * Цена активации стоп-заявки за 1 инструмент
+   * @description Для получения стоимости лота требуется умножить на лотность инструмента
+   */
+  stopPrice: MoneyValue
+  /** instrumentUid идентификатор инструмента */
+  instrumentUid: string
 }
 
+/**
+ * Запрос выставления стоп-заявки
+ * @see https://tinkoff.github.io/investAPI/stoporders/#poststoporderrequest
+ */
 export interface PostStopOrderRequest {
-  // figi	string	Deprecated Figi-идентификатор инструмента. Необходимо использовать instrument_id.
-  // quantity	int64	Количество лотов.
-  // price	Quotation	Цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента.
-  // stop_price	Quotation	Стоп-цена заявки за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента.
-  // direction	StopOrderDirection	Направление операции.
-  // account_id	string	Номер счёта.
-  // expiration_type	StopOrderExpirationType	Тип экспирации заявки.
-  // stop_order_type	StopOrderType	Тип заявки.
-  // expire_date	google.protobuf.Timestamp	Дата и время окончания действия стоп-заявки в часовом поясе UTC. Для ExpirationType = GoodTillDate заполнение обязательно.
-  // instrument_id	string	Идентификатор инструмента, принимает значения Figi или instrument_uid.
+  /**
+   * Figi-идентификатор инструмента. Необходимо использовать instrumentId
+   * @deprecated Deprecated
+   */
+  figi?: string
+  /**
+   * Количество лотов
+   * @type `int64`
+   */
+  quantity: string
+  /**
+   * Цена за 1 инструмент
+   * @description Для получения стоимости лота требуется умножить на лотность инструмента
+   */
+  price: Quotation
+  /**
+   * Стоп-цена заявки за 1 инструмент
+   * @description Для получения стоимости лота требуется умножить на лотность инструмента
+   */
+  stopPrice: Quotation
+  /** Направление операции */
+  direction: StopOrderDirection
+  /** Номер счёта */
+  accountId: string
+  /** Тип экспирации заявки */
+  expirationType: StopOrderExpirationType
+  /** Тип заявки */
+  stopOrderType: StopOrderType
+  /**
+   * Дата и время окончания действия стоп-заявки в часовом поясе UTC
+   * @description Для ExpirationType = GoodTillDate заполнение обязательно
+   * @type `google.protobuf.Timestamp`
+   */
+  expireDate: string
+  /** Идентификатор инструмента, принимает значения Figi или instrumentUid */
+  instrumentId: string
 }
 
+/**
+ * Результат выставления стоп-заявки
+ * @see https://tinkoff.github.io/investAPI/stoporders/#poststoporderresponse
+ */
 export interface PostStopOrderResponse {
-  // stop_order_id	string	Уникальный идентификатор стоп-заявки.
+  /** Уникальный идентификатор стоп-заявки */
+  stopOrderId: string
 }
 
+/**
+ * Запрос получения списка активных стоп-заявок
+ * @see https://tinkoff.github.io/investAPI/stoporders/#getstopordersrequest
+ */
 export interface GetStopOrdersRequest {
-  // account_id	string	Идентификатор счёта клиента.
+  /** Идентификатор счёта клиента */
+  accountId: string
 }
 
+/**
+ * Список активных стоп-заявок
+ * @see https://tinkoff.github.io/investAPI/stoporders/#getstopordersresponse
+ */
 export interface GetStopOrdersResponse {
-  // stop_orders	Массив объектов StopOrder	Массив стоп-заявок по счёту.
+  /** Массив стоп-заявок по счёту */
+  stopOrders: StopOrder[]
 }
 
+/**
+ * Запрос отмены выставленной стоп-заявки
+ * @see https://tinkoff.github.io/investAPI/stoporders/#cancelstoporderrequest
+ */
 export interface CancelStopOrderRequest {
-  // account_id	string	Идентификатор счёта клиента.
-  // stop_order_id	string	Уникальный идентификатор стоп-заявки.
+  /** Идентификатор счёта клиента */
+  accountId: string
+  /** Уникальный идентификатор стоп-заявки */
+  stopOrderId: string
 }
 
+/**
+ * Результат отмены выставленной стоп-заявки
+ * @see https://tinkoff.github.io/investAPI/stoporders/#cancelstoporderresponse
+ */
 export interface CancelStopOrderResponse {
-  // time	google.protobuf.Timestamp	Время отмены заявки в часовом поясе UTC.
+  /**
+   * Время отмены заявки в часовом поясе UTC
+   * @type `google.protobuf.Timestamp`
+   */
+  time: string
 }
 
 /**
@@ -95,7 +210,7 @@ export class StopOrdersService extends Common {
   ): Promise<GetStopOrdersResponse> {
     return this.request('StopOrdersService', 'GetStopOrders', body)
   }
-  
+
   /**
    * Метод отмены стоп-заявки
    * @see https://tinkoff.github.io/investAPI/stoporders/#cancelstoporder
