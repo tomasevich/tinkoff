@@ -111,8 +111,145 @@ export interface OperationsResponse {
   operations: Operation[]
 }
 
+export interface PortfolioRequest {}
+
+export interface PortfolioResponse {}
+
+export interface PositionsSecurities {
+  figi: string
+  blocked: string
+  balance: string
+  positionUid: string
+  instrumentUid: string
+  exchangeBlocked: boolean
+  instrumentType: string
+}
+
+export interface PositionsFutures {
+  figi: string
+  blocked: string
+  balance: string
+  positionUid: string
+  instrumentUid: string
+}
+
+export interface PositionsOptions {
+  blocked: string
+  balance: string
+  positionUid: string
+  instrumentUid: string
+}
+
+export interface PositionsRequest {
+  accountId: string
+}
+
+export interface PositionsResponse {
+  money: MoneyValue[]
+  blocked: MoneyValue[]
+  securities: PositionsSecurities[]
+  limitsLoadingInProgress: boolean
+  futures: PositionsFutures[]
+  options: PositionsOptions[]
+}
+
+export interface WithdrawLimitsRequest {}
+
+export interface WithdrawLimitsResponse {}
+
+export interface BrokerReportRequest {}
+
+export interface BrokerReportResponse {}
+
+export interface GetDividendsForeignIssuerRequest {}
+
+export interface GetDividendsForeignIssuerResponse {}
+
+export interface GetOperationsByCursorRequest {}
+
+export interface GetOperationsByCursorResponse {}
+
+/**
+ * Сервис предназначен для получения:
+ * 1. списка операций по счёту;
+ * 2. портфеля по счёту;
+ * 3. позиций ценных бумаг на счёте;
+ * 4. доступного остатка для вывода средств;
+ * 5. получения различных отчётов.
+ * @see https://tinkoff.github.io/investAPI/operations/#operationsservice
+ */
 export class OperationsService extends Common {
+  /**
+   * Метод получения списка операций по счёту
+   * @description При работе с данным методом необходимо учитывать особенности взаимодействия с данным методом
+   * @see https://tinkoff.github.io/investAPI/operations/#getoperations
+   */
   public GetOperations(body: OperationsRequest): Promise<OperationsResponse> {
-    return this.request('OperationsService', 'GetOperations', body)
+    return this.request('OperationsService', 'OperationsResponse', body)
+  }
+
+  /**
+   * Метод получения портфеля по счёту
+   * @see https://tinkoff.github.io/investAPI/operations/#getportfolio
+   */
+  public GetPortfolio(body: PortfolioRequest): Promise<PortfolioResponse> {
+    return this.request('OperationsService', 'PortfolioResponse', body)
+  }
+
+  /**
+   * Метод получения списка позиций по счёту
+   * @see https://tinkoff.github.io/investAPI/operations/#getpositions
+   */
+  public GetPositions(body: PositionsRequest): Promise<PositionsResponse> {
+    return this.request('OperationsService', 'PositionsResponse', body)
+  }
+
+  /**
+   * Метод получения доступного остатка для вывода средств
+   * @see https://tinkoff.github.io/investAPI/operations/#getwithdrawlimits
+   */
+  public GetWithdrawLimits(
+    body: WithdrawLimitsRequest
+  ): Promise<WithdrawLimitsResponse> {
+    return this.request('OperationsService', 'WithdrawLimitsResponse', body)
+  }
+
+  /**
+   * Метод получения брокерского отчёта
+   * @see https://tinkoff.github.io/investAPI/operations/#getbrokerreport
+   */
+  public GetBrokerReport(
+    body: BrokerReportRequest
+  ): Promise<BrokerReportResponse> {
+    return this.request('OperationsService', 'BrokerReportResponse', body)
+  }
+
+  /**
+   * Метод получения отчёта "Справка о доходах за пределами РФ"
+   * @see https://tinkoff.github.io/investAPI/operations/#getdividendsforeignissuer
+   */
+  public GetDividendsForeignIssuer(
+    body: GetDividendsForeignIssuerRequest
+  ): Promise<GetDividendsForeignIssuerResponse> {
+    return this.request(
+      'OperationsService',
+      'GetDividendsForeignIssuerResponse',
+      body
+    )
+  }
+
+  /**
+   * Метод получения списка операций по счёту с пагинацией
+   * @description При работе с данным методом необходимо учитывать особенности взаимодействия с данным методом
+   * @see https://tinkoff.github.io/investAPI/operations/#getoperationsbycursor
+   */
+  public GetOperationsByCursor(
+    body: GetOperationsByCursorRequest
+  ): Promise<GetOperationsByCursorResponse> {
+    return this.request(
+      'OperationsService',
+      'GetOperationsByCursorResponse',
+      body
+    )
   }
 }

@@ -84,118 +84,249 @@ export interface GetBrandRequest {}
 
 export interface Brand {}
 
+/**
+ * Сервис предназначен для получения:
+ * 1. информации об инструментах;
+ * 2. расписания торговых сессий;
+ * 3. календаря выплат купонов по облигациям;
+ * 4. размера гарантийного обеспечения по фьючерсам;
+ * 5. дивидендов по ценной бумаге.
+ * @see https://tinkoff.github.io/investAPI/instruments/#instrumentsservice
+ */
 export class InstrumentsService extends Common {
-  TradingSchedules(
+  /**
+   * Метод получения расписания торгов торговых площадок
+   * @see https://tinkoff.github.io/investAPI/instruments/#tradingschedules
+   */
+  public TradingSchedules(
     body: TradingSchedulesRequest
   ): Promise<TradingSchedulesResponse> {
     return this.request('InstrumentsService', 'TradingSchedules', body)
   }
 
-  BondBy(body: InstrumentRequest): Promise<BondResponse> {
+  /**
+   * Метод получения облигации по её идентификатору
+   * @see https://tinkoff.github.io/investAPI/instruments/#bondby
+   */
+  public BondBy(body: InstrumentRequest): Promise<BondResponse> {
     return this.request('InstrumentsService', 'BondBy', body)
   }
 
-  Bonds(body: InstrumentsRequest): Promise<BondsResponse> {
+  /**
+   * Метод получения списка облигаций
+   * @see https://tinkoff.github.io/investAPI/instruments/#bonds
+   */
+  public Bonds(body: InstrumentsRequest): Promise<BondsResponse> {
     return this.request('InstrumentsService', 'Bonds', body)
   }
 
-  GetBondCoupons(body: GetBondCouponsRequest): Promise<GetBondCouponsResponse> {
+  /**
+   * Метод получения графика выплат купонов по облигации
+   * @see https://tinkoff.github.io/investAPI/instruments/#getbondcoupons
+   */
+  public GetBondCoupons(
+    body: GetBondCouponsRequest
+  ): Promise<GetBondCouponsResponse> {
     return this.request('InstrumentsService', 'GetBondCoupons', body)
   }
 
-  CurrencyBy(body: InstrumentRequest): Promise<CurrencyResponse> {
+  /**
+   * Метод получения валюты по её идентификатору
+   * @see https://tinkoff.github.io/investAPI/instruments/#currencyby
+   */
+  public CurrencyBy(body: InstrumentRequest): Promise<CurrencyResponse> {
     return this.request('InstrumentsService', 'CurrencyBy', body)
   }
 
-  Currencies(body: InstrumentsRequest): Promise<CurrenciesResponse> {
+  /**
+   * Метод получения списка валют
+   * @see https://tinkoff.github.io/investAPI/instruments/#currencies
+   */
+  public Currencies(body: InstrumentsRequest): Promise<CurrenciesResponse> {
     return this.request('InstrumentsService', 'Currencies', body)
   }
 
-  EtfBy(body: InstrumentRequest): Promise<EtfResponse> {
+  /**
+   * Метод получения инвестиционного фонда по его идентификатору
+   * @see https://tinkoff.github.io/investAPI/instruments/#etfby
+   */
+  public EtfBy(body: InstrumentRequest): Promise<EtfResponse> {
     return this.request('InstrumentsService', 'EtfBy', body)
   }
 
-  Etfs(body: InstrumentsRequest): Promise<EtfsResponse> {
+  /**
+   * Метод получения списка инвестиционных фондов
+   * @see https://tinkoff.github.io/investAPI/instruments/#etfs
+   */
+  public Etfs(body: InstrumentsRequest): Promise<EtfsResponse> {
     return this.request('InstrumentsService', 'Etfs', body)
   }
 
-  FutureBy(body: InstrumentRequest): Promise<FutureResponse> {
+  /**
+   * Метод получения фьючерса по его идентификатору
+   * @see https://tinkoff.github.io/investAPI/instruments/#futureby
+   */
+  public FutureBy(body: InstrumentRequest): Promise<FutureResponse> {
     return this.request('InstrumentsService', 'FutureBy', body)
   }
 
-  Futures(body: InstrumentsRequest): Promise<FuturesResponse> {
+  /**
+   * Метод получения списка фьючерсов
+   * @see https://tinkoff.github.io/investAPI/instruments/#futures
+   */
+  public Futures(body: InstrumentsRequest): Promise<FuturesResponse> {
     return this.request('InstrumentsService', 'Futures', body)
   }
 
-  OptionBy(body: InstrumentRequest): Promise<OptionResponse> {
+  /**
+   * Метод получения опциона по его идентификатору
+   * @see https://tinkoff.github.io/investAPI/instruments/#optionby
+   */
+  public OptionBy(body: InstrumentRequest): Promise<OptionResponse> {
     return this.request('InstrumentsService', 'OptionBy', body)
   }
 
-  Options(body: InstrumentsRequest): Promise<OptionsResponse> {
+  /**
+   * Метод получения списка опционов
+   * @deprecated Deprecated
+   * @see https://tinkoff.github.io/investAPI/instruments/#options
+   */
+  public Options(body: InstrumentsRequest): Promise<OptionsResponse> {
     return this.request('InstrumentsService', 'Options', body)
   }
 
-  OptionsBy(body: FilterOptionsRequest): Promise<OptionsResponse> {
+  /**
+   * Метод получения списка опционов
+   * @see https://tinkoff.github.io/investAPI/instruments/#optionsby
+   */
+  public OptionsBy(body: FilterOptionsRequest): Promise<OptionsResponse> {
     return this.request('InstrumentsService', 'OptionsBy', body)
   }
 
-  ShareBy(body: InstrumentRequest): Promise<ShareResponse> {
+  /**
+   * Метод получения акции по её идентификатору
+   * @see https://tinkoff.github.io/investAPI/instruments/#shareby
+   */
+  public ShareBy(body: InstrumentRequest): Promise<ShareResponse> {
     return this.request('InstrumentsService', 'ShareBy', body)
   }
 
-  Shares(body: InstrumentsRequest): Promise<SharesResponse> {
+  /**
+   * Метод получения списка акций
+   * @see https://tinkoff.github.io/investAPI/instruments/#shares
+   */
+  public Shares(body: InstrumentsRequest): Promise<SharesResponse> {
     return this.request('InstrumentsService', 'Shares', body)
   }
 
-  GetAccruedInterests(
+  /**
+   * Метод получения накопленного купонного дохода по облигации
+   * @see https://tinkoff.github.io/investAPI/instruments/#getaccruedinterests
+   */
+  public GetAccruedInterests(
     body: GetAccruedInterestsRequest
   ): Promise<GetAccruedInterestsResponse> {
     return this.request('InstrumentsService', 'GetAccruedInterests', body)
   }
 
-  GetFuturesMargin(
+  /**
+   * Метод получения размера гарантийного обеспечения по фьючерсам
+   * @see https://tinkoff.github.io/investAPI/instruments/#getfuturesmargin
+   */
+  public GetFuturesMargin(
     body: GetFuturesMarginRequest
   ): Promise<GetFuturesMarginResponse> {
     return this.request('InstrumentsService', 'GetFuturesMargin', body)
   }
 
-  GetInstrumentBy(body: InstrumentRequest): Promise<InstrumentResponse> {
+  /**
+   * Метод получения основной информации об инструменте
+   * @see https://tinkoff.github.io/investAPI/instruments/#getinstrumentby
+   */
+  public GetInstrumentBy(body: InstrumentRequest): Promise<InstrumentResponse> {
     return this.request('InstrumentsService', 'GetInstrumentBy', body)
   }
 
-  GetDividends(body: GetDividendsRequest): Promise<GetDividendsResponse> {
+  /**
+   * Метод для получения событий выплаты дивидендов по инструменту
+   * @see https://tinkoff.github.io/investAPI/instruments/#getdividends
+   */
+  public GetDividends(
+    body: GetDividendsRequest
+  ): Promise<GetDividendsResponse> {
     return this.request('InstrumentsService', 'GetDividends', body)
   }
 
-  GetAssetBy(body: AssetRequest): Promise<AssetResponse> {
+  /**
+   * Метод получения актива по его идентификатору
+   * @see https://tinkoff.github.io/investAPI/instruments/#getassetby
+   */
+  public GetAssetBy(body: AssetRequest): Promise<AssetResponse> {
     return this.request('InstrumentsService', 'GetAssetBy', body)
   }
 
-  GetAssets(body: AssetsRequest): Promise<AssetsResponse> {
+  /**
+   * Метод получения списка активов
+   * @description Метод работает для всех инструментов, за исключением срочных - опционов и фьючерсов
+   * @see https://tinkoff.github.io/investAPI/instruments/#getassets
+   */
+  public GetAssets(body: AssetsRequest): Promise<AssetsResponse> {
     return this.request('InstrumentsService', 'GetAssets', body)
   }
 
-  GetFavorites(body: GetFavoritesRequest): Promise<GetFavoritesResponse> {
+  /**
+   * Метод получения списка избранных инструментов
+   * @see https://tinkoff.github.io/investAPI/instruments/#getfavorites
+   */
+  public GetFavorites(
+    body: GetFavoritesRequest
+  ): Promise<GetFavoritesResponse> {
     return this.request('InstrumentsService', 'GetFavorites', body)
   }
 
-  EditFavorites(body: EditFavoritesRequest): Promise<EditFavoritesResponse> {
+  /**
+   * Метод редактирования списка избранных инструментов
+   * @see https://tinkoff.github.io/investAPI/instruments/#editfavorites
+   */
+  public EditFavorites(
+    body: EditFavoritesRequest
+  ): Promise<EditFavoritesResponse> {
     return this.request('InstrumentsService', 'EditFavorites', body)
   }
 
-  GetCountries(body: GetCountriesRequest): Promise<GetCountriesResponse> {
+  /**
+   * Метод получения списка стран
+   * @see https://tinkoff.github.io/investAPI/instruments/#getcountries
+   */
+  public GetCountries(
+    body: GetCountriesRequest
+  ): Promise<GetCountriesResponse> {
     return this.request('InstrumentsService', 'GetCountries', body)
   }
 
-  FindInstrument(body: FindInstrumentRequest): Promise<FindInstrumentResponse> {
+  /**
+   * Метод поиска инструмента
+   * @see https://tinkoff.github.io/investAPI/instruments/#findinstrument
+   */
+  public FindInstrument(
+    body: FindInstrumentRequest
+  ): Promise<FindInstrumentResponse> {
     return this.request('InstrumentsService', 'FindInstrument', body)
   }
 
-  GetBrands(body: GetBrandsRequest): Promise<GetBrandsResponse> {
+  /**
+   * Метод получения списка брендов
+   * @see https://tinkoff.github.io/investAPI/instruments/#getbrands
+   */
+  public GetBrands(body: GetBrandsRequest): Promise<GetBrandsResponse> {
     return this.request('InstrumentsService', 'GetBrands', body)
   }
 
-  GetBrandBy(body: GetBrandRequest): Promise<Brand> {
+  /**
+   * Метод получения бренда по его идентификатору
+   * @see https://tinkoff.github.io/investAPI/instruments/#getbrandby
+   */
+  public GetBrandBy(body: GetBrandRequest): Promise<Brand> {
     return this.request('InstrumentsService', 'GetBrandBy', body)
   }
 }
