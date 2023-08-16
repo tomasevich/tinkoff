@@ -96,7 +96,8 @@ export interface StopOrder {
  */
 export interface PostStopOrderRequest {
   /**
-   * Figi-идентификатор инструмента. Необходимо использовать instrumentId
+   * Figi-идентификатор инструмента
+   * @description Необходимо использовать instrumentId
    * @deprecated Deprecated
    */
   figi?: string
