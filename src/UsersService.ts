@@ -205,6 +205,12 @@ export interface GetInfoResponse {
 export class UsersService extends Common {
   /**
    * Метод получения счетов пользователя
+   * ```js
+   * const usersService = new UsersService('TOKEN', false)
+   * const { accounts } = await usersService.GetAccounts({})
+   *
+   * console.log(accounts)
+   * ```
    * @see https://tinkoff.github.io/investAPI/users/#getaccounts
    */
   public GetAccounts(body: GetAccountsRequest): Promise<GetAccountsResponse> {
@@ -213,6 +219,12 @@ export class UsersService extends Common {
 
   /**
    * Расчёт маржинальных показателей по счёту
+   * ```js
+   * const usersService = new UsersService('TOKEN', false)
+   * const marginAttributes = await usersService.GetMarginAttributes({ accountId: 'ACCOUNT_ID' })
+   *
+   * console.log(marginAttributes)
+   * ```
    * @see https://tinkoff.github.io/investAPI/users/#getmarginattributes
    */
   public GetMarginAttributes(
@@ -223,6 +235,12 @@ export class UsersService extends Common {
 
   /**
    * Запрос тарифа пользователя
+   * ```js
+   * const usersService = new UsersService('TOKEN', false)
+   * const userTariff = await usersService.GetUserTariff({})
+   *
+   * console.log(userTariff)
+   * ```
    * @see https://tinkoff.github.io/investAPI/users/#getusertariff
    */
   public GetUserTariff(
@@ -233,6 +251,12 @@ export class UsersService extends Common {
 
   /**
    * Метод получения информации о пользователе
+   * ```js
+   * const usersService = new UsersService('TOKEN', false)
+   * const info = await usersService.GetInfo({})
+   *
+   * console.log(info)
+   * ```
    * @see https://tinkoff.github.io/investAPI/users/#getinfo
    */
   public GetInfo(body: GetInfoRequest): Promise<GetInfoResponse> {
