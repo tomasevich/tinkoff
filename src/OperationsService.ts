@@ -168,7 +168,7 @@ export interface Operation {
   /** Идентификатор операции */
   id: string
   /** Идентификатор родительской операции */
-  parent_operation_id: string
+  parentOperationId: string
   /** Валюта операции */
   currency: string
   /** Сумма операции */
@@ -189,7 +189,7 @@ export interface Operation {
    * Неисполненный остаток по сделке
    * @type `int64`
    */
-  quantity_rest: string
+  quantityRest: string
   /** Figi-идентификатор инструмента, связанного с операцией */
   figi: string
   /**
@@ -200,7 +200,7 @@ export interface Operation {
    * `etf` — фонд;
    * `futures` — фьючерс.
    */
-  instrument_type: string
+  instrumentType: string
   /**
    * Дата и время операции в формате часовом поясе UTC
    * @type `google.protobuf.Timestamp`
@@ -209,15 +209,15 @@ export interface Operation {
   /** Текстовое описание типа операции */
   type: string
   /** Тип операции */
-  operation_type: OperationType
+  operationType: OperationType
   /** Массив сделок */
   trades: OperationTrade[]
   /** Идентификатор актива */
-  asset_uid: string
-  /** position_uid-идентификатора инструмента */
-  position_uid: string
+  assetUid: string
+  /** positionUid-идентификатора инструмента */
+  positionUid: string
   /** Уникальный идентификатор инструмента */
-  instrument_uid: string
+  instrumentUid: string
 }
 
 /**
@@ -226,12 +226,12 @@ export interface Operation {
  */
 export interface OperationTrade {
   /** Идентификатор сделки */
-  trade_id: string
+  tradeId: string
   /**
    * Дата и время сделки в часовом поясе UTC
    * @type `google.protobuf.Timestamp`
    */
-  date_time: string
+  dateTime: string
   /**
    * Количество инструментов
    * @type `int64`
@@ -250,7 +250,7 @@ export interface OperationTrade {
  */
 export interface OperationsRequest {
   /** Идентификатор счёта клиента */
-  account_id: string
+  accountId: string
   /**
    * Начало периода (по UTC).
    * @type `google.protobuf.Timestamp`
@@ -282,7 +282,7 @@ export interface OperationsResponse {
  */
 export interface PortfolioRequest {
   /** Идентификатор счёта пользователя */
-  account_id: string
+  accountId: string
   /** Валюта, в которой требуется рассчитать портфель */
   currency: PortfolioRequestCurrencyRequest
 }
@@ -293,29 +293,29 @@ export interface PortfolioRequest {
  */
 export interface PortfolioResponse {
   /** Общая стоимость акций в портфеле */
-  total_amount_shares: MoneyValue
+  totalAmountShares: MoneyValue
   /** Общая стоимость облигаций в портфеле */
-  total_amount_bonds: MoneyValue
+  totalAmountBonds: MoneyValue
   /** Общая стоимость фондов в портфеле */
-  total_amount_etf: MoneyValue
+  totalAmountEtf: MoneyValue
   /** Общая стоимость валют в портфеле */
-  total_amount_currencies: MoneyValue
+  totalAmountCurrencies: MoneyValue
   /** Общая стоимость фьючерсов в портфеле */
-  total_amount_futures: MoneyValue
+  totalAmountFutures: MoneyValue
   /** Текущая относительная доходность портфеля, в % */
-  expected_yield: Quotation
+  expectedYield: Quotation
   /** Список позиций портфеля */
   positions: PortfolioPosition[]
   /** Идентификатор счёта пользователя */
-  account_id: string
+  accountId: string
   /** Общая стоимость опционов в портфеле */
-  total_amount_options: MoneyValue
+  totalAmountOptions: MoneyValue
   /** Общая стоимость структурных нот в портфеле */
-  total_amount_sp: MoneyValue
+  totalAmountSp: MoneyValue
   /** Общая стоимость портфеля */
-  total_amount_portfolio: MoneyValue
+  totalAmountPortfolio: MoneyValue
   /** Массив виртуальных позиций портфеля */
-  virtual_positions: VirtualPortfolioPosition[]
+  virtualPositions: VirtualPortfolioPosition[]
 }
 
 /**
@@ -326,51 +326,51 @@ export interface PortfolioPosition {
   /** Figi-идентификатора инструмента */
   figi: string
   /** Тип инструмента */
-  instrument_type: string
+  instrumentType: string
   /** Количество инструмента в портфеле в штуках */
   quantity: Quotation
   /**
    * Средневзвешенная цена позиции
    * @description Возможна задержка до секунды для пересчёта
    */
-  average_position_price: MoneyValue
+  averagePositionPrice: MoneyValue
   /** Текущая рассчитанная доходность позиции */
-  expected_yield: Quotation
+  expectedYield: Quotation
   /** Текущий НКД */
-  current_nkd: MoneyValue
+  currentNkd: MoneyValue
   /**
    * Средняя цена позиции в пунктах (для фьючерсов)
    * Возможна задержка до секунды для пересчёта
    * @deprecated
    */
-  average_position_price_pt: Quotation
+  averagePositionPricePt: Quotation
   /**
    * Текущая цена за 1 инструмент
    * @description Для получения стоимости лота требуется умножить на лотность инструмента
    */
-  current_price: MoneyValue
+  currentPrice: MoneyValue
   /**
    * Средняя цена позиции по методу FIFO
    * @description Возможна задержка до секунды для пересчёта
    */
-  average_position_price_fifo: MoneyValue
+  averagePositionPriceFifo: MoneyValue
   /**
    * Количество лотов в портфеле
    * @deprecated
    */
-  quantity_lots: Quotation
+  quantityLots: Quotation
   /** Заблокировано на бирже */
   blocked: boolean
   /** Количество бумаг, заблокированных выставленными заявками */
-  blocked_lots: Quotation
-  /** position_uid-идентификатора инструмент */
-  position_uid: string
-  /** instrument_uid-идентификатора инструмент */
-  instrument_uid: string
+  blockedLots: Quotation
+  /** positionUid-идентификатора инструмент */
+  positionUid: string
+  /** instrumentUid-идентификатора инструмент */
+  instrumentUid: string
   /** Вариационная маржа */
-  var_margin: MoneyValue
+  varMargin: MoneyValue
   /** Текущая рассчитанная доходность позиции */
-  expected_yield_fifo: Quotation
+  expectedYieldFifo: Quotation
 }
 
 /**
@@ -378,37 +378,37 @@ export interface PortfolioPosition {
  * @see https://tinkoff.github.io/investAPI/operations/#virtualportfolioposition
  */
 export interface VirtualPortfolioPosition {
-  /** position_uid-идентификатора инструмент */
-  position_uid: string
-  /** instrument_uid-идентификатора инструмент */
-  instrument_uid: string
+  /** positionUid-идентификатора инструмент */
+  positionUid: string
+  /** instrumentUid-идентификатора инструмент */
+  instrumentUid: string
   /** Figi-идентификатора инструмента */
   figi: string
   /** Тип инструмента */
-  instrument_type: string
+  instrumentType: string
   /** Количество инструмента в портфеле в штуках */
   quantity: Quotation
   /**
    * Средневзвешенная цена позиции
    * @description Возможна задержка до секунды для пересчёта
    */
-  average_position_price: MoneyValue
+  averagePositionPrice: MoneyValue
   /** Текущая рассчитанная доходность позиции */
-  expected_yield: Quotation
+  expectedYield: Quotation
   /** Текущая рассчитанная доходность позиции */
-  expected_yield_fifo: Quotation
+  expectedYieldFifo: Quotation
   /**
    * Дата до которой нужно продать виртуальные бумаги, после этой даты виртуальная позиция "сгорит"
    * @type `google.protobuf.Timestamp`
    */
-  expire_date: string
+  expireDate: string
   /** Текущая цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента */
-  current_price: MoneyValue
+  currentPrice: MoneyValue
   /**
    * Средняя цена позиции по методу FIFO
    * @description Возможна задержка до секунды для пересчёта
    */
-  average_position_price_fifo: MoneyValue
+  averagePositionPriceFifo: MoneyValue
 }
 
 /**
@@ -429,13 +429,13 @@ export interface PositionsSecurities {
    */
   balance: string
   /** Уникальный идентификатор позиции */
-  position_uid: string
+  positionUid: string
   /** Уникальный идентификатор инструмента */
-  instrument_uid: string
+  instrumentUid: string
   /** Заблокировано на бирже */
-  exchange_blocked: boolean
+  exchangeBlocked: boolean
   /** Тип инструмента */
-  instrument_type: string
+  instrumentType: string
 }
 
 /**
@@ -456,9 +456,9 @@ export interface PositionsFutures {
    */
   balance: string
   /** Уникальный идентификатор позиции */
-  position_uid: string
+  positionUid: string
   /** Уникальный идентификатор инструмента */
-  instrument_uid: string
+  instrumentUid: string
 }
 
 /**
@@ -466,9 +466,9 @@ export interface PositionsFutures {
  */
 export interface PositionsOptions {
   /** Уникальный идентификатор позиции опциона */
-  position_uid: string
+  positionUid: string
   /** Уникальный идентификатор инструмента */
-  instrument_uid: string
+  instrumentUid: string
   /**
    * Количество бумаг заблокированных выставленными заявками
    * @type `int64`
@@ -502,7 +502,7 @@ export interface PositionsResponse {
   /** Список ценно-бумажных позиций портфеля */
   securities: PositionsSecurities[]
   /** Признак идущей в данный момент выгрузки лимитов */
-  limits_loading_in_progress: boolean
+  limitsLoadingInProgress: boolean
   /** Список фьючерсов портфеля */
   futures: PositionsFutures[]
   /** Список опционов портфеля */
@@ -515,7 +515,7 @@ export interface PositionsResponse {
  */
 export interface WithdrawLimitsRequest {
   /** Идентификатор счёта пользователя */
-  account_id: string
+  accountId: string
 }
 
 /**
@@ -528,7 +528,7 @@ export interface WithdrawLimitsResponse {
   /** Массив заблокированных валютных позиций портфеля */
   blocked: MoneyValue[]
   /** Заблокировано под гарантийное обеспечение фьючерсов */
-  blocked_guarantee: MoneyValue[]
+  blockedGuarantee: MoneyValue[]
 }
 
 /**
@@ -536,7 +536,7 @@ export interface WithdrawLimitsResponse {
  */
 export interface GenerateBrokerReportRequest {
   /** Идентификатор счёта клиента */
-  account_id: string
+  accountId: string
   /**
    * Начало периода в часовом поясе UTC
    * @type `google.protobuf.Timestamp`
@@ -554,7 +554,7 @@ export interface GenerateBrokerReportRequest {
  */
 export interface GenerateBrokerReportResponse {
   /** Идентификатор задачи формирования брокерского отчёта */
-  task_id: string
+  taskId: string
 }
 
 /**
@@ -562,9 +562,9 @@ export interface GenerateBrokerReportResponse {
  */
 export interface BrokerReportRequest {
   /** @todo Нет описания */
-  generate_broker_report_request: GenerateBrokerReportRequest
+  generateBrokerReportRequest: GenerateBrokerReportRequest
   /** @todo Нет описания */
-  get_broker_report_request: GetBrokerReportRequest
+  getBrokerReportRequest: GetBrokerReportRequest
 }
 
 /**
@@ -572,9 +572,9 @@ export interface BrokerReportRequest {
  */
 export interface BrokerReportResponse {
   /** @todo Нет описания */
-  generate_broker_report_response: GenerateBrokerReportResponse
+  generateBrokerReportResponse: GenerateBrokerReportResponse
   /** @todo Нет описания */
-  get_broker_report_response: GetBrokerReportResponse
+  getBrokerReportResponse: GetBrokerReportResponse
 }
 
 /**
@@ -582,7 +582,7 @@ export interface BrokerReportResponse {
  */
 export interface GetBrokerReportRequest {
   /** Идентификатор задачи формирования брокерского отчёта */
-  task_id: string
+  taskId: string
   /**
    * Номер страницы отчета (начинается с 1), значение по умолчанию: 0
    * @type `int32`
@@ -595,7 +595,7 @@ export interface GetBrokerReportRequest {
  */
 export interface GetBrokerReportResponse {
   /** @todo Нет описания */
-  broker_report: BrokerReport[]
+  brokerReport: BrokerReport[]
   /**
    * Количество записей в отчете
    * @type `int32`
@@ -618,22 +618,22 @@ export interface GetBrokerReportResponse {
  */
 export interface BrokerReport {
   /** Номер сделки */
-  trade_id: string
+  tradeId: string
   /** Номер поручения */
-  order_id: string
+  orderId: string
   /** Figi-идентификатор инструмента */
   figi: string
   /** Признак исполнения */
-  execute_sign: string
+  executeSign: string
   /**
    * Дата и время заключения в часовом поясе UTC
    * @type `google.protobuf.Timestamp`
    */
-  trade_datetime: string
+  tradeDatetime: string
   /** Торговая площадка */
   exchange: string
   /** Режим торгов */
-  class_code: string
+  classCode: string
   /** Вид сделки */
   direction: string
   /** Сокращённое наименование актива */
@@ -650,41 +650,41 @@ export interface BrokerReport {
    */
   quantity: string
   /** Сумма (без НКД) */
-  order_amount: MoneyValue
+  orderAmount: MoneyValue
   /** НКД */
-  aci_value: Quotation
+  aciValue: Quotation
   /** Сумма сделки */
-  total_order_amount: MoneyValue
+  totalOrderAmount: MoneyValue
   /** Комиссия брокера */
-  broker_commission: MoneyValue
+  brokerCommission: MoneyValue
   /** Комиссия биржи */
-  exchange_commission: MoneyValue
+  exchangeCommission: MoneyValue
   /** Комиссия клир. центра */
-  exchange_clearing_commission: MoneyValue
+  exchangeClearingCommission: MoneyValue
   /** Ставка РЕПО (%) */
-  repo_rate: Quotation
+  repoRate: Quotation
   /** Контрагент/Брокер */
   party: string
   /**
    * Дата расчётов в часовом поясе UTC
    * @type `google.protobuf.Timestamp`
    */
-  clear_value_date: string
+  clearValueDate: string
   /**
    * Дата поставки в часовом поясе UTC
    * @type `google.protobuf.Timestamp`
    */
-  sec_value_date: string
+  secValueDate: string
   /** Статус брокера */
-  broker_status: string
+  brokerStatus: string
   /** Тип дог */
-  separate_agreement_type: string
+  separateAgreementType: string
   /** Номер дог */
-  separate_agreement_number: string
+  separateAgreementNumber: string
   /** Дата дог */
-  separate_agreement_date: string
+  separateAgreementDate: string
   /** Тип расчёта по сделке */
-  delivery_type: string
+  deliveryType: string
 }
 
 /**
@@ -692,9 +692,9 @@ export interface BrokerReport {
  */
 export interface GetDividendsForeignIssuerRequest {
   /** Объект запроса формирования отчёта */
-  generate_div_foreign_issuer_report: GenerateDividendsForeignIssuerReportRequest
+  generateDivForeignIssuerReport: GenerateDividendsForeignIssuerReportRequest
   /** Объект запроса сформированного отчёта */
-  get_div_foreign_issuer_report: GetDividendsForeignIssuerReportRequest
+  getDivForeignIssuerReport: GetDividendsForeignIssuerReportRequest
 }
 
 /**
@@ -702,9 +702,9 @@ export interface GetDividendsForeignIssuerRequest {
  */
 export interface GetDividendsForeignIssuerResponse {
   /** Объект результата задачи запуска формирования отчёта */
-  generate_div_foreign_issuer_report_response: GenerateDividendsForeignIssuerReportResponse
+  generateDivForeignIssuerReportResponse: GenerateDividendsForeignIssuerReportResponse
   /** Отчёт "Справка о доходах за пределами РФ" */
-  div_foreign_issuer_report: GetDividendsForeignIssuerReportResponse
+  divForeignIssuerReport: GetDividendsForeignIssuerReportResponse
 }
 
 /**
@@ -713,7 +713,7 @@ export interface GetDividendsForeignIssuerResponse {
  */
 export interface GenerateDividendsForeignIssuerReportRequest {
   /** Идентификатор счёта клиента */
-  account_id: string
+  accountId: string
   /**
    * Начало периода (по UTC).
    * @type `google.protobuf.Timestamp`
@@ -732,7 +732,7 @@ export interface GenerateDividendsForeignIssuerReportRequest {
  */
 export interface GetDividendsForeignIssuerReportRequest {
   /** Идентификатор задачи формирования отчёта */
-  task_id: string
+  taskId: string
   /**
    * Номер страницы отчета (начинается с 0), значение по умолчанию: 0
    * @type `int32`
@@ -746,7 +746,7 @@ export interface GetDividendsForeignIssuerReportRequest {
  */
 export interface GenerateDividendsForeignIssuerReportResponse {
   /** Идентификатор задачи формирования отчёта */
-  task_id: string
+  taskId: string
 }
 
 /**
@@ -754,7 +754,7 @@ export interface GenerateDividendsForeignIssuerReportResponse {
  */
 export interface GetDividendsForeignIssuerReportResponse {
   /** @todo Нет описания */
-  dividends_foreign_issuer_report: DividendsForeignIssuerReport[]
+  dividendsForeignIssuerReport: DividendsForeignIssuerReport[]
   /**
    * Количество записей в отчете
    * @type `int32`
@@ -781,21 +781,21 @@ export interface DividendsForeignIssuerReport {
    * Дата фиксации реестра.
    * @type `google.protobuf.Timestamp`
    */
-  record_date: string
+  recordDate: string
   /**
    * Дата выплаты.
    * @type `google.protobuf.Timestamp`
    */
-  payment_date: string
+  paymentDate: string
   /** Наименование ценной бумаги */
-  security_name: string
+  securityName: string
   /** ISIN-идентификатор ценной бумаги */
   isin: string
   /**
    * Страна эмитента
    * @description Для депозитарных расписок указывается страна эмитента базового актива
    */
-  issuer_country: string
+  issuerCountry: string
   /**
    * Количество ценных бумаг
    * @type `int64`
@@ -804,13 +804,13 @@ export interface DividendsForeignIssuerReport {
   /** Выплаты на одну бумаг */
   dividend: Quotation
   /** Комиссия внешних платёжных агентов */
-  external_commission: Quotation
+  externalCommission: Quotation
   /** Сумма до удержания налога */
-  dividend_gross: Quotation
+  dividendGross: Quotation
   /** Сумма налога, удержанного агентом */
   tax: Quotation
   /** Итоговая сумма выплаты */
-  dividend_amount: Quotation
+  dividendAmount: Quotation
   /** Валюта */
   currency: string
 }
@@ -821,9 +821,9 @@ export interface DividendsForeignIssuerReport {
  */
 export interface GetOperationsByCursorRequest {
   /** Идентификатор счёта клиента. Обязательный параметр для данного метода, остальные параметры опциональны */
-  account_id: string
+  accountId: string
   /** Идентификатор инструмента (Figi инструмента или uid инструмента) */
-  instrument_id: string
+  instrumentId: string
   /**
    * Начало периода (по UTC).
    * @type `google.protobuf.Timestamp`
@@ -845,15 +845,15 @@ export interface GetOperationsByCursorRequest {
    * Тип операции
    * @description Принимает значение из списка OperationType
    */
-  operation_types: OperationType[]
+  operationTypes: OperationType[]
   /** Статус запрашиваемых операций, возможные значения указаны в OperationState */
   state: OperationState
   /** Флаг возвращать ли комиссии, по умолчанию false */
-  without_commissions: boolean
+  withoutCommissions: boolean
   /** Флаг получения ответа без массива сделок. */
-  without_trades: boolean
+  withoutTrades: boolean
   /** Флаг не показывать overnight операций. */
-  without_overnights: boolean
+  withoutOvernights: boolean
 }
 
 /**
@@ -862,9 +862,9 @@ export interface GetOperationsByCursorRequest {
  */
 export interface GetOperationsByCursorResponse {
   /** Признак, есть ли следующий элемент */
-  has_next: boolean
+  hasNext: boolean
   /** Следующий курсор */
-  next_cursor: string
+  nextCursor: string
   /** Список операций */
   items: OperationItem[]
 }
@@ -877,11 +877,11 @@ export interface OperationItem {
   /** Курсор */
   cursor: string
   /** Номер счета клиента */
-  broker_account_id: string
+  brokerAccountId: string
   /** Идентификатор операции, может меняться с течением времени */
   id: string
   /** Идентификатор родительской операции, может измениться, если изменился id родительской операции */
-  parent_operation_id: string
+  parentOperationId: string
   /** Название операции */
   name: string
   /**
@@ -896,15 +896,15 @@ export interface OperationItem {
   /** Статус поручения */
   state: OperationState
   /** Уникальный идентификатор инструмента */
-  instrument_uid: string
+  instrumentUid: string
   /** Figi */
   figi: string
   /** Тип инструмента */
-  instrument_type: string
+  instrumentType: string
   /** Тип инструмента */
-  instrument_kind: InstrumentType
-  /** position_uid-идентификатора инструмента */
-  position_uid: string
+  instrumentKind: InstrumentType
+  /** positionUid-идентификатора инструмента */
+  positionUid: string
   /** Сумма операции */
   payment: MoneyValue
   /**
@@ -916,9 +916,9 @@ export interface OperationItem {
   /** Доходность */
   yield: MoneyValue
   /** Относительная доходность */
-  yield_relative: Quotation
+  yieldRelative: Quotation
   /** Накопленный купонный доход */
-  accrued_int: MoneyValue
+  accruedInt: MoneyValue
   /**
    * Количество единиц инструмента
    * @type `int64`
@@ -928,23 +928,23 @@ export interface OperationItem {
    * Неисполненный остаток по сделке
    * @type `int64`
    */
-  quantity_rest: string
+  quantityRest: string
   /**
    * Исполненный остаток
    * @type `int64`
    */
-  quantity_done: string
+  quantityDone: string
   /**
    * Дата и время снятия заявки.
    * @type `google.protobuf.Timestamp`
    */
-  cancel_date_time: string
+  cancelDateTime: string
   /** Причина отмены операции */
-  cancel_reason: string
+  cancelReason: string
   /** Массив сделок */
-  trades_info: OperationItemTrades
+  tradesInfo: OperationItemTrades
   /** Идентификатор актива */
-  asset_uid: string
+  assetUid: string
 }
 
 /**
@@ -980,7 +980,7 @@ export interface OperationItemTrade {
   /** Доходность. */
   yield: MoneyValue
   /** Относительная доходность. */
-  yield_relative: Quotation
+  yieldRelative: Quotation
 }
 
 /**
@@ -989,7 +989,7 @@ export interface OperationItemTrade {
  */
 export interface PositionData {
   /** Идентификатор счёта */
-  account_id: string
+  accountId: string
   /** Массив валютных позиций портфеля */
   money: PositionsMoney[]
   /** Список ценно-бумажных позиций портфеля */
@@ -1011,9 +1011,9 @@ export interface PositionData {
  */
 export interface PositionsMoney {
   /** Доступное количество валютный позиций */
-  available_value: MoneyValue
+  availableValue: MoneyValue
   /** Заблокированное количество валютный позиций */
-  blocked_value: MoneyValue
+  blockedValue: MoneyValue
 }
 
 /**
