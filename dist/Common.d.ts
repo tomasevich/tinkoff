@@ -26,33 +26,11 @@ export interface Quotation {
     units: string;
     nano: number;
 }
-/**
- * Общий класс
- * 1. Позволяет сделать `HTTP` запрос к серверу **Tinkoff Invest API**
- * 2. Конвертировать `MoneyValue` и `Quotation` в обе стороны
- */
 export declare class Common {
     private token;
     private isSandbox;
-    /**
-     * Продуктивный сервер
-     */
     private production;
-    /**
-     * Сервер песочницы
-     */
     private development;
-    /**
-     * Конструктор
-     * @param token Токен приложения
-     * @param isSandbox Флаг включения режима `Песочницы`
-     */
     constructor(token: string, isSandbox: boolean);
-    /**
-     * Метод `HTTP` запроса к серверу **Tinkoff Invest API**
-     * @param service Имя сервиса
-     * @param method Имя метода
-     * @param body Тело запроса
-     */
     protected request(service: string, method: string, body: any): Promise<any>;
 }

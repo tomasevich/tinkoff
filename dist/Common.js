@@ -30,35 +30,13 @@ var SecurityTradingStatus;
     SecurityTradingStatus[SecurityTradingStatus["SECURITY_TRADING_STATUS_DEALER_BREAK_IN_TRADING"] = 15] = "SECURITY_TRADING_STATUS_DEALER_BREAK_IN_TRADING";
     SecurityTradingStatus[SecurityTradingStatus["SECURITY_TRADING_STATUS_DEALER_NOT_AVAILABLE_FOR_TRADING"] = 16] = "SECURITY_TRADING_STATUS_DEALER_NOT_AVAILABLE_FOR_TRADING";
 })(SecurityTradingStatus || (exports.SecurityTradingStatus = SecurityTradingStatus = {}));
-/**
- * Общий класс
- * 1. Позволяет сделать `HTTP` запрос к серверу **Tinkoff Invest API**
- * 2. Конвертировать `MoneyValue` и `Quotation` в обе стороны
- */
 class Common {
-    /**
-     * Конструктор
-     * @param token Токен приложения
-     * @param isSandbox Флаг включения режима `Песочницы`
-     */
     constructor(token, isSandbox) {
         this.token = token;
         this.isSandbox = isSandbox;
-        /**
-         * Продуктивный сервер
-         */
         this.production = 'https://invest-public-api.tinkoff.ru';
-        /**
-         * Сервер песочницы
-         */
         this.development = 'https://sandbox-invest-public-api.tinkoff.ru';
     }
-    /**
-     * Метод `HTTP` запроса к серверу **Tinkoff Invest API**
-     * @param service Имя сервиса
-     * @param method Имя метода
-     * @param body Тело запроса
-     */
     request(service, method, body) {
         return __awaiter(this, void 0, void 0, function* () {
             const server = this.isSandbox ? this.development : this.production;

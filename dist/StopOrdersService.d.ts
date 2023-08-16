@@ -1,4 +1,4 @@
-import { Common } from './Common';
+import { Common, MoneyValue, Quotation } from './Common';
 export declare enum StopOrderDirection {
     STOP_ORDER_DIRECTION_UNSPECIFIED = 0,
     STOP_ORDER_DIRECTION_BUY = 1,
@@ -16,40 +16,49 @@ export declare enum StopOrderType {
     STOP_ORDER_TYPE_STOP_LIMIT = 3
 }
 export interface StopOrder {
+    stopOrderId: string;
+    lotsRequested: string;
+    figi: string;
+    direction: StopOrderDirection;
+    currency: string;
+    orderType: StopOrderType;
+    createDate: string;
+    activationDateTime: string;
+    expirationTime: string;
+    price: MoneyValue;
+    stopPrice: MoneyValue;
+    instrumentUid: string;
 }
 export interface PostStopOrderRequest {
+    figi?: string;
+    quantity: string;
+    price: Quotation;
+    stopPrice: Quotation;
+    direction: StopOrderDirection;
+    accountId: string;
+    expirationType: StopOrderExpirationType;
+    stopOrderType: StopOrderType;
+    expireDate: string;
+    instrumentId: string;
 }
 export interface PostStopOrderResponse {
+    stopOrderId: string;
 }
 export interface GetStopOrdersRequest {
+    accountId: string;
 }
 export interface GetStopOrdersResponse {
+    stopOrders: StopOrder[];
 }
 export interface CancelStopOrderRequest {
+    accountId: string;
+    stopOrderId: string;
 }
 export interface CancelStopOrderResponse {
+    time: string;
 }
-/**
- * Сервис предназначен для работы со стоп-заявками:
- * 1. выставление;
- * 2. отмена;
- * 3. получение списка стоп-заявок.
- * @see https://tinkoff.github.io/investAPI/stoporders/#stopordersservice
- */
 export declare class StopOrdersService extends Common {
-    /**
-     * Метод выставления стоп-заявки
-     * @see https://tinkoff.github.io/investAPI/stoporders/#poststoporder
-     */
     PostStopOrder(body: PostStopOrderRequest): Promise<PostStopOrderResponse>;
-    /**
-     * Метод получения списка активных стоп заявок по счёту
-     * @see https://tinkoff.github.io/investAPI/stoporders/#getstoporders
-     */
     GetStopOrders(body: GetStopOrdersRequest): Promise<GetStopOrdersResponse>;
-    /**
-     * Метод отмены стоп-заявки
-     * @see https://tinkoff.github.io/investAPI/stoporders/#cancelstoporder
-     */
     CancelStopOrder(body: CancelStopOrderRequest): Promise<CancelStopOrderResponse>;
 }

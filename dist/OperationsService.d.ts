@@ -1,4 +1,5 @@
-import { Common, MoneyValue } from './Common';
+import { Common, MoneyValue, Quotation } from './Common';
+import { InstrumentType } from './InstrumentsService';
 export declare enum OperationState {
     OPERATION_STATE_UNSPECIFIED = 0,
     OPERATION_STATE_EXECUTED = 1,
@@ -69,11 +70,10 @@ export declare enum OperationType {
     OPERATION_TYPE_OVER_INCOME = 60,
     OPERATION_TYPE_OPTION_EXPIRATION = 61
 }
-export interface OperationTrade {
-    tradeId: string;
-    dateTime: string;
-    quantity: string;
-    price: MoneyValue;
+export declare enum PortfolioRequestCurrencyRequest {
+    RUB = 0,
+    USD = 1,
+    EUR = 2
 }
 export interface Operation {
     id: string;
@@ -89,10 +89,16 @@ export interface Operation {
     date: string;
     type: string;
     operationType: OperationType;
-    trades: OperationTrade;
+    trades: OperationTrade[];
     assetUid: string;
     positionUid: string;
     instrumentUid: string;
+}
+export interface OperationTrade {
+    tradeId: string;
+    dateTime: string;
+    quantity: string;
+    price: MoneyValue;
 }
 export interface OperationsRequest {
     accountId: string;
@@ -105,8 +111,53 @@ export interface OperationsResponse {
     operations: Operation[];
 }
 export interface PortfolioRequest {
+    accountId: string;
+    currency: PortfolioRequestCurrencyRequest;
 }
 export interface PortfolioResponse {
+    totalAmountShares: MoneyValue;
+    totalAmountBonds: MoneyValue;
+    totalAmountEtf: MoneyValue;
+    totalAmountCurrencies: MoneyValue;
+    totalAmountFutures: MoneyValue;
+    expectedYield: Quotation;
+    positions: PortfolioPosition[];
+    accountId: string;
+    totalAmountOptions: MoneyValue;
+    totalAmountSp: MoneyValue;
+    totalAmountPortfolio: MoneyValue;
+    virtualPositions: VirtualPortfolioPosition[];
+}
+export interface PortfolioPosition {
+    figi: string;
+    instrumentType: string;
+    quantity: Quotation;
+    averagePositionPrice: MoneyValue;
+    expectedYield: Quotation;
+    currentNkd: MoneyValue;
+    averagePositionPricePt: Quotation;
+    currentPrice: MoneyValue;
+    averagePositionPriceFifo: MoneyValue;
+    quantityLots: Quotation;
+    blocked: boolean;
+    blockedLots: Quotation;
+    positionUid: string;
+    instrumentUid: string;
+    varMargin: MoneyValue;
+    expectedYieldFifo: Quotation;
+}
+export interface VirtualPortfolioPosition {
+    positionUid: string;
+    instrumentUid: string;
+    figi: string;
+    instrumentType: string;
+    quantity: Quotation;
+    averagePositionPrice: MoneyValue;
+    expectedYield: Quotation;
+    expectedYieldFifo: Quotation;
+    expireDate: string;
+    currentPrice: MoneyValue;
+    averagePositionPriceFifo: MoneyValue;
 }
 export interface PositionsSecurities {
     figi: string;
@@ -125,10 +176,10 @@ export interface PositionsFutures {
     instrumentUid: string;
 }
 export interface PositionsOptions {
-    blocked: string;
-    balance: string;
     positionUid: string;
     instrumentUid: string;
+    blocked: string;
+    balance: string;
 }
 export interface PositionsRequest {
     accountId: string;
@@ -142,66 +193,184 @@ export interface PositionsResponse {
     options: PositionsOptions[];
 }
 export interface WithdrawLimitsRequest {
+    accountId: string;
 }
 export interface WithdrawLimitsResponse {
+    money: MoneyValue[];
+    blocked: MoneyValue[];
+    blockedGuarantee: MoneyValue[];
+}
+export interface GenerateBrokerReportRequest {
+    accountId: string;
+    from: string;
+    to: string;
+}
+export interface GenerateBrokerReportResponse {
+    taskId: string;
 }
 export interface BrokerReportRequest {
+    generateBrokerReportRequest: GenerateBrokerReportRequest;
+    getBrokerReportRequest: GetBrokerReportRequest;
 }
 export interface BrokerReportResponse {
+    generateBrokerReportResponse: GenerateBrokerReportResponse;
+    getBrokerReportResponse: GetBrokerReportResponse;
+}
+export interface GetBrokerReportRequest {
+    taskId: string;
+    page: number;
+}
+export interface GetBrokerReportResponse {
+    brokerReport: BrokerReport[];
+    itemsCount: number;
+    pagesCount: number;
+    page: number;
+}
+export interface BrokerReport {
+    tradeId: string;
+    orderId: string;
+    figi: string;
+    executeSign: string;
+    tradeDatetime: string;
+    exchange: string;
+    classCode: string;
+    direction: string;
+    name: string;
+    ticker: string;
+    price: MoneyValue;
+    quantity: string;
+    orderAmount: MoneyValue;
+    aciValue: Quotation;
+    totalOrderAmount: MoneyValue;
+    brokerCommission: MoneyValue;
+    exchangeCommission: MoneyValue;
+    exchangeClearingCommission: MoneyValue;
+    repoRate: Quotation;
+    party: string;
+    clearValueDate: string;
+    secValueDate: string;
+    brokerStatus: string;
+    separateAgreementType: string;
+    separateAgreementNumber: string;
+    separateAgreementDate: string;
+    deliveryType: string;
 }
 export interface GetDividendsForeignIssuerRequest {
+    generateDivForeignIssuerReport: GenerateDividendsForeignIssuerReportRequest;
+    getDivForeignIssuerReport: GetDividendsForeignIssuerReportRequest;
 }
 export interface GetDividendsForeignIssuerResponse {
+    generateDivForeignIssuerReportResponse: GenerateDividendsForeignIssuerReportResponse;
+    divForeignIssuerReport: GetDividendsForeignIssuerReportResponse;
+}
+export interface GenerateDividendsForeignIssuerReportRequest {
+    accountId: string;
+    from: string;
+    to: string;
+}
+export interface GetDividendsForeignIssuerReportRequest {
+    taskId: string;
+    page: number;
+}
+export interface GenerateDividendsForeignIssuerReportResponse {
+    taskId: string;
+}
+export interface GetDividendsForeignIssuerReportResponse {
+    dividendsForeignIssuerReport: DividendsForeignIssuerReport[];
+    itemsCount: number;
+    pagesCount: number;
+    page: number;
+}
+export interface DividendsForeignIssuerReport {
+    recordDate: string;
+    paymentDate: string;
+    securityName: string;
+    isin: string;
+    issuerCountry: string;
+    quantity: string;
+    dividend: Quotation;
+    externalCommission: Quotation;
+    dividendGross: Quotation;
+    tax: Quotation;
+    dividendAmount: Quotation;
+    currency: string;
 }
 export interface GetOperationsByCursorRequest {
+    accountId: string;
+    instrumentId: string;
+    from: string;
+    to: string;
+    cursor: string;
+    limit: number;
+    operationTypes: OperationType[];
+    state: OperationState;
+    withoutCommissions: boolean;
+    withoutTrades: boolean;
+    withoutOvernights: boolean;
 }
 export interface GetOperationsByCursorResponse {
+    hasNext: boolean;
+    nextCursor: string;
+    items: OperationItem[];
 }
-/**
- * Сервис предназначен для получения:
- * 1. списка операций по счёту;
- * 2. портфеля по счёту;
- * 3. позиций ценных бумаг на счёте;
- * 4. доступного остатка для вывода средств;
- * 5. получения различных отчётов.
- * @see https://tinkoff.github.io/investAPI/operations/#operationsservice
- */
+export interface OperationItem {
+    cursor: string;
+    brokerAccountId: string;
+    id: string;
+    parentOperationId: string;
+    name: string;
+    date: string;
+    type: OperationType;
+    description: string;
+    state: OperationState;
+    instrumentUid: string;
+    figi: string;
+    instrumentType: string;
+    instrumentKind: InstrumentType;
+    positionUid: string;
+    payment: MoneyValue;
+    price: MoneyValue;
+    commission: MoneyValue;
+    yield: MoneyValue;
+    yieldRelative: Quotation;
+    accruedInt: MoneyValue;
+    quantity: string;
+    quantityRest: string;
+    quantityDone: string;
+    cancelDateTime: string;
+    cancelReason: string;
+    tradesInfo: OperationItemTrades;
+    assetUid: string;
+}
+export interface OperationItemTrades {
+    trades: OperationItemTrade[];
+}
+export interface OperationItemTrade {
+    num: string;
+    date: string;
+    quantity: string;
+    price: MoneyValue;
+    yield: MoneyValue;
+    yieldRelative: Quotation;
+}
+export interface PositionData {
+    accountId: string;
+    money: PositionsMoney[];
+    securities: PositionsSecurities[];
+    futures: PositionsFutures[];
+    options: PositionsOptions[];
+    date: string;
+}
+export interface PositionsMoney {
+    availableValue: MoneyValue;
+    blockedValue: MoneyValue;
+}
 export declare class OperationsService extends Common {
-    /**
-     * Метод получения списка операций по счёту
-     * @description При работе с данным методом необходимо учитывать особенности взаимодействия с данным методом
-     * @see https://tinkoff.github.io/investAPI/operations/#getoperations
-     */
     GetOperations(body: OperationsRequest): Promise<OperationsResponse>;
-    /**
-     * Метод получения портфеля по счёту
-     * @see https://tinkoff.github.io/investAPI/operations/#getportfolio
-     */
     GetPortfolio(body: PortfolioRequest): Promise<PortfolioResponse>;
-    /**
-     * Метод получения списка позиций по счёту
-     * @see https://tinkoff.github.io/investAPI/operations/#getpositions
-     */
     GetPositions(body: PositionsRequest): Promise<PositionsResponse>;
-    /**
-     * Метод получения доступного остатка для вывода средств
-     * @see https://tinkoff.github.io/investAPI/operations/#getwithdrawlimits
-     */
     GetWithdrawLimits(body: WithdrawLimitsRequest): Promise<WithdrawLimitsResponse>;
-    /**
-     * Метод получения брокерского отчёта
-     * @see https://tinkoff.github.io/investAPI/operations/#getbrokerreport
-     */
     GetBrokerReport(body: BrokerReportRequest): Promise<BrokerReportResponse>;
-    /**
-     * Метод получения отчёта "Справка о доходах за пределами РФ"
-     * @see https://tinkoff.github.io/investAPI/operations/#getdividendsforeignissuer
-     */
     GetDividendsForeignIssuer(body: GetDividendsForeignIssuerRequest): Promise<GetDividendsForeignIssuerResponse>;
-    /**
-     * Метод получения списка операций по счёту с пагинацией
-     * @description При работе с данным методом необходимо учитывать особенности взаимодействия с данным методом
-     * @see https://tinkoff.github.io/investAPI/operations/#getoperationsbycursor
-     */
     GetOperationsByCursor(body: GetOperationsByCursorRequest): Promise<GetOperationsByCursorResponse>;
 }

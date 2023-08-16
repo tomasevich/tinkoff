@@ -18,10 +18,55 @@ export declare enum OrderExecutionReportStatus {
     EXECUTION_REPORT_STATUS_NEW = 4,
     EXECUTION_REPORT_STATUS_PARTIALLYFILL = 5
 }
+export declare enum PriceType {
+    PRICE_TYPE_UNSPECIFIED = 0,
+    PRICE_TYPE_POINT = 1,
+    PRICE_TYPE_CURRENCY = 2
+}
 export interface OrderStage {
     price: MoneyValue;
     quantity: string;
     tradeId: string;
+}
+export interface PostOrderRequest {
+    quantity: string;
+    price: Quotation;
+    direction: OrderDirection;
+    accountId: string;
+    orderType: OrderType;
+    orderId: string;
+    instrumentId: string;
+    figi?: string;
+}
+export interface PostOrderResponse {
+    orderId: string;
+    executionReportStatus: OrderExecutionReportStatus;
+    lotsRequested: string;
+    lotsExecuted: string;
+    initialOrderPrice: MoneyValue;
+    executedOrderPrice: MoneyValue;
+    totalOrderAmount: MoneyValue;
+    initialCommission: MoneyValue;
+    executedCommission: MoneyValue;
+    aciValue: MoneyValue;
+    figi: string;
+    direction: OrderDirection;
+    initialSecurityPrice: MoneyValue;
+    orderType: OrderType;
+    message: string;
+    initialOrderPricePt: Quotation;
+    instrumentUid: string;
+}
+export interface CancelOrderRequest {
+    accountId: string;
+    orderId: string;
+}
+export interface CancelOrderResponse {
+    time: string;
+}
+export interface GetOrderStateRequest {
+    accountId: string;
+    orderId: string;
 }
 export interface OrderState {
     orderId: string;
@@ -45,43 +90,6 @@ export interface OrderState {
     instrumentUid: string;
     orderRequestId: string;
 }
-export interface PostOrderRequest {
-    figi?: string;
-    quantity: string;
-    price: Quotation;
-    direction: OrderDirection;
-    accountId: string;
-    orderType: OrderType;
-    orderId: string;
-    instrumentId: string;
-}
-export interface PostOrderResponse {
-    orderId: string;
-    executionReportStatus: OrderExecutionReportStatus;
-    lotsRequested: string;
-    lotsExecuted: string;
-    initialOrderPrice: MoneyValue;
-    executedOrderPrice: MoneyValue;
-    totalOrderAmount: MoneyValue;
-    initialCommission: MoneyValue;
-    executedCommission: MoneyValue;
-    aciValue: MoneyValue;
-    figi: string;
-    direction: OrderDirection;
-    initialSecurityPrice: MoneyValue;
-    orderType: OrderType;
-    message: string;
-    initialOrderPricePt: Quotation;
-    instrumentUid: string;
-}
-export interface CancelOrderRequest {
-}
-export interface CancelOrderResponse {
-}
-export interface GetOrderStateRequest {
-}
-export interface OrderState {
-}
 export interface GetOrdersRequest {
     accountId: string;
 }
@@ -89,42 +97,17 @@ export interface GetOrdersResponse {
     orders: OrderState[];
 }
 export interface ReplaceOrderRequest {
+    accountId: string;
+    orderId: string;
+    idempotencyKey: string;
+    quantity: string;
+    price: Quotation;
+    priceType: PriceType;
 }
-export interface PostOrderResponse {
-}
-/**
- * Сервис предназначен для работы с торговыми поручениями:
- * 1. выставление;
- * 2. отмена;
- * 3. получение статуса;
- * 4. расчёт полной стоимости;
- * 5. получение списка заявок.
- * @see https://tinkoff.github.io/investAPI/orders/#ordersservice
- */
 export declare class OrdersService extends Common {
-    /**
-     * Метод выставления заявки
-     * @see https://tinkoff.github.io/investAPI/orders/#postorder
-     */
     PostOrder(body: PostOrderRequest): Promise<PostOrderResponse>;
-    /**
-     * Метод отмены биржевой заявки
-     * @see https://tinkoff.github.io/investAPI/orders/#cancelorder
-     */
     CancelOrder(body: CancelOrderRequest): Promise<CancelOrderResponse>;
-    /**
-     * Метод получения статуса торгового поручения
-     * @see https://tinkoff.github.io/investAPI/orders/#getorderstate
-     */
     GetOrderState(body: GetOrderStateRequest): Promise<OrderState>;
-    /**
-     * Метод получения списка активных заявок по счёту
-     * @see https://tinkoff.github.io/investAPI/orders/#getorders
-     */
     GetOrders(body: GetOrdersRequest): Promise<GetOrdersResponse>;
-    /**
-     * Метод изменения выставленной заявки
-     * @see https://tinkoff.github.io/investAPI/orders/#replaceorder
-     */
     ReplaceOrder(body: ReplaceOrderRequest): Promise<PostOrderResponse>;
 }
