@@ -6,7 +6,7 @@ import {
   GetInfoResponse,
   GetMarginAttributesResponse,
   GetUserTariffResponse
-} from './'
+} from '../src'
 
 dotenv.config({ path: './.env.test' })
 

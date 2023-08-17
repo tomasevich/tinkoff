@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 
-import { SandboxService, Account } from './'
+import { SandboxService, Account } from '../src'
 
 dotenv.config({ path: './.env.test' })
 
