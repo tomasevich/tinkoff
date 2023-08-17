@@ -24,88 +24,752 @@ export enum InstrumentType {
   INSTRUMENT_TYPE_CLEARING_CERTIFICATE
 }
 
-export interface TradingSchedulesRequest {}
+/**
+ * Данные по торговой площадке
+ * @see https://tinkoff.github.io/investAPI/instruments/#tradingschedule
+ */
+export interface TradingSchedule {
+  // exchange	string	Наименование торговой площадки.
+  // days	Массив объектов TradingDay	Массив с торговыми и неторговыми днями.
+}
 
-export interface TradingSchedulesResponse {}
+/**
+ * Информация о времени торгов
+ * @see https://tinkoff.github.io/investAPI/instruments/#tradingday
+ */
+export interface TradingDay {
+  // date	google.protobuf.Timestamp	Дата.
+  // is_trading_day	bool	Признак торгового дня на бирже.
+  // start_time	google.protobuf.Timestamp	Время начала торгов по часовому поясу UTC.
+  // end_time	google.protobuf.Timestamp	Время окончания торгов по часовому поясу UTC.
+  // opening_auction_start_time	google.protobuf.Timestamp	Время начала аукциона открытия в часовом поясе UTC.
+  // closing_auction_end_time	google.protobuf.Timestamp	Время окончания аукциона закрытия в часовом поясе UTC.
+  // evening_opening_auction_start_time	google.protobuf.Timestamp	Время начала аукциона открытия вечерней сессии в часовом поясе UTC.
+  // evening_start_time	google.protobuf.Timestamp	Время начала вечерней сессии в часовом поясе UTC.
+  // evening_end_time	google.protobuf.Timestamp	Время окончания вечерней сессии в часовом поясе UTC.
+  // clearing_start_time	google.protobuf.Timestamp	Время начала основного клиринга в часовом поясе UTC.
+  // clearing_end_time	google.protobuf.Timestamp	Время окончания основного клиринга в часовом поясе UTC.
+  // premarket_start_time	google.protobuf.Timestamp	Время начала премаркета в часовом поясе UTC.
+  // premarket_end_time	google.protobuf.Timestamp	Время окончания премаркета в часовом поясе UTC.
+  // closing_auction_start_time	google.protobuf.Timestamp	Время начала аукциона закрытия в часовом поясе UTC.
+  // opening_auction_end_time	google.protobuf.Timestamp	Время окончания аукциона открытия в часовом поясе UTC.
+}
 
-export interface InstrumentRequest {}
+/**
+ * Объект передачи информации о купоне облигации
+ * @see https://tinkoff.github.io/investAPI/instruments/#coupon
+ */
+export interface Coupon {
+  // figi	string	Figi-идентификатор инструмента.
+  // coupon_date	google.protobuf.Timestamp	Дата выплаты купона.
+  // coupon_number	int64	Номер купона.
+  // fix_date	google.protobuf.Timestamp	(Опционально) Дата фиксации реестра для выплаты купона.
+  // pay_one_bond	MoneyValue	Выплата на одну облигацию.
+  // coupon_type	CouponType	Тип купона.
+  // coupon_start_date	google.protobuf.Timestamp	Начало купонного периода.
+  // coupon_end_date	google.protobuf.Timestamp	Окончание купонного периода.
+  // coupon_period	int32	Купонный период в днях.
+}
 
-export interface BondResponse {}
+/**
+ * Опцион
+ * @see https://tinkoff.github.io/investAPI/instruments/#option
+ */
+export interface Option {
+  // uid	string	Уникальный идентификатор инструмента.
+  // position_uid	string	Уникальный идентификатор позиции.
+  // ticker	string	Тикер инструмента.
+  // class_code	string	Класс-код.
+  // basic_asset_position_uid	string	Уникальный идентификатор позиции основного инструмента.
+  // trading_status	SecurityTradingStatus	Текущий режим торгов инструмента.
+  // real_exchange	RealExchange	Реальная площадка исполнения расчётов (биржа). Допустимые значения: [REAL_EXCHANGE_MOEX, REAL_EXCHANGE_RTS]
+  // direction	OptionDirection	Направление опциона.
+  // payment_type	OptionPaymentType	Тип расчетов по опциону.
+  // style	OptionStyle	Стиль опциона.
+  // settlement_type	OptionSettlementType	Способ исполнения опциона.
+  // name	string	Название инструмента.
+  // currency	string	Валюта.
+  // settlement_currency	string	Валюта, в которой оценивается контракт.
+  // asset_type	string	Тип актива.
+  // basic_asset	string	Основной актив.
+  // exchange	string	Tорговая площадка (секция биржи).
+  // country_of_risk	string	Код страны рисков.
+  // country_of_risk_name	string	Наименование страны рисков.
+  // sector	string	Сектор экономики.
+  // lot	int32	Количество бумаг в лоте.
+  // basic_asset_size	Quotation	Размер основного актива.
+  // klong	Quotation	Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+  // kshort	Quotation	Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+  // dlong	Quotation	Ставка риска начальной маржи для КСУР лонг. Подробнее: ставка риска в лонг
+  // dshort	Quotation	Ставка риска начальной маржи для КСУР шорт. Подробнее: ставка риска в шорт
+  // dlong_min	Quotation	Ставка риска начальной маржи для КПУР лонг. Подробнее: ставка риска в лонг
+  // dshort_min	Quotation	Ставка риска начальной маржи для КПУР шорт. Подробнее: ставка риска в шорт
+  // min_price_increment	Quotation	Минимальный шаг цены.
+  // strike_price	MoneyValue	Цена страйка.
+  // expiration_date	google.protobuf.Timestamp	Дата истечения срока в формате UTC.
+  // first_trade_date	google.protobuf.Timestamp	Дата начала обращения контракта в формате UTC.
+  // last_trade_date	google.protobuf.Timestamp	Дата исполнения в формате UTC.
+  // first_1min_candle_date	google.protobuf.Timestamp	Дата первой минутной свечи в формате UTC.
+  // first_1day_candle_date	google.protobuf.Timestamp	Дата первой дневной свечи в формате UTC.
+  // short_enabled_flag	bool	Признак доступности для операций шорт.
+  // for_iis_flag	bool	Возможность покупки/продажи на ИИС.
+  // otc_flag	bool	Признак внебиржевой ценной бумаги.
+  // buy_available_flag	bool	Признак доступности для покупки.
+  // sell_available_flag	bool	Признак доступности для продажи.
+  // for_qual_investor_flag	bool	Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов.
+  // weekend_flag	bool	Флаг отображающий доступность торговли инструментом по выходным.
+  // blocked_tca_flag	bool	Флаг заблокированного ТКС.
+  // api_trade_available_flag	bool	Параметр указывает на возможность торговать инструментом через API.
+}
 
-export interface InstrumentsRequest {}
+/**
+ * Объект передачи информации об облигации
+ * @see https://tinkoff.github.io/investAPI/instruments/#bond
+ */
+export interface Bond {
+  // figi	string	Figi-идентификатор инструмента.
+  // ticker	string	Тикер инструмента.
+  // class_code	string	Класс-код (секция торгов).
+  // isin	string	Isin-идентификатор инструмента.
+  // lot	int32	Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру lot. Подробнее: лот
+  // currency	string	Валюта расчётов.
+  // klong	Quotation	Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+  // kshort	Quotation	Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+  // dlong	Quotation	Ставка риска начальной маржи для КСУР лонг. Подробнее: ставка риска в лонг
+  // dshort	Quotation	Ставка риска начальной маржи для КСУР шорт. Подробнее: ставка риска в шорт
+  // dlong_min	Quotation	Ставка риска начальной маржи для КПУР лонг. Подробнее: ставка риска в лонг
+  // dshort_min	Quotation	Ставка риска начальной маржи для КПУР шорт. Подробнее: ставка риска в шорт
+  // short_enabled_flag	bool	Признак доступности для операций в шорт.
+  // name	string	Название инструмента.
+  // exchange	string	Tорговая площадка (секция биржи).
+  // coupon_quantity_per_year	int32	Количество выплат по купонам в год.
+  // maturity_date	google.protobuf.Timestamp	Дата погашения облигации в часовом поясе UTC.
+  // nominal	MoneyValue	Номинал облигации.
+  // initial_nominal	MoneyValue	Первоначальный номинал облигации.
+  // state_reg_date	google.protobuf.Timestamp	Дата выпуска облигации в часовом поясе UTC.
+  // placement_date	google.protobuf.Timestamp	Дата размещения в часовом поясе UTC.
+  // placement_price	MoneyValue	Цена размещения.
+  // aci_value	MoneyValue	Значение НКД (накопленного купонного дохода) на дату.
+  // country_of_risk	string	Код страны риска, т.е. страны, в которой компания ведёт основной бизнес.
+  // country_of_risk_name	string	Наименование страны риска, т.е. страны, в которой компания ведёт основной бизнес.
+  // sector	string	Сектор экономики.
+  // issue_kind	string	Форма выпуска. Возможные значения:
+  // documentary — документарная;
+  // non_documentary — бездокументарная.
+  // issue_size	int64	Размер выпуска.
+  // issue_size_plan	int64	Плановый размер выпуска.
+  // trading_status	SecurityTradingStatus	Текущий режим торгов инструмента.
+  // otc_flag	bool	Признак внебиржевой ценной бумаги.
+  // buy_available_flag	bool	Признак доступности для покупки.
+  // sell_available_flag	bool	Признак доступности для продажи.
+  // floating_coupon_flag	bool	Признак облигации с плавающим купоном.
+  // perpetual_flag	bool	Признак бессрочной облигации.
+  // amortization_flag	bool	Признак облигации с амортизацией долга.
+  // min_price_increment	Quotation	Шаг цены.
+  // api_trade_available_flag	bool	Параметр указывает на возможность торговать инструментом через API.
+  // uid	string	Уникальный идентификатор инструмента.
+  // real_exchange	RealExchange	Реальная площадка исполнения расчётов. (биржа)
+  // position_uid	string	Уникальный идентификатор позиции инструмента.
+  // for_iis_flag	bool	Признак доступности для ИИС.
+  // for_qual_investor_flag	bool	Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов.
+  // weekend_flag	bool	Флаг отображающий доступность торговли инструментом по выходным
+  // blocked_tca_flag	bool	Флаг заблокированного ТКС
+  // subordinated_flag	bool	Признак субординированной облигации.
+  // liquidity_flag	bool	Флаг достаточной ликвидности
+  // first_1min_candle_date	google.protobuf.Timestamp	Дата первой минутной свечи.
+  // first_1day_candle_date	google.protobuf.Timestamp	Дата первой дневной свечи.
+  // risk_level	RiskLevel	Уровень риска.
+}
 
-export interface BondsResponse {}
+/**
+ * Объект передачи информации о валюте
+ * @see https://tinkoff.github.io/investAPI/instruments/#currency
+ */
+export interface Currency {
+  // figi	string	Figi-идентификатор инструмента.
+  // ticker	string	Тикер инструмента.
+  // class_code	string	Класс-код (секция торгов).
+  // isin	string	Isin-идентификатор инструмента.
+  // lot	int32	Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру lot. Подробнее: лот
+  // currency	string	Валюта расчётов.
+  // klong	Quotation	Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+  // kshort	Quotation	Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+  // dlong	Quotation	Ставка риска начальной маржи для КСУР лонг.Подробнее: ставка риска в лонг
+  // dshort	Quotation	Ставка риска начальной маржи для КСУР шорт. Подробнее: ставка риска в шорт
+  // dlong_min	Quotation	Ставка риска начальной маржи для КПУР лонг. Подробнее: ставка риска в лонг
+  // dshort_min	Quotation	Ставка риска начальной маржи для КПУР шорт. Подробнее: ставка риска в шорт
+  // short_enabled_flag	bool	Признак доступности для операций в шорт.
+  // name	string	Название инструмента.
+  // exchange	string	Tорговая площадка (секция биржи)
+  // nominal	MoneyValue	Номинал.
+  // country_of_risk	string	Код страны риска, т.е. страны, в которой компания ведёт основной бизнес.
+  // country_of_risk_name	string	Наименование страны риска, т.е. страны, в которой компания ведёт основной бизнес.
+  // trading_status	SecurityTradingStatus	Текущий режим торгов инструмента.
+  // otc_flag	bool	Признак внебиржевой ценной бумаги.
+  // buy_available_flag	bool	Признак доступности для покупки.
+  // sell_available_flag	bool	Признак доступности для продажи.
+  // iso_currency_name	string	Строковый ISO-код валюты.
+  // min_price_increment	Quotation	Шаг цены.
+  // api_trade_available_flag	bool	Параметр указывает на возможность торговать инструментом через API.
+  // uid	string	Уникальный идентификатор инструмента.
+  // real_exchange	RealExchange	Реальная площадка исполнения расчётов (биржа).
+  // position_uid	string	Уникальный идентификатор позиции инструмента.
+  // for_iis_flag	bool	Признак доступности для ИИС.
+  // for_qual_investor_flag	bool	Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов.
+  // weekend_flag	bool	Флаг отображающий доступность торговли инструментом по выходным.
+  // blocked_tca_flag	bool	Флаг заблокированного ТКС.
+  // first_1min_candle_date	google.protobuf.Timestamp	Дата первой минутной свечи.
+  // first_1day_candle_date	google.protobuf.Timestamp	Дата первой дневной свечи.
+}
 
-export interface GetBondCouponsRequest {}
+/**
+ * Объект передачи информации об инвестиционном фонде
+ * @see https://tinkoff.github.io/investAPI/instruments/#etf
+ */
+export interface Etf {
+  // figi	string	Figi-идентификатор инструмента.
+  // ticker	string	Тикер инструмента.
+  // class_code	string	Класс-код (секция торгов).
+  // isin	string	Isin-идентификатор инструмента.
+  // lot	int32	Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру lot. Подробнее: лот
+  // currency	string	Валюта расчётов.
+  // klong	Quotation	Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+  // kshort	Quotation	Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+  // dlong	Quotation	Ставка риска начальной маржи для КСУР лонг.Подробнее: ставка риска в лонг
+  // dshort	Quotation	Ставка риска начальной маржи для КСУР шорт. Подробнее: ставка риска в шорт
+  // dlong_min	Quotation	Ставка риска начальной маржи для КПУР лонг. Подробнее: ставка риска в лонг
+  // dshort_min	Quotation	Ставка риска начальной маржи для КПУР шорт. Подробнее: ставка риска в шорт
+  // short_enabled_flag	bool	Признак доступности для операций в шорт.
+  // name	string	Название инструмента.
+  // exchange	string	Tорговая площадка (секция биржи).
+  // fixed_commission	Quotation	Размер фиксированной комиссии фонда.
+  // focus_type	string	Возможные значения:
+  // equity — акции;
+  // fixed_income — облигации;
+  // mixed_allocation — смешанный;
+  // money_market — денежный рынок;
+  // real_estate — недвижимость;
+  // commodity — товары;
+  // specialty — специальный;
+  // private_equity — private equity;
+  // alternative_investment — альтернативные инвестиции.
+  // released_date	google.protobuf.Timestamp	Дата выпуска в часовом поясе UTC.
+  // num_shares	Quotation	Количество акций фонда в обращении.
+  // country_of_risk	string	Код страны риска, т.е. страны, в которой компания ведёт основной бизнес.
+  // country_of_risk_name	string	Наименование страны риска, т.е. страны, в которой компания ведёт основной бизнес.
+  // sector	string	Сектор экономики.
+  // rebalancing_freq	string	Частота ребалансировки.
+  // trading_status	SecurityTradingStatus	Текущий режим торгов инструмента.
+  // otc_flag	bool	Признак внебиржевой ценной бумаги.
+  // buy_available_flag	bool	Признак доступности для покупки.
+  // sell_available_flag	bool	Признак доступности для продажи.
+  // min_price_increment	Quotation	Шаг цены.
+  // api_trade_available_flag	bool	Параметр указывает на возможность торговать инструментом через API.
+  // uid	string	Уникальный идентификатор инструмента.
+  // real_exchange	RealExchange	Реальная площадка исполнения расчётов (биржа).
+  // position_uid	string	Уникальный идентификатор позиции инструмента.
+  // for_iis_flag	bool	Признак доступности для ИИС.
+  // for_qual_investor_flag	bool	Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов.
+  // weekend_flag	bool	Флаг отображающий доступность торговли инструментом по выходным.
+  // blocked_tca_flag	bool	Флаг заблокированного ТКС.
+  // liquidity_flag	bool	Флаг достаточной ликвидности
+  // first_1min_candle_date	google.protobuf.Timestamp	Дата первой минутной свечи.
+  // first_1day_candle_date	google.protobuf.Timestamp	Дата первой дневной свечи.
+}
 
-export interface GetBondCouponsResponse {}
+/**
+ * Объект передачи информации о фьючерсе
+ * @see https://tinkoff.github.io/investAPI/instruments/#future
+ */
+export interface Future {
+  // figi	string	Figi-идентификатор инструмента.
+  // ticker	string	Тикер инструмента.
+  // class_code	string	Класс-код (секция торгов).
+  // lot	int32	Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру lot. Подробнее: лот
+  // currency	string	Валюта расчётов.
+  // klong	Quotation	Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+  // kshort	Quotation	Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+  // dlong	Quotation	Ставка риска начальной маржи для КСУР лонг.Подробнее: ставка риска в лонг
+  // dshort	Quotation	Ставка риска начальной маржи для КСУР шорт. Подробнее: ставка риска в шорт
+  // dlong_min	Quotation	Ставка риска начальной маржи для КПУР лонг. Подробнее: ставка риска в лонг
+  // dshort_min	Quotation	Ставка риска начальной маржи для КПУР шорт. Подробнее: ставка риска в шорт
+  // short_enabled_flag	bool	Признак доступности для операций шорт.
+  // name	string	Название инструмента.
+  // exchange	string	Tорговая площадка (секция биржи).
+  // first_trade_date	google.protobuf.Timestamp	Дата начала обращения контракта в часовом поясе UTC.
+  // last_trade_date	google.protobuf.Timestamp	Дата в часовом поясе UTC, до которой возможно проведение операций с фьючерсом.
+  // futures_type	string	Тип фьючерса. Возможные значения:
+  // physical_delivery — физические поставки;
+  // cash_settlement — денежный эквивалент.
+  // asset_type	string	Тип актива. Возможные значения:
+  // commodity — товар;
+  // currency — валюта;
+  // security — ценная бумага;
+  // index — индекс.
+  // basic_asset	string	Основной актив.
+  // basic_asset_size	Quotation	Размер основного актива.
+  // country_of_risk	string	Код страны риска, т.е. страны, в которой компания ведёт основной бизнес.
+  // country_of_risk_name	string	Наименование страны риска, т.е. страны, в которой компания ведёт основной бизнес.
+  // sector	string	Сектор экономики.
+  // expiration_date	google.protobuf.Timestamp	Дата истечения срока в часов поясе UTC.
+  // trading_status	SecurityTradingStatus	Текущий режим торгов инструмента.
+  // otc_flag	bool	Признак внебиржевой ценной бумаги.
+  // buy_available_flag	bool	Признак доступности для покупки.
+  // sell_available_flag	bool	Признак доступности для продажи.
+  // min_price_increment	Quotation	Шаг цены.
+  // api_trade_available_flag	bool	Параметр указывает на возможность торговать инструментом через API.
+  // uid	string	Уникальный идентификатор инструмента.
+  // real_exchange	RealExchange	Реальная площадка исполнения расчётов (биржа).
+  // position_uid	string	Уникальный идентификатор позиции инструмента.
+  // basic_asset_position_uid	string	Уникальный идентификатор позиции основного инструмента.
+  // for_iis_flag	bool	Признак доступности для ИИС.
+  // for_qual_investor_flag	bool	Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов.
+  // weekend_flag	bool	Флаг отображающий доступность торговли инструментом по выходным.
+  // blocked_tca_flag	bool	Флаг заблокированного ТКС.
+  // first_1min_candle_date	google.protobuf.Timestamp	Дата первой минутной свечи.
+  // first_1day_candle_date	google.protobuf.Timestamp	Дата первой дневной свечи.
+}
 
-export interface CurrencyResponse {}
+/**
+ * Объект передачи информации об акции
+ * @see https://tinkoff.github.io/investAPI/instruments/#share
+ */
+export interface Share {
+  // figi	string	Figi-идентификатор инструмента.
+  // ticker	string	Тикер инструмента.
+  // class_code	string	Класс-код (секция торгов).
+  // isin	string	Isin-идентификатор инструмента.
+  // lot	int32	Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру lot. Подробнее: лот
+  // currency	string	Валюта расчётов.
+  // klong	Quotation	Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+  // kshort	Quotation	Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+  // dlong	Quotation	Ставка риска начальной маржи для КСУР лонг.Подробнее: ставка риска в лонг
+  // dshort	Quotation	Ставка риска начальной маржи для КСУР шорт. Подробнее: ставка риска в шорт
+  // dlong_min	Quotation	Ставка риска начальной маржи для КПУР лонг. Подробнее: ставка риска в лонг
+  // dshort_min	Quotation	Ставка риска начальной маржи для КПУР шорт. Подробнее: ставка риска в шорт
+  // short_enabled_flag	bool	Признак доступности для операций в шорт.
+  // name	string	Название инструмента.
+  // exchange	string	Tорговая площадка (секция биржи).
+  // ipo_date	google.protobuf.Timestamp	Дата IPO акции в часовом поясе UTC.
+  // issue_size	int64	Размер выпуска.
+  // country_of_risk	string	Код страны риска, т.е. страны, в которой компания ведёт основной бизнес.
+  // country_of_risk_name	string	Наименование страны риска, т.е. страны, в которой компания ведёт основной бизнес.
+  // sector	string	Сектор экономики.
+  // issue_size_plan	int64	Плановый размер выпуска.
+  // nominal	MoneyValue	Номинал.
+  // trading_status	SecurityTradingStatus	Текущий режим торгов инструмента.
+  // otc_flag	bool	Признак внебиржевой ценной бумаги.
+  // buy_available_flag	bool	Признак доступности для покупки.
+  // sell_available_flag	bool	Признак доступности для продажи.
+  // div_yield_flag	bool	Признак наличия дивидендной доходности.
+  // share_type	ShareType	Тип акции. Возможные значения: ShareType
+  // min_price_increment	Quotation	Шаг цены.
+  // api_trade_available_flag	bool	Параметр указывает на возможность торговать инструментом через API.
+  // uid	string	Уникальный идентификатор инструмента.
+  // real_exchange	RealExchange	Реальная площадка исполнения расчётов (биржа).
+  // position_uid	string	Уникальный идентификатор позиции инструмента.
+  // for_iis_flag	bool	Признак доступности для ИИС.
+  // for_qual_investor_flag	bool	Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов.
+  // weekend_flag	bool	Флаг отображающий доступность торговли инструментом по выходным
+  // blocked_tca_flag	bool	Флаг заблокированного ТКС
+  // liquidity_flag	bool	Флаг достаточной ликвидности
+  // first_1min_candle_date	google.protobuf.Timestamp	Дата первой минутной свечи.
+  // first_1day_candle_date	google.protobuf.Timestamp	Дата первой дневной свечи.
+}
 
-export interface CurrenciesResponse {}
+/**
+ * Операция начисления купонов
+ * @see https://tinkoff.github.io/investAPI/instruments/#accruedinterest
+ */
+export interface AccruedInterest {
+  // date	google.protobuf.Timestamp	Дата и время выплаты в часовом поясе UTC.
+  // value	Quotation	Величина выплаты.
+  // value_percent	Quotation	Величина выплаты в процентах от номинала.
+  // nominal	Quotation	Номинал облигации.
+}
 
-export interface EtfResponse {}
+/**
+ * Объект передачи основной информации об инструменте
+ * @see https://tinkoff.github.io/investAPI/instruments/#instrument
+ */
+export interface Instrument {
+  // name	string	Название инструмента.
+  // exchange	string	Tорговая площадка (секция биржи).
+  // country_of_risk	string	Код страны риска, т.е. страны, в которой компания ведёт основной бизнес.
+  // country_of_risk_name	string	Наименование страны риска, т.е. страны, в которой компания ведёт основной бизнес.
+  // instrument_type	string	Тип инструмента.
+  // trading_status	SecurityTradingStatus	Текущий режим торгов инструмента.
+  // otc_flag	bool	Признак внебиржевой ценной бумаги.
+  // buy_available_flag	bool	Признак доступности для покупки.
+  // sell_available_flag	bool	Признак доступности для продажи.
+  // min_price_increment	Quotation	Шаг цены.
+  // api_trade_available_flag	bool	Параметр указывает на возможность торговать инструментом через API.
+  // uid	string	Уникальный идентификатор инструмента.
+  // real_exchange	RealExchange	Реальная площадка исполнения расчётов (биржа).
+  // position_uid	string	Уникальный идентификатор позиции инструмента.
+  // for_iis_flag	bool	Признак доступности для ИИС.
+  // for_qual_investor_flag	bool	Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов.
+  // weekend_flag	bool	Флаг отображающий доступность торговли инструментом по выходным
+  // blocked_tca_flag	bool	Флаг заблокированного ТКС
+  // instrument_kind	InstrumentType	Тип инструмента.
+  // first_1min_candle_date	google.protobuf.Timestamp	Дата первой минутной свечи.
+  // first_1day_candle_date	google.protobuf.Timestamp	Дата первой дневной свечи.
+}
 
-export interface EtfsResponse {}
+/**
+ * Информация о выплате
+ * @see https://tinkoff.github.io/investAPI/instruments/#dividend
+ */
+export interface Dividend {
+  // dividend_net	MoneyValue	Величина дивиденда на 1 ценную бумагу (включая валюту).
+  // payment_date	google.protobuf.Timestamp	Дата фактических выплат в часовом поясе UTC.
+  // declared_date	google.protobuf.Timestamp	Дата объявления дивидендов в часовом поясе UTC.
+  // last_buy_date	google.protobuf.Timestamp	Последний день (включительно) покупки для получения выплаты в часовом поясе UTC.
+  // dividend_type	string	Тип выплаты. Возможные значения: Regular Cash – регулярные выплаты, Cancelled – выплата отменена, Daily Accrual – ежедневное начисление, Return of Capital – возврат капитала, прочие типы выплат.
+  // record_date	google.protobuf.Timestamp	Дата фиксации реестра в часовом поясе UTC.
+  // regularity	string	Регулярность выплаты. Возможные значения: Annual – ежегодная, Semi-Anl – каждые полгода, прочие типы выплат.
+  // close_price	MoneyValue	Цена закрытия инструмента на момент ex_dividend_date.
+  // yield_value	Quotation	Величина доходности.
+  // created_at	google.protobuf.Timestamp	Дата и время создания записи в часовом поясе UTC.
+}
 
-export interface FutureResponse {}
+/**
+ * @see https://tinkoff.github.io/investAPI/instruments/#assetfull
+ */
+export interface AssetFull {
+  // uid	string	Уникальный идентификатор актива.
+  // type	AssetType	Тип актива.
+  // name	string	Наименование актива.
+  // name_brief	string	Короткое наименование актива.
+  // description	string	Описание актива.
+  // deleted_at	google.protobuf.Timestamp	Дата и время удаления актива.
+  // required_tests	Массив объектов string	Тестирование клиентов.
+  // currency	AssetCurrency	Валюта. Обязательно и заполняется только для type = "ASSET_TYPE_CURRENCY".
+  // security	AssetSecurity	Ценная бумага. Обязательно и заполняется только для type = "ASSET_TYPE_SECURITY".
+  // gos_reg_code	string	Номер государственной регистрации.
+  // cfi	string	Код CFI.
+  // code_nsd	string	Код НРД инструмента.
+  // status	string	Статус актива.
+  // brand	Brand	Бренд.
+  // updated_at	google.protobuf.Timestamp	Дата и время последнего обновления записи.
+  // br_code	string	Код типа ц.б. по классификации Банка России.
+  // br_code_name	string	Наименование кода типа ц.б. по классификации Банка России.
+  // instruments	Массив объектов AssetInstrument	Массив идентификаторов инструментов.
+}
 
-export interface FuturesResponse {}
+/**
+ * Запрос расписания торгов
+ * @see https://tinkoff.github.io/investAPI/instruments/#tradingschedulesrequest
+ */
+export interface TradingSchedulesRequest {
+  // exchange	string	Наименование биржи или расчетного календаря.
+  // Если не передаётся, возвращается информация по всем доступным торговым площадкам.
+  // from	google.protobuf.Timestamp	Начало периода по часовому поясу UTC.
+  // to	google.protobuf.Timestamp	Окончание периода по часовому поясу UTC.
+}
 
-export interface OptionResponse {}
+/**
+ * Список торговых площадок
+ * @see https://tinkoff.github.io/investAPI/instruments/#tradingschedulesresponse
+ */
+export interface TradingSchedulesResponse {
+  // exchanges	Массив объектов TradingSchedule	Список торговых площадок и режимов торгов.
+}
 
-export interface OptionsResponse {}
+/**
+ * Запрос получения инструмента по идентификатору
+ * @see https://tinkoff.github.io/investAPI/instruments/#instrumentrequest
+ */
+export interface InstrumentRequest {
+  // id_type	InstrumentIdType	Тип идентификатора инструмента. Возможные значения: figi, ticker. Подробнее об идентификации инструментов: Идентификация инструментов
+  // class_code	string	Идентификатор class_code. Обязателен при id_type = ticker.
+  // id	string	Идентификатор запрашиваемого инструмента.
+}
 
-export interface FilterOptionsRequest {}
+/**
+ * Данные по инструменту
+ * @see https://tinkoff.github.io/investAPI/instruments/#instrumentresponse
+ */
+export interface InstrumentResponse {
+  // instrument	Instrument	Основная информация об инструменте.
+}
 
-export interface ShareResponse {}
+/**
+ * Информация об облигации
+ * @see https://tinkoff.github.io/investAPI/instruments/#bondresponse
+ */
+export interface BondResponse {
+  // instrument	Bond	Информация об облигации.
+}
 
-export interface SharesResponse {}
+/**
+ * Запрос получения инструментов
+ * @see https://tinkoff.github.io/investAPI/instruments/#instrumentsrequest
+ */
+export interface InstrumentsRequest {
+  // instrument_status	InstrumentStatus	Статус запрашиваемых инструментов. Возможные значения: InstrumentStatus
+}
 
-export interface GetAccruedInterestsRequest {}
+/**
+ * Параметры фильтрации опционов
+ * @see https://tinkoff.github.io/investAPI/instruments/#filteroptionsrequest
+ */
+export interface FilterOptionsRequest {
+  // basic_asset_uid	string	Идентификатор базового актива опциона. Обязательный параметр.
+  // basic_asset_position_uid	string	Идентификатор позиции базового актива опциона
+}
 
-export interface GetAccruedInterestsResponse {}
+/**
+ * Список облигаций
+ * @see https://tinkoff.github.io/investAPI/instruments/#bondsresponse
+ */
+export interface BondsResponse {
+  // instruments	Массив объектов Bond	Массив облигаций.
+}
 
-export interface GetFuturesMarginRequest {}
+/**
+ * Запрос купонов по облигации
+ * @see https://tinkoff.github.io/investAPI/instruments/#getbondcouponsrequest
+ */
+export interface GetBondCouponsRequest {
+  // figi	string	Figi-идентификатор инструмента.
+  // from	google.protobuf.Timestamp	Начало запрашиваемого периода в часовом поясе UTC. Фильтрация по coupon_date (дата выплаты купона)
+  // to	google.protobuf.Timestamp	Окончание запрашиваемого периода в часовом поясе UTC. Фильтрация по coupon_date (дата выплаты купона)
+}
 
-export interface GetFuturesMarginResponse {}
+/**
+ * Купоны по облигации
+ * @see https://tinkoff.github.io/investAPI/instruments/#getbondcouponsresponse
+ */
+export interface GetBondCouponsResponse {
+  // events	Массив объектов Coupon
+}
 
-export interface InstrumentResponse {}
+/**
+ * Данные по валюте
+ * @see https://tinkoff.github.io/investAPI/instruments/#currencyresponse
+ */
+export interface CurrencyResponse {
+  // instrument	Currency	Информация о валюте.
+}
 
-export interface GetDividendsRequest {}
+/**
+ * Данные по валютам
+ * @see https://tinkoff.github.io/investAPI/instruments/#currenciesresponse
+ */
+export interface CurrenciesResponse {
+  // instruments	Массив объектов Currency	Массив валют.
+}
 
-export interface GetDividendsResponse {}
+/**
+ * Данные по фонду
+ * @see https://tinkoff.github.io/investAPI/instruments/#etfresponse
+ */
+export interface EtfResponse {
+  // instrument	Etf	Информация о фонде.
+}
 
-export interface AssetRequest {}
+/**
+ * Данные по фондам
+ * @see https://tinkoff.github.io/investAPI/instruments/#etfsresponse
+ */
+export interface EtfsResponse {
+  // instruments	Массив объектов Etf	Массив фондов.
+}
 
-export interface AssetResponse {}
+/**
+ * Данные по фьючерсу
+ * @see https://tinkoff.github.io/investAPI/instruments/#futureresponse
+ */
+export interface FutureResponse {
+  // instrument	Future	Информация о фьючерсу.
+}
 
-export interface AssetsRequest {}
+/**
+ * Данные по фьючерсам
+ * @see https://tinkoff.github.io/investAPI/instruments/#futuresresponse
+ */
+export interface FuturesResponse {
+  // instruments	Массив объектов Future	Массив фьючерсов.
+}
 
-export interface AssetsResponse {}
+/**
+ * Данные по опциону
+ * @see https://tinkoff.github.io/investAPI/instruments/#optionresponse
+ */
+export interface OptionResponse {
+  // instrument	Option	Информация по опциону.
+}
 
+/**
+ * Данные по опционам
+ * @see https://tinkoff.github.io/investAPI/instruments/#optionsresponse
+ */
+export interface OptionsResponse {
+  // instruments	Массив объектов Option	Массив данных по опциону.
+}
+
+/**
+ * Данные по акции
+ * @see https://tinkoff.github.io/investAPI/instruments/#shareresponse
+ */
+export interface ShareResponse {
+  // instrument	Share	Информация об акции.
+}
+
+/**
+ * Данные по акциям
+ * @see https://tinkoff.github.io/investAPI/instruments/#sharesresponse
+ */
+export interface SharesResponse {
+  // instruments	Массив объектов Share	Массив акций.
+}
+
+/**
+ * Запрос НКД по облигации
+ * @see https://tinkoff.github.io/investAPI/instruments/#getaccruedinterestsrequest
+ */
+export interface GetAccruedInterestsRequest {
+  // figi	string	Figi-идентификатор инструмента.
+  // from	google.protobuf.Timestamp	Начало запрашиваемого периода в часовом поясе UTC.
+  // to	google.protobuf.Timestamp	Окончание запрашиваемого периода в часовом поясе UTC.
+}
+
+/**
+ * НКД облигации
+ * @see https://tinkoff.github.io/investAPI/instruments/#getaccruedinterestsresponse
+ */
+export interface GetAccruedInterestsResponse {
+  // accrued_interests	Массив объектов AccruedInterest	Массив операций начисления купонов.
+}
+
+/**
+ * Запрос информации о фьючерсе
+ * @see https://tinkoff.github.io/investAPI/instruments/#getfuturesmarginrequest
+ */
+export interface GetFuturesMarginRequest {
+  // figi	string	Идентификатор инструмента.
+}
+
+/**
+ * Данные по фьючерсу
+ * @see https://tinkoff.github.io/investAPI/instruments/#getfuturesmarginresponse
+ */
+export interface GetFuturesMarginResponse {
+  // initial_margin_on_buy	MoneyValue	Гарантийное обеспечение при покупке.
+  // initial_margin_on_sell	MoneyValue	Гарантийное обеспечение при продаже.
+  // min_price_increment	Quotation	Шаг цены.
+  // min_price_increment_amount	Quotation	Стоимость шага цены.
+}
+
+/**
+ * Запрос дивидендов
+ * @see https://tinkoff.github.io/investAPI/instruments/#getdividendsrequest
+ */
+export interface GetDividendsRequest {
+  // figi	string	Figi-идентификатор инструмента.
+  // from	google.protobuf.Timestamp	Начало запрашиваемого периода в часовом поясе UTC. Фильтрация происходит по параметру record_date (дата фиксации реестра).
+  // to	google.protobuf.Timestamp	Окончание запрашиваемого периода в часовом поясе UTC. Фильтрация происходит по параметру record_date (дата фиксации реестра).
+}
+
+/**
+ * Дивиденды
+ * @see https://tinkoff.github.io/investAPI/instruments/#getdividendsresponse
+ */
+export interface GetDividendsResponse {
+  // dividends	Массив объектов Dividend
+}
+
+/**
+ * Запрос актива по идентификатору
+ * @see https://tinkoff.github.io/investAPI/instruments/#assetrequest
+ */
+export interface AssetRequest {
+  // id	string	uid-идентификатор актива.
+}
+
+/**
+ * Данные по активу
+ * @see https://tinkoff.github.io/investAPI/instruments/#assetresponse
+ */
+export interface AssetResponse {
+  // asset	AssetFull	Актив.
+}
+
+/**
+ * Запрос списка активов
+ * @see https://tinkoff.github.io/investAPI/instruments/#assetsrequest
+ */
+export interface AssetsRequest {
+  // instrument_type	InstrumentType
+}
+
+/**
+ * Список активов
+ * @see https://tinkoff.github.io/investAPI/instruments/#assetsresponse
+ */
+export interface AssetsResponse {
+  // assets	Массив объектов Asset	Активы.
+}
+
+/**
+ * @see
+ */
 export interface GetFavoritesRequest {}
 
+/**
+ * @see
+ */
 export interface GetFavoritesResponse {}
 
+/**
+ * @see
+ */
 export interface EditFavoritesRequest {}
 
+/**
+ * @see
+ */
 export interface EditFavoritesResponse {}
 
+/**
+ * @see
+ */
 export interface GetCountriesRequest {}
 
+/**
+ * @see
+ */
 export interface GetCountriesResponse {}
 
+/**
+ * @see
+ */
 export interface FindInstrumentRequest {}
 
+/**
+ * @see
+ */
 export interface FindInstrumentResponse {}
 
+/**
+ * @see
+ */
 export interface GetBrandsRequest {}
 
+/**
+ * @see
+ */
 export interface GetBrandsResponse {}
 
+/**
+ * @see
+ */
 export interface GetBrandRequest {}
 
+/**
+ * @see
+ */
 export interface Brand {}
 
 /**
