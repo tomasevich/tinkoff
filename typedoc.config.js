@@ -3,8 +3,8 @@ module.exports = {
   $schema: 'https://typedoc.org/schema.json',
   entryPoints: ['./src'],
   entryPointStrategy: 'expand',
+  exclude: ['./src/index.ts'],
   out: 'docs',
-  exclude: '**/*+(.test|.spec|.e2e).ts',
   categorizeByGroup: false,
   navigationLinks: {
     GitHub: 'https://github.com/tomasevich/tinkoff',
