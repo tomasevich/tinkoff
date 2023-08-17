@@ -119,7 +119,7 @@ export interface PostOrderRequest {
  * @see https://tinkoff.github.io/investAPI/orders/#postorderresponse
  */
 export interface PostOrderResponse {
-  /** Биржевой идентификатор заявки. */
+  /** Биржевой идентификатор заявки */
   orderId: string
   /** Текущий статус заявки */
   executionReportStatus: OrderExecutionReportStatus
@@ -180,7 +180,7 @@ export interface PostOrderResponse {
 export interface CancelOrderRequest {
   /** Номер счёта */
   accountId: string
-  /** Идентификатор заявки. */
+  /** Идентификатор заявки */
   orderId: string
 }
 
@@ -203,7 +203,7 @@ export interface CancelOrderResponse {
 export interface GetOrderStateRequest {
   /** Номер счёта */
   accountId: string
-  /** Идентификатор заявки. */
+  /** Идентификатор заявки */
   orderId: string
 }
 
@@ -212,7 +212,7 @@ export interface GetOrderStateRequest {
  * @see https://tinkoff.github.io/investAPI/orders/#orderstate
  */
 export interface OrderState {
-  /** Биржевой идентификатор заявки. */
+  /** Биржевой идентификатор заявки */
   orderId: string
   /** Текущий статус заявки */
   executionReportStatus: OrderExecutionReportStatus
@@ -303,7 +303,7 @@ export interface GetOrdersResponse {
 export interface ReplaceOrderRequest {
   /** Номер счета */
   accountId: string
-  /** Идентификатор заявки на бирже. */
+  /** Идентификатор заявки на бирже */
   orderId: string
   /**
    * Новый идентификатор запроса выставления поручения для целей идемпотентности

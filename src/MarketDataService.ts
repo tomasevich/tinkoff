@@ -133,7 +133,7 @@ export interface GetCandlesRequest {
   to: string
   /** Интервал запрошенных свечей */
   interval: CandleInterval
-  /** Идентификатор инструмента, принимает значение figi или instrumentUid. */
+  /** Идентификатор инструмента, принимает значение figi или instrumentUid */
   instrumentId: string
 }
 
@@ -229,7 +229,7 @@ export interface GetOrderBookRequest {
    * @type `int32`
    */
   depth: number
-  /** Идентификатор инструмента, принимает значение figi или instrumentUid. */
+  /** Идентификатор инструмента, принимает значение figi или instrumentUid */
   instrumentId: string
 }
 
@@ -284,7 +284,7 @@ export interface GetOrderBookResponse {
    * @type `google.protobuf.Timestamp`
    */
   orderbookTs: string
-  /** Uid инструмента. */
+  /** Uid инструмента */
   instrumentUid: string
 }
 
@@ -298,7 +298,7 @@ export interface GetTradingStatusRequest {
    * @deprecated Необходимо использовать instrumentId
    */
   figi?: string
-  /** Идентификатор инструмента, принимает значение figi или instrumentUid. */
+  /** Идентификатор инструмента, принимает значение figi или instrumentUid */
   instrumentId: string
 }
 
@@ -317,7 +317,7 @@ export interface GetTradingStatusResponse {
   marketOrderAvailableFlag: boolean
   /** Признак доступности торгов через API */
   apiTradeAvailableFlag: boolean
-  /** Uid инструмента. */
+  /** Uid инструмента */
   instrumentUid: string
 }
 
@@ -359,7 +359,7 @@ export interface GetLastTradesRequest {
    * @type `google.protobuf.Timestamp`
    */
   to: string
-  /** Идентификатор инструмента, принимает значение figi или instrumentUid. */
+  /** Идентификатор инструмента, принимает значение figi или instrumentUid */
   instrumentId: string
 }
 
@@ -395,7 +395,7 @@ export interface GetClosePricesResponse {
  * @see https://tinkoff.github.io/investAPI/marketdata/#instrumentclosepricerequest
  */
 export interface InstrumentClosePriceRequest {
-  /** Идентификатор инструмента, принимает значение figi или instrumentUid. */
+  /** Идентификатор инструмента, принимает значение figi или instrumentUid */
   instrumentId: string
 }
 
@@ -406,9 +406,9 @@ export interface InstrumentClosePriceRequest {
 export interface InstrumentClosePriceResponse {
   /** Figi инструмента */
   figi: string
-  /** Uid инструмента. */
+  /** Uid инструмента */
   instrumentUid: string
-  /** Цена закрытия торговой сессии. */
+  /** Цена закрытия торговой сессии */
   price: Quotation
   /**
    * Дата совершения торгов
