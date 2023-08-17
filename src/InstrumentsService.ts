@@ -1603,20 +1603,20 @@ export interface InstrumentShort {
  */
 export interface TradingSchedulesRequest {
   /**
-   * Наименование биржи или расчетного календаря
-   * @description Если не передаётся, возвращается информация по всем доступным торговым площадкам.
-   */
-  exchange: string
-  /**
-   * Начало периода по часовому поясу UTC.
+   * Начало периода по часовому поясу UTC
    * @type `google.protobuf.Timestamp`
    */
   from: string
   /**
-   * Окончание периода по часовому поясу UTC.
+   * Окончание периода по часовому поясу UTC
    * @type `google.protobuf.Timestamp`
    */
   to: string
+  /**
+   * Наименование биржи или расчетного календаря
+   * @description Если не передаётся, возвращается информация по всем доступным торговым площадкам
+   */
+  exchange?: string
 }
 
 /**
