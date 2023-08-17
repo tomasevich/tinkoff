@@ -8,17 +8,17 @@ export enum InstrumentType {
   INSTRUMENT_TYPE_UNSPECIFIED,
   /** @todo Нет описания */
   INSTRUMENT_TYPE_BOND,
-  /** @todo Нет описания */
+  /** Акция */
   INSTRUMENT_TYPE_SHARE,
-  /** @todo Нет описания */
+  /** Валюта */
   INSTRUMENT_TYPE_CURRENCY,
   /** @todo Нет описания */
   INSTRUMENT_TYPE_ETF,
-  /** @todo Нет описания */
+  /** Фьючерс */
   INSTRUMENT_TYPE_FUTURES,
   /** @todo Нет описания */
   INSTRUMENT_TYPE_SP,
-  /** @todo Нет описания */
+  /** Опцион */
   INSTRUMENT_TYPE_OPTION,
   /** @todo Нет описания */
   INSTRUMENT_TYPE_CLEARING_CERTIFICATE
@@ -335,11 +335,6 @@ export interface Coupon {
    * @type `int64`
    */
   couponNumber: string
-  /**
-   * Дата фиксации реестра для выплаты купона
-   * @type `google.protobuf.Timestamp`
-   */
-  fixDate?: string
   /** Выплата на одну облигацию */
   payOneBond: MoneyValue
   /** Тип купона */
@@ -359,6 +354,11 @@ export interface Coupon {
    * @type `int32`
    */
   couponPeriod: number
+  /**
+   * Дата фиксации реестра для выплаты купона
+   * @type `google.protobuf.Timestamp`
+   */
+  fixDate?: string
 }
 
 /**
@@ -410,7 +410,7 @@ export interface Option {
   /** Сектор экономики */
   sector: string
   /**
-   * Количество бумаг в лоте.
+   * Количество бумаг в лоте
    * @type `int32`
    */
   lot: number
@@ -569,12 +569,12 @@ export interface Bond {
    */
   issueKind: 'documentary' | 'nonDocumentary'
   /**
-   * Размер выпуска.
+   * Размер выпуска
    * @type `int64`
    */
   issueSize: string
   /**
-   * Плановый размер выпуска.
+   * Плановый размер выпуска
    * @type `int64`
    */
   issueSizePlan: string
@@ -1013,7 +1013,7 @@ export interface Share {
    */
   ipoDate: string
   /**
-   * Размер выпуска.
+   * Размер выпуска
    * @type `int64`
    */
   issueSize: string
@@ -1024,7 +1024,7 @@ export interface Share {
   /** Сектор экономики */
   sector: string
   /**
-   * Плановый размер выпуска.
+   * Плановый размер выпуска
    * @type `int64`
    */
   issueSizePlan: string
@@ -1295,15 +1295,30 @@ export interface AssetSecurity {
   type: string
   /** Тип инструмента */
   instrumentKind: InstrumentType
-  /** Акция. Заполняется только для акций (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = share) */
+  /**
+   * Акция
+   * @description Заполняется только для акций (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = share)
+   */
   share: AssetShare
-  /** Облигация. Заполняется только для облигаций (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = bond) */
+  /**
+   * Облигация
+   * @description Заполняется только для облигаций (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = bond)
+   */
   bond: AssetBond
-  /** Структурная нота. Заполняется только для структурных продуктов (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = sp) */
+  /**
+   * Структурная нота
+   * @description Заполняется только для структурных продуктов (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = sp)
+   */
   sp: AssetStructuredProduct
-  /** Фонд. Заполняется только для фондов (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = etf) */
+  /**
+   * Фонд
+   * @description Заполняется только для фондов (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = etf)
+   */
   etf: AssetEtf
-  /** Клиринговый сертификат участия. Заполняется только для клиринговых сертификатов (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = clearingCertificate) */
+  /**
+   * Клиринговый сертификат участия
+   * @description Заполняется только для клиринговых сертификатов (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = clearingCertificate)
+   */
   clearingCertificate: AssetClearingCertificate
 }
 
@@ -1341,7 +1356,7 @@ export interface AssetShare {
   /** Форма выпуска ФИ */
   issueKind: string
   /**
-   * Дата размещения акции.
+   * Дата размещения акции
    * @type `google.protobuf.Timestamp`
    */
   placementDate: string
@@ -1392,19 +1407,19 @@ export interface AssetBond {
   /** Признак бессрочной облигации */
   perpetualFlag: boolean
   /**
-   * Дата погашения облигации.
+   * Дата погашения облигации
    * @type `google.protobuf.Timestamp`
    */
   maturityDate: string
   /** Описание и условия получения дополнительного дохода */
   returnCondition: string
   /**
-   * Дата выпуска облигации.
+   * Дата выпуска облигации
    * @type `google.protobuf.Timestamp`
    */
   stateRegDate: string
   /**
-   * Дата размещения облигации.
+   * Дата размещения облигации
    * @type `google.protobuf.Timestamp`
    */
   placementDate: string
@@ -1445,7 +1460,7 @@ export interface AssetStructuredProduct {
   /** Объем размещения */
   issueSize: Quotation
   /**
-   * Дата размещения ноты.
+   * Дата размещения ноты
    * @type `google.protobuf.Timestamp`
    */
   placementDate: string
@@ -1491,7 +1506,7 @@ export interface AssetEtf {
   /** Признак обязательства по отчетности перед регулятором */
   ucitsFlag: boolean
   /**
-   * Дата выпуска.
+   * Дата выпуска
    * @type `google.protobuf.Timestamp`
    */
   releasedDate: string
@@ -1516,7 +1531,7 @@ export interface AssetEtf {
   /** Ставки налогообложения дивидендов и купонов */
   taxRate: string
   /**
-   * Даты ребалансировок.
+   * Даты ребалансировок
    * @type `google.protobuf.Timestamp`
    */
   rebalancingDates: string[]
@@ -1686,7 +1701,10 @@ export interface TradingSchedulesResponse {
  * @see https://tinkoff.github.io/investAPI/instruments/#instrumentrequest
  */
 export interface InstrumentRequest {
-  /** Тип идентификатора инструмента. Возможные значения: `figi`, `ticker` и т.д. */
+  /**
+   * Тип идентификатора инструмента
+   * @description Возможные значения: `figi`, `ticker` и т.д.
+   */
   idType: InstrumentIdType
   /** Идентификатор classCode. Обязателен при idType = ticker */
   classCode: string
@@ -1717,7 +1735,10 @@ export interface BondResponse {
  * @see https://tinkoff.github.io/investAPI/instruments/#instrumentsrequest
  */
 export interface InstrumentsRequest {
-  /** Статус запрашиваемых инструментов. Возможные значения: InstrumentStatus */
+  /**
+   * Статус запрашиваемых инструментов
+   * @description Возможные значения: InstrumentStatus
+   */
   instrumentStatus: InstrumentStatus
 }
 
@@ -1726,7 +1747,10 @@ export interface InstrumentsRequest {
  * @see https://tinkoff.github.io/investAPI/instruments/#filteroptionsrequest
  */
 export interface FilterOptionsRequest {
-  /** Идентификатор базового актива опциона. Обязательный параметр */
+  /**
+   * Идентификатор базового актива опциона
+   * @description Обязательный параметр
+   */
   basicAssetUid: string
   /** Идентификатор позиции базового актива опциона */
   basicAssetPositionUid: string
