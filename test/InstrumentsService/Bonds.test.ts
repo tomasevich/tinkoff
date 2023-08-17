@@ -22,5 +22,33 @@ describe('InstrumentsService', () => {
         expect(response).toHaveProperty('instruments')
       })
     })
+
+    describe('Try `instrumentStatus` as `INSTRUMENT_STATUS_ALL`', () => {
+      let response: BondsResponse
+
+      beforeAll(async () => {
+        response = await instrumentsService.Bonds({
+          instrumentStatus: InstrumentStatus.INSTRUMENT_STATUS_ALL
+        })
+      })
+
+      test('Expect `response` to have property `instruments`', async () => {
+        expect(response).toHaveProperty('instruments')
+      })
+    })
+
+    describe('Try `instrumentStatus` as `INSTRUMENT_STATUS_UNSPECIFIED`', () => {
+      let response: BondsResponse
+
+      beforeAll(async () => {
+        response = await instrumentsService.Bonds({
+          instrumentStatus: InstrumentStatus.INSTRUMENT_STATUS_UNSPECIFIED
+        })
+      })
+
+      test('Expect `response` to have property `instruments`', async () => {
+        expect(response).toHaveProperty('instruments')
+      })
+    })
   })
 })
