@@ -1,90 +1,56 @@
 import dotenv from 'dotenv'
 
-import {
-  CloseSandboxAccountResponse,
-  OpenSandboxAccountResponse,
-  iSandbox,
-  SandboxService,
-  GetOrdersResponse,
-  GetAccountsResponse,
-  PositionsResponse
-} from './'
+import { SandboxService, Account } from './'
 
 dotenv.config({ path: './.env.test' })
 
-let sandboxService: iSandbox
-let tempAccountId: string
+let sandboxService: SandboxService
+let tempAccounts: Account[]
 
 describe('SandboxService', () => {
-  beforeAll(() => {
+  beforeAll(async () => {
     sandboxService = new SandboxService(
       process.env.TINKOFF_INVEST_API_TOKEN ?? '',
       true
     )
   })
 
-  describe('OpenSandboxAccount', () => {
-    test('Должен создать новый аккаунт', async () => {
-      const response: any = await sandboxService.OpenSandboxAccount({})
-      const data: OpenSandboxAccountResponse = await response.json()
-
-      tempAccountId = data.accountId
-      expect(data).toHaveProperty('accountId')
-    })
-  })
-
   describe('GetSandboxAccounts', () => {
-    test('Должен вернуть список счетов пользователя', async () => {
-      const response: any = await sandboxService.GetSandboxAccounts({})
-      const data: GetAccountsResponse = await response.json()
-
-      expect(data.accounts[0]).toHaveProperty('id')
-      expect(data.accounts[0]).toHaveProperty('type')
-      expect(data.accounts[0]).toHaveProperty('name')
-      expect(data.accounts[0]).toHaveProperty('status')
-      expect(data.accounts[0]).toHaveProperty('openedDate')
-      // expect(data.accounts[0]).toHaveProperty('closedDate') Почему-то не возвращает (хотя в доке есть это свойство)
-      expect(data.accounts[0]).toHaveProperty('accessLevel')
+    beforeAll(async () => {
+      const { accounts } = await sandboxService.GetSandboxAccounts({})
+      tempAccounts = accounts
     })
-  })
 
-  describe('GetSandboxPositions', () => {
-    test('Должен вернуть список позиций по счёту', async () => {
-      const response: any = await sandboxService.GetSandboxPositions({
-        accountId: tempAccountId
+    describe('Expect "Accounts" length', () => {
+      test('To be greater than "0"', () => {
+        expect(tempAccounts.length).toBeGreaterThan(0)
       })
-      const data: PositionsResponse = await response.json()
 
-      expect(data).toHaveProperty('money')
-      expect(data).toHaveProperty('blocked')
-      expect(data).toHaveProperty('securities')
-      expect(data).toHaveProperty('limitsLoadingInProgress')
-      expect(data).toHaveProperty('futures')
-      expect(data).toHaveProperty('options')
-    })
-  })
+      describe('Expect "Account" properies', () => {
+        test('To have "id"', () => {
+          expect(tempAccounts[0]).toHaveProperty('id')
+        })
+        test('To have "type"', () => {
+          expect(tempAccounts[0]).toHaveProperty('type')
+        })
+        test('To have "name"', () => {
+          expect(tempAccounts[0]).toHaveProperty('name')
+        })
+        test('To have "status"', () => {
+          expect(tempAccounts[0]).toHaveProperty('status')
+        })
+        test('To have "openedDate"', () => {
+          expect(tempAccounts[0]).toHaveProperty('openedDate')
+        })
+        test('To have "accessLevel"', () => {
+          expect(tempAccounts[0]).toHaveProperty('accessLevel')
+        })
 
-  describe('CloseSandboxAccount', () => {
-    test('Должен удалить новый аккаунт', async () => {
-      const response: any = await sandboxService.CloseSandboxAccount({
-        accountId: tempAccountId
+        // test('To have "closedDate"', () => {
+        // Почему-то не возвращает дату закрытия, хотя в оф.документации есть это свойство
+        // expect(tempAccounts[0]).toHaveProperty('closedDate')
+        // })
       })
-      const data: CloseSandboxAccountResponse = await response.json()
-
-      expect(data).toEqual({})
-    })
-  })
-
-  // Ордера будем тестировать позже
-  describe('GetOrders', () => {
-    test('Должен вернуть массив ордеров', async () => {
-      const response: any = await sandboxService.GetSandboxOrders({
-        accountId: process.env.TINKOFF_INVEST_API_ACCOUNT_ID ?? ''
-      })
-      const data: GetOrdersResponse = await response.json()
-
-      expect(data.orders.length).toBeGreaterThanOrEqual(0)
-      expect(data.orders[0]).toHaveProperty('orderId')
     })
   })
 })

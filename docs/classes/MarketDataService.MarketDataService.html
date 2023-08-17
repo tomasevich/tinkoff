@@ -3,7 +3,7 @@
 <div class="table-cell" id="tsd-search" data-base="..">
 <div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z" fill="var(--color-text)"></path></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
 <div class="field">
-<div id="tsd-toolbar-links"></div></div>
+<div id="tsd-toolbar-links"><a href="https://github.com/tomasevich/tinkoff">GitHub</a><a href="https://www.npmjs.com/package/@tomasevich/tinkoff">NPM</a></div></div>
 <ul class="results">
 <li class="state loading">Preparing search index...</li>
 <li class="state failure">The search index is not available</li></ul><a href="../index.html" class="title">@tomasevich/tinkoff</a></div>
@@ -16,18 +16,26 @@
 <li><a href="../modules/MarketDataService.html">MarketDataService</a></li>
 <li><a href="MarketDataService.MarketDataService.html">MarketDataService</a></li></ul>
 <h1>Class MarketDataService</h1></div>
+<section class="tsd-panel tsd-comment">
+<div class="tsd-comment tsd-typography"><p>Сервис получения биржевой информации:</p>
+<ol>
+<li>свечи;</li>
+<li>стаканы;</li>
+<li>торговые статусы;</li>
+<li>лента сделок.</li>
+</ol>
+</div>
+<div class="tsd-comment tsd-typography">
+<h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/marketdata/#marketdataservice">https://tinkoff.github.io/investAPI/marketdata/#marketdataservice</a></p>
+</div></section>
 <section class="tsd-panel tsd-hierarchy">
 <h4>Hierarchy</h4>
 <ul class="tsd-hierarchy">
 <li><a href="Common.Common.html" class="tsd-signature-type tsd-kind-class">Common</a>
 <ul class="tsd-hierarchy">
-<li><span class="target">MarketDataService</span></li></ul></li></ul></section>
-<section class="tsd-panel">
-<h4>Implements</h4>
-<ul class="tsd-hierarchy">
-<li><a href="../interfaces/MarketDataService.iMarketData.html" class="tsd-signature-type tsd-kind-interface">iMarketData</a></li></ul></section><aside class="tsd-sources">
+<li><span class="target">MarketDataService</span></li></ul></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/f34220a/src/MarketDataService.ts#L51">MarketDataService.ts:51</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/MarketDataService.ts#L428">MarketDataService.ts:428</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -55,17 +63,26 @@
 <ul class="tsd-signatures tsd-is-inherited">
 <li class="tsd-signature tsd-anchor-link" id="constructor.new_MarketDataService"><span class="tsd-kind-constructor-signature">new <wbr/>Market<wbr/>Data<wbr/>Service</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">token</span>, <span class="tsd-kind-parameter">isSandbox</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="MarketDataService.MarketDataService.html" class="tsd-signature-type tsd-kind-class">MarketDataService</a><a href="#constructor.new_MarketDataService" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Конструктор</p>
+</div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5><span class="tsd-kind-parameter">token</span>: <span class="tsd-signature-type">string</span></h5></li>
+<h5><span class="tsd-kind-parameter">token</span>: <span class="tsd-signature-type">string</span></h5>
+<div class="tsd-comment tsd-typography"><p>Токен приложения</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></li>
 <li>
-<h5><span class="tsd-kind-parameter">isSandbox</span>: <span class="tsd-signature-type">boolean</span></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="MarketDataService.MarketDataService.html" class="tsd-signature-type tsd-kind-class">MarketDataService</a></h4><aside class="tsd-sources">
+<h5><span class="tsd-kind-parameter">isSandbox</span>: <span class="tsd-signature-type">boolean</span></h5>
+<div class="tsd-comment tsd-typography"><p>Флаг включения режима <code>Песочницы</code></p>
+</div>
+<div class="tsd-comment tsd-typography"></div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <a href="MarketDataService.MarketDataService.html" class="tsd-signature-type tsd-kind-class">MarketDataService</a></h4>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#constructor">constructor</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/f34220a/src/Common.ts#L36">Common.ts:36</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/Common.ts#L53">Common.ts:53</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member"><a id="GetCandles" class="tsd-anchor"></a>
@@ -73,117 +90,157 @@
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetCandles.GetCandles-1"><span class="tsd-kind-call-signature">Get<wbr/>Candles</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MarketDataService.GetCandlesResponse.html" class="tsd-signature-type tsd-kind-interface">GetCandlesResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetCandles.GetCandles-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Метод запроса исторических свечей по инструменту</p>
+</div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
 <h5><span class="tsd-kind-parameter">body</span>: <a href="../interfaces/MarketDataService.GetCandlesRequest.html" class="tsd-signature-type tsd-kind-interface">GetCandlesRequest</a></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MarketDataService.GetCandlesResponse.html" class="tsd-signature-type tsd-kind-interface">GetCandlesResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/MarketDataService.iMarketData.html">iMarketData</a>.<a href="../interfaces/MarketDataService.iMarketData.html#GetCandles">GetCandles</a></p>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MarketDataService.GetCandlesResponse.html" class="tsd-signature-type tsd-kind-interface">GetCandlesResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/marketdata/#getcandles">https://tinkoff.github.io/investAPI/marketdata/#getcandles</a></p>
+</div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/f34220a/src/MarketDataService.ts#L52">MarketDataService.ts:52</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/MarketDataService.ts#L433">MarketDataService.ts:433</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetClosePrices" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Close<wbr/>Prices</span><a href="#GetClosePrices" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetClosePrices.GetClosePrices-1"><span class="tsd-kind-call-signature">Get<wbr/>Close<wbr/>Prices</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MarketDataService.GetClosePricesResponse.html" class="tsd-signature-type tsd-kind-interface">GetClosePricesResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetClosePrices.GetClosePrices-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Метод запроса цен закрытия торговой сессии по инструментам</p>
+</div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
 <h5><span class="tsd-kind-parameter">body</span>: <a href="../interfaces/MarketDataService.GetClosePricesRequest.html" class="tsd-signature-type tsd-kind-interface">GetClosePricesRequest</a></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MarketDataService.GetClosePricesResponse.html" class="tsd-signature-type tsd-kind-interface">GetClosePricesResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/MarketDataService.iMarketData.html">iMarketData</a>.<a href="../interfaces/MarketDataService.iMarketData.html#GetClosePrices">GetClosePrices</a></p>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MarketDataService.GetClosePricesResponse.html" class="tsd-signature-type tsd-kind-interface">GetClosePricesResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/marketdata/#getcloseprices">https://tinkoff.github.io/investAPI/marketdata/#getcloseprices</a></p>
+</div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/f34220a/src/MarketDataService.ts#L80">MarketDataService.ts:80</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/MarketDataService.ts#L491">MarketDataService.ts:491</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetLastPrices" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Last<wbr/>Prices</span><a href="#GetLastPrices" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetLastPrices.GetLastPrices-1"><span class="tsd-kind-call-signature">Get<wbr/>Last<wbr/>Prices</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MarketDataService.GetLastPricesResponse.html" class="tsd-signature-type tsd-kind-interface">GetLastPricesResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetLastPrices.GetLastPrices-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Метод запроса цен последних сделок по инструментам</p>
+</div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
 <h5><span class="tsd-kind-parameter">body</span>: <a href="../interfaces/MarketDataService.GetLastPricesRequest.html" class="tsd-signature-type tsd-kind-interface">GetLastPricesRequest</a></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MarketDataService.GetLastPricesResponse.html" class="tsd-signature-type tsd-kind-interface">GetLastPricesResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/MarketDataService.iMarketData.html">iMarketData</a>.<a href="../interfaces/MarketDataService.iMarketData.html#GetLastPrices">GetLastPrices</a></p>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MarketDataService.GetLastPricesResponse.html" class="tsd-signature-type tsd-kind-interface">GetLastPricesResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/marketdata/#getlastprices">https://tinkoff.github.io/investAPI/marketdata/#getlastprices</a></p>
+</div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/f34220a/src/MarketDataService.ts#L56">MarketDataService.ts:56</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/MarketDataService.ts#L441">MarketDataService.ts:441</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetLastTrades" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Last<wbr/>Trades</span><a href="#GetLastTrades" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetLastTrades.GetLastTrades-1"><span class="tsd-kind-call-signature">Get<wbr/>Last<wbr/>Trades</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MarketDataService.GetLastTradesResponse.html" class="tsd-signature-type tsd-kind-interface">GetLastTradesResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetLastTrades.GetLastTrades-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Метод запроса обезличенных сделок за последний час</p>
+</div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
 <h5><span class="tsd-kind-parameter">body</span>: <a href="../interfaces/MarketDataService.GetLastTradesRequest.html" class="tsd-signature-type tsd-kind-interface">GetLastTradesRequest</a></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MarketDataService.GetLastTradesResponse.html" class="tsd-signature-type tsd-kind-interface">GetLastTradesResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/MarketDataService.iMarketData.html">iMarketData</a>.<a href="../interfaces/MarketDataService.iMarketData.html#GetLastTrades">GetLastTrades</a></p>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MarketDataService.GetLastTradesResponse.html" class="tsd-signature-type tsd-kind-interface">GetLastTradesResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/marketdata/#getlasttrades">https://tinkoff.github.io/investAPI/marketdata/#getlasttrades</a></p>
+</div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/f34220a/src/MarketDataService.ts#L76">MarketDataService.ts:76</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/MarketDataService.ts#L481">MarketDataService.ts:481</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetOrderBook" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Order<wbr/>Book</span><a href="#GetOrderBook" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetOrderBook.GetOrderBook-1"><span class="tsd-kind-call-signature">Get<wbr/>Order<wbr/>Book</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MarketDataService.GetOrderBookResponse.html" class="tsd-signature-type tsd-kind-interface">GetOrderBookResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetOrderBook.GetOrderBook-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Метод получения стакана по инструменту</p>
+</div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
 <h5><span class="tsd-kind-parameter">body</span>: <a href="../interfaces/MarketDataService.GetOrderBookRequest.html" class="tsd-signature-type tsd-kind-interface">GetOrderBookRequest</a></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MarketDataService.GetOrderBookResponse.html" class="tsd-signature-type tsd-kind-interface">GetOrderBookResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/MarketDataService.iMarketData.html">iMarketData</a>.<a href="../interfaces/MarketDataService.iMarketData.html#GetOrderBook">GetOrderBook</a></p>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MarketDataService.GetOrderBookResponse.html" class="tsd-signature-type tsd-kind-interface">GetOrderBookResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/marketdata/#getorderbook">https://tinkoff.github.io/investAPI/marketdata/#getorderbook</a></p>
+</div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/f34220a/src/MarketDataService.ts#L60">MarketDataService.ts:60</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/MarketDataService.ts#L451">MarketDataService.ts:451</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetTradingStatus" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Trading<wbr/>Status</span><a href="#GetTradingStatus" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetTradingStatus.GetTradingStatus-1"><span class="tsd-kind-call-signature">Get<wbr/>Trading<wbr/>Status</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MarketDataService.GetTradingStatusResponse.html" class="tsd-signature-type tsd-kind-interface">GetTradingStatusResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetTradingStatus.GetTradingStatus-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Метод запроса статуса торгов по инструментам</p>
+</div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
 <h5><span class="tsd-kind-parameter">body</span>: <a href="../interfaces/MarketDataService.GetTradingStatusRequest.html" class="tsd-signature-type tsd-kind-interface">GetTradingStatusRequest</a></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MarketDataService.GetTradingStatusResponse.html" class="tsd-signature-type tsd-kind-interface">GetTradingStatusResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/MarketDataService.iMarketData.html">iMarketData</a>.<a href="../interfaces/MarketDataService.iMarketData.html#GetTradingStatus">GetTradingStatus</a></p>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MarketDataService.GetTradingStatusResponse.html" class="tsd-signature-type tsd-kind-interface">GetTradingStatusResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/marketdata/#gettradingstatus">https://tinkoff.github.io/investAPI/marketdata/#gettradingstatus</a></p>
+</div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/f34220a/src/MarketDataService.ts#L64">MarketDataService.ts:64</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/MarketDataService.ts#L461">MarketDataService.ts:461</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetTradingStatuses" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Trading<wbr/>Statuses</span><a href="#GetTradingStatuses" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetTradingStatuses.GetTradingStatuses-1"><span class="tsd-kind-call-signature">Get<wbr/>Trading<wbr/>Statuses</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MarketDataService.GetTradingStatusesResponse.html" class="tsd-signature-type tsd-kind-interface">GetTradingStatusesResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetTradingStatuses.GetTradingStatuses-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Метод запроса статуса торгов по инструментам</p>
+</div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
 <h5><span class="tsd-kind-parameter">body</span>: <a href="../interfaces/MarketDataService.GetTradingStatusesRequest.html" class="tsd-signature-type tsd-kind-interface">GetTradingStatusesRequest</a></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MarketDataService.GetTradingStatusesResponse.html" class="tsd-signature-type tsd-kind-interface">GetTradingStatusesResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/MarketDataService.iMarketData.html">iMarketData</a>.<a href="../interfaces/MarketDataService.iMarketData.html#GetTradingStatuses">GetTradingStatuses</a></p>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MarketDataService.GetTradingStatusesResponse.html" class="tsd-signature-type tsd-kind-interface">GetTradingStatusesResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/marketdata/#gettradingstatuses">https://tinkoff.github.io/investAPI/marketdata/#gettradingstatuses</a></p>
+</div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/f34220a/src/MarketDataService.ts#L70">MarketDataService.ts:70</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/MarketDataService.ts#L471">MarketDataService.ts:471</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-protected tsd-is-inherited"><a id="request" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagProtected">Protected</code> <span>request</span><a href="#request" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-protected tsd-is-inherited">
 <li class="tsd-signature tsd-anchor-link" id="request.request-1"><span class="tsd-kind-call-signature">request</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">service</span>, <span class="tsd-kind-parameter">method</span>, <span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><a href="#request.request-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Метод <code>HTTP</code> запроса к серверу <strong>Tinkoff Invest API</strong></p>
+</div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5><span class="tsd-kind-parameter">service</span>: <span class="tsd-signature-type">string</span></h5></li>
+<h5><span class="tsd-kind-parameter">service</span>: <span class="tsd-signature-type">string</span></h5>
+<div class="tsd-comment tsd-typography"><p>Имя сервиса</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></li>
 <li>
-<h5><span class="tsd-kind-parameter">method</span>: <span class="tsd-signature-type">string</span></h5></li>
+<h5><span class="tsd-kind-parameter">method</span>: <span class="tsd-signature-type">string</span></h5>
+<div class="tsd-comment tsd-typography"><p>Имя метода</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></li>
 <li>
-<h5><span class="tsd-kind-parameter">body</span>: <span class="tsd-signature-type">any</span></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<h5><span class="tsd-kind-parameter">body</span>: <span class="tsd-signature-type">any</span></h5>
+<div class="tsd-comment tsd-typography"><p>Тело запроса</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#request">request</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/f34220a/src/Common.ts#L38">Common.ts:38</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/Common.ts#L61">Common.ts:61</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -221,6 +278,8 @@
 <details class="tsd-index-accordion" open data-key="MarketDataService"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="#icon-chevronDown"></use></svg><a href="../modules/MarketDataService.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Market<wbr/>Data<wbr/>Service</span></a></summary>
 <div class="tsd-accordion-details">
 <ul class="tsd-nested-navigation">
+<li><a href="../enums/MarketDataService.CandleInterval.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-8"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-enum)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.45 16V7.24H14.49V8.224H10.518V10.936H14.07V11.908H10.518V15.016H14.49V16H9.45Z" fill="var(--color-text)"></path></g></svg><span>Candle<wbr/>Interval</span></a></li>
+<li><a href="../enums/MarketDataService.TradeDirection.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-8"></use></svg><span>Trade<wbr/>Direction</span></a></li>
 <li><a href="MarketDataService.MarketDataService.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-128"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-class)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z" fill="var(--color-text)"></path></g></svg><span>Market<wbr/>Data<wbr/>Service</span></a></li>
 <li><a href="../interfaces/MarketDataService.GetCandlesRequest.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-256"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-interface)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.51 16V15.016H11.298V8.224H9.51V7.24H14.19V8.224H12.402V15.016H14.19V16H9.51Z" fill="var(--color-text)"></path></g></svg><span>Get<wbr/>Candles<wbr/>Request</span></a></li>
 <li><a href="../interfaces/MarketDataService.GetCandlesResponse.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Get<wbr/>Candles<wbr/>Response</span></a></li>
@@ -236,7 +295,12 @@
 <li><a href="../interfaces/MarketDataService.GetTradingStatusResponse.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Get<wbr/>Trading<wbr/>Status<wbr/>Response</span></a></li>
 <li><a href="../interfaces/MarketDataService.GetTradingStatusesRequest.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Get<wbr/>Trading<wbr/>Statuses<wbr/>Request</span></a></li>
 <li><a href="../interfaces/MarketDataService.GetTradingStatusesResponse.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Get<wbr/>Trading<wbr/>Statuses<wbr/>Response</span></a></li>
-<li><a href="../interfaces/MarketDataService.iMarketData.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>i<wbr/>Market<wbr/>Data</span></a></li></ul></div></details></li>
+<li><a href="../interfaces/MarketDataService.HistoricCandle.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Historic<wbr/>Candle</span></a></li>
+<li><a href="../interfaces/MarketDataService.InstrumentClosePriceRequest.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Instrument<wbr/>Close<wbr/>Price<wbr/>Request</span></a></li>
+<li><a href="../interfaces/MarketDataService.InstrumentClosePriceResponse.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Instrument<wbr/>Close<wbr/>Price<wbr/>Response</span></a></li>
+<li><a href="../interfaces/MarketDataService.LastPrice.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Last<wbr/>Price</span></a></li>
+<li><a href="../interfaces/MarketDataService.Order.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Order</span></a></li>
+<li><a href="../interfaces/MarketDataService.Trade.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Trade</span></a></li></ul></div></details></li>
 <li><a href="../modules/OperationsService.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Operations<wbr/>Service</span></a></li>
 <li><a href="../modules/OrdersService.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Orders<wbr/>Service</span></a></li>
 <li><a href="../modules/SandboxService.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Sandbox<wbr/>Service</span></a></li>
