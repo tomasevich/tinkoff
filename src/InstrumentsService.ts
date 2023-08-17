@@ -25,6 +25,207 @@ export enum InstrumentType {
 }
 
 /**
+ * Тип купонов
+ * @see https://tinkoff.github.io/investAPI/instruments/#coupontype
+ */
+export enum CouponType {
+  /** Неопределенное значение */
+  COUPON_TYPE_UNSPECIFIED,
+  /** Постоянный */
+  COUPON_TYPE_CONSTANT,
+  /** Плавающий */
+  COUPON_TYPE_FLOATING,
+  /** Дисконт */
+  COUPON_TYPE_DISCOUNT,
+  /** Ипотечный */
+  COUPON_TYPE_MORTGAGE,
+  /** Фиксированный */
+  COUPON_TYPE_FIX,
+  /** Переменный */
+  COUPON_TYPE_VARIABLE,
+  /** Прочее */
+  COUPON_TYPE_OTHER
+}
+
+/**
+ * Тип опциона по направлению сделки
+ * @see https://tinkoff.github.io/investAPI/instruments/#optiondirection
+ */
+export enum OptionDirection {
+  /** Тип не определен */
+  OPTION_DIRECTION_UNSPECIFIED,
+  /** Опцион на продажу */
+  OPTION_DIRECTION_PUT,
+  /** Опцион на покупку */
+  OPTION_DIRECTION_CALL
+}
+
+/**
+ * Тип расчетов по опциону
+ * @see https://tinkoff.github.io/investAPI/instruments/#optionpaymenttype
+ */
+export enum OptionPaymentType {
+  /** Тип не определен */
+  OPTION_PAYMENT_TYPE_UNSPECIFIED,
+  /** Опционы с использованием премии в расчетах */
+  OPTION_PAYMENT_TYPE_PREMIUM,
+  /** Маржируемые опционы */
+  OPTION_PAYMENT_TYPE_MARGINAL
+}
+
+/**
+ * Тип опциона по стилю
+ * @see https://tinkoff.github.io/investAPI/instruments/#optionstyle
+ */
+export enum OptionStyle {
+  /** Тип не определен */
+  OPTION_STYLE_UNSPECIFIED,
+  /** Американский опцион */
+  OPTION_STYLE_AMERICAN,
+  /** Европейский опцион */
+  OPTION_STYLE_EUROPEAN
+}
+
+/**
+ * Тип опциона по способу исполнения
+ * @see https://tinkoff.github.io/investAPI/instruments/#optionsettlementtype
+ */
+export enum OptionSettlementType {
+  /** Тип не определен */
+  OPTION_EXECUTION_TYPE_UNSPECIFIED,
+  /** Поставочный тип опциона */
+  OPTION_EXECUTION_TYPE_PHYSICAL_DELIVERY,
+  /** Расчетный тип опциона */
+  OPTION_EXECUTION_TYPE_CASH_SETTLEMENT
+}
+
+/**
+ * Тип идентификатора инструмента. Подробнее об идентификации инструментов: Идентификация инструменто
+ * @see https://tinkoff.github.io/investAPI/instruments/#instrumentidtype
+ */
+export enum InstrumentIdType {
+  /** Значение не определено */
+  INSTRUMENT_ID_UNSPECIFIED,
+  /** Figi */
+  INSTRUMENT_ID_TYPE_FIGI,
+  /** Ticker */
+  INSTRUMENT_ID_TYPE_TICKER,
+  /** Уникальный идентификатор */
+  INSTRUMENT_ID_TYPE_UID,
+  /** Идентификатор позиции */
+  INSTRUMENT_ID_TYPE_POSITION_UID
+}
+
+/**
+ * Статус запрашиваемых инструментов
+ * @see https://tinkoff.github.io/investAPI/instruments/#instrumentstatus
+ */
+export enum InstrumentStatus {
+  /** Значение не определено */
+  INSTRUMENT_STATUS_UNSPECIFIED,
+  /** Базовый список инструментов (по умолчанию). Инструменты доступные для торговли через TINKOFF INVEST API. Cейчас списки бумаг, доступных из api и других интерфейсах совпадают (за исключением внебиржевых бумаг), но в будущем возможны ситуации, когда списки инструментов будут отличатьс */
+  INSTRUMENT_STATUS_BASE,
+  /** Список всех инструментов */
+  INSTRUMENT_STATUS_ALL
+}
+
+/**
+ * Тип акций
+ * @see https://tinkoff.github.io/investAPI/instruments/#sharetype
+ */
+export enum ShareType {
+  /** Значение не определено. */
+  SHARE_TYPE_UNSPECIFIED,
+  /** Обыкновенная */
+  SHARE_TYPE_COMMON,
+  /** Привилегированная */
+  SHARE_TYPE_PREFERRED,
+  /** Американские депозитарные расписки */
+  SHARE_TYPE_ADR,
+  /** Глобальные депозитарные расписки */
+  SHARE_TYPE_GDR,
+  /** Товарищество с ограниченной ответственностью */
+  SHARE_TYPE_MLP,
+  /** Акции из реестра Нью-Йорка */
+  SHARE_TYPE_NY_REG_SHRS,
+  /** Закрытый инвестиционный фонд */
+  SHARE_TYPE_CLOSED_END_FUND,
+  /** Траст недвижимости */
+  SHARE_TYPE_REIT
+}
+
+/**
+ * Тип актива
+ * @see https://tinkoff.github.io/investAPI/instruments/#assettype
+ */
+export enum AssetType {
+  /** Тип не определён. */
+  ASSET_TYPE_UNSPECIFIED,
+  /** Валюта. */
+  ASSET_TYPE_CURRENCY,
+  /** Товар. */
+  ASSET_TYPE_COMMODITY,
+  /** Индекс. */
+  ASSET_TYPE_INDEX,
+  /** Ценная бумага. */
+  ASSET_TYPE_SECURITY
+}
+
+/**
+ * Тип структурной ноты
+ * @see https://tinkoff.github.io/investAPI/instruments/#structuredproducttype
+ */
+export enum StructuredProductType {
+  /** Тип не определён. */
+  SP_TYPE_UNSPECIFIED,
+  /** Поставочный. */
+  SP_TYPE_DELIVERABLE,
+  /** Беспоставочный. */
+  SP_TYPE_NON_DELIVERABLE
+}
+
+/**
+ * Тип действия со списком избранных инструментов
+ * @see https://tinkoff.github.io/investAPI/instruments/#editfavoritesactiontype
+ */
+export enum EditFavoritesActionType {
+  /** Тип не определён */
+  EDIT_FAVORITES_ACTION_TYPE_UNSPECIFIED,
+  /** Добавить в список */
+  EDIT_FAVORITES_ACTION_TYPE_ADD,
+  /** Удалить из списка */
+  EDIT_FAVORITES_ACTION_TYPE_DEL
+}
+
+/**
+ * Реальная площадка исполнения расчётов
+ * @see https://tinkoff.github.io/investAPI/instruments/#realexchange
+ */
+export enum RealExchange {
+  /** Тип не определён. */
+  REAL_EXCHANGE_UNSPECIFIED,
+  /** Московская биржа. */
+  REAL_EXCHANGE_MOEX,
+  /** Санкт-Петербургская биржа. */
+  REAL_EXCHANGE_RTS,
+  /** Внебиржевой инструмент. */
+  REAL_EXCHANGE_OTC
+}
+
+/**
+ * Уровень риска облигации
+ * @see https://tinkoff.github.io/investAPI/instruments/#risklevel
+ */
+export enum RiskLevel {
+  /** Высокий уровень риска */
+  RISK_LEVEL_HIGH,
+  /** Средний уровень риска */
+  RISK_LEVEL_MODERATE,
+  /** Низкий уровень риска */
+  RISK_LEVEL_LOW
+}
+
+/**
  * Данные по торговой площадке
  * @see https://tinkoff.github.io/investAPI/instruments/#tradingschedule
  */
