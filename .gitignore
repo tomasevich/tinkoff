@@ -3,6 +3,3 @@ node_modules
 
 # ENV
 .env.test
-
-# GIT
-.github
