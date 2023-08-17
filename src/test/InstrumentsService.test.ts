@@ -37,28 +37,9 @@ describe('InstrumentsService', () => {
         expect(response.exchanges[0].exchange).toEqual('MOEX_MORNING')
       })
 
-      test('Expect `exchanges[0].days[0]` to have `almost all` properties', async () => {
+      test('Expect `exchanges[0].days[0]` to have property `date` & `isTradingDay`', async () => {
         expect(response.exchanges[0].days[0]).toHaveProperty('date')
         expect(response.exchanges[0].days[0]).toHaveProperty('isTradingDay')
-        expect(response.exchanges[0].days[0]).toHaveProperty('startTime')
-        expect(response.exchanges[0].days[0]).toHaveProperty('endTime')
-        // expect(response.exchanges[0].days[0]).toHaveProperty('openingAuctionStartTime')
-        expect(response.exchanges[0].days[0]).toHaveProperty(
-          'closingAuctionEndTime'
-        )
-        // expect(response.exchanges[0].days[0]).toHaveProperty('eveningOpeningAuctionStartTime')
-        // expect(response.exchanges[0].days[0]).toHaveProperty('eveningStartTime')
-        // expect(response.exchanges[0].days[0]).toHaveProperty('eveningEndTime')
-        // expect(response.exchanges[0].days[0]).toHaveProperty('clearingStartTime')
-        // expect(response.exchanges[0].days[0]).toHaveProperty('clearingEndTime')
-        // expect(response.exchanges[0].days[0]).toHaveProperty('premarketStartTime')
-        // expect(response.exchanges[0].days[0]).toHaveProperty('premarketEndTime')
-        expect(response.exchanges[0].days[0]).toHaveProperty(
-          'closingAuctionStartTime'
-        )
-        expect(response.exchanges[0].days[0]).toHaveProperty(
-          'openingAuctionEndTime'
-        )
       })
     })
 
@@ -86,28 +67,9 @@ describe('InstrumentsService', () => {
         expect(response.exchanges[0]).toHaveProperty('days')
       })
 
-      test('Expect `exchanges[0].days[0]` to have `almost all` properties', async () => {
+      test('Expect `exchanges[0].days[0]` to have property `date` & `isTradingDay`', async () => {
         expect(response.exchanges[0].days[0]).toHaveProperty('date')
         expect(response.exchanges[0].days[0]).toHaveProperty('isTradingDay')
-        expect(response.exchanges[0].days[0]).toHaveProperty('startTime')
-        expect(response.exchanges[0].days[0]).toHaveProperty('endTime')
-        // expect(response.exchanges[0].days[0]).toHaveProperty('openingAuctionStartTime')
-        expect(response.exchanges[0].days[0]).toHaveProperty(
-          'closingAuctionEndTime'
-        )
-        // expect(response.exchanges[0].days[0]).toHaveProperty('eveningOpeningAuctionStartTime')
-        // expect(response.exchanges[0].days[0]).toHaveProperty('eveningStartTime')
-        // expect(response.exchanges[0].days[0]).toHaveProperty('eveningEndTime')
-        // expect(response.exchanges[0].days[0]).toHaveProperty('clearingStartTime')
-        // expect(response.exchanges[0].days[0]).toHaveProperty('clearingEndTime')
-        // expect(response.exchanges[0].days[0]).toHaveProperty('premarketStartTime')
-        // expect(response.exchanges[0].days[0]).toHaveProperty('premarketEndTime')
-        expect(response.exchanges[0].days[0]).toHaveProperty(
-          'closingAuctionStartTime'
-        )
-        expect(response.exchanges[0].days[0]).toHaveProperty(
-          'openingAuctionEndTime'
-        )
       })
     })
   })

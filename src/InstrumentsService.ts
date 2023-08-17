@@ -252,67 +252,67 @@ export interface TradingDay {
    * Время начала торгов по часовому поясу UTC.
    * @type `google.protobuf.Timestamp`
    */
-  startTime: string
+  startTime?: string
   /**
    * Время окончания торгов по часовому поясу UTC.
    * @type `google.protobuf.Timestamp`
    */
-  endTime: string
+  endTime?: string
   /**
    * Время начала аукциона открытия в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  openingAuctionStartTime: string
+  openingAuctionStartTime?: string
   /**
    * Время окончания аукциона закрытия в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  closingAuctionEndTime: string
+  closingAuctionEndTime?: string
   /**
    * Время начала аукциона открытия вечерней сессии в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  eveningOpeningAuctionStartTime: string
+  eveningOpeningAuctionStartTime?: string
   /**
    * Время начала вечерней сессии в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  eveningStartTime: string
+  eveningStartTime?: string
   /**
    * Время окончания вечерней сессии в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  eveningEndTime: string
+  eveningEndTime?: string
   /**
    * Время начала основного клиринга в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  clearingStartTime: string
+  clearingStartTime?: string
   /**
    * Время окончания основного клиринга в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  clearingEndTime: string
+  clearingEndTime?: string
   /**
    * Время начала премаркета в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  premarketStartTime: string
+  premarketStartTime?: string
   /**
    * Время окончания премаркета в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  premarketEndTime: string
+  premarketEndTime?: string
   /**
    * Время начала аукциона закрытия в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  closingAuctionStartTime: string
+  closingAuctionStartTime?: string
   /**
    * Время окончания аукциона открытия в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  openingAuctionEndTime: string
+  openingAuctionEndTime?: string
 }
 
 /**
