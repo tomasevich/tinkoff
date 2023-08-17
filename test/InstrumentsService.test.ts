@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 
-import { InstrumentsService, TradingSchedulesResponse } from '..'
+import { InstrumentsService, TradingSchedulesResponse } from '../src'
 
 dotenv.config({ path: './.env.test' })
 
