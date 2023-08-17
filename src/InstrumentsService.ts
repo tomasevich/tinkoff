@@ -2075,6 +2075,16 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения списка облигаций
+   * ```js
+   * import { InstrumentsService, InstrumentStatus } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { instruments } = await instrumentsService.Bonds({
+   *  instrumentStatus: InstrumentStatus.INSTRUMENT_STATUS_BASE
+   * })
+   *
+   * console.log(instruments)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#bonds
    */
   public Bonds(body: InstrumentsRequest): Promise<BondsResponse> {
