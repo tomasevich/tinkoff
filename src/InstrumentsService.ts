@@ -2048,7 +2048,7 @@ export class InstrumentsService extends Common {
    * ```js
    * import { InstrumentsService } from '@tomasevich/tinkoff'
    *
-   * const instrumentsService = new InstrumentsService('TOKEN', true)
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
    * const { exchanges } = await instrumentsService.TradingSchedules({
    *  from: '2023-07-12T00:00:00:000Z',
    *  to: '2023-07-13T23:59:59:999Z',

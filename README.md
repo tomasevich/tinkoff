@@ -41,9 +41,9 @@ npm i @tomasevich/tinkoff
 ```js
 import { SandboxService } from '@tomasevich/tinkoff'
 
-const sandboxService = new SandboxService('TOKEN', true)
+const sandboxService = new SandboxService('<TOKEN>', true)
 const { orders } = await sandboxService.GetSandboxOrders({
-  accountId: 'ACCOUNT_ID'
+  accountId: '<ACCOUNT_ID>'
 })
 
 console.log(orders)
