@@ -508,20 +508,20 @@ export interface Bond {
    * Коэффициент ставки риска длинной позиции по клиенту
    * @description 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
    */
-  klong: Quotation
+  klong?: Quotation
   /**
    * Коэффициент ставки риска короткой позиции по клиенту
    * @description 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
    */
-  kshort: Quotation
+  kshort?: Quotation
   /** Ставка риска начальной маржи для КСУР лонг */
-  dlong: Quotation
+  dlong?: Quotation
   /** Ставка риска начальной маржи для КСУР шорт */
-  dshort: Quotation
+  dshort?: Quotation
   /** Ставка риска начальной маржи для КПУР лонг */
-  dlongMin: Quotation
+  dlongMin?: Quotation
   /** Ставка риска начальной маржи для КПУР шорт */
-  dshortMin: Quotation
+  dshortMin?: Quotation
   /** Признак доступности для операций в шорт */
   shortEnabledFlag: boolean
   /** Название инструмента */
@@ -546,7 +546,7 @@ export interface Bond {
    * Дата выпуска облигации в часовом поясе UTC
    * @type `google.protobuf.Timestamp`
    */
-  stateRegDate: string
+  stateRegDate?: string
   /**
    * Дата размещения в часовом поясе UTC
    * @type `google.protobuf.Timestamp`
@@ -593,7 +593,7 @@ export interface Bond {
   /** Признак облигации с амортизацией долга */
   amortizationFlag: boolean
   /** Шаг цены */
-  minPriceIncrement: Quotation
+  minPriceIncrement?: Quotation
   /** Параметр указывает на возможность торговать инструментом через API */
   apiTradeAvailableFlag: boolean
   /** Уникальный идентификатор инструмента */
@@ -618,12 +618,12 @@ export interface Bond {
    * Дата первой минутной свечи.
    * @type `google.protobuf.Timestamp`
    */
-  first1minCandleDate: string
+  first1minCandleDate?: string
   /**
    * Дата первой дневной свечи.
    * @type `google.protobuf.Timestamp`
    */
-  first1dayCandleDate: string
+  first1dayCandleDate?: string
   /** Уровень риска */
   riskLevel: RiskLevel
 }
