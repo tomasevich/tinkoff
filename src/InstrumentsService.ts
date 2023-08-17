@@ -378,6 +378,21 @@ export interface Share {
 }
 
 /**
+ * Бренд
+ * @see https://tinkoff.github.io/investAPI/instruments/#brand
+ */
+export interface Brand {
+  // uid	string	uid идентификатор бренда.
+  // name	string	Наименование бренда.
+  // description	string	Описание.
+  // info	string	Информация о бренде.
+  // company	string	Компания.
+  // sector	string	Сектор.
+  // country_of_risk	string	Код страны риска.
+  // country_of_risk_name	string	Наименование страны риска.
+}
+
+/**
  * Операция начисления купонов
  * @see https://tinkoff.github.io/investAPI/instruments/#accruedinterest
  */
@@ -455,6 +470,227 @@ export interface AssetFull {
   // br_code	string	Код типа ц.б. по классификации Банка России.
   // br_code_name	string	Наименование кода типа ц.б. по классификации Банка России.
   // instruments	Массив объектов AssetInstrument	Массив идентификаторов инструментов.
+}
+
+/**
+ * Информация об активе
+ * @see https://tinkoff.github.io/investAPI/instruments/#asset
+ */
+export interface Asset {
+  // uid	string	Уникальный идентификатор актива.
+  // type	AssetType	Тип актива.
+  // name	string	Наименование актива.
+  // instruments	Массив объектов AssetInstrument	Массив идентификаторов инструментов.
+}
+
+/**
+ * Валюта
+ * @see https://tinkoff.github.io/investAPI/instruments/#assetcurrency
+ */
+export interface AssetCurrency {
+  // base_currency	string	ISO-код валюты.
+}
+
+/**
+ * Ценная бумага
+ * @see https://tinkoff.github.io/investAPI/instruments/#assetsecurity
+ */
+export interface AssetSecurity {
+  // isin	string	ISIN-идентификатор ценной бумаги.
+  // type	string	Тип ценной бумаги.
+  // instrument_kind	InstrumentType	Тип инструмента.
+  // share	AssetShare	Акция. Заполняется только для акций (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = share).
+  // bond	AssetBond	Облигация. Заполняется только для облигаций (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = bond).
+  // sp	AssetStructuredProduct	Структурная нота. Заполняется только для структурных продуктов (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = sp).
+  // etf	AssetEtf	Фонд. Заполняется только для фондов (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = etf).
+  // clearing_certificate	AssetClearingCertificate	Клиринговый сертификат участия. Заполняется только для клиринговых сертификатов (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = clearing_certificate).
+}
+
+/**
+ * Акция
+ * @see https://tinkoff.github.io/investAPI/instruments/#assetshare
+ */
+export interface AssetShare {
+  // type	ShareType	Тип акции.
+  // issue_size	Quotation	Объем выпуска (шт.).
+  // nominal	Quotation	Номинал.
+  // nominal_currency	string	Валюта номинала.
+  // primary_index	string	Индекс (Bloomberg).
+  // dividend_rate	Quotation	Ставка дивиденда (для привилегированных акций).
+  // preferred_share_type	string	Тип привилегированных акций.
+  // ipo_date	google.protobuf.Timestamp	Дата IPO.
+  // registry_date	google.protobuf.Timestamp	Дата регистрации.
+  // div_yield_flag	bool	Признак наличия дивидендной доходности.
+  // issue_kind	string	Форма выпуска ФИ.
+  // placement_date	google.protobuf.Timestamp	Дата размещения акции.
+  // repres_isin	string	ISIN базового актива.
+  // issue_size_plan	Quotation	Объявленное количество шт.
+  // total_float	Quotation	Количество акций в свободном обращении.
+}
+
+/**
+ * Облигация
+ * @see https://tinkoff.github.io/investAPI/instruments/#assetbond
+ */
+export interface AssetBond {
+  // current_nominal	Quotation	Текущий номинал.
+  // borrow_name	string	Наименование заемщика.
+  // issue_size	Quotation	Объем эмиссии облигации (стоимость).
+  // nominal	Quotation	Номинал облигации.
+  // nominal_currency	string	Валюта номинала.
+  // issue_kind	string	Форма выпуска облигации.
+  // interest_kind	string	Форма дохода облигации.
+  // coupon_quantity_per_year	int32	Количество выплат в год.
+  // indexed_nominal_flag	bool	Признак облигации с индексируемым номиналом.
+  // subordinated_flag	bool	Признак субординированной облигации.
+  // collateral_flag	bool	Признак обеспеченной облигации.
+  // tax_free_flag	bool	Признак показывает, что купоны облигации не облагаются налогом (для mass market).
+  // amortization_flag	bool	Признак облигации с амортизацией долга.
+  // floating_coupon_flag	bool	Признак облигации с плавающим купоном.
+  // perpetual_flag	bool	Признак бессрочной облигации.
+  // maturity_date	google.protobuf.Timestamp	Дата погашения облигации.
+  // return_condition	string	Описание и условия получения дополнительного дохода.
+  // state_reg_date	google.protobuf.Timestamp	Дата выпуска облигации.
+  // placement_date	google.protobuf.Timestamp	Дата размещения облигации.
+  // placement_price	Quotation	Цена размещения облигации.
+  // issue_size_plan	Quotation	Объявленное количество шт.
+}
+
+/**
+ * Структурная нота
+ * @see https://tinkoff.github.io/investAPI/instruments/#assetstructuredproduct
+ */
+export interface AssetStructuredProduct {
+  // borrow_name	string	Наименование заемщика.
+  // nominal	Quotation	Номинал.
+  // nominal_currency	string	Валюта номинала.
+  // type	StructuredProductType	Тип структурной ноты.
+  // logic_portfolio	string	Стратегия портфеля.
+  // asset_type	AssetType	Тип базового актива.
+  // basic_asset	string	Вид базового актива в зависимости от типа базового актива.
+  // safety_barrier	Quotation	Барьер сохранности (в процентах).
+  // maturity_date	google.protobuf.Timestamp	Дата погашения.
+  // issue_size_plan	Quotation	Объявленное количество шт.
+  // issue_size	Quotation	Объем размещения.
+  // placement_date	google.protobuf.Timestamp	Дата размещения ноты.
+  // issue_kind	string	Форма выпуска.
+}
+
+/**
+ * Фонд
+ * @see https://tinkoff.github.io/investAPI/instruments/#assetetf
+ */
+export interface AssetEtf {
+  // total_expense	Quotation	Суммарные расходы фонда (в %).
+  // hurdle_rate	Quotation	Барьерная ставка доходности после которой фонд имеет право на perfomance fee (в процентах).
+  // performance_fee	Quotation	Комиссия за успешные результаты фонда (в процентах).
+  // fixed_commission	Quotation	Фиксированная комиссия за управление (в процентах).
+  // payment_type	string	Тип распределения доходов от выплат по бумагам.
+  // watermark_flag	bool	Признак необходимости выхода фонда в плюс для получения комиссии.
+  // buy_premium	Quotation	Премия (надбавка к цене) при покупке доли в фонде (в процентах).
+  // sell_discount	Quotation	Ставка дисконта (вычет из цены) при продаже доли в фонде (в процентах).
+  // rebalancing_flag	bool	Признак ребалансируемости портфеля фонда.
+  // rebalancing_freq	string	Периодичность ребалансировки.
+  // management_type	string	Тип управления.
+  // primary_index	string	Индекс, который реплицирует (старается копировать) фонд.
+  // focus_type	string	База ETF.
+  // leveraged_flag	bool	Признак использования заемных активов (плечо).
+  // num_share	Quotation	Количество акций в обращении.
+  // ucits_flag	bool	Признак обязательства по отчетности перед регулятором.
+  // released_date	google.protobuf.Timestamp	Дата выпуска.
+  // description	string	Описание фонда.
+  // primary_index_description	string	Описание индекса, за которым следует фонд.
+  // primary_index_company	string	Основные компании, в которые вкладывается фонд.
+  // index_recovery_period	Quotation	Срок восстановления индекса (после просадки).
+  // inav_code	string	IVAV-код.
+  // div_yield_flag	bool	Признак наличия дивидендной доходности.
+  // expense_commission	Quotation	Комиссия на покрытие расходов фонда (в процентах).
+  // primary_index_tracking_error	Quotation	Ошибка следования за индексом (в процентах).
+  // rebalancing_plan	string	Плановая ребалансировка портфеля.
+  // tax_rate	string	Ставки налогообложения дивидендов и купонов.
+  // rebalancing_dates	Массив объектов google.protobuf.Timestamp	Даты ребалансировок.
+  // issue_kind	string	Форма выпуска.
+  // nominal	Quotation	Номинал.
+  // nominal_currency	string	Валюта номинала.
+}
+
+/**
+ * Клиринговый сертификат участия
+ * @see https://tinkoff.github.io/investAPI/instruments/#assetclearingcertificate
+ */
+export interface AssetClearingCertificate {
+  // nominal	Quotation	Номинал.
+  // nominal_currency	string	Валюта номинала.
+}
+
+/**
+ * Идентификаторы инструмента
+ * @see https://tinkoff.github.io/investAPI/instruments/#assetinstrument
+ */
+export interface AssetInstrument {
+  // uid	string	uid идентификатор инструмента.
+  // figi	string	figi идентификатор инструмента.
+  // instrument_type	string	Тип инструмента.
+  // ticker	string	Тикер инструмента.
+  // class_code	string	Класс-код (секция торгов).
+  // links	Массив объектов InstrumentLink	Массив связанных инструментов.
+  // instrument_kind	InstrumentType	Тип инструмента.
+  // position_uid	string	id позиции.
+}
+
+/**
+ * Связь с другим инструментом
+ * @see https://tinkoff.github.io/investAPI/instruments/#instrumentlink
+ */
+export interface InstrumentLink {
+  // type	string	Тип связи.
+  // instrument_uid	string	uid идентификатор связанного инструмента.
+}
+
+/**
+ * Массив избранных инструментов
+ * @see https://tinkoff.github.io/investAPI/instruments/#favoriteinstrument
+ */
+export interface FavoriteInstrument {
+  // figi	string	Figi-идентификатор инструмента.
+  // ticker	string	Тикер инструмента.
+  // class_code	string	Класс-код инструмента.
+  // isin	string	Isin-идентификатор инструмента.
+  // instrument_type	string	Тип инструмента.
+  // otc_flag	bool	Признак внебиржевой ценной бумаги.
+  // api_trade_available_flag	bool	Параметр указывает на возможность торговать инструментом через API.
+  // instrument_kind	InstrumentType	Тип инструмента.
+}
+
+/**
+ * Массив инструментов для редактирования списка избранных инструментов
+ * @see https://tinkoff.github.io/investAPI/instruments/#editfavoritesrequestinstrument
+ */
+export interface EditFavoritesRequestInstrument {
+  // figi	string	Figi-идентификатор инструмента.
+}
+
+/**
+ * Краткая информация об инструменте
+ * @see https://tinkoff.github.io/investAPI/instruments/#instrumentshort
+ */
+export interface InstrumentShort {
+  // isin	string	Isin инструмента.
+  // figi	string	Figi инструмента.
+  // ticker	string	Ticker инструмента.
+  // class_code	string	ClassCode инструмента.
+  // instrument_type	string	Тип инструмента.
+  // name	string	Название инструмента.
+  // uid	string	Уникальный идентификатор инструмента.
+  // position_uid	string	Уникальный идентификатор позиции инструмента.
+  // instrument_kind	InstrumentType	Тип инструмента.
+  // api_trade_available_flag	bool	Параметр указывает на возможность торговать инструментом через API.
+  // for_iis_flag	bool	Признак доступности для ИИС.
+  // first_1min_candle_date	google.protobuf.Timestamp	Дата первой минутной свечи.
+  // first_1day_candle_date	google.protobuf.Timestamp	Дата первой дневной свечи.
+  // for_qual_investor_flag	bool	Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов.
+  // weekend_flag	bool	Флаг отображающий доступность торговли инструментом по выходным
+  // blocked_tca_flag	bool	Флаг заблокированного ТКС
 }
 
 /**
@@ -713,64 +949,100 @@ export interface AssetsResponse {
 }
 
 /**
- * @see
+ * Запрос списка избранных инструментов, входные параметры не требуются
+ * @see https://tinkoff.github.io/investAPI/instruments/#getfavoritesrequest
  */
 export interface GetFavoritesRequest {}
 
 /**
- * @see
+ * В ответ передаётся список избранных инструментов в качестве массива
+ * @see https://tinkoff.github.io/investAPI/instruments/#getfavoritesresponse
  */
-export interface GetFavoritesResponse {}
+export interface GetFavoritesResponse {
+  // favorite_instruments	Массив объектов FavoriteInstrument	Массив инструментов
+}
 
 /**
- * @see
+ * Запрос редактирования списка избранных инструментов
+ * @see https://tinkoff.github.io/investAPI/instruments/#editfavoritesrequest
  */
-export interface EditFavoritesRequest {}
+export interface EditFavoritesRequest {
+  // instruments	Массив объектов EditFavoritesRequestInstrument	Массив инструментов.
+  // action_type	EditFavoritesActionType	Тип действия со списком.
+}
 
 /**
- * @see
+ * Результат редактирования списка избранных инструментов
+ * @see https://tinkoff.github.io/investAPI/instruments/#editfavoritesresponse
  */
-export interface EditFavoritesResponse {}
+export interface EditFavoritesResponse {
+  // favorite_instruments	Массив объектов FavoriteInstrument	Массив инструментов
+}
 
 /**
- * @see
+ * Запрос справочника стран
+ * @see https://tinkoff.github.io/investAPI/instruments/#getcountriesrequest
  */
 export interface GetCountriesRequest {}
 
 /**
- * @see
+ * Справочник стран
+ * @see https://tinkoff.github.io/investAPI/instruments/#getcountriesresponse
  */
-export interface GetCountriesResponse {}
+export interface GetCountriesResponse {
+  // countries	Массив объектов CountryResponse	Массив стран.
+}
 
 /**
- * @see
+ * Данные о стране
+ * @see https://tinkoff.github.io/investAPI/instruments/#countryresponse
  */
-export interface FindInstrumentRequest {}
+export interface CountryResponse {
+  // alfa_two	string	Двухбуквенный код страны.
+  // alfa_three	string	Трёхбуквенный код страны.
+  // name	string	Наименование страны.
+  // name_brief	string	Краткое наименование страны.
+}
 
 /**
- * @see
+ * Запрос на поиск инструментов
+ * @see https://tinkoff.github.io/investAPI/instruments/#findinstrumentrequest
  */
-export interface FindInstrumentResponse {}
+export interface FindInstrumentRequest {
+  // query	string	Строка поиска.
+  // instrument_kind	InstrumentType	Фильтр по типу инструмента.
+  // api_trade_available_flag	bool	Фильтр для отображения только торговых инструментов.
+}
 
 /**
- * @see
+ * Результат поиска инструментов
+ * @see https://tinkoff.github.io/investAPI/instruments/#findinstrumentresponse
+ */
+export interface FindInstrumentResponse {
+  // instruments	Массив объектов InstrumentShort	Массив инструментов, удовлетворяющих условиям поиска.
+}
+
+/**
+ * Запрос списка брендов
+ * @see https://tinkoff.github.io/investAPI/instruments/#getbrandsrequest
  */
 export interface GetBrandsRequest {}
 
 /**
- * @see
+ * Запрос бренда
+ * @see https://tinkoff.github.io/investAPI/instruments/#getbrandrequest
  */
-export interface GetBrandsResponse {}
+export interface GetBrandsResponse {
+  // id	string	Uid-идентификатор бренда.
+}
 
 /**
- * @see
+ * Список брендов
+ * @see https://tinkoff.github.io/investAPI/instruments/#getbrandsresponse
  */
-export interface GetBrandRequest {}
-
-/**
- * @see
- */
-export interface Brand {}
+export interface GetBrandRequest {
+  // brands	Массив объектов Brand	Массив брендов.
+}
 
 /**
  * Сервис предназначен для получения:
