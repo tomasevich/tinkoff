@@ -247,72 +247,72 @@ export interface TradingDay {
    */
   date: string
   /** Признак торгового дня на бирже */
-  is_trading_day: boolean
+  isTradingDay: boolean
   /**
    * Время начала торгов по часовому поясу UTC.
    * @type `google.protobuf.Timestamp`
    */
-  start_time: string
+  startTime: string
   /**
    * Время окончания торгов по часовому поясу UTC.
    * @type `google.protobuf.Timestamp`
    */
-  end_time: string
+  endTime: string
   /**
    * Время начала аукциона открытия в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  opening_auction_start_time: string
+  openingAuctionStartTime: string
   /**
    * Время окончания аукциона закрытия в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  closing_auction_end_time: string
+  closingAuctionEndTime: string
   /**
    * Время начала аукциона открытия вечерней сессии в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  evening_opening_auction_start_time: string
+  eveningOpeningAuctionStartTime: string
   /**
    * Время начала вечерней сессии в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  evening_start_time: string
+  eveningStartTime: string
   /**
    * Время окончания вечерней сессии в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  evening_end_time: string
+  eveningEndTime: string
   /**
    * Время начала основного клиринга в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  clearing_start_time: string
+  clearingStartTime: string
   /**
    * Время окончания основного клиринга в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  clearing_end_time: string
+  clearingEndTime: string
   /**
    * Время начала премаркета в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  premarket_start_time: string
+  premarketStartTime: string
   /**
    * Время окончания премаркета в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  premarket_end_time: string
+  premarketEndTime: string
   /**
    * Время начала аукциона закрытия в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  closing_auction_start_time: string
+  closingAuctionStartTime: string
   /**
    * Время окончания аукциона открытия в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  opening_auction_end_time: string
+  openingAuctionEndTime: string
 }
 
 /**
@@ -326,36 +326,36 @@ export interface Coupon {
    * Дата выплаты купона.
    * @type `google.protobuf.Timestamp`
    */
-  coupon_date: string
+  couponDate: string
   /**
    * Номер купона.
    * @type `int64`
    */
-  coupon_number: string
+  couponNumber: string
   /**
    * (Опционально) Дата фиксации реестра для выплаты купона.
    * @type `google.protobuf.Timestamp`
    */
-  fix_date: string
+  fixDate: string
   /** Выплата на одну облигацию */
-  pay_one_bond: MoneyValue
+  payOneBond: MoneyValue
   /** Тип купона */
-  coupon_type: CouponType
+  couponType: CouponType
   /**
    * Начало купонного периода.
    * @type `google.protobuf.Timestamp`
    */
-  coupon_start_date: string
+  couponStartDate: string
   /**
    * Окончание купонного периода.
    * @type `google.protobuf.Timestamp`
    */
-  coupon_end_date: string
+  couponEndDate: string
   /**
    * Купонный период в днях.
    * @type `int32`
    */
-  coupon_period: number
+  couponPeriod: number
 }
 
 /**
@@ -366,41 +366,41 @@ export interface Option {
   /** Уникальный идентификатор инструмента */
   uid: string
   /** Уникальный идентификатор позиции */
-  position_uid: string
+  positionUid: string
   /** Тикер инструмента */
   ticker: string
   /** Класс-код */
-  class_code: string
+  classCode: string
   /** Уникальный идентификатор позиции основного инструмента */
-  basic_asset_position_uid: string
+  basicAssetPositionUid: string
   /** Текущий режим торгов инструмента */
-  trading_status: SecurityTradingStatus
+  tradingStatus: SecurityTradingStatus
   /** Реальная площадка исполнения расчётов (биржа). Допустимые значения: [REAL_EXCHANGE_MOEX, REAL_EXCHANGE_RTS] */
-  real_exchange: RealExchange
+  realExchange: RealExchange
   /** Направление опциона */
   direction: OptionDirection
   /** Тип расчетов по опциону */
-  payment_type: OptionPaymentType
+  paymentType: OptionPaymentType
   /** Стиль опциона */
   style: OptionStyle
   /** Способ исполнения опциона */
-  settlement_type: OptionSettlementType
+  settlementType: OptionSettlementType
   /** Название инструмента */
   name: string
   /** Валюта */
   currency: string
   /** Валюта, в которой оценивается контракт */
-  settlement_currency: string
+  settlementCurrency: string
   /** Тип актива */
-  asset_type: string
+  assetType: string
   /** Основной актив */
-  basic_asset: string
+  basicAsset: string
   /** Tорговая площадка (секция биржи) */
   exchange: string
   /** Код страны рисков */
-  country_of_risk: string
+  countryOfRisk: string
   /** Наименование страны рисков */
-  country_of_risk_name: string
+  countryOfRiskName: string
   /** Сектор экономики */
   sector: string
   /**
@@ -409,7 +409,7 @@ export interface Option {
    */
   lot: number
   /** Размер основного актива */
-  basic_asset_size: Quotation
+  basicAssetSize: Quotation
   /** Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР) */
   klong: Quotation
   /** Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР) */
@@ -419,56 +419,56 @@ export interface Option {
   /** Ставка риска начальной маржи для КСУР шорт. Подробнее: ставка риска в шорт */
   dshort: Quotation
   /** Ставка риска начальной маржи для КПУР лонг. Подробнее: ставка риска в лонг */
-  dlong_min: Quotation
+  dlongMin: Quotation
   /** Ставка риска начальной маржи для КПУР шорт. Подробнее: ставка риска в шорт */
-  dshort_min: Quotation
+  dshortMin: Quotation
   /** Минимальный шаг цены */
-  min_price_increment: Quotation
+  minPriceIncrement: Quotation
   /** Цена страйка */
-  strike_price: MoneyValue
+  strikePrice: MoneyValue
   /**
    * Дата истечения срока в формате UTC.
    * @type `google.protobuf.Timestamp`
    */
-  expiration_date: string
+  expirationDate: string
   /**
    * Дата начала обращения контракта в формате UTC.
    * @type `google.protobuf.Timestamp`
    */
-  first_trade_date: string
+  firstTradeDate: string
   /**
    * Дата исполнения в формате UTC.
    * @type `google.protobuf.Timestamp`
    */
-  last_trade_date: string
+  lastTradeDate: string
   /**
    * Дата первой минутной свечи в формате UTC.
    * @type `google.protobuf.Timestamp`
    */
-  first_1min_candle_date: string
+  first1minCandleDate: string
   /**
    * Дата первой дневной свечи в формате UTC.
    * @type `google.protobuf.Timestamp`
    */
-  first_1day_candle_date: string
+  first1dayCandleDate: string
   /** Признак доступности для операций шорт */
-  short_enabled_flag: boolean
+  shortEnabledFlag: boolean
   /** Возможность покупки/продажи на ИИС */
-  for_iis_flag: boolean
+  forIisFlag: boolean
   /** Признак внебиржевой ценной бумаги */
-  otc_flag: boolean
+  otcFlag: boolean
   /** Признак доступности для покупки */
-  buy_available_flag: boolean
+  buyAvailableFlag: boolean
   /** Признак доступности для продажи */
-  sell_available_flag: boolean
+  sellAvailableFlag: boolean
   /** Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов */
-  for_qual_investor_flag: boolean
+  forQualInvestorFlag: boolean
   /** Флаг отображающий доступность торговли инструментом по выходным */
-  weekend_flag: boolean
+  weekendFlag: boolean
   /** Флаг заблокированного ТКС */
-  blocked_tca_flag: boolean
+  blockedTcaFlag: boolean
   /** Параметр указывает на возможность торговать инструментом через API */
-  api_trade_available_flag: boolean
+  apiTradeAvailableFlag: boolean
 }
 
 /**
@@ -481,7 +481,7 @@ export interface Bond {
   /** Тикер инструмента */
   ticker: string
   /** Класс-код (секция торгов) */
-  class_code: string
+  classCode: string
   /** Isin-идентификатор инструмента */
   isin: string
   /**
@@ -500,11 +500,11 @@ export interface Bond {
   /** Ставка риска начальной маржи для КСУР шорт. Подробнее: ставка риска в шорт */
   dshort: Quotation
   /** Ставка риска начальной маржи для КПУР лонг. Подробнее: ставка риска в лонг */
-  dlong_min: Quotation
+  dlongMin: Quotation
   /** Ставка риска начальной маржи для КПУР шорт. Подробнее: ставка риска в шорт */
-  dshort_min: Quotation
+  dshortMin: Quotation
   /** Признак доступности для операций в шорт */
-  short_enabled_flag: boolean
+  shortEnabledFlag: boolean
   /** Название инструмента */
   name: string
   /** Tорговая площадка (секция биржи) */
@@ -513,100 +513,100 @@ export interface Bond {
    * Количество выплат по купонам в год.
    * @type `int32`
    */
-  coupon_quantity_per_year: number
+  couponQuantityPerYear: number
   /**
    * Дата погашения облигации в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  maturity_date: string
+  maturityDate: string
   /** Номинал облигации */
   nominal: MoneyValue
   /** Первоначальный номинал облигации */
-  initial_nominal: MoneyValue
+  initialNominal: MoneyValue
   /**
    * Дата выпуска облигации в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  state_reg_date: string
+  stateRegDate: string
   /**
    * Дата размещения в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  placement_date: string
+  placementDate: string
   /** Цена размещения */
-  placement_price: MoneyValue
+  placementPrice: MoneyValue
   /** Значение НКД (накопленного купонного дохода) на дату */
-  aci_value: MoneyValue
+  aciValue: MoneyValue
   /** Код страны риска, т.е. страны, в которой компания ведёт основной бизнес */
-  country_of_risk: string
+  countryOfRisk: string
   /** Наименование страны риска, т.е. страны, в которой компания ведёт основной бизнес */
-  country_of_risk_name: string
+  countryOfRiskName: string
   /** Сектор экономики */
   sector: string
   /**
    * Форма выпуска. Возможные значения:
    * documentary — документарная;
-   * non_documentary — бездокументарная.
+   * nonDocumentary — бездокументарная.
    */
-  issue_kind: string
+  issueKind: string
   /**
    * Размер выпуска.
    * @type `int64`
    */
-  issue_size: string
+  issueSize: string
   /**
    * Плановый размер выпуска.
    * @type `int64`
    */
-  issue_size_plan: string
+  issueSizePlan: string
   /** Текущий режим торгов инструмента */
-  trading_status: SecurityTradingStatus
+  tradingStatus: SecurityTradingStatus
   /** Признак внебиржевой ценной бумаги */
-  otc_flag: boolean
+  otcFlag: boolean
   /** Признак доступности для покупки */
-  buy_available_flag: boolean
+  buyAvailableFlag: boolean
   /** Признак доступности для продажи */
-  sell_available_flag: boolean
+  sellAvailableFlag: boolean
   /** Признак облигации с плавающим купоном */
-  floating_coupon_flag: boolean
+  floatingCouponFlag: boolean
   /** Признак бессрочной облигации */
-  perpetual_flag: boolean
+  perpetualFlag: boolean
   /** Признак облигации с амортизацией долга */
-  amortization_flag: boolean
+  amortizationFlag: boolean
   /** Шаг цены */
-  min_price_increment: Quotation
+  minPriceIncrement: Quotation
   /** Параметр указывает на возможность торговать инструментом через API */
-  api_trade_available_flag: boolean
+  apiTradeAvailableFlag: boolean
   /** Уникальный идентификатор инструмента */
   uid: string
   /** Реальная площадка исполнения расчётов. (биржа) */
-  real_exchange: RealExchange
+  realExchange: RealExchange
   /** Уникальный идентификатор позиции инструмента */
-  position_uid: string
+  positionUid: string
   /** Признак доступности для ИИС */
-  for_iis_flag: boolean
+  forIisFlag: boolean
   /** Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов */
-  for_qual_investor_flag: boolean
+  forQualInvestorFlag: boolean
   /** Флаг отображающий доступность торговли инструментом по выходным */
-  weekend_flag: boolean
+  weekendFlag: boolean
   /** Флаг заблокированного ТКС */
-  blocked_tca_flag: boolean
+  blockedTcaFlag: boolean
   /** Признак субординированной облигации */
-  subordinated_flag: boolean
+  subordinatedFlag: boolean
   /** Флаг достаточной ликвидности */
-  liquidity_flag: boolean
+  liquidityFlag: boolean
   /**
    * Дата первой минутной свечи.
    * @type `google.protobuf.Timestamp`
    */
-  first_1min_candle_date: string
+  first1minCandleDate: string
   /**
    * Дата первой дневной свечи.
    * @type `google.protobuf.Timestamp`
    */
-  first_1day_candle_date: string
+  first1dayCandleDate: string
   /** Уровень риска */
-  risk_level: RiskLevel
+  riskLevel: RiskLevel
 }
 
 /**
@@ -619,7 +619,7 @@ export interface Currency {
   /** Тикер инструмента */
   ticker: string
   /** Класс-код (секция торгов) */
-  class_code: string
+  classCode: string
   /** Isin-идентификатор инструмента */
   isin: string
   /**
@@ -638,11 +638,11 @@ export interface Currency {
   /** Ставка риска начальной маржи для КСУР шорт. Подробнее: ставка риска в шорт */
   dshort: Quotation
   /** Ставка риска начальной маржи для КПУР лонг. Подробнее: ставка риска в лонг */
-  dlong_min: Quotation
+  dlongMin: Quotation
   /** Ставка риска начальной маржи для КПУР шорт. Подробнее: ставка риска в шорт */
-  dshort_min: Quotation
+  dshortMin: Quotation
   /** Признак доступности для операций в шорт */
-  short_enabled_flag: boolean
+  shortEnabledFlag: boolean
   /** Название инструмента */
   name: string
   /** Tорговая площадка (секция биржи) */
@@ -650,47 +650,47 @@ export interface Currency {
   /** Номинал */
   nominal: MoneyValue
   /** Код страны риска, т.е. страны, в которой компания ведёт основной бизнес */
-  country_of_risk: string
+  countryOfRisk: string
   /** Наименование страны риска, т.е. страны, в которой компания ведёт основной бизнес */
-  country_of_risk_name: string
+  countryOfRiskName: string
   /** Текущий режим торгов инструмента */
-  trading_status: SecurityTradingStatus
+  tradingStatus: SecurityTradingStatus
   /** Признак внебиржевой ценной бумаги */
-  otc_flag: boolean
+  otcFlag: boolean
   /** Признак доступности для покупки */
-  buy_available_flag: boolean
+  buyAvailableFlag: boolean
   /** Признак доступности для продажи */
-  sell_available_flag: boolean
+  sellAvailableFlag: boolean
   /** Строковый ISO-код валюты */
-  iso_currency_name: string
+  isoCurrencyName: string
   /** Шаг цены */
-  min_price_increment: Quotation
+  minPriceIncrement: Quotation
   /** Параметр указывает на возможность торговать инструментом через API */
-  api_trade_available_flag: boolean
+  apiTradeAvailableFlag: boolean
   /** Уникальный идентификатор инструмента */
   uid: string
   /** Реальная площадка исполнения расчётов (биржа) */
-  real_exchange: RealExchange
+  realExchange: RealExchange
   /** Уникальный идентификатор позиции инструмента */
-  position_uid: string
+  positionUid: string
   /** Признак доступности для ИИС */
-  for_iis_flag: boolean
+  forIisFlag: boolean
   /** Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов */
-  for_qual_investor_flag: boolean
+  forQualInvestorFlag: boolean
   /** Флаг отображающий доступность торговли инструментом по выходным */
-  weekend_flag: boolean
+  weekendFlag: boolean
   /** Флаг заблокированного ТКС */
-  blocked_tca_flag: boolean
+  blockedTcaFlag: boolean
   /**
    * Дата первой минутной свечи.
    * @type `google.protobuf.Timestamp`
    */
-  first_1min_candle_date: string
+  first1minCandleDate: string
   /**
    * Дата первой дневной свечи.
    * @type `google.protobuf.Timestamp`
    */
-  first_1day_candle_date: string
+  first1dayCandleDate: string
 }
 
 /**
@@ -703,7 +703,7 @@ export interface Etf {
   /** Тикер инструмента */
   ticker: string
   /** Класс-код (секция торгов) */
-  class_code: string
+  classCode: string
   /** Isin-идентификатор инструмента */
   isin: string
   /**
@@ -722,83 +722,83 @@ export interface Etf {
   /** Ставка риска начальной маржи для КСУР шорт. Подробнее: ставка риска в шорт */
   dshort: Quotation
   /** Ставка риска начальной маржи для КПУР лонг. Подробнее: ставка риска в лонг */
-  dlong_min: Quotation
+  dlongMin: Quotation
   /** Ставка риска начальной маржи для КПУР шорт. Подробнее: ставка риска в шорт */
-  dshort_min: Quotation
+  dshortMin: Quotation
   /** Признак доступности для операций в шорт */
-  short_enabled_flag: boolean
+  shortEnabledFlag: boolean
   /** Название инструмента */
   name: string
   /** Tорговая площадка (секция биржи) */
   exchange: string
   /** Размер фиксированной комиссии фонда */
-  fixed_commission: Quotation
+  fixedCommission: Quotation
   /**
    * Возможные значения:
    * equity — акции;
-   * fixed_income — облигации;
-   * mixed_allocation — смешанный;
-   * money_market — денежный рынок;
-   * real_estate — недвижимость;
+   * fixedIncome — облигации;
+   * mixedAllocation — смешанный;
+   * moneyMarket — денежный рынок;
+   * realEstate — недвижимость;
    * commodity — товары;
    * specialty — специальный;
-   * private_equity — private equity;
-   * alternative_investment — альтернативные инвестиции.
+   * privateEquity — private equity;
+   * alternativeInvestment — альтернативные инвестиции.
    */
-  focus_type: string
+  focusType: string
   /**
    * Дата выпуска в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  released_date: string
+  releasedDate: string
   /** Количество акций фонда в обращении */
-  num_shares: Quotation
+  numShares: Quotation
   /** Код страны риска, т.е. страны, в которой компания ведёт основной бизнес */
-  country_of_risk: string
+  countryOfRisk: string
   /** Наименование страны риска, т.е. страны, в которой компания ведёт основной бизнес */
-  country_of_risk_name: string
+  countryOfRiskName: string
   /** Сектор экономики */
   sector: string
   /** Частота ребалансировки */
-  rebalancing_freq: string
+  rebalancingFreq: string
   /** Текущий режим торгов инструмента */
-  trading_status: SecurityTradingStatus
+  tradingStatus: SecurityTradingStatus
   /** Признак внебиржевой ценной бумаги */
-  otc_flag: boolean
+  otcFlag: boolean
   /** Признак доступности для покупки */
-  buy_available_flag: boolean
+  buyAvailableFlag: boolean
   /** Признак доступности для продажи */
-  sell_available_flag: boolean
+  sellAvailableFlag: boolean
   /** Шаг цены */
-  min_price_increment: Quotation
+  minPriceIncrement: Quotation
   /** Параметр указывает на возможность торговать инструментом через API */
-  api_trade_available_flag: boolean
+  apiTradeAvailableFlag: boolean
   /** Уникальный идентификатор инструмента */
   uid: string
   /** Реальная площадка исполнения расчётов (биржа) */
-  real_exchange: RealExchange
+  realExchange: RealExchange
   /** Уникальный идентификатор позиции инструмента */
-  position_uid: string
+  positionUid: string
   /** Признак доступности для ИИС */
-  for_iis_flag: boolean
+  forIisFlag: boolean
   /** Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов */
-  for_qual_investor_flag: boolean
+  forQualInvestorFlag: boolean
   /** Флаг отображающий доступность торговли инструментом по выходным */
-  weekend_flag: boolean
+  weekendFlag: boolean
   /** Флаг заблокированного ТКС */
-  blocked_tca_flag: boolean
+  blockedTcaFlag: boolean
   /** Флаг достаточной ликвидности */
-  liquidity_flag: boolean
+  liquidityFlag: boolean
   /**
    * Дата первой минутной свечи.
    * @type `google.protobuf.Timestamp`
    */
-  first_1min_candle_date: string
+  first1minCandleDate: string
   /**
    * Дата первой дневной свечи.
    * @type `google.protobuf.Timestamp`
    */
-  first_1day_candle_date: string
+  first1dayCandleDate: string
 }
 
 /**
@@ -811,7 +811,7 @@ export interface Future {
   /** Тикер инструмента */
   ticker: string
   /** Класс-код (секция торгов) */
-  class_code: string
+  classCode: string
   /**
    * Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру lot. Подробнее: лот
    * @type `int32`
@@ -828,11 +828,11 @@ export interface Future {
   /** Ставка риска начальной маржи для КСУР шорт. Подробнее: ставка риска в шорт */
   dshort: Quotation
   /** Ставка риска начальной маржи для КПУР лонг. Подробнее: ставка риска в лонг */
-  dlong_min: Quotation
+  dlongMin: Quotation
   /** Ставка риска начальной маржи для КПУР шорт. Подробнее: ставка риска в шорт */
-  dshort_min: Quotation
+  dshortMin: Quotation
   /** Признак доступности для операций шорт */
-  short_enabled_flag: boolean
+  shortEnabledFlag: boolean
   /** Название инструмента */
   name: string
   /** Tорговая площадка (секция биржи) */
@@ -841,18 +841,18 @@ export interface Future {
    * Дата начала обращения контракта в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  first_trade_date: string
+  firstTradeDate: string
   /**
    * Дата в часовом поясе UTC, до которой возможно проведение операций с фьючерсом.
    * @type `google.protobuf.Timestamp`
    */
-  last_trade_date: string
+  lastTradeDate: string
   /**
    * Тип фьючерса. Возможные значения:
-   * physical_delivery — физические поставки;
-   * cash_settlement — денежный эквивалент.
+   * physicalDelivery — физические поставки;
+   * cashSettlement — денежный эквивалент.
    */
-  futures_type: string
+  futuresType: string
   /**
    * Тип актива. Возможные значения:
    * commodity — товар;
@@ -860,60 +860,60 @@ export interface Future {
    * security — ценная бумага;
    * index — индекс.
    */
-  asset_type: string
+  assetType: string
   /** Основной актив */
-  basic_asset: string
+  basicAsset: string
   /** Размер основного актива */
-  basic_asset_size: Quotation
+  basicAssetSize: Quotation
   /** Код страны риска, т.е. страны, в которой компания ведёт основной бизнес */
-  country_of_risk: string
+  countryOfRisk: string
   /** Наименование страны риска, т.е. страны, в которой компания ведёт основной бизнес */
-  country_of_risk_name: string
+  countryOfRiskName: string
   /** Сектор экономики */
   sector: string
   /**
    * Дата истечения срока в часов поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  expiration_date: string
+  expirationDate: string
   /** Текущий режим торгов инструмента */
-  trading_status: SecurityTradingStatus
+  tradingStatus: SecurityTradingStatus
   /** Признак внебиржевой ценной бумаги */
-  otc_flag: boolean
+  otcFlag: boolean
   /** Признак доступности для покупки */
-  buy_available_flag: boolean
+  buyAvailableFlag: boolean
   /** Признак доступности для продажи */
-  sell_available_flag: boolean
+  sellAvailableFlag: boolean
   /** Шаг цены */
-  min_price_increment: Quotation
+  minPriceIncrement: Quotation
   /** Параметр указывает на возможность торговать инструментом через API */
-  api_trade_available_flag: boolean
+  apiTradeAvailableFlag: boolean
   /** Уникальный идентификатор инструмента */
   uid: string
   /** Реальная площадка исполнения расчётов (биржа) */
-  real_exchange: RealExchange
+  realExchange: RealExchange
   /** Уникальный идентификатор позиции инструмента */
-  position_uid: string
+  positionUid: string
   /** Уникальный идентификатор позиции основного инструмента */
-  basic_asset_position_uid: string
+  basicAssetPositionUid: string
   /** Признак доступности для ИИС */
-  for_iis_flag: boolean
+  forIisFlag: boolean
   /** Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов */
-  for_qual_investor_flag: boolean
+  forQualInvestorFlag: boolean
   /** Флаг отображающий доступность торговли инструментом по выходным */
-  weekend_flag: boolean
+  weekendFlag: boolean
   /** Флаг заблокированного ТКС */
-  blocked_tca_flag: boolean
+  blockedTcaFlag: boolean
   /**
    * Дата первой минутной свечи.
    * @type `google.protobuf.Timestamp`
    */
-  first_1min_candle_date: string
+  first1minCandleDate: string
   /**
    * Дата первой дневной свечи.
    * @type `google.protobuf.Timestamp`
    */
-  first_1day_candle_date: string
+  first1dayCandleDate: string
 }
 
 /**
@@ -926,7 +926,7 @@ export interface Share {
   /** Тикер инструмента */
   ticker: string
   /** Класс-код (секция торгов) */
-  class_code: string
+  classCode: string
   /** Isin-идентификатор инструмента */
   isin: string
   /**
@@ -945,11 +945,11 @@ export interface Share {
   /** Ставка риска начальной маржи для КСУР шорт. Подробнее: ставка риска в шорт */
   dshort: Quotation
   /** Ставка риска начальной маржи для КПУР лонг. Подробнее: ставка риска в лонг */
-  dlong_min: Quotation
+  dlongMin: Quotation
   /** Ставка риска начальной маржи для КПУР шорт. Подробнее: ставка риска в шорт */
-  dshort_min: Quotation
+  dshortMin: Quotation
   /** Признак доступности для операций в шорт */
-  short_enabled_flag: boolean
+  shortEnabledFlag: boolean
   /** Название инструмента */
   name: string
   /** Tорговая площадка (секция биржи) */
@@ -958,67 +958,67 @@ export interface Share {
    * Дата IPO акции в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  ipo_date: string
+  ipoDate: string
   /**
    * Размер выпуска.
    * @type `int64`
    */
-  issue_size: string
+  issueSize: string
   /** Код страны риска, т.е. страны, в которой компания ведёт основной бизнес */
-  country_of_risk: string
+  countryOfRisk: string
   /** Наименование страны риска, т.е. страны, в которой компания ведёт основной бизнес */
-  country_of_risk_name: string
+  countryOfRiskName: string
   /** Сектор экономики */
   sector: string
   /**
    * Плановый размер выпуска.
    * @type `int64`
    */
-  issue_size_plan: string
+  issueSizePlan: string
   /** Номинал */
   nominal: MoneyValue
   /** Текущий режим торгов инструмента */
-  trading_status: SecurityTradingStatus
+  tradingStatus: SecurityTradingStatus
   /** Признак внебиржевой ценной бумаги */
-  otc_flag: boolean
+  otcFlag: boolean
   /** Признак доступности для покупки */
-  buy_available_flag: boolean
+  buyAvailableFlag: boolean
   /** Признак доступности для продажи */
-  sell_available_flag: boolean
+  sellAvailableFlag: boolean
   /** Признак наличия дивидендной доходности */
-  div_yield_flag: boolean
+  divYieldFlag: boolean
   /** Тип акции. Возможные значения: ShareType */
-  share_type: ShareType
+  shareType: ShareType
   /** Шаг цены */
-  min_price_increment: Quotation
+  minPriceIncrement: Quotation
   /** Параметр указывает на возможность торговать инструментом через API */
-  api_trade_available_flag: boolean
+  apiTradeAvailableFlag: boolean
   /** Уникальный идентификатор инструмента */
   uid: string
   /** Реальная площадка исполнения расчётов (биржа) */
-  real_exchange: RealExchange
+  realExchange: RealExchange
   /** Уникальный идентификатор позиции инструмента */
-  position_uid: string
+  positionUid: string
   /** Признак доступности для ИИС */
-  for_iis_flag: boolean
+  forIisFlag: boolean
   /** Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов */
-  for_qual_investor_flag: boolean
+  forQualInvestorFlag: boolean
   /** Флаг отображающий доступность торговли инструментом по выходным */
-  weekend_flag: boolean
+  weekendFlag: boolean
   /** Флаг заблокированного ТКС */
-  blocked_tca_flag: boolean
+  blockedTcaFlag: boolean
   /** Флаг достаточной ликвидности */
-  liquidity_flag: boolean
+  liquidityFlag: boolean
   /**
    * Дата первой минутной свечи.
    * @type `google.protobuf.Timestamp`
    */
-  first_1min_candle_date: string
+  first1minCandleDate: string
   /**
    * Дата первой дневной свечи.
    * @type `google.protobuf.Timestamp`
    */
-  first_1day_candle_date: string
+  first1dayCandleDate: string
 }
 
 /**
@@ -1039,9 +1039,9 @@ export interface Brand {
   /** Сектор */
   sector: string
   /** Код страны риска */
-  country_of_risk: string
+  countryOfRisk: string
   /** Наименование страны риска */
-  country_of_risk_name: string
+  countryOfRiskName: string
 }
 
 /**
@@ -1057,7 +1057,7 @@ export interface AccruedInterest {
   /** Величина выплаты */
   value: Quotation
   /** Величина выплаты в процентах от номинала */
-  value_percent: Quotation
+  valuePercent: Quotation
   /** Номинал облигации */
   nominal: Quotation
 }
@@ -1072,49 +1072,49 @@ export interface Instrument {
   /** Tорговая площадка (секция биржи) */
   exchange: string
   /** Код страны риска, т.е. страны, в которой компания ведёт основной бизнес */
-  country_of_risk: string
+  countryOfRisk: string
   /** Наименование страны риска, т.е. страны, в которой компания ведёт основной бизнес */
-  country_of_risk_name: string
+  countryOfRiskName: string
   /** Тип инструмента */
-  instrument_type: string
+  instrumentType: string
   /** Текущий режим торгов инструмента */
-  trading_status: SecurityTradingStatus
+  tradingStatus: SecurityTradingStatus
   /** Признак внебиржевой ценной бумаги */
-  otc_flag: boolean
+  otcFlag: boolean
   /** Признак доступности для покупки */
-  buy_available_flag: boolean
+  buyAvailableFlag: boolean
   /** Признак доступности для продажи */
-  sell_available_flag: boolean
+  sellAvailableFlag: boolean
   /** Шаг цены */
-  min_price_increment: Quotation
+  minPriceIncrement: Quotation
   /** Параметр указывает на возможность торговать инструментом через API */
-  api_trade_available_flag: boolean
+  apiTradeAvailableFlag: boolean
   /** Уникальный идентификатор инструмента */
   uid: string
   /** Реальная площадка исполнения расчётов (биржа) */
-  real_exchange: RealExchange
+  realExchange: RealExchange
   /** Уникальный идентификатор позиции инструмента */
-  position_uid: string
+  positionUid: string
   /** Признак доступности для ИИС */
-  for_iis_flag: boolean
+  forIisFlag: boolean
   /** Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов */
-  for_qual_investor_flag: boolean
+  forQualInvestorFlag: boolean
   /** Флаг отображающий доступность торговли инструментом по выходным */
-  weekend_flag: boolean
+  weekendFlag: boolean
   /** Флаг заблокированного ТКС */
-  blocked_tca_flag: boolean
+  blockedTcaFlag: boolean
   /** Тип инструмента */
-  instrument_kind: InstrumentType
+  instrumentKind: InstrumentType
   /**
    * Дата первой минутной свечи.
    * @type `google.protobuf.Timestamp`
    */
-  first_1min_candle_date: string
+  first1minCandleDate: string
   /**
    * Дата первой дневной свечи.
    * @type `google.protobuf.Timestamp`
    */
-  first_1day_candle_date: string
+  first1dayCandleDate: string
 }
 
 /**
@@ -1123,40 +1123,40 @@ export interface Instrument {
  */
 export interface Dividend {
   /** Величина дивиденда на 1 ценную бумагу (включая валюту) */
-  dividend_net: MoneyValue
+  dividendNet: MoneyValue
   /**
    * Дата фактических выплат в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  payment_date: string
+  paymentDate: string
   /**
    * Дата объявления дивидендов в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  declared_date: string
+  declaredDate: string
   /**
    * Последний день (включительно) покупки для получения выплаты в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  last_buy_date: string
+  lastBuyDate: string
   /** Тип выплаты. Возможные значения: Regular Cash – регулярные выплаты, Cancelled – выплата отменена, Daily Accrual – ежедневное начисление, Return of Capital – возврат капитала, прочие типы выплат */
-  dividend_type: string
+  dividendType: string
   /**
    * Дата фиксации реестра в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  record_date: string
+  recordDate: string
   /** Регулярность выплаты. Возможные значения: Annual – ежегодная, Semi-Anl – каждые полгода, прочие типы выплат */
   regularity: string
-  /** Цена закрытия инструмента на момент ex_dividend_date */
-  close_price: MoneyValue
+  /** Цена закрытия инструмента на момент exDividendDate */
+  closePrice: MoneyValue
   /** Величина доходности */
-  yield_value: Quotation
+  yieldValue: Quotation
   /**
    * Дата и время создания записи в часовом поясе UTC.
    * @type `google.protobuf.Timestamp`
    */
-  created_at: string
+  createdAt: string
 }
 
 /**
@@ -1170,26 +1170,26 @@ export interface AssetFull {
   /** Наименование актива */
   name: string
   /** Короткое наименование актива */
-  name_brief: string
+  nameBrief: string
   /** Описание актива */
   description: string
   /**
    * Дата и время удаления актива.
    * @type `google.protobuf.Timestamp`
    */
-  deleted_at: string
+  deletedAt: string
   /** Тестирование клиентов */
-  required_tests: string[]
+  requiredTests: string[]
   /** Валюта. Обязательно и заполняется только для type = "ASSET_TYPE_CURRENCY" */
   currency: AssetCurrency
   /** Ценная бумага. Обязательно и заполняется только для type = "ASSET_TYPE_SECURITY" */
   security: AssetSecurity
   /** Номер государственной регистрации */
-  gos_reg_code: string
+  gosRegCode: string
   /** Код CFI */
   cfi: string
   /** Код НРД инструмента */
-  code_nsd: string
+  codeNsd: string
   /** Статус актива */
   status: string
   /** Бренд */
@@ -1198,11 +1198,11 @@ export interface AssetFull {
    * Дата и время последнего обновления записи.
    * @type `google.protobuf.Timestamp`
    */
-  updated_at: string
+  updatedAt: string
   /** Код типа ц.б. по классификации Банка России */
-  br_code: string
+  brCode: string
   /** Наименование кода типа ц.б. по классификации Банка России */
-  br_code_name: string
+  brCodeName: string
   /** Массив идентификаторов инструментов */
   instruments: AssetInstrument[]
 }
@@ -1228,7 +1228,7 @@ export interface Asset {
  */
 export interface AssetCurrency {
   /** ISO-код валюты */
-  base_currency: string
+  baseCurrency: string
 }
 
 /**
@@ -1241,7 +1241,7 @@ export interface AssetSecurity {
   /** Тип ценной бумаги */
   type: string
   /** Тип инструмента */
-  instrument_kind: InstrumentType
+  instrumentKind: InstrumentType
   /** Акция. Заполняется только для акций (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = share) */
   share: AssetShare
   /** Облигация. Заполняется только для облигаций (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = bond) */
@@ -1250,8 +1250,8 @@ export interface AssetSecurity {
   sp: AssetStructuredProduct
   /** Фонд. Заполняется только для фондов (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = etf) */
   etf: AssetEtf
-  /** Клиринговый сертификат участия. Заполняется только для клиринговых сертификатов (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = clearing_certificate) */
-  clearing_certificate: AssetClearingCertificate
+  /** Клиринговый сертификат участия. Заполняется только для клиринговых сертификатов (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = clearingCertificate) */
+  clearingCertificate: AssetClearingCertificate
 }
 
 /**
@@ -1262,42 +1262,42 @@ export interface AssetShare {
   /** Тип акции */
   type: ShareType
   /** Объем выпуска (шт.) */
-  issue_size: Quotation
+  issueSize: Quotation
   /** Номинал */
   nominal: Quotation
   /** Валюта номинала */
-  nominal_currency: string
+  nominalCurrency: string
   /** Индекс (Bloomberg) */
-  primary_index: string
+  primaryIndex: string
   /** Ставка дивиденда (для привилегированных акций) */
-  dividend_rate: Quotation
+  dividendRate: Quotation
   /** Тип привилегированных акций */
-  preferred_share_type: string
+  preferredShareType: string
   /**
    * Дата IPO.
    * @type `google.protobuf.Timestamp`
    */
-  ipo_date: string
+  ipoDate: string
   /**
    * Дата регистрации.
    * @type `google.protobuf.Timestamp`
    */
-  registry_date: string
+  registryDate: string
   /** Признак наличия дивидендной доходности */
-  div_yield_flag: boolean
+  divYieldFlag: boolean
   /** Форма выпуска ФИ */
-  issue_kind: string
+  issueKind: string
   /**
    * Дата размещения акции.
    * @type `google.protobuf.Timestamp`
    */
-  placement_date: string
+  placementDate: string
   /** ISIN базового актива */
-  repres_isin: string
+  represIsin: string
   /** Объявленное количество шт */
-  issue_size_plan: Quotation
+  issueSizePlan: Quotation
   /** Количество акций в свободном обращении */
-  total_float: Quotation
+  totalFloat: Quotation
 }
 
 /**
@@ -1306,59 +1306,59 @@ export interface AssetShare {
  */
 export interface AssetBond {
   /** Текущий номинал */
-  current_nominal: Quotation
+  currentNominal: Quotation
   /** Наименование заемщика */
-  borrow_name: string
+  borrowName: string
   /** Объем эмиссии облигации (стоимость) */
-  issue_size: Quotation
+  issueSize: Quotation
   /** Номинал облигации */
   nominal: Quotation
   /** Валюта номинала */
-  nominal_currency: string
+  nominalCurrency: string
   /** Форма выпуска облигации */
-  issue_kind: string
+  issueKind: string
   /** Форма дохода облигации */
-  interest_kind: string
+  interestKind: string
   /**
    * Количество выплат в год.
    * @type `int32`
    */
-  coupon_quantity_per_year: number
+  couponQuantityPerYear: number
   /** Признак облигации с индексируемым номиналом */
-  indexed_nominal_flag: boolean
+  indexedNominalFlag: boolean
   /** Признак субординированной облигации */
-  subordinated_flag: boolean
+  subordinatedFlag: boolean
   /** Признак обеспеченной облигации */
-  collateral_flag: boolean
+  collateralFlag: boolean
   /** Признак показывает, что купоны облигации не облагаются налогом (для mass market) */
-  tax_free_flag: boolean
+  taxFreeFlag: boolean
   /** Признак облигации с амортизацией долга */
-  amortization_flag: boolean
+  amortizationFlag: boolean
   /** Признак облигации с плавающим купоном */
-  floating_coupon_flag: boolean
+  floatingCouponFlag: boolean
   /** Признак бессрочной облигации */
-  perpetual_flag: boolean
+  perpetualFlag: boolean
   /**
    * Дата погашения облигации.
    * @type `google.protobuf.Timestamp`
    */
-  maturity_date: string
+  maturityDate: string
   /** Описание и условия получения дополнительного дохода */
-  return_condition: string
+  returnCondition: string
   /**
    * Дата выпуска облигации.
    * @type `google.protobuf.Timestamp`
    */
-  state_reg_date: string
+  stateRegDate: string
   /**
    * Дата размещения облигации.
    * @type `google.protobuf.Timestamp`
    */
-  placement_date: string
+  placementDate: string
   /** Цена размещения облигации */
-  placement_price: Quotation
+  placementPrice: Quotation
   /** Объявленное количество шт */
-  issue_size_plan: Quotation
+  issueSizePlan: Quotation
 }
 
 /**
@@ -1367,37 +1367,37 @@ export interface AssetBond {
  */
 export interface AssetStructuredProduct {
   /** Наименование заемщика */
-  borrow_name: string
+  borrowName: string
   /** Номинал */
   nominal: Quotation
   /** Валюта номинала */
-  nominal_currency: string
+  nominalCurrency: string
   /** Тип структурной ноты */
   type: StructuredProductType
   /** Стратегия портфеля */
-  logic_portfolio: string
+  logicPortfolio: string
   /** Тип базового актива */
-  asset_type: AssetType
+  assetType: AssetType
   /** Вид базового актива в зависимости от типа базового актива */
-  basic_asset: string
+  basicAsset: string
   /** Барьер сохранности (в процентах) */
-  safety_barrier: Quotation
+  safetyBarrier: Quotation
   /**
    * Дата погашения.
    * @type `google.protobuf.Timestamp`
    */
-  maturity_date: string
+  maturityDate: string
   /** Объявленное количество шт */
-  issue_size_plan: Quotation
+  issueSizePlan: Quotation
   /** Объем размещения */
-  issue_size: Quotation
+  issueSize: Quotation
   /**
    * Дата размещения ноты.
    * @type `google.protobuf.Timestamp`
    */
-  placement_date: string
+  placementDate: string
   /** Форма выпуска */
-  issue_kind: string
+  issueKind: string
 }
 
 /**
@@ -1406,73 +1406,73 @@ export interface AssetStructuredProduct {
  */
 export interface AssetEtf {
   /** Суммарные расходы фонда (в %) */
-  total_expense: Quotation
+  totalExpense: Quotation
   /** Барьерная ставка доходности после которой фонд имеет право на perfomance fee (в процентах) */
-  hurdle_rate: Quotation
+  hurdleRate: Quotation
   /** Комиссия за успешные результаты фонда (в процентах) */
-  performance_fee: Quotation
+  performanceFee: Quotation
   /** Фиксированная комиссия за управление (в процентах) */
-  fixed_commission: Quotation
+  fixedCommission: Quotation
   /** Тип распределения доходов от выплат по бумагам */
-  payment_type: string
+  paymentType: string
   /** Признак необходимости выхода фонда в плюс для получения комиссии */
-  watermark_flag: boolean
+  watermarkFlag: boolean
   /** Премия (надбавка к цене) при покупке доли в фонде (в процентах) */
-  buy_premium: Quotation
+  buyPremium: Quotation
   /** Ставка дисконта (вычет из цены) при продаже доли в фонде (в процентах) */
-  sell_discount: Quotation
+  sellDiscount: Quotation
   /** Признак ребалансируемости портфеля фонда */
-  rebalancing_flag: boolean
+  rebalancingFlag: boolean
   /** Периодичность ребалансировки */
-  rebalancing_freq: string
+  rebalancingFreq: string
   /** Тип управления */
-  management_type: string
+  managementType: string
   /** Индекс, который реплицирует (старается копировать) фонд */
-  primary_index: string
+  primaryIndex: string
   /** База ETF */
-  focus_type: string
+  focusType: string
   /** Признак использования заемных активов (плечо) */
-  leveraged_flag: boolean
+  leveragedFlag: boolean
   /** Количество акций в обращении */
-  num_share: Quotation
+  numShare: Quotation
   /** Признак обязательства по отчетности перед регулятором */
-  ucits_flag: boolean
+  ucitsFlag: boolean
   /**
    * Дата выпуска.
    * @type `google.protobuf.Timestamp`
    */
-  released_date: string
+  releasedDate: string
   /** Описание фонда */
   description: string
   /** Описание индекса, за которым следует фонд */
-  primary_index_description: string
+  primaryIndexDescription: string
   /** Основные компании, в которые вкладывается фонд */
-  primary_index_company: string
+  primaryIndexCompany: string
   /** Срок восстановления индекса (после просадки) */
-  index_recovery_period: Quotation
+  indexRecoveryPeriod: Quotation
   /** IVAV-код */
-  inav_code: string
+  inavCode: string
   /** Признак наличия дивидендной доходности */
-  div_yield_flag: boolean
+  divYieldFlag: boolean
   /** Комиссия на покрытие расходов фонда (в процентах) */
-  expense_commission: Quotation
+  expenseCommission: Quotation
   /** Ошибка следования за индексом (в процентах) */
-  primary_index_tracking_error: Quotation
+  primaryIndexTrackingError: Quotation
   /** Плановая ребалансировка портфеля */
-  rebalancing_plan: string
+  rebalancingPlan: string
   /** Ставки налогообложения дивидендов и купонов */
-  tax_rate: string
+  taxRate: string
   /**
    * Даты ребалансировок.
    * @type `google.protobuf.Timestamp`
    */
-  rebalancing_dates: string[]
+  rebalancingDates: string[]
   /** Форма выпуска */
-  issue_kind: string
+  issueKind: string
   /** Номинал */
   nominal: Quotation
   /** Валюта номинала */
-  nominal_currency: string
+  nominalCurrency: string
 }
 
 /**
@@ -1483,7 +1483,7 @@ export interface AssetClearingCertificate {
   /** Номинал */
   nominal: Quotation
   /** Валюта номинала */
-  nominal_currency: string
+  nominalCurrency: string
 }
 
 /**
@@ -1496,17 +1496,17 @@ export interface AssetInstrument {
   /** figi идентификатор инструмента */
   figi: string
   /** Тип инструмента */
-  instrument_type: string
+  instrumentType: string
   /** Тикер инструмента */
   ticker: string
   /** Класс-код (секция торгов) */
-  class_code: string
+  classCode: string
   /** Массив связанных инструментов */
   links: InstrumentLink[]
   /** Тип инструмента */
-  instrument_kind: InstrumentType
+  instrumentKind: InstrumentType
   /** id позиции */
-  position_uid: string
+  positionUid: string
 }
 
 /**
@@ -1517,7 +1517,7 @@ export interface InstrumentLink {
   /** Тип связи */
   type: string
   /** uid идентификатор связанного инструмента */
-  instrument_uid: string
+  instrumentUid: string
 }
 
 /**
@@ -1530,17 +1530,17 @@ export interface FavoriteInstrument {
   /** Тикер инструмента */
   ticker: string
   /** Класс-код инструмента */
-  class_code: string
+  classCode: string
   /** Isin-идентификатор инструмента */
   isin: string
   /** Тип инструмента */
-  instrument_type: string
+  instrumentType: string
   /** Признак внебиржевой ценной бумаги */
-  otc_flag: boolean
+  otcFlag: boolean
   /** Параметр указывает на возможность торговать инструментом через API */
-  api_trade_available_flag: boolean
+  apiTradeAvailableFlag: boolean
   /** Тип инструмента */
-  instrument_kind: InstrumentType
+  instrumentKind: InstrumentType
 }
 
 /**
@@ -1564,37 +1564,37 @@ export interface InstrumentShort {
   /** Ticker инструмента */
   ticker: string
   /** ClassCode инструмента */
-  class_code: string
+  classCode: string
   /** Тип инструмента */
-  instrument_type: string
+  instrumentType: string
   /** Название инструмента */
   name: string
   /** Уникальный идентификатор инструмента */
   uid: string
   /** Уникальный идентификатор позиции инструмента */
-  position_uid: string
+  positionUid: string
   /** Тип инструмента */
-  instrument_kind: InstrumentType
+  instrumentKind: InstrumentType
   /** Параметр указывает на возможность торговать инструментом через API */
-  api_trade_available_flag: boolean
+  apiTradeAvailableFlag: boolean
   /** Признак доступности для ИИС */
-  for_iis_flag: boolean
+  forIisFlag: boolean
   /**
    * Дата первой минутной свечи.
    * @type `google.protobuf.Timestamp`
    */
-  first_1min_candle_date: string
+  first1minCandleDate: string
   /**
    * Дата первой дневной свечи.
    * @type `google.protobuf.Timestamp`
    */
-  first_1day_candle_date: string
+  first1dayCandleDate: string
   /** Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов */
-  for_qual_investor_flag: boolean
+  forQualInvestorFlag: boolean
   /** Флаг отображающий доступность торговли инструментом по выходным */
-  weekend_flag: boolean
+  weekendFlag: boolean
   /** Флаг заблокированного ТКС */
-  blocked_tca_flag: boolean
+  blockedTcaFlag: boolean
 }
 
 /**
@@ -1634,9 +1634,9 @@ export interface TradingSchedulesResponse {
  */
 export interface InstrumentRequest {
   /** Тип идентификатора инструмента. Возможные значения: figi, ticker. Подробнее об идентификации инструментов: Идентификация инструментов */
-  id_type: InstrumentIdType
-  /** Идентификатор class_code. Обязателен при id_type = ticker */
-  class_code: string
+  idType: InstrumentIdType
+  /** Идентификатор classCode. Обязателен при idType = ticker */
+  classCode: string
   /** Идентификатор запрашиваемого инструмента */
   id: string
 }
@@ -1665,7 +1665,7 @@ export interface BondResponse {
  */
 export interface InstrumentsRequest {
   /** Статус запрашиваемых инструментов. Возможные значения: InstrumentStatus */
-  instrument_status: InstrumentStatus
+  instrumentStatus: InstrumentStatus
 }
 
 /**
@@ -1674,9 +1674,9 @@ export interface InstrumentsRequest {
  */
 export interface FilterOptionsRequest {
   /** Идентификатор базового актива опциона. Обязательный параметр */
-  basic_asset_uid: string
+  basicAssetUid: string
   /** Идентификатор позиции базового актива опциона */
-  basic_asset_position_uid: string
+  basicAssetPositionUid: string
 }
 
 /**
@@ -1696,12 +1696,12 @@ export interface GetBondCouponsRequest {
   /** Figi-идентификатор инструмента */
   figi: string
   /**
-   * Начало запрашиваемого периода в часовом поясе UTC. Фильтрация по coupon_date (дата выплаты купона)
+   * Начало запрашиваемого периода в часовом поясе UTC. Фильтрация по couponDate (дата выплаты купона)
    * @type `google.protobuf.Timestamp`
    */
   from: string
   /**
-   * Окончание запрашиваемого периода в часовом поясе UTC. Фильтрация по coupon_date (дата выплаты купона)
+   * Окончание запрашиваемого периода в часовом поясе UTC. Фильтрация по couponDate (дата выплаты купона)
    * @type `google.protobuf.Timestamp`
    */
   to: string
@@ -1831,7 +1831,7 @@ export interface GetAccruedInterestsRequest {
  */
 export interface GetAccruedInterestsResponse {
   /** Массив операций начисления купонов */
-  accrued_interests: AccruedInterest[]
+  accruedInterests: AccruedInterest[]
 }
 
 /**
@@ -1849,13 +1849,13 @@ export interface GetFuturesMarginRequest {
  */
 export interface GetFuturesMarginResponse {
   /** Гарантийное обеспечение при покупке */
-  initial_margin_on_buy: MoneyValue
+  initialMarginOnBuy: MoneyValue
   /** Гарантийное обеспечение при продаже */
-  initial_margin_on_sell: MoneyValue
+  initialMarginOnSell: MoneyValue
   /** Шаг цены */
-  min_price_increment: Quotation
+  minPriceIncrement: Quotation
   /** Стоимость шага цены */
-  min_price_increment_amount: Quotation
+  minPriceIncrementAmount: Quotation
 }
 
 /**
@@ -1866,12 +1866,12 @@ export interface GetDividendsRequest {
   /** Figi-идентификатор инструмента */
   figi: string
   /**
-   * Начало запрашиваемого периода в часовом поясе UTC. Фильтрация происходит по параметру record_date (дата фиксации реестра).
+   * Начало запрашиваемого периода в часовом поясе UTC. Фильтрация происходит по параметру recordDate (дата фиксации реестра).
    * @type `google.protobuf.Timestamp`
    */
   from: string
   /**
-   * Окончание запрашиваемого периода в часовом поясе UTC. Фильтрация происходит по параметру record_date (дата фиксации реестра).
+   * Окончание запрашиваемого периода в часовом поясе UTC. Фильтрация происходит по параметру recordDate (дата фиксации реестра).
    * @type `google.protobuf.Timestamp`
    */
   to: string
@@ -1910,7 +1910,7 @@ export interface AssetResponse {
  */
 export interface AssetsRequest {
   /** @todo Нет описания */
-  instrument_type: InstrumentType
+  instrumentType: InstrumentType
 }
 
 /**
@@ -1934,7 +1934,7 @@ export interface GetFavoritesRequest {}
  */
 export interface GetFavoritesResponse {
   /** Массив инструментов */
-  favorite_instruments: FavoriteInstrument[]
+  favoriteInstruments: FavoriteInstrument[]
 }
 
 /**
@@ -1945,7 +1945,7 @@ export interface EditFavoritesRequest {
   /** Массив инструментов */
   instruments: EditFavoritesRequestInstrument[]
   /** Тип действия со списком */
-  action_type: EditFavoritesActionType
+  actionType: EditFavoritesActionType
 }
 
 /**
@@ -1954,7 +1954,7 @@ export interface EditFavoritesRequest {
  */
 export interface EditFavoritesResponse {
   /** Массив инструментов */
-  favorite_instruments: FavoriteInstrument[]
+  favoriteInstruments: FavoriteInstrument[]
 }
 
 /**
@@ -1978,13 +1978,13 @@ export interface GetCountriesResponse {
  */
 export interface CountryResponse {
   /** Двухбуквенный код страны */
-  alfa_two: string
+  alfaTwo: string
   /** Трёхбуквенный код страны */
-  alfa_three: string
+  alfaThree: string
   /** Наименование страны */
   name: string
   /** Краткое наименование страны */
-  name_brief: string
+  nameBrief: string
 }
 
 /**
@@ -1995,9 +1995,9 @@ export interface FindInstrumentRequest {
   /** Строка поиска */
   query: string
   /** Фильтр по типу инструмента */
-  instrument_kind: InstrumentType
+  instrumentKind: InstrumentType
   /** Фильтр для отображения только торговых инструментов */
-  api_trade_available_flag: boolean
+  apiTradeAvailableFlag: boolean
 }
 
 /**
