@@ -239,6 +239,18 @@ var RiskLevel;
 class InstrumentsService extends Common_1.Common {
     /**
      * Метод получения расписания торгов торговых площадок
+     * ```js
+     * import { InstrumentsService } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('TOKEN', true)
+     * const { exchanges } = await instrumentsService.TradingSchedules({
+     *  from: '2023-07-12T00:00:00:000Z',
+     *  to: '2023-07-13T23:59:59:999Z',
+     *  exchange: 'MOEX_MORNING'
+     * })
+     *
+     * console.log(exchanges)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#tradingschedules
      */
     TradingSchedules(body) {
