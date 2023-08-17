@@ -200,7 +200,7 @@ export interface Operation {
    * `etf` — фонд;
    * `futures` — фьючерс.
    */
-  instrumentType: string
+  instrumentType: 'bond' | 'share' | 'currency' | 'etf' | 'futures'
   /**
    * Дата и время операции в формате часовом поясе UTC
    * @type `google.protobuf.Timestamp`
