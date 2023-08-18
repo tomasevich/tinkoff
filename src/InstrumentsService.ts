@@ -2389,6 +2389,16 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения размера гарантийного обеспечения по фьючерсам
+   * ```js
+   * import { InstrumentsService } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const futuresMargin = await instrumentsService.GetFuturesMargin({
+   *  figi: 'FUTGMKN12230'
+   * })
+   *
+   * console.log(futuresMargin)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#getfuturesmargin
    */
   public GetFuturesMargin(
