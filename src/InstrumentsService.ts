@@ -2192,6 +2192,18 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения валюты по её идентификатору
+   * ```js
+   * import { InstrumentsService, InstrumentIdType } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { instrument } = await instrumentsService.CurrencyBy({
+   *  idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
+   *  classCode: 'CETS',
+   *  id: 'AMDRUB_TOM'
+   * })
+   *
+   * console.log(instrument)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#currencyby
    */
   public CurrencyBy(body: InstrumentRequest): Promise<CurrencyResponse> {
