@@ -2466,6 +2466,14 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения списка избранных инструментов
+   * ```js
+   * import { InstrumentsService } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { favoriteInstruments } = await instrumentsService.GetFavorites({})
+   *
+   * console.log(favoriteInstruments)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#getfavorites
    */
   public GetFavorites(
