@@ -37,7 +37,11 @@
   "homepage": "https://tomasevich.github.io/tinkoff",
   "description": "Неофициальная библиотека для работы с Тинькофф Инвестиции",
   "keywords": [
-    "tinkoff-invest-api"
+    "tinkoff-invest-api",
+    "typedoc",
+    "jest-test",
+    "jest-coverage",
+    "rest-api"
   ],
   "author": "Tomasevich V.S.",
   "license": "MIT"
