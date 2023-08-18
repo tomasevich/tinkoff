@@ -530,6 +530,18 @@ export class MarketDataService extends Common {
 
   /**
    * Метод запроса обезличенных сделок за последний час
+   * ```js
+   * import { MarketDataService } from '@tomasevich/tinkoff'
+   *
+   * const marketDataService = new MarketDataService('<TOKEN>', true)
+   * const { trades } = await marketDataService.GetLastTrades({
+   *  from: '2023-08-18T00:00:00:000Z',
+   *  to: '2023-08-19T00:00:00:000Z',
+   *  instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+   * })
+   *
+   * console.log(trades)
+   * ```
    * @see https://tinkoff.github.io/investAPI/marketdata/#getlasttrades
    */
   public GetLastTrades(
