@@ -428,6 +428,19 @@ export interface InstrumentClosePriceResponse {
 export class MarketDataService extends Common {
   /**
    * Метод запроса исторических свечей по инструменту
+   * ```js
+   * import { MarketDataService, CandleInterval } from '@tomasevich/tinkoff'
+   *
+   * const marketDataService = new MarketDataService('<TOKEN>', true)
+   * const { candles } = await marketDataService.GetCandles({
+   *  from: '2023-08-18T00:00:00:000Z',
+   *  to: '2023-08-19T00:00:00:000Z',
+   *  interval: CandleInterval.CANDLE_INTERVAL_HOUR,
+   *  instrumentId: '5ec3a0de-80b4-4572-ba48-0a18c9f371fd'
+   * })
+   *
+   * console.log(candles)
+   * ```
    * @see https://tinkoff.github.io/investAPI/marketdata/#getcandles
    */
   public GetCandles(body: GetCandlesRequest): Promise<GetCandlesResponse> {
