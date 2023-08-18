@@ -2496,6 +2496,18 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод поиска инструмента
+   * ```js
+   * import { InstrumentsService, InstrumentType } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { instruments } = await instrumentsService.FindInstrument({
+   *  query: 'Tinkoff',
+   *  instrumentKind: InstrumentType.INSTRUMENT_TYPE_SHARE,
+   *  apiTradeAvailableFlag: true
+   * })
+   *
+   * console.log(instruments)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#findinstrument
    */
   public FindInstrument(
