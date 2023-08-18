@@ -297,6 +297,18 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения графика выплат купонов по облигации
+     * ```js
+     * import { InstrumentsService } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { events } = await instrumentsService.GetBondCoupons({
+     *  figi: 'TCS00A105WZ4',
+     *  from: '2023-07-12T00:00:00:000Z',
+     *  to: '2023-07-13T23:59:59:999Z'
+     * })
+     *
+     * console.log(events)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#getbondcoupons
      */
     GetBondCoupons(body) {
@@ -480,6 +492,18 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения накопленного купонного дохода по облигации
+     * ```js
+     * import { InstrumentsService } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { accruedInterests } = await instrumentsService.GetAccruedInterests({
+     *  figi: 'TCS00A105WZ4',
+     *  from: '2023-07-12T00:00:00:000Z',
+     *  to: '2023-07-13T23:59:59:999Z'
+     * })
+     *
+     * console.log(accruedInterests)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#getaccruedinterests
      */
     GetAccruedInterests(body) {
@@ -487,6 +511,16 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения размера гарантийного обеспечения по фьючерсам
+     * ```js
+     * import { InstrumentsService } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const futuresMargin = await instrumentsService.GetFuturesMargin({
+     *  figi: 'FUTGMKN12230'
+     * })
+     *
+     * console.log(futuresMargin)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#getfuturesmargin
      */
     GetFuturesMargin(body) {
@@ -513,6 +547,18 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод для получения событий выплаты дивидендов по инструменту
+     * ```js
+     * import { InstrumentsService } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { dividends } = await instrumentsService.GetDividends({
+     *  figi: 'BBG00YTS96G2',
+     *  from: '2023-07-12T00:00:00:000Z',
+     *  to: '2023-07-13T23:59:59:999Z'
+     * })
+     *
+     * console.log(dividends)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#getdividends
      */
     GetDividends(body) {
@@ -555,6 +601,14 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения списка избранных инструментов
+     * ```js
+     * import { InstrumentsService } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { favoriteInstruments } = await instrumentsService.GetFavorites({})
+     *
+     * console.log(favoriteInstruments)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#getfavorites
      */
     GetFavorites(body) {
@@ -562,6 +616,17 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод редактирования списка избранных инструментов
+     * ```js
+     * import { InstrumentsService, EditFavoritesActionType } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { favoriteInstruments } = await instrumentsService.EditFavorites({
+     *  instruments: [{ figi: 'BBG00YTS96G2' }],
+     *  actionType: EditFavoritesActionType.EDIT_FAVORITES_ACTION_TYPE_ADD
+     * })
+     *
+     * console.log(favoriteInstruments)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#editfavorites
      */
     EditFavorites(body) {
