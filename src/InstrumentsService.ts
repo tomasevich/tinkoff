@@ -2144,6 +2144,18 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения облигации по её идентификатору
+   * ```js
+   * import { InstrumentsService, InstrumentIdType } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { instrument } = await instrumentsService.BondBy({
+   *  idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
+   *  classCode: 'TQCB',
+   *  id: 'RU000A105WZ4'
+   * })
+   *
+   * console.log(instrument)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#bondby
    */
   public BondBy(body: InstrumentRequest): Promise<BondResponse> {
