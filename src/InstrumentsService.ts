@@ -2093,21 +2093,21 @@ export interface FindInstrumentResponse {
 export interface GetBrandsRequest {}
 
 /**
- * Запрос бренда
- * @see https://tinkoff.github.io/investAPI/instruments/#getbrandrequest
- */
-export interface GetBrandsResponse {
-  /** Uid-идентификатор бренда */
-  id: string
-}
-
-/**
  * Список брендов
  * @see https://tinkoff.github.io/investAPI/instruments/#getbrandsresponse
  */
-export interface GetBrandRequest {
+export interface GetBrandsResponse {
   /** Массив брендов */
   brands: Brand[]
+}
+
+/**
+ * Запрос бренда
+ * @see https://tinkoff.github.io/investAPI/instruments/#getbrandrequest
+ */
+export interface GetBrandRequest {
+  /** Uid-идентификатор бренда */
+  id: string
 }
 
 /**
