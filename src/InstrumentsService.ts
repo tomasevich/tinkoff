@@ -2268,6 +2268,18 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения фьючерса по его идентификатору
+   * ```js
+   * import { InstrumentsService, InstrumentIdType } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { instrument } = await instrumentsService.FutureBy({
+   *  idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
+   *  classCode: 'SPBFUT',
+   *  id: 'GKZ3'
+   * })
+   *
+   * console.log(instrument)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#futureby
    */
   public FutureBy(body: InstrumentRequest): Promise<FutureResponse> {
