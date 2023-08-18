@@ -2486,6 +2486,14 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения списка стран
+   * ```js
+   * import { InstrumentsService } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { countries } = await instrumentsService.GetCountries({})
+   *
+   * console.log(countries)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#getcountries
    */
   public GetCountries(
