@@ -552,6 +552,16 @@ export class MarketDataService extends Common {
 
   /**
    * Метод запроса цен закрытия торговой сессии по инструментам
+   * ```js
+   * import { MarketDataService } from '@tomasevich/tinkoff'
+   *
+   * const marketDataService = new MarketDataService('<TOKEN>', true)
+   * const { tradingStatuses } = await marketDataService.GetClosePrices({
+   *  instruments: [{ instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76' }]
+   * })
+   *
+   * console.log(tradingStatuses)
+   * ```
    * @see https://tinkoff.github.io/investAPI/marketdata/#getcloseprices
    */
   public GetClosePrices(
