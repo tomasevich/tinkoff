@@ -2230,6 +2230,18 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения инвестиционного фонда по его идентификатору
+   * ```js
+   * import { InstrumentsService, InstrumentIdType } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { instrument } = await instrumentsService.EtfBy({
+   *  idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
+   *  classCode: 'SPBXM',
+   *  id: 'DRIV'
+   * })
+   *
+   * console.log(instrument)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#etfby
    */
   public EtfBy(body: InstrumentRequest): Promise<EtfResponse> {
