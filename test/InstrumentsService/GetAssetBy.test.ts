@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 
-import { InstrumentType, InstrumentsService } from '../../src'
+import { InstrumentsService } from '../../src'
 
 dotenv.config({ path: './.env.test' })
 
