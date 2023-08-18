@@ -2379,6 +2379,18 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения накопленного купонного дохода по облигации
+   * ```js
+   * import { InstrumentsService } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { accruedInterests } = await instrumentsService.GetAccruedInterests({
+   *  figi: 'TCS00A105WZ4',
+   *  from: '2023-07-12T00:00:00:000Z',
+   *  to: '2023-07-13T23:59:59:999Z'
+   * })
+   *
+   * console.log(accruedInterests)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#getaccruedinterests
    */
   public GetAccruedInterests(
