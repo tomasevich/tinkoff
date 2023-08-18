@@ -6,7 +6,14 @@
   "scripts": {
     "docs": "typedoc",
     "build": "rm -rf ./dist && tsc",
-    "test": "jest",
+    "test:instruments": "jest --testRegex='/test/InstrumentsService/*'",
+    "test:marketdata": "jest --testRegex='/test/MarketDataService/*'",
+    "test:operations": "jest --testRegex='/test/OperationsService/*'",
+    "test:orders": "jest --testRegex='/test/OrdersService/*'",
+    "test:sandbox": "jest --testRegex='/test/SandboxService/*'",
+    "test:stoporders": "jest --testRegex='/test/StopOrdersService/*'",
+    "test:users": "jest --testRegex='/test/UsersService/*'",
+    "test": "npm run test:instruments && npm run test:marketdata && npm run test:operations && npm run test:orders && npm run test:sandbox && npm run test:stoporders && npm run test:users",
     "prerelease": "npm run build && npm test && npm run docs",
     "release": "npm publish --access=public"
   },
