@@ -453,11 +453,11 @@ export class MarketDataService extends Common {
    * import { MarketDataService } from '@tomasevich/tinkoff'
    *
    * const marketDataService = new MarketDataService('<TOKEN>', true)
-   * const { candles } = await marketDataService.GetLastPrices({
+   * const { lastPrices } = await marketDataService.GetLastPrices({
    *  instrumentId: ['6afa6f80-03a7-4d83-9cf0-c19d7d021f76']
    * })
    *
-   * console.log(candles)
+   * console.log(lastPrices)
    * ```
    * @see https://tinkoff.github.io/investAPI/marketdata/#getlastprices
    */
@@ -473,12 +473,12 @@ export class MarketDataService extends Common {
    * import { MarketDataService } from '@tomasevich/tinkoff'
    *
    * const marketDataService = new MarketDataService('<TOKEN>', true)
-   * const { candles } = await marketDataService.GetOrderBook({
+   * const orderBook = await marketDataService.GetOrderBook({
    *  depth: 10,
    *  instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
    * })
    *
-   * console.log(candles)
+   * console.log(orderBook)
    * ```
    * @see https://tinkoff.github.io/investAPI/marketdata/#getorderbook
    */
