@@ -1959,7 +1959,7 @@ export interface GetDividendsRequest {
  * @see https://tinkoff.github.io/investAPI/instruments/#getdividendsresponse
  */
 export interface GetDividendsResponse {
-  /** @todo Нет описания */
+  /** Список дивидентов */
   dividends: Dividend[]
 }
 
@@ -2419,6 +2419,18 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод для получения событий выплаты дивидендов по инструменту
+   * ```js
+   * import { InstrumentsService } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { dividends } = await instrumentsService.GetDividends({
+   *  figi: 'BBG00YTS96G2',
+   *  from: '2023-07-12T00:00:00:000Z',
+   *  to: '2023-07-13T23:59:59:999Z'
+   * })
+   *
+   * console.log(dividends)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#getdividends
    */
   public GetDividends(
