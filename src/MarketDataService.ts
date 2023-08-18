@@ -490,6 +490,16 @@ export class MarketDataService extends Common {
 
   /**
    * Метод запроса статуса торгов по инструментам
+   * ```js
+   * import { MarketDataService } from '@tomasevich/tinkoff'
+   *
+   * const marketDataService = new MarketDataService('<TOKEN>', true)
+   * const tradingStatus = await marketDataService.GetTradingStatus({
+   *  instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+   * })
+   *
+   * console.log(tradingStatus)
+   * ```
    * @see https://tinkoff.github.io/investAPI/marketdata/#gettradingstatus
    */
   public GetTradingStatus(
