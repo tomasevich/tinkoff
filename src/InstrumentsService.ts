@@ -2342,11 +2342,13 @@ export class InstrumentsService extends Common {
   /**
    * Метод получения акции по её идентификатору
    * ```js
-   * import { InstrumentsService, InstrumentStatus } from '@tomasevich/tinkoff'
+   * import { InstrumentsService, InstrumentIdType } from '@tomasevich/tinkoff'
    *
    * const instrumentsService = new InstrumentsService('<TOKEN>', true)
    * const { instruments } = await instrumentsService.ShareBy({
-   *  instrumentStatus: InstrumentStatus.INSTRUMENT_STATUS_BASE
+   *  idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
+   *  classCode: 'SPBXM',
+   *  id: 'APA'
    * })
    *
    * console.log(instruments)
