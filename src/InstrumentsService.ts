@@ -1753,7 +1753,7 @@ export interface FilterOptionsRequest {
    */
   basicAssetUid: string
   /** Идентификатор позиции базового актива опциона */
-  basicAssetPositionUid: string
+  basicAssetPositionUid?: string
 }
 
 /**
@@ -2413,6 +2413,16 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения списка активов
+   * ```js
+   * import { InstrumentsService, InstrumentType } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { assets } = await instrumentsService.GetAssets({
+   *  instrumentType: InstrumentType.INSTRUMENT_TYPE_BOND
+   * })
+   *
+   * console.log(assets)
+   * ```
    * @description Метод работает для всех инструментов, за исключением срочных - опционов и фьючерсов
    * @see https://tinkoff.github.io/investAPI/instruments/#getassets
    */
