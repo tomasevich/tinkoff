@@ -2341,6 +2341,16 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения акции по её идентификатору
+   * ```js
+   * import { InstrumentsService, InstrumentStatus } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { instruments } = await instrumentsService.ShareBy({
+   *  instrumentStatus: InstrumentStatus.INSTRUMENT_STATUS_BASE
+   * })
+   *
+   * console.log(instruments)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#shareby
    */
   public ShareBy(body: InstrumentRequest): Promise<ShareResponse> {
