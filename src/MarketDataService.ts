@@ -449,6 +449,16 @@ export class MarketDataService extends Common {
 
   /**
    * Метод запроса цен последних сделок по инструментам
+   * ```js
+   * import { MarketDataService } from '@tomasevich/tinkoff'
+   *
+   * const marketDataService = new MarketDataService('<TOKEN>', true)
+   * const { candles } = await marketDataService.GetLastPrices({
+   *  instrumentId: ['5ec3a0de-80b4-4572-ba48-0a18c9f371fd']
+   * })
+   *
+   * console.log(candles)
+   * ```
    * @see https://tinkoff.github.io/investAPI/marketdata/#getlastprices
    */
   public GetLastPrices(
