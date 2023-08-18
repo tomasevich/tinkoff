@@ -405,36 +405,112 @@ export interface InstrumentClosePriceResponse {
 export declare class MarketDataService extends Common {
     /**
      * Метод запроса исторических свечей по инструменту
+     * ```js
+     * import { MarketDataService, CandleInterval } from '@tomasevich/tinkoff'
+     *
+     * const marketDataService = new MarketDataService('<TOKEN>', true)
+     * const { candles } = await marketDataService.GetCandles({
+     *  from: '2023-08-18T00:00:00:000Z',
+     *  to: '2023-08-19T00:00:00:000Z',
+     *  interval: CandleInterval.CANDLE_INTERVAL_HOUR,
+     *  instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+     * })
+     *
+     * console.log(candles)
+     * ```
      * @see https://tinkoff.github.io/investAPI/marketdata/#getcandles
      */
     GetCandles(body: GetCandlesRequest): Promise<GetCandlesResponse>;
     /**
      * Метод запроса цен последних сделок по инструментам
+     * ```js
+     * import { MarketDataService } from '@tomasevich/tinkoff'
+     *
+     * const marketDataService = new MarketDataService('<TOKEN>', true)
+     * const { lastPrices } = await marketDataService.GetLastPrices({
+     *  instrumentId: ['6afa6f80-03a7-4d83-9cf0-c19d7d021f76']
+     * })
+     *
+     * console.log(lastPrices)
+     * ```
      * @see https://tinkoff.github.io/investAPI/marketdata/#getlastprices
      */
     GetLastPrices(body: GetLastPricesRequest): Promise<GetLastPricesResponse>;
     /**
      * Метод получения стакана по инструменту
+     * ```js
+     * import { MarketDataService } from '@tomasevich/tinkoff'
+     *
+     * const marketDataService = new MarketDataService('<TOKEN>', true)
+     * const orderBook = await marketDataService.GetOrderBook({
+     *  depth: 10,
+     *  instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+     * })
+     *
+     * console.log(orderBook)
+     * ```
      * @see https://tinkoff.github.io/investAPI/marketdata/#getorderbook
      */
     GetOrderBook(body: GetOrderBookRequest): Promise<GetOrderBookResponse>;
     /**
      * Метод запроса статуса торгов по инструментам
+     * ```js
+     * import { MarketDataService } from '@tomasevich/tinkoff'
+     *
+     * const marketDataService = new MarketDataService('<TOKEN>', true)
+     * const tradingStatus = await marketDataService.GetTradingStatus({
+     *  instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+     * })
+     *
+     * console.log(tradingStatus)
+     * ```
      * @see https://tinkoff.github.io/investAPI/marketdata/#gettradingstatus
      */
     GetTradingStatus(body: GetTradingStatusRequest): Promise<GetTradingStatusResponse>;
     /**
      * Метод запроса статуса торгов по инструментам
+     * ```js
+     * import { MarketDataService } from '@tomasevich/tinkoff'
+     *
+     * const marketDataService = new MarketDataService('<TOKEN>', true)
+     * const { tradingStatuses } = await marketDataService.GetTradingStatuses({
+     *  instrumentId: ['6afa6f80-03a7-4d83-9cf0-c19d7d021f76']
+     * })
+     *
+     * console.log(tradingStatuses)
+     * ```
      * @see https://tinkoff.github.io/investAPI/marketdata/#gettradingstatuses
      */
     GetTradingStatuses(body: GetTradingStatusesRequest): Promise<GetTradingStatusesResponse>;
     /**
      * Метод запроса обезличенных сделок за последний час
+     * ```js
+     * import { MarketDataService } from '@tomasevich/tinkoff'
+     *
+     * const marketDataService = new MarketDataService('<TOKEN>', true)
+     * const { trades } = await marketDataService.GetLastTrades({
+     *  from: '2023-08-18T00:00:00:000Z',
+     *  to: '2023-08-19T00:00:00:000Z',
+     *  instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+     * })
+     *
+     * console.log(trades)
+     * ```
      * @see https://tinkoff.github.io/investAPI/marketdata/#getlasttrades
      */
     GetLastTrades(body: GetLastTradesRequest): Promise<GetLastTradesResponse>;
     /**
      * Метод запроса цен закрытия торговой сессии по инструментам
+     * ```js
+     * import { MarketDataService } from '@tomasevich/tinkoff'
+     *
+     * const marketDataService = new MarketDataService('<TOKEN>', true)
+     * const { tradingStatuses } = await marketDataService.GetClosePrices({
+     *  instruments: [{ instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76' }]
+     * })
+     *
+     * console.log(tradingStatuses)
+     * ```
      * @see https://tinkoff.github.io/investAPI/marketdata/#getcloseprices
      */
     GetClosePrices(body: GetClosePricesRequest): Promise<GetClosePricesResponse>;
