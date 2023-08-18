@@ -2188,6 +2188,16 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения списка валют
+   * ```js
+   * import { InstrumentsService, InstrumentStatus } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { instruments } = await instrumentsService.Currencies({
+   *  instrumentStatus: InstrumentStatus.INSTRUMENT_STATUS_BASE
+   * })
+   *
+   * console.log(instruments)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#currencies
    */
   public Currencies(body: InstrumentsRequest): Promise<CurrenciesResponse> {
@@ -2204,6 +2214,16 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения списка инвестиционных фондов
+   * ```js
+   * import { InstrumentsService, InstrumentStatus } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { instruments } = await instrumentsService.Etfs({
+   *  instrumentStatus: InstrumentStatus.INSTRUMENT_STATUS_BASE
+   * })
+   *
+   * console.log(instruments)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#etfs
    */
   public Etfs(body: InstrumentsRequest): Promise<EtfsResponse> {
@@ -2220,6 +2240,16 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения списка фьючерсов
+   * ```js
+   * import { InstrumentsService, InstrumentStatus } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { instruments } = await instrumentsService.Futures({
+   *  instrumentStatus: InstrumentStatus.INSTRUMENT_STATUS_BASE
+   * })
+   *
+   * console.log(instruments)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#futures
    */
   public Futures(body: InstrumentsRequest): Promise<FuturesResponse> {
@@ -2236,7 +2266,17 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения списка опционов
-   * @deprecated Deprecated
+   * @description В документации указано как `Deprecated`, хотя метод работает
+   * ```js
+   * import { InstrumentsService, InstrumentStatus } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { instruments } = await instrumentsService.Options({
+   *  instrumentStatus: InstrumentStatus.INSTRUMENT_STATUS_BASE
+   * })
+   *
+   * console.log(instruments)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#options
    */
   public Options(body: InstrumentsRequest): Promise<OptionsResponse> {
@@ -2261,6 +2301,16 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения списка акций
+   * ```js
+   * import { InstrumentsService, InstrumentStatus } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { instruments } = await instrumentsService.Shares({
+   *  instrumentStatus: InstrumentStatus.INSTRUMENT_STATUS_BASE
+   * })
+   *
+   * console.log(instruments)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#shares
    */
   public Shares(body: InstrumentsRequest): Promise<SharesResponse> {
