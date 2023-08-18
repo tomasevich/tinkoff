@@ -2399,6 +2399,18 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения основной информации об инструменте
+   * ```js
+   * import { InstrumentsService, InstrumentIdType } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { instruments } = await instrumentsService.GetInstrumentBy({
+   *  idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
+   *  classCode: 'SPBXM',
+   *  id: 'APA'
+   * })
+   *
+   * console.log(instruments)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#getinstrumentby
    */
   public GetInstrumentBy(body: InstrumentRequest): Promise<InstrumentResponse> {
