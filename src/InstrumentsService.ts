@@ -2484,6 +2484,14 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения списка брендов
+   * ```js
+   * import { InstrumentsService } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { brands } = await instrumentsService.GetBrands({})
+   *
+   * console.log(brands)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#getbrands
    */
   public GetBrands(body: GetBrandsRequest): Promise<GetBrandsResponse> {
@@ -2492,6 +2500,16 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения бренда по его идентификатору
+   * ```js
+   * import { InstrumentsService } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const brand = await instrumentsService.GetBrandBy({
+   *  id: '8c478c0a-c4e3-412c-ab4d-a2df4648d97f'
+   * })
+   *
+   * console.log(brand)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#getbrandby
    */
   public GetBrandBy(body: GetBrandRequest): Promise<Brand> {
