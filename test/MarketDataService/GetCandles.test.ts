@@ -13,7 +13,7 @@ describe('interval as CANDLE_INTERVAL_UNSPECIFIED', () => {
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_UNSPECIFIED,
-      instrumentId: '5ec3a0de-80b4-4572-ba48-0a18c9f371fd'
+      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
     })
     expect(response).toHaveProperty('description')
   })
@@ -25,7 +25,7 @@ describe('interval as CANDLE_INTERVAL_1_MIN', () => {
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_1_MIN,
-      instrumentId: '5ec3a0de-80b4-4572-ba48-0a18c9f371fd'
+      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
     })
     expect(response).toHaveProperty('candles')
   })
@@ -37,7 +37,7 @@ describe('interval as CANDLE_INTERVAL_2_MIN', () => {
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_2_MIN,
-      instrumentId: '5ec3a0de-80b4-4572-ba48-0a18c9f371fd'
+      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
     })
     expect(response).toHaveProperty('candles')
   })
@@ -49,7 +49,7 @@ describe('interval as CANDLE_INTERVAL_3_MIN', () => {
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_3_MIN,
-      instrumentId: '5ec3a0de-80b4-4572-ba48-0a18c9f371fd'
+      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
     })
     expect(response).toHaveProperty('candles')
   })
@@ -61,7 +61,7 @@ describe('interval as CANDLE_INTERVAL_5_MIN', () => {
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_5_MIN,
-      instrumentId: '5ec3a0de-80b4-4572-ba48-0a18c9f371fd'
+      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
     })
     expect(response).toHaveProperty('candles')
   })
@@ -73,7 +73,7 @@ describe('interval as CANDLE_INTERVAL_10_MIN', () => {
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_10_MIN,
-      instrumentId: '5ec3a0de-80b4-4572-ba48-0a18c9f371fd'
+      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
     })
     expect(response).toHaveProperty('candles')
   })
@@ -85,7 +85,7 @@ describe('interval as CANDLE_INTERVAL_15_MIN', () => {
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_15_MIN,
-      instrumentId: '5ec3a0de-80b4-4572-ba48-0a18c9f371fd'
+      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
     })
     expect(response).toHaveProperty('candles')
   })
@@ -97,7 +97,7 @@ describe('interval as CANDLE_INTERVAL_30_MIN', () => {
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_30_MIN,
-      instrumentId: '5ec3a0de-80b4-4572-ba48-0a18c9f371fd'
+      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
     })
     expect(response).toHaveProperty('candles')
   })
@@ -109,7 +109,7 @@ describe('interval as CANDLE_INTERVAL_HOUR', () => {
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_HOUR,
-      instrumentId: '5ec3a0de-80b4-4572-ba48-0a18c9f371fd'
+      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
     })
     expect(response).toHaveProperty('candles')
   })
@@ -121,7 +121,7 @@ describe('interval as CANDLE_INTERVAL_2_HOUR', () => {
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_2_HOUR,
-      instrumentId: '5ec3a0de-80b4-4572-ba48-0a18c9f371fd'
+      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
     })
     expect(response).toHaveProperty('candles')
   })
@@ -133,7 +133,7 @@ describe('interval as CANDLE_INTERVAL_4_HOUR', () => {
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_4_HOUR,
-      instrumentId: '5ec3a0de-80b4-4572-ba48-0a18c9f371fd'
+      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
     })
     expect(response).toHaveProperty('candles')
   })
@@ -145,7 +145,7 @@ describe('interval as CANDLE_INTERVAL_DAY', () => {
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_DAY,
-      instrumentId: '5ec3a0de-80b4-4572-ba48-0a18c9f371fd'
+      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
     })
     expect(response).toHaveProperty('candles')
   })
@@ -157,7 +157,7 @@ describe('interval as CANDLE_INTERVAL_WEEK', () => {
       from: '2023-07-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_WEEK,
-      instrumentId: '5ec3a0de-80b4-4572-ba48-0a18c9f371fd'
+      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
     })
     expect(response).toHaveProperty('candles')
   })
@@ -169,7 +169,7 @@ describe('interval as CANDLE_INTERVAL_MONTH', () => {
       from: '2023-07-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_MONTH,
-      instrumentId: '5ec3a0de-80b4-4572-ba48-0a18c9f371fd'
+      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
     })
     expect(response).toHaveProperty('candles')
   })

@@ -45,7 +45,7 @@ describe('idType as INSTRUMENT_ID_TYPE_POSITION_UID', () => {
     const response = await instrumentsService.ShareBy({
       idType: InstrumentIdType.INSTRUMENT_ID_TYPE_POSITION_UID,
       classCode: '',
-      id: '5ec3a0de-80b4-4572-ba48-0a18c9f371fd'
+      id: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
     })
     expect(response).toHaveProperty('instrument')
   })

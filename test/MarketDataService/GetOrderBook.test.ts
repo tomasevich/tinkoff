@@ -8,11 +8,11 @@ const TOKEN = process.env.TINKOFF_INVEST_API_TOKEN ?? ''
 const marketDataService = new MarketDataService(TOKEN, true)
 
 describe('depth as "10"', () => {
-  describe('instrumentId as "5ec3a0de-80b4-4572-ba48-0a18c9f371fd"', () => {
+  describe('instrumentId as "6afa6f80-03a7-4d83-9cf0-c19d7d021f76"', () => {
     test('Expect "response" to have "all" properties', async () => {
       const response = await marketDataService.GetOrderBook({
         depth: 10,
-        instrumentId: '5ec3a0de-80b4-4572-ba48-0a18c9f371fd'
+        instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
       })
       expect(response).toHaveProperty('figi')
       expect(response).toHaveProperty('depth')

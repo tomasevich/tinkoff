@@ -436,7 +436,7 @@ export class MarketDataService extends Common {
    *  from: '2023-08-18T00:00:00:000Z',
    *  to: '2023-08-19T00:00:00:000Z',
    *  interval: CandleInterval.CANDLE_INTERVAL_HOUR,
-   *  instrumentId: '5ec3a0de-80b4-4572-ba48-0a18c9f371fd'
+   *  instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
    * })
    *
    * console.log(candles)
@@ -454,7 +454,7 @@ export class MarketDataService extends Common {
    *
    * const marketDataService = new MarketDataService('<TOKEN>', true)
    * const { candles } = await marketDataService.GetLastPrices({
-   *  instrumentId: ['5ec3a0de-80b4-4572-ba48-0a18c9f371fd']
+   *  instrumentId: ['6afa6f80-03a7-4d83-9cf0-c19d7d021f76']
    * })
    *
    * console.log(candles)
@@ -475,7 +475,7 @@ export class MarketDataService extends Common {
    * const marketDataService = new MarketDataService('<TOKEN>', true)
    * const { candles } = await marketDataService.GetOrderBook({
    *  depth: 10,
-   *  instrumentId: '5ec3a0de-80b4-4572-ba48-0a18c9f371fd'
+   *  instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
    * })
    *
    * console.log(candles)
