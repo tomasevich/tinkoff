@@ -2182,6 +2182,18 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения графика выплат купонов по облигации
+   * ```js
+   * import { InstrumentsService } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { events } = await instrumentsService.GetBondCoupons({
+   *  figi: 'TCS00A105WZ4',
+   *  from: '2023-07-12T00:00:00:000Z',
+   *  to: '2023-07-13T23:59:59:999Z'
+   * })
+   *
+   * console.log(events)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#getbondcoupons
    */
   public GetBondCoupons(
