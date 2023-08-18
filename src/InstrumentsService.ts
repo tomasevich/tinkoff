@@ -2484,6 +2484,17 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод редактирования списка избранных инструментов
+   * ```js
+   * import { InstrumentsService, EditFavoritesActionType } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { favoriteInstruments } = await instrumentsService.EditFavorites({
+   *  instruments: [{ figi: 'BBG00YTS96G2' }],
+   *  actionType: EditFavoritesActionType.EDIT_FAVORITES_ACTION_TYPE_ADD
+   * })
+   *
+   * console.log(favoriteInstruments)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#editfavorites
    */
   public EditFavorites(
