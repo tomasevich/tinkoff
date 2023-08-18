@@ -469,6 +469,17 @@ export class MarketDataService extends Common {
 
   /**
    * Метод получения стакана по инструменту
+   * ```js
+   * import { MarketDataService } from '@tomasevich/tinkoff'
+   *
+   * const marketDataService = new MarketDataService('<TOKEN>', true)
+   * const { candles } = await marketDataService.GetOrderBook({
+   *  depth: 10,
+   *  instrumentId: '5ec3a0de-80b4-4572-ba48-0a18c9f371fd'
+   * })
+   *
+   * console.log(candles)
+   * ```
    * @see https://tinkoff.github.io/investAPI/marketdata/#getorderbook
    */
   public GetOrderBook(
