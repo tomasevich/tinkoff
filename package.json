@@ -4,9 +4,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "docs": "typedoc",
-    "build": "rm -rf ./dist && tsc",
-    "coverage": "jest --c=./jest.coverage.config.js",
+    "test": "jest --c=./jest.coverage.config.js",
     "test:instruments": "jest --testRegex='/test/InstrumentsService/*' --c=./jest.test.config.js",
     "test:marketdata": "jest --testRegex='/test/MarketDataService/*' --c=./jest.test.config.js",
     "test:operations": "jest --testRegex='/test/OperationsService/*' --c=./jest.test.config.js",
@@ -14,9 +12,11 @@
     "test:sandbox": "jest --testRegex='/test/SandboxService/*' --c=./jest.test.config.js",
     "test:stoporders": "jest --testRegex='/test/StopOrdersService/*' --c=./jest.test.config.js",
     "test:users": "jest --testRegex='/test/UsersService/*' --c=./jest.test.config.js",
-    "test": "npm run test:instruments && npm run test:marketdata && npm run test:operations && npm run test:orders && npm run test:sandbox && npm run test:stoporders && npm run test:users",
-    "prerelease": "npm run build && npm test && npm run docs",
-    "release": "npm publish --access=public"
+    "build": "rm -rf ./dist && tsc",
+    "docs": "typedoc",
+    "prerelease": "npm test && npm run build && npm run docs",
+    "release": "npm publish --access=public",
+    "postrelease": "git add . && git commit -m 'фиксация артефактов релиза'"
   },
   "devDependencies": {
     "@types/jest": "^29.5.3",
