@@ -261,6 +261,18 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения облигации по её идентификатору
+     * ```js
+     * import { InstrumentsService, InstrumentIdType } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { instrument } = await instrumentsService.BondBy({
+     *  idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
+     *  classCode: 'TQCB',
+     *  id: 'RU000A105WZ4'
+     * })
+     *
+     * console.log(instrument)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#bondby
      */
     BondBy(body) {
@@ -292,6 +304,18 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения валюты по её идентификатору
+     * ```js
+     * import { InstrumentsService, InstrumentIdType } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { instrument } = await instrumentsService.CurrencyBy({
+     *  idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
+     *  classCode: 'CETS',
+     *  id: 'AMDRUB_TOM'
+     * })
+     *
+     * console.log(instrument)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#currencyby
      */
     CurrencyBy(body) {
@@ -299,6 +323,16 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения списка валют
+     * ```js
+     * import { InstrumentsService, InstrumentStatus } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { instruments } = await instrumentsService.Currencies({
+     *  instrumentStatus: InstrumentStatus.INSTRUMENT_STATUS_BASE
+     * })
+     *
+     * console.log(instruments)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#currencies
      */
     Currencies(body) {
@@ -306,6 +340,18 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения инвестиционного фонда по его идентификатору
+     * ```js
+     * import { InstrumentsService, InstrumentIdType } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { instrument } = await instrumentsService.EtfBy({
+     *  idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
+     *  classCode: 'SPBXM',
+     *  id: 'DRIV'
+     * })
+     *
+     * console.log(instrument)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#etfby
      */
     EtfBy(body) {
@@ -313,6 +359,16 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения списка инвестиционных фондов
+     * ```js
+     * import { InstrumentsService, InstrumentStatus } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { instruments } = await instrumentsService.Etfs({
+     *  instrumentStatus: InstrumentStatus.INSTRUMENT_STATUS_BASE
+     * })
+     *
+     * console.log(instruments)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#etfs
      */
     Etfs(body) {
@@ -320,6 +376,18 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения фьючерса по его идентификатору
+     * ```js
+     * import { InstrumentsService, InstrumentIdType } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { instrument } = await instrumentsService.FutureBy({
+     *  idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
+     *  classCode: 'SPBFUT',
+     *  id: 'GKZ3'
+     * })
+     *
+     * console.log(instrument)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#futureby
      */
     FutureBy(body) {
@@ -327,6 +395,16 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения списка фьючерсов
+     * ```js
+     * import { InstrumentsService, InstrumentStatus } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { instruments } = await instrumentsService.Futures({
+     *  instrumentStatus: InstrumentStatus.INSTRUMENT_STATUS_BASE
+     * })
+     *
+     * console.log(instruments)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#futures
      */
     Futures(body) {
@@ -341,7 +419,17 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения списка опционов
-     * @deprecated Deprecated
+     * @description В документации указано как `Deprecated`, хотя метод работает
+     * ```js
+     * import { InstrumentsService, InstrumentStatus } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { instruments } = await instrumentsService.Options({
+     *  instrumentStatus: InstrumentStatus.INSTRUMENT_STATUS_BASE
+     * })
+     *
+     * console.log(instruments)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#options
      */
     Options(body) {
@@ -356,6 +444,18 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения акции по её идентификатору
+     * ```js
+     * import { InstrumentsService, InstrumentIdType } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { instruments } = await instrumentsService.ShareBy({
+     *  idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
+     *  classCode: 'SPBXM',
+     *  id: 'APA'
+     * })
+     *
+     * console.log(instruments)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#shareby
      */
     ShareBy(body) {
@@ -363,6 +463,16 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения списка акций
+     * ```js
+     * import { InstrumentsService, InstrumentStatus } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { instruments } = await instrumentsService.Shares({
+     *  instrumentStatus: InstrumentStatus.INSTRUMENT_STATUS_BASE
+     * })
+     *
+     * console.log(instruments)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#shares
      */
     Shares(body) {
@@ -384,6 +494,18 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения основной информации об инструменте
+     * ```js
+     * import { InstrumentsService, InstrumentIdType } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { instruments } = await instrumentsService.GetInstrumentBy({
+     *  idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
+     *  classCode: 'SPBXM',
+     *  id: 'APA'
+     * })
+     *
+     * console.log(instruments)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#getinstrumentby
      */
     GetInstrumentBy(body) {
@@ -398,6 +520,16 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения актива по его идентификатору
+     * ```js
+     * import { InstrumentsService } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const asset = await instrumentsService.GetAssetBy({
+     *  id: 'b6a73950-20a8-46c7-8b49-9dfbc14fe0ba'
+     * })
+     *
+     * console.log(asset)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#getassetby
      */
     GetAssetBy(body) {
@@ -405,6 +537,16 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения списка активов
+     * ```js
+     * import { InstrumentsService, InstrumentType } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { assets } = await instrumentsService.GetAssets({
+     *  instrumentType: InstrumentType.INSTRUMENT_TYPE_BOND
+     * })
+     *
+     * console.log(assets)
+     * ```
      * @description Метод работает для всех инструментов, за исключением срочных - опционов и фьючерсов
      * @see https://tinkoff.github.io/investAPI/instruments/#getassets
      */
@@ -427,6 +569,14 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения списка стран
+     * ```js
+     * import { InstrumentsService } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { countries } = await instrumentsService.GetCountries({})
+     *
+     * console.log(countries)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#getcountries
      */
     GetCountries(body) {
@@ -434,6 +584,18 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод поиска инструмента
+     * ```js
+     * import { InstrumentsService, InstrumentType } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { instruments } = await instrumentsService.FindInstrument({
+     *  query: 'Tinkoff',
+     *  instrumentKind: InstrumentType.INSTRUMENT_TYPE_SHARE,
+     *  apiTradeAvailableFlag: true
+     * })
+     *
+     * console.log(instruments)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#findinstrument
      */
     FindInstrument(body) {
@@ -441,6 +603,14 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения списка брендов
+     * ```js
+     * import { InstrumentsService } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { brands } = await instrumentsService.GetBrands({})
+     *
+     * console.log(brands)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#getbrands
      */
     GetBrands(body) {
@@ -448,6 +618,16 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения бренда по его идентификатору
+     * ```js
+     * import { InstrumentsService } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const brand = await instrumentsService.GetBrandBy({
+     *  id: '8c478c0a-c4e3-412c-ab4d-a2df4648d97f'
+     * })
+     *
+     * console.log(brand)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#getbrandby
      */
     GetBrandBy(body) {
