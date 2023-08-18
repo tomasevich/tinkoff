@@ -19,7 +19,7 @@ class SandboxService extends Common_1.Common {
      * ```js
      * import { SandboxService } from '@tomasevich/tinkoff'
      *
-     * const sandboxService = new SandboxService('TOKEN', true)
+     * const sandboxService = new SandboxService('<TOKEN>', true)
      * const { accounts } = await sandboxService.GetSandboxAccounts({})
      *
      * console.log(accounts)

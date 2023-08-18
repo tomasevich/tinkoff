@@ -11,17 +11,17 @@ var InstrumentType;
     InstrumentType[InstrumentType["INSTRUMENT_TYPE_UNSPECIFIED"] = 0] = "INSTRUMENT_TYPE_UNSPECIFIED";
     /** @todo Нет описания */
     InstrumentType[InstrumentType["INSTRUMENT_TYPE_BOND"] = 1] = "INSTRUMENT_TYPE_BOND";
-    /** @todo Нет описания */
+    /** Акция */
     InstrumentType[InstrumentType["INSTRUMENT_TYPE_SHARE"] = 2] = "INSTRUMENT_TYPE_SHARE";
-    /** @todo Нет описания */
+    /** Валюта */
     InstrumentType[InstrumentType["INSTRUMENT_TYPE_CURRENCY"] = 3] = "INSTRUMENT_TYPE_CURRENCY";
     /** @todo Нет описания */
     InstrumentType[InstrumentType["INSTRUMENT_TYPE_ETF"] = 4] = "INSTRUMENT_TYPE_ETF";
-    /** @todo Нет описания */
+    /** Фьючерс */
     InstrumentType[InstrumentType["INSTRUMENT_TYPE_FUTURES"] = 5] = "INSTRUMENT_TYPE_FUTURES";
     /** @todo Нет описания */
     InstrumentType[InstrumentType["INSTRUMENT_TYPE_SP"] = 6] = "INSTRUMENT_TYPE_SP";
-    /** @todo Нет описания */
+    /** Опцион */
     InstrumentType[InstrumentType["INSTRUMENT_TYPE_OPTION"] = 7] = "INSTRUMENT_TYPE_OPTION";
     /** @todo Нет описания */
     InstrumentType[InstrumentType["INSTRUMENT_TYPE_CLEARING_CERTIFICATE"] = 8] = "INSTRUMENT_TYPE_CLEARING_CERTIFICATE";
@@ -102,7 +102,7 @@ var OptionSettlementType;
     OptionSettlementType[OptionSettlementType["OPTION_EXECUTION_TYPE_CASH_SETTLEMENT"] = 2] = "OPTION_EXECUTION_TYPE_CASH_SETTLEMENT";
 })(OptionSettlementType || (exports.OptionSettlementType = OptionSettlementType = {}));
 /**
- * Тип идентификатора инструмента. Подробнее об идентификации инструментов: Идентификация инструменто
+ * Тип идентификатора инструмента
  * @see https://tinkoff.github.io/investAPI/instruments/#instrumentidtype
  */
 var InstrumentIdType;
@@ -126,7 +126,10 @@ var InstrumentStatus;
 (function (InstrumentStatus) {
     /** Значение не определено */
     InstrumentStatus[InstrumentStatus["INSTRUMENT_STATUS_UNSPECIFIED"] = 0] = "INSTRUMENT_STATUS_UNSPECIFIED";
-    /** Базовый список инструментов (по умолчанию). Инструменты доступные для торговли через TINKOFF INVEST API. Cейчас списки бумаг, доступных из api и других интерфейсах совпадают (за исключением внебиржевых бумаг), но в будущем возможны ситуации, когда списки инструментов будут отличатьс */
+    /**
+     * Базовый список инструментов (по умолчанию)
+     * @description Инструменты доступные для торговли через TINKOFF INVEST API. Cейчас списки бумаг, доступных из api и других интерфейсах совпадают (за исключением внебиржевых бумаг), но в будущем возможны ситуации, когда списки инструментов будут отличатьс
+     */
     InstrumentStatus[InstrumentStatus["INSTRUMENT_STATUS_BASE"] = 1] = "INSTRUMENT_STATUS_BASE";
     /** Список всех инструментов */
     InstrumentStatus[InstrumentStatus["INSTRUMENT_STATUS_ALL"] = 2] = "INSTRUMENT_STATUS_ALL";
@@ -242,7 +245,7 @@ class InstrumentsService extends Common_1.Common {
      * ```js
      * import { InstrumentsService } from '@tomasevich/tinkoff'
      *
-     * const instrumentsService = new InstrumentsService('TOKEN', true)
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
      * const { exchanges } = await instrumentsService.TradingSchedules({
      *  from: '2023-07-12T00:00:00:000Z',
      *  to: '2023-07-13T23:59:59:999Z',
@@ -265,6 +268,16 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения списка облигаций
+     * ```js
+     * import { InstrumentsService, InstrumentStatus } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { instruments } = await instrumentsService.Bonds({
+     *  instrumentStatus: InstrumentStatus.INSTRUMENT_STATUS_BASE
+     * })
+     *
+     * console.log(instruments)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#bonds
      */
     Bonds(body) {

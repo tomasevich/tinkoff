@@ -7,17 +7,17 @@ export declare enum InstrumentType {
     INSTRUMENT_TYPE_UNSPECIFIED = 0,
     /** @todo Нет описания */
     INSTRUMENT_TYPE_BOND = 1,
-    /** @todo Нет описания */
+    /** Акция */
     INSTRUMENT_TYPE_SHARE = 2,
-    /** @todo Нет описания */
+    /** Валюта */
     INSTRUMENT_TYPE_CURRENCY = 3,
     /** @todo Нет описания */
     INSTRUMENT_TYPE_ETF = 4,
-    /** @todo Нет описания */
+    /** Фьючерс */
     INSTRUMENT_TYPE_FUTURES = 5,
     /** @todo Нет описания */
     INSTRUMENT_TYPE_SP = 6,
-    /** @todo Нет описания */
+    /** Опцион */
     INSTRUMENT_TYPE_OPTION = 7,
     /** @todo Нет описания */
     INSTRUMENT_TYPE_CLEARING_CERTIFICATE = 8
@@ -93,7 +93,7 @@ export declare enum OptionSettlementType {
     OPTION_EXECUTION_TYPE_CASH_SETTLEMENT = 2
 }
 /**
- * Тип идентификатора инструмента. Подробнее об идентификации инструментов: Идентификация инструменто
+ * Тип идентификатора инструмента
  * @see https://tinkoff.github.io/investAPI/instruments/#instrumentidtype
  */
 export declare enum InstrumentIdType {
@@ -115,7 +115,10 @@ export declare enum InstrumentIdType {
 export declare enum InstrumentStatus {
     /** Значение не определено */
     INSTRUMENT_STATUS_UNSPECIFIED = 0,
-    /** Базовый список инструментов (по умолчанию). Инструменты доступные для торговли через TINKOFF INVEST API. Cейчас списки бумаг, доступных из api и других интерфейсах совпадают (за исключением внебиржевых бумаг), но в будущем возможны ситуации, когда списки инструментов будут отличатьс */
+    /**
+     * Базовый список инструментов (по умолчанию)
+     * @description Инструменты доступные для торговли через TINKOFF INVEST API. Cейчас списки бумаг, доступных из api и других интерфейсах совпадают (за исключением внебиржевых бумаг), но в будущем возможны ситуации, когда списки инструментов будут отличатьс
+     */
     INSTRUMENT_STATUS_BASE = 1,
     /** Список всех инструментов */
     INSTRUMENT_STATUS_ALL = 2
@@ -226,74 +229,74 @@ export interface TradingSchedule {
  */
 export interface TradingDay {
     /**
-     * Дата.
+     * Дата
      * @type `google.protobuf.Timestamp`
      */
     date: string;
     /** Признак торгового дня на бирже */
     isTradingDay: boolean;
     /**
-     * Время начала торгов по часовому поясу UTC.
+     * Время начала торгов по часовому поясу UTC
      * @type `google.protobuf.Timestamp`
      */
     startTime?: string;
     /**
-     * Время окончания торгов по часовому поясу UTC.
+     * Время окончания торгов по часовому поясу UTC
      * @type `google.protobuf.Timestamp`
      */
     endTime?: string;
     /**
-     * Время начала аукциона открытия в часовом поясе UTC.
+     * Время начала аукциона открытия в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     openingAuctionStartTime?: string;
     /**
-     * Время окончания аукциона закрытия в часовом поясе UTC.
+     * Время окончания аукциона закрытия в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     closingAuctionEndTime?: string;
     /**
-     * Время начала аукциона открытия вечерней сессии в часовом поясе UTC.
+     * Время начала аукциона открытия вечерней сессии в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     eveningOpeningAuctionStartTime?: string;
     /**
-     * Время начала вечерней сессии в часовом поясе UTC.
+     * Время начала вечерней сессии в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     eveningStartTime?: string;
     /**
-     * Время окончания вечерней сессии в часовом поясе UTC.
+     * Время окончания вечерней сессии в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     eveningEndTime?: string;
     /**
-     * Время начала основного клиринга в часовом поясе UTC.
+     * Время начала основного клиринга в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     clearingStartTime?: string;
     /**
-     * Время окончания основного клиринга в часовом поясе UTC.
+     * Время окончания основного клиринга в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     clearingEndTime?: string;
     /**
-     * Время начала премаркета в часовом поясе UTC.
+     * Время начала премаркета в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     premarketStartTime?: string;
     /**
-     * Время окончания премаркета в часовом поясе UTC.
+     * Время окончания премаркета в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     premarketEndTime?: string;
     /**
-     * Время начала аукциона закрытия в часовом поясе UTC.
+     * Время начала аукциона закрытия в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     closingAuctionStartTime?: string;
     /**
-     * Время окончания аукциона открытия в часовом поясе UTC.
+     * Время окончания аукциона открытия в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     openingAuctionEndTime?: string;
@@ -306,39 +309,39 @@ export interface Coupon {
     /** Figi-идентификатор инструмента */
     figi: string;
     /**
-     * Дата выплаты купона.
+     * Дата выплаты купона
      * @type `google.protobuf.Timestamp`
      */
     couponDate: string;
     /**
-     * Номер купона.
+     * Номер купона
      * @type `int64`
      */
     couponNumber: string;
-    /**
-     * (Опционально) Дата фиксации реестра для выплаты купона.
-     * @type `google.protobuf.Timestamp`
-     */
-    fixDate: string;
     /** Выплата на одну облигацию */
     payOneBond: MoneyValue;
     /** Тип купона */
     couponType: CouponType;
     /**
-     * Начало купонного периода.
+     * Начало купонного периода
      * @type `google.protobuf.Timestamp`
      */
     couponStartDate: string;
     /**
-     * Окончание купонного периода.
+     * Окончание купонного периода
      * @type `google.protobuf.Timestamp`
      */
     couponEndDate: string;
     /**
-     * Купонный период в днях.
+     * Купонный период в днях
      * @type `int32`
      */
     couponPeriod: number;
+    /**
+     * Дата фиксации реестра для выплаты купона
+     * @type `google.protobuf.Timestamp`
+     */
+    fixDate?: string;
 }
 /**
  * Опцион
@@ -357,7 +360,10 @@ export interface Option {
     basicAssetPositionUid: string;
     /** Текущий режим торгов инструмента */
     tradingStatus: SecurityTradingStatus;
-    /** Реальная площадка исполнения расчётов (биржа). Допустимые значения: [REAL_EXCHANGE_MOEX, REAL_EXCHANGE_RTS] */
+    /**
+     * Реальная площадка исполнения расчётов (биржа)
+     * @description Допустимые значения: [REAL_EXCHANGE_MOEX, REAL_EXCHANGE_RTS]
+     */
     realExchange: RealExchange;
     /** Направление опциона */
     direction: OptionDirection;
@@ -386,50 +392,56 @@ export interface Option {
     /** Сектор экономики */
     sector: string;
     /**
-     * Количество бумаг в лоте.
+     * Количество бумаг в лоте
      * @type `int32`
      */
     lot: number;
     /** Размер основного актива */
     basicAssetSize: Quotation;
-    /** Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР) */
+    /**
+     * Коэффициент ставки риска длинной позиции по клиенту
+     * @description 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+     */
     klong: Quotation;
-    /** Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР) */
+    /**
+     * Коэффициент ставки риска короткой позиции по клиенту
+     * @description 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+     */
     kshort: Quotation;
-    /** Ставка риска начальной маржи для КСУР лонг. Подробнее: ставка риска в лонг */
+    /** Ставка риска начальной маржи для КСУР лонг */
     dlong: Quotation;
-    /** Ставка риска начальной маржи для КСУР шорт. Подробнее: ставка риска в шорт */
+    /** Ставка риска начальной маржи для КСУР шорт */
     dshort: Quotation;
-    /** Ставка риска начальной маржи для КПУР лонг. Подробнее: ставка риска в лонг */
+    /** Ставка риска начальной маржи для КПУР лонг */
     dlongMin: Quotation;
-    /** Ставка риска начальной маржи для КПУР шорт. Подробнее: ставка риска в шорт */
+    /** Ставка риска начальной маржи для КПУР шорт */
     dshortMin: Quotation;
     /** Минимальный шаг цены */
     minPriceIncrement: Quotation;
     /** Цена страйка */
     strikePrice: MoneyValue;
     /**
-     * Дата истечения срока в формате UTC.
+     * Дата истечения срока в формате UTC
      * @type `google.protobuf.Timestamp`
      */
     expirationDate: string;
     /**
-     * Дата начала обращения контракта в формате UTC.
+     * Дата начала обращения контракта в формате UTC
      * @type `google.protobuf.Timestamp`
      */
     firstTradeDate: string;
     /**
-     * Дата исполнения в формате UTC.
+     * Дата исполнения в формате UTC
      * @type `google.protobuf.Timestamp`
      */
     lastTradeDate: string;
     /**
-     * Дата первой минутной свечи в формате UTC.
+     * Дата первой минутной свечи в формате UTC
      * @type `google.protobuf.Timestamp`
      */
     first1minCandleDate: string;
     /**
-     * Дата первой дневной свечи в формате UTC.
+     * Дата первой дневной свечи в формате UTC
      * @type `google.protobuf.Timestamp`
      */
     first1dayCandleDate: string;
@@ -466,24 +478,31 @@ export interface Bond {
     /** Isin-идентификатор инструмента */
     isin: string;
     /**
-     * Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру lot. Подробнее: лот
+     * Лотность инструмента
+     * @description Возможно совершение операций только на количества ценной бумаги, кратные параметру lot
      * @type `int32`
      */
     lot: number;
     /** Валюта расчётов */
     currency: string;
-    /** Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР) */
-    klong: Quotation;
-    /** Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР) */
-    kshort: Quotation;
-    /** Ставка риска начальной маржи для КСУР лонг. Подробнее: ставка риска в лонг */
-    dlong: Quotation;
-    /** Ставка риска начальной маржи для КСУР шорт. Подробнее: ставка риска в шорт */
-    dshort: Quotation;
-    /** Ставка риска начальной маржи для КПУР лонг. Подробнее: ставка риска в лонг */
-    dlongMin: Quotation;
-    /** Ставка риска начальной маржи для КПУР шорт. Подробнее: ставка риска в шорт */
-    dshortMin: Quotation;
+    /**
+     * Коэффициент ставки риска длинной позиции по клиенту
+     * @description 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+     */
+    klong?: Quotation;
+    /**
+     * Коэффициент ставки риска короткой позиции по клиенту
+     * @description 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+     */
+    kshort?: Quotation;
+    /** Ставка риска начальной маржи для КСУР лонг */
+    dlong?: Quotation;
+    /** Ставка риска начальной маржи для КСУР шорт */
+    dshort?: Quotation;
+    /** Ставка риска начальной маржи для КПУР лонг */
+    dlongMin?: Quotation;
+    /** Ставка риска начальной маржи для КПУР шорт */
+    dshortMin?: Quotation;
     /** Признак доступности для операций в шорт */
     shortEnabledFlag: boolean;
     /** Название инструмента */
@@ -491,12 +510,12 @@ export interface Bond {
     /** Tорговая площадка (секция биржи) */
     exchange: string;
     /**
-     * Количество выплат по купонам в год.
+     * Количество выплат по купонам в год
      * @type `int32`
      */
     couponQuantityPerYear: number;
     /**
-     * Дата погашения облигации в часовом поясе UTC.
+     * Дата погашения облигации в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     maturityDate: string;
@@ -505,12 +524,12 @@ export interface Bond {
     /** Первоначальный номинал облигации */
     initialNominal: MoneyValue;
     /**
-     * Дата выпуска облигации в часовом поясе UTC.
+     * Дата выпуска облигации в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
-    stateRegDate: string;
+    stateRegDate?: string;
     /**
-     * Дата размещения в часовом поясе UTC.
+     * Дата размещения в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     placementDate: string;
@@ -526,17 +545,17 @@ export interface Bond {
     sector: string;
     /**
      * Форма выпуска. Возможные значения:
-     * documentary — документарная;
-     * nonDocumentary — бездокументарная.
+     * `documentary` — документарная;
+     * `nonDocumentary` — бездокументарная.
      */
-    issueKind: string;
+    issueKind: 'documentary' | 'nonDocumentary';
     /**
-     * Размер выпуска.
+     * Размер выпуска
      * @type `int64`
      */
     issueSize: string;
     /**
-     * Плановый размер выпуска.
+     * Плановый размер выпуска
      * @type `int64`
      */
     issueSizePlan: string;
@@ -555,7 +574,7 @@ export interface Bond {
     /** Признак облигации с амортизацией долга */
     amortizationFlag: boolean;
     /** Шаг цены */
-    minPriceIncrement: Quotation;
+    minPriceIncrement?: Quotation;
     /** Параметр указывает на возможность торговать инструментом через API */
     apiTradeAvailableFlag: boolean;
     /** Уникальный идентификатор инструмента */
@@ -580,12 +599,12 @@ export interface Bond {
      * Дата первой минутной свечи.
      * @type `google.protobuf.Timestamp`
      */
-    first1minCandleDate: string;
+    first1minCandleDate?: string;
     /**
      * Дата первой дневной свечи.
      * @type `google.protobuf.Timestamp`
      */
-    first1dayCandleDate: string;
+    first1dayCandleDate?: string;
     /** Уровень риска */
     riskLevel: RiskLevel;
 }
@@ -603,23 +622,30 @@ export interface Currency {
     /** Isin-идентификатор инструмента */
     isin: string;
     /**
-     * Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру lot. Подробнее: лот
+     * Лотность инструмента
+     * @description Возможно совершение операций только на количества ценной бумаги, кратные параметру lot
      * @type `int32`
      */
     lot: number;
     /** Валюта расчётов */
     currency: string;
-    /** Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР) */
+    /**
+     * Коэффициент ставки риска длинной позиции по клиенту
+     * @description 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+     */
     klong: Quotation;
-    /** Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР) */
+    /**
+     * Коэффициент ставки риска короткой позиции по клиенту
+     * @description 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+     */
     kshort: Quotation;
-    /** Ставка риска начальной маржи для КСУР лонг.Подробнее: ставка риска в лонг */
+    /** Ставка риска начальной маржи для КСУР лонг */
     dlong: Quotation;
-    /** Ставка риска начальной маржи для КСУР шорт. Подробнее: ставка риска в шорт */
+    /** Ставка риска начальной маржи для КСУР шорт */
     dshort: Quotation;
-    /** Ставка риска начальной маржи для КПУР лонг. Подробнее: ставка риска в лонг */
+    /** Ставка риска начальной маржи для КПУР лонг */
     dlongMin: Quotation;
-    /** Ставка риска начальной маржи для КПУР шорт. Подробнее: ставка риска в шорт */
+    /** Ставка риска начальной маржи для КПУР шорт */
     dshortMin: Quotation;
     /** Признак доступности для операций в шорт */
     shortEnabledFlag: boolean;
@@ -686,23 +712,29 @@ export interface Etf {
     /** Isin-идентификатор инструмента */
     isin: string;
     /**
-     * Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру lot. Подробнее: лот
+     * Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру lot
      * @type `int32`
      */
     lot: number;
     /** Валюта расчётов */
     currency: string;
-    /** Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР) */
+    /**
+     * Коэффициент ставки риска длинной позиции по клиенту
+     * @description 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+     */
     klong: Quotation;
-    /** Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР) */
+    /**
+     * Коэффициент ставки риска короткой позиции по клиенту
+     * @description 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+     */
     kshort: Quotation;
-    /** Ставка риска начальной маржи для КСУР лонг.Подробнее: ставка риска в лонг */
+    /** Ставка риска начальной маржи для КСУР лонг */
     dlong: Quotation;
-    /** Ставка риска начальной маржи для КСУР шорт. Подробнее: ставка риска в шорт */
+    /** Ставка риска начальной маржи для КСУР шорт */
     dshort: Quotation;
-    /** Ставка риска начальной маржи для КПУР лонг. Подробнее: ставка риска в лонг */
+    /** Ставка риска начальной маржи для КПУР лонг */
     dlongMin: Quotation;
-    /** Ставка риска начальной маржи для КПУР шорт. Подробнее: ставка риска в шорт */
+    /** Ставка риска начальной маржи для КПУР шорт */
     dshortMin: Quotation;
     /** Признак доступности для операций в шорт */
     shortEnabledFlag: boolean;
@@ -714,19 +746,19 @@ export interface Etf {
     fixedCommission: Quotation;
     /**
      * Возможные значения:
-     * equity — акции;
-     * fixedIncome — облигации;
-     * mixedAllocation — смешанный;
-     * moneyMarket — денежный рынок;
-     * realEstate — недвижимость;
-     * commodity — товары;
-     * specialty — специальный;
-     * privateEquity — private equity;
-     * alternativeInvestment — альтернативные инвестиции.
+     * `equity` — акции;
+     * `fixedIncome` — облигации;
+     * `mixedAllocation` — смешанный;
+     * `moneyMarket` — денежный рынок;
+     * `realEstate` — недвижимость;
+     * `commodity` — товары;
+     * `specialty` — специальный;
+     * `privateEquity` — private equity;
+     * `alternativeInvestment` — альтернативные инвестиции.
      */
-    focusType: string;
+    focusType: 'equity' | 'fixedIncome' | 'mixedAllocation' | 'moneyMarket' | 'realEstate' | 'commodity' | 'specialty' | 'privateEquity' | 'alternativeInvestment';
     /**
-     * Дата выпуска в часовом поясе UTC.
+     * Дата выпуска в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     releasedDate: string;
@@ -791,23 +823,29 @@ export interface Future {
     /** Класс-код (секция торгов) */
     classCode: string;
     /**
-     * Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру lot. Подробнее: лот
+     * Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру lot
      * @type `int32`
      */
     lot: number;
     /** Валюта расчётов */
     currency: string;
-    /** Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР) */
+    /**
+     * Коэффициент ставки риска длинной позиции по клиенту
+     * @description 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+     */
     klong: Quotation;
-    /** Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР) */
+    /**
+     * Коэффициент ставки риска короткой позиции по клиенту
+     * @description 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+     */
     kshort: Quotation;
-    /** Ставка риска начальной маржи для КСУР лонг.Подробнее: ставка риска в лонг */
+    /** Ставка риска начальной маржи для КСУР лонг */
     dlong: Quotation;
-    /** Ставка риска начальной маржи для КСУР шорт. Подробнее: ставка риска в шорт */
+    /** Ставка риска начальной маржи для КСУР шорт */
     dshort: Quotation;
-    /** Ставка риска начальной маржи для КПУР лонг. Подробнее: ставка риска в лонг */
+    /** Ставка риска начальной маржи для КПУР лонг */
     dlongMin: Quotation;
-    /** Ставка риска начальной маржи для КПУР шорт. Подробнее: ставка риска в шорт */
+    /** Ставка риска начальной маржи для КПУР шорт */
     dshortMin: Quotation;
     /** Признак доступности для операций шорт */
     shortEnabledFlag: boolean;
@@ -816,7 +854,7 @@ export interface Future {
     /** Tорговая площадка (секция биржи) */
     exchange: string;
     /**
-     * Дата начала обращения контракта в часовом поясе UTC.
+     * Дата начала обращения контракта в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     firstTradeDate: string;
@@ -827,18 +865,18 @@ export interface Future {
     lastTradeDate: string;
     /**
      * Тип фьючерса. Возможные значения:
-     * physicalDelivery — физические поставки;
-     * cashSettlement — денежный эквивалент.
+     * `physicalDelivery` — физические поставки;
+     * `cashSettlement` — денежный эквивалент.
      */
-    futuresType: string;
+    futuresType: 'physicalDelivery' | 'cashSettlement';
     /**
      * Тип актива. Возможные значения:
-     * commodity — товар;
-     * currency — валюта;
-     * security — ценная бумага;
-     * index — индекс.
+     * `commodity` — товар;
+     * `currency` — валюта;
+     * `security` — ценная бумага;
+     * `index` — индекс.
      */
-    assetType: string;
+    assetType: 'commodity' | 'currency' | 'security' | 'index';
     /** Основной актив */
     basicAsset: string;
     /** Размер основного актива */
@@ -850,7 +888,7 @@ export interface Future {
     /** Сектор экономики */
     sector: string;
     /**
-     * Дата истечения срока в часов поясе UTC.
+     * Дата истечения срока в часов поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     expirationDate: string;
@@ -907,23 +945,29 @@ export interface Share {
     /** Isin-идентификатор инструмента */
     isin: string;
     /**
-     * Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру lot. Подробнее: лот
+     * Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру lot
      * @type `int32`
      */
     lot: number;
     /** Валюта расчётов */
     currency: string;
-    /** Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР) */
+    /**
+     * Коэффициент ставки риска длинной позиции по клиенту
+     * @description 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+     */
     klong: Quotation;
-    /** Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР) */
+    /**
+     * Коэффициент ставки риска короткой позиции по клиенту
+     * @description 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)
+     */
     kshort: Quotation;
-    /** Ставка риска начальной маржи для КСУР лонг.Подробнее: ставка риска в лонг */
+    /** Ставка риска начальной маржи для КСУР лонг */
     dlong: Quotation;
-    /** Ставка риска начальной маржи для КСУР шорт. Подробнее: ставка риска в шорт */
+    /** Ставка риска начальной маржи для КСУР шорт */
     dshort: Quotation;
-    /** Ставка риска начальной маржи для КПУР лонг. Подробнее: ставка риска в лонг */
+    /** Ставка риска начальной маржи для КПУР лонг */
     dlongMin: Quotation;
-    /** Ставка риска начальной маржи для КПУР шорт. Подробнее: ставка риска в шорт */
+    /** Ставка риска начальной маржи для КПУР шорт */
     dshortMin: Quotation;
     /** Признак доступности для операций в шорт */
     shortEnabledFlag: boolean;
@@ -932,12 +976,12 @@ export interface Share {
     /** Tорговая площадка (секция биржи) */
     exchange: string;
     /**
-     * Дата IPO акции в часовом поясе UTC.
+     * Дата IPO акции в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     ipoDate: string;
     /**
-     * Размер выпуска.
+     * Размер выпуска
      * @type `int64`
      */
     issueSize: string;
@@ -948,7 +992,7 @@ export interface Share {
     /** Сектор экономики */
     sector: string;
     /**
-     * Плановый размер выпуска.
+     * Плановый размер выпуска
      * @type `int64`
      */
     issueSizePlan: string;
@@ -964,7 +1008,7 @@ export interface Share {
     sellAvailableFlag: boolean;
     /** Признак наличия дивидендной доходности */
     divYieldFlag: boolean;
-    /** Тип акции. Возможные значения: ShareType */
+    /** Тип акции */
     shareType: ShareType;
     /** Шаг цены */
     minPriceIncrement: Quotation;
@@ -1025,7 +1069,7 @@ export interface Brand {
  */
 export interface AccruedInterest {
     /**
-     * Дата и время выплаты в часовом поясе UTC.
+     * Дата и время выплаты в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     date: string;
@@ -1098,24 +1142,24 @@ export interface Dividend {
     /** Величина дивиденда на 1 ценную бумагу (включая валюту) */
     dividendNet: MoneyValue;
     /**
-     * Дата фактических выплат в часовом поясе UTC.
+     * Дата фактических выплат в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     paymentDate: string;
     /**
-     * Дата объявления дивидендов в часовом поясе UTC.
+     * Дата объявления дивидендов в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     declaredDate: string;
     /**
-     * Последний день (включительно) покупки для получения выплаты в часовом поясе UTC.
+     * Последний день (включительно) покупки для получения выплаты в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     lastBuyDate: string;
     /** Тип выплаты. Возможные значения: Regular Cash – регулярные выплаты, Cancelled – выплата отменена, Daily Accrual – ежедневное начисление, Return of Capital – возврат капитала, прочие типы выплат */
     dividendType: string;
     /**
-     * Дата фиксации реестра в часовом поясе UTC.
+     * Дата фиксации реестра в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     recordDate: string;
@@ -1126,7 +1170,7 @@ export interface Dividend {
     /** Величина доходности */
     yieldValue: Quotation;
     /**
-     * Дата и время создания записи в часовом поясе UTC.
+     * Дата и время создания записи в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     createdAt: string;
@@ -1211,15 +1255,30 @@ export interface AssetSecurity {
     type: string;
     /** Тип инструмента */
     instrumentKind: InstrumentType;
-    /** Акция. Заполняется только для акций (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = share) */
+    /**
+     * Акция
+     * @description Заполняется только для акций (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = share)
+     */
     share: AssetShare;
-    /** Облигация. Заполняется только для облигаций (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = bond) */
+    /**
+     * Облигация
+     * @description Заполняется только для облигаций (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = bond)
+     */
     bond: AssetBond;
-    /** Структурная нота. Заполняется только для структурных продуктов (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = sp) */
+    /**
+     * Структурная нота
+     * @description Заполняется только для структурных продуктов (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = sp)
+     */
     sp: AssetStructuredProduct;
-    /** Фонд. Заполняется только для фондов (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = etf) */
+    /**
+     * Фонд
+     * @description Заполняется только для фондов (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = etf)
+     */
     etf: AssetEtf;
-    /** Клиринговый сертификат участия. Заполняется только для клиринговых сертификатов (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = clearingCertificate) */
+    /**
+     * Клиринговый сертификат участия
+     * @description Заполняется только для клиринговых сертификатов (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = clearingCertificate)
+     */
     clearingCertificate: AssetClearingCertificate;
 }
 /**
@@ -1256,7 +1315,7 @@ export interface AssetShare {
     /** Форма выпуска ФИ */
     issueKind: string;
     /**
-     * Дата размещения акции.
+     * Дата размещения акции
      * @type `google.protobuf.Timestamp`
      */
     placementDate: string;
@@ -1287,7 +1346,7 @@ export interface AssetBond {
     /** Форма дохода облигации */
     interestKind: string;
     /**
-     * Количество выплат в год.
+     * Количество выплат в год
      * @type `int32`
      */
     couponQuantityPerYear: number;
@@ -1306,19 +1365,19 @@ export interface AssetBond {
     /** Признак бессрочной облигации */
     perpetualFlag: boolean;
     /**
-     * Дата погашения облигации.
+     * Дата погашения облигации
      * @type `google.protobuf.Timestamp`
      */
     maturityDate: string;
     /** Описание и условия получения дополнительного дохода */
     returnCondition: string;
     /**
-     * Дата выпуска облигации.
+     * Дата выпуска облигации
      * @type `google.protobuf.Timestamp`
      */
     stateRegDate: string;
     /**
-     * Дата размещения облигации.
+     * Дата размещения облигации
      * @type `google.protobuf.Timestamp`
      */
     placementDate: string;
@@ -1358,7 +1417,7 @@ export interface AssetStructuredProduct {
     /** Объем размещения */
     issueSize: Quotation;
     /**
-     * Дата размещения ноты.
+     * Дата размещения ноты
      * @type `google.protobuf.Timestamp`
      */
     placementDate: string;
@@ -1403,7 +1462,7 @@ export interface AssetEtf {
     /** Признак обязательства по отчетности перед регулятором */
     ucitsFlag: boolean;
     /**
-     * Дата выпуска.
+     * Дата выпуска
      * @type `google.protobuf.Timestamp`
      */
     releasedDate: string;
@@ -1428,7 +1487,7 @@ export interface AssetEtf {
     /** Ставки налогообложения дивидендов и купонов */
     taxRate: string;
     /**
-     * Даты ребалансировок.
+     * Даты ребалансировок
      * @type `google.protobuf.Timestamp`
      */
     rebalancingDates: string[];
@@ -1589,7 +1648,10 @@ export interface TradingSchedulesResponse {
  * @see https://tinkoff.github.io/investAPI/instruments/#instrumentrequest
  */
 export interface InstrumentRequest {
-    /** Тип идентификатора инструмента. Возможные значения: figi, ticker. Подробнее об идентификации инструментов: Идентификация инструментов */
+    /**
+     * Тип идентификатора инструмента
+     * @description Возможные значения: `figi`, `ticker` и т.д.
+     */
     idType: InstrumentIdType;
     /** Идентификатор classCode. Обязателен при idType = ticker */
     classCode: string;
@@ -1617,7 +1679,10 @@ export interface BondResponse {
  * @see https://tinkoff.github.io/investAPI/instruments/#instrumentsrequest
  */
 export interface InstrumentsRequest {
-    /** Статус запрашиваемых инструментов. Возможные значения: InstrumentStatus */
+    /**
+     * Статус запрашиваемых инструментов
+     * @description Возможные значения: InstrumentStatus
+     */
     instrumentStatus: InstrumentStatus;
 }
 /**
@@ -1625,7 +1690,10 @@ export interface InstrumentsRequest {
  * @see https://tinkoff.github.io/investAPI/instruments/#filteroptionsrequest
  */
 export interface FilterOptionsRequest {
-    /** Идентификатор базового актива опциона. Обязательный параметр */
+    /**
+     * Идентификатор базового актива опциона
+     * @description Обязательный параметр
+     */
     basicAssetUid: string;
     /** Идентификатор позиции базового актива опциона */
     basicAssetPositionUid: string;
@@ -1646,12 +1714,12 @@ export interface GetBondCouponsRequest {
     /** Figi-идентификатор инструмента */
     figi: string;
     /**
-     * Начало запрашиваемого периода в часовом поясе UTC. Фильтрация по couponDate (дата выплаты купона)
+     * Начало запрашиваемого периода в часовом поясе UTC Фильтрация по couponDate (дата выплаты купона)
      * @type `google.protobuf.Timestamp`
      */
     from: string;
     /**
-     * Окончание запрашиваемого периода в часовом поясе UTC. Фильтрация по couponDate (дата выплаты купона)
+     * Окончание запрашиваемого периода в часовом поясе UTC Фильтрация по couponDate (дата выплаты купона)
      * @type `google.protobuf.Timestamp`
      */
     to: string;
@@ -1752,12 +1820,12 @@ export interface GetAccruedInterestsRequest {
     /** Figi-идентификатор инструмента */
     figi: string;
     /**
-     * Начало запрашиваемого периода в часовом поясе UTC.
+     * Начало запрашиваемого периода в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     from: string;
     /**
-     * Окончание запрашиваемого периода в часовом поясе UTC.
+     * Окончание запрашиваемого периода в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
      */
     to: string;
@@ -1800,12 +1868,12 @@ export interface GetDividendsRequest {
     /** Figi-идентификатор инструмента */
     figi: string;
     /**
-     * Начало запрашиваемого периода в часовом поясе UTC. Фильтрация происходит по параметру recordDate (дата фиксации реестра).
+     * Начало запрашиваемого периода в часовом поясе UTC Фильтрация происходит по параметру recordDate (дата фиксации реестра).
      * @type `google.protobuf.Timestamp`
      */
     from: string;
     /**
-     * Окончание запрашиваемого периода в часовом поясе UTC. Фильтрация происходит по параметру recordDate (дата фиксации реестра).
+     * Окончание запрашиваемого периода в часовом поясе UTC Фильтрация происходит по параметру recordDate (дата фиксации реестра).
      * @type `google.protobuf.Timestamp`
      */
     to: string;
@@ -1967,7 +2035,7 @@ export declare class InstrumentsService extends Common {
      * ```js
      * import { InstrumentsService } from '@tomasevich/tinkoff'
      *
-     * const instrumentsService = new InstrumentsService('TOKEN', true)
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
      * const { exchanges } = await instrumentsService.TradingSchedules({
      *  from: '2023-07-12T00:00:00:000Z',
      *  to: '2023-07-13T23:59:59:999Z',
@@ -1986,6 +2054,16 @@ export declare class InstrumentsService extends Common {
     BondBy(body: InstrumentRequest): Promise<BondResponse>;
     /**
      * Метод получения списка облигаций
+     * ```js
+     * import { InstrumentsService, InstrumentStatus } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { instruments } = await instrumentsService.Bonds({
+     *  instrumentStatus: InstrumentStatus.INSTRUMENT_STATUS_BASE
+     * })
+     *
+     * console.log(instruments)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#bonds
      */
     Bonds(body: InstrumentsRequest): Promise<BondsResponse>;
