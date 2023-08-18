@@ -2417,6 +2417,16 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения актива по его идентификатору
+   * ```js
+   * import { InstrumentsService } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const asset = await instrumentsService.GetAssetBy({
+   *  id: 'b6a73950-20a8-46c7-8b49-9dfbc14fe0ba'
+   * })
+   *
+   * console.log(asset)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#getassetby
    */
   public GetAssetBy(body: AssetRequest): Promise<AssetResponse> {
