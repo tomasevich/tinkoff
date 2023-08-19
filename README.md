@@ -2,7 +2,13 @@
 
 `Неофициальная` библиотека для работы с [Тинькофф Инвестиции](https://www.tinkoff.ru/invest/)
 
-![@tomasevic/2Ftinkoff](https://badge.fury.io/js/@tomasevich%2Ftinkoff.svg)
+![npm (scoped)](https://img.shields.io/npm/v/%40tomasevich/tinkoff?color=blue)
+![npm bundle size](https://img.shields.io/bundlephobia/min/%40tomasevich%2Ftinkoff?color=purple)
+![GitHub top language](https://img.shields.io/github/languages/top/tomasevich/tinkoff?color=purple)
+![GitHub](https://img.shields.io/github/license/tomasevich/tinkoff?color=orange)
+![Static Badge](https://img.shields.io/badge/tests-34-green)
+![Static Badge](https://img.shields.io/badge/covarage-384-green)
+![Static Badge](https://img.shields.io/badge/docs-true-green)
 
 ## Мотивация
 
