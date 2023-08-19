@@ -2,7 +2,7 @@
 
 `Неофициальная` библиотека для работы с [Тинькофф Инвестиции](https://www.tinkoff.ru/invest/)
 
-[![@tomasevic/2Ftinkoff](https://badge.fury.io/js/@tomasevich%2Ftinkoff.svg)]([https://badge.fury.io/js/@tomasevich%2Ftinkoff](https://www.npmjs.com/package/@tomasevich/tinkoff))
+![@tomasevic/2Ftinkoff](https://badge.fury.io/js/@tomasevich%2Ftinkoff.svg)
 
 ## Мотивация
 
