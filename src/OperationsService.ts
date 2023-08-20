@@ -261,10 +261,13 @@ export interface OperationsRequest {
    * @type `google.protobuf.Timestamp`
    */
   to: string
-  /** Статус запрашиваемых операций */
+  /**
+   * Статус запрашиваемых операций
+   * @default OPERATION_STATE_UNSPECIFIED
+   */
   state: OperationState
   /** Figi-идентификатор инструмента для фильтрации */
-  figi: string
+  figi?: string
 }
 
 /**
@@ -284,7 +287,7 @@ export interface PortfolioRequest {
   /** Идентификатор счёта пользователя */
   accountId: string
   /** Валюта, в которой требуется рассчитать портфель */
-  currency: PortfolioRequestCurrencyRequest
+  currency?: PortfolioRequestCurrencyRequest
 }
 
 /**
