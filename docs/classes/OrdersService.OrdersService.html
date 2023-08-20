@@ -36,7 +36,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">OrdersService</span></li></ul></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/OrdersService.ts#L335">OrdersService.ts:335</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/OrdersService.ts#L335">OrdersService.ts:335</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -63,6 +63,8 @@
 <li class="tsd-signature tsd-anchor-link" id="constructor.new_OrdersService"><span class="tsd-kind-constructor-signature">new <wbr/>Orders<wbr/>Service</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">token</span>, <span class="tsd-kind-parameter">isSandbox</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="OrdersService.OrdersService.html" class="tsd-signature-type tsd-kind-class">OrdersService</a><a href="#constructor.new_OrdersService" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Конструктор</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-7">// Для работы с реальными данными</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">realServer</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;REAL_TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">false</span><span class="hl-1">)</span><br/><br/><span class="hl-7">// Для работы с данными в тестовом режиме</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxServer</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;SANDBOX_TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -81,7 +83,7 @@
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#constructor">constructor</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/Common.ts#L53">Common.ts:53</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/Common.ts#L62">Common.ts:62</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member"><a id="CancelOrder" class="tsd-anchor"></a>
@@ -101,7 +103,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/orders/#cancelorder">https://tinkoff.github.io/investAPI/orders/#cancelorder</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/OrdersService.ts#L348">OrdersService.ts:348</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/OrdersService.ts#L348">OrdersService.ts:348</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetOrderState" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Order<wbr/>State</span><a href="#GetOrderState" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -119,7 +121,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/orders/#getorderstate">https://tinkoff.github.io/investAPI/orders/#getorderstate</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/OrdersService.ts#L356">OrdersService.ts:356</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/OrdersService.ts#L356">OrdersService.ts:356</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetOrders" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Orders</span><a href="#GetOrders" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -137,7 +139,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/orders/#getorders">https://tinkoff.github.io/investAPI/orders/#getorders</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/OrdersService.ts#L364">OrdersService.ts:364</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/OrdersService.ts#L364">OrdersService.ts:364</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="PostOrder" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Post<wbr/>Order</span><a href="#PostOrder" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -155,7 +157,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/orders/#postorder">https://tinkoff.github.io/investAPI/orders/#postorder</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/OrdersService.ts#L340">OrdersService.ts:340</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/OrdersService.ts#L340">OrdersService.ts:340</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="ReplaceOrder" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Replace<wbr/>Order</span><a href="#ReplaceOrder" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -173,13 +175,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/orders/#replaceorder">https://tinkoff.github.io/investAPI/orders/#replaceorder</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/OrdersService.ts#L372">OrdersService.ts:372</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/OrdersService.ts#L372">OrdersService.ts:372</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-protected tsd-is-inherited"><a id="request" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagProtected">Protected</code> <span>request</span><a href="#request" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-protected tsd-is-inherited">
 <li class="tsd-signature tsd-anchor-link" id="request.request-1"><span class="tsd-kind-call-signature">request</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">service</span>, <span class="tsd-kind-parameter">method</span>, <span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><a href="#request.request-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод <code>HTTP</code> запроса к серверу <strong>Tinkoff Invest API</strong></p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">Common</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">class</span><span class="hl-1"> </span><span class="hl-8">Application</span><span class="hl-1"> </span><span class="hl-5">extends</span><span class="hl-1"> </span><span class="hl-8">Common</span><span class="hl-1"> {</span><br/><span class="hl-1"> </span><span class="hl-5">public</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-4">body</span><span class="hl-1">) {</span><br/><span class="hl-1">   </span><span class="hl-3">return</span><span class="hl-1"> </span><span class="hl-5">this</span><span class="hl-1">.</span><span class="hl-0">request</span><span class="hl-1">(</span><span class="hl-2">&#39;SandboxService&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;GetSandboxOrders&#39;</span><span class="hl-1">, </span><span class="hl-4">body</span><span class="hl-1">)</span><br/><span class="hl-1"> }</span><br/><span class="hl-1">}</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">app</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">Application</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">orders</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">app</span><span class="hl-1">.</span><span class="hl-0">SandboxService</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ACCOUNT_ID&gt;&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">orders</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -203,7 +207,7 @@
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#request">request</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/Common.ts#L61">Common.ts:61</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/Common.ts#L86">Common.ts:86</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -258,8 +262,7 @@
 <li><a href="../interfaces/OrdersService.ReplaceOrderRequest.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Replace<wbr/>Order<wbr/>Request</span></a></li></ul></div></details></li>
 <li><a href="../modules/SandboxService.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Sandbox<wbr/>Service</span></a></li>
 <li><a href="../modules/StopOrdersService.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Stop<wbr/>Orders<wbr/>Service</span></a></li>
-<li><a href="../modules/UsersService.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Users<wbr/>Service</span></a></li>
-<li><a href="../modules/index.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>index</span></a></li></ul></nav></div></div></div>
+<li><a href="../modules/UsersService.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Users<wbr/>Service</span></a></li></ul></nav></div></div></div>
 <div class="tsd-generator">
 <p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
 <div class="overlay"></div></body></html>

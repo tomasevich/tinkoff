@@ -29,7 +29,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">SandboxService</span></li></ul></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/SandboxService.ts#L47">SandboxService.ts:47</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L47">SandboxService.ts:47</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -65,6 +65,8 @@
 <li class="tsd-signature tsd-anchor-link" id="constructor.new_SandboxService"><span class="tsd-kind-constructor-signature">new <wbr/>Sandbox<wbr/>Service</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">token</span>, <span class="tsd-kind-parameter">isSandbox</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="SandboxService.SandboxService.html" class="tsd-signature-type tsd-kind-class">SandboxService</a><a href="#constructor.new_SandboxService" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Конструктор</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-7">// Для работы с реальными данными</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">realServer</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;REAL_TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">false</span><span class="hl-1">)</span><br/><br/><span class="hl-7">// Для работы с данными в тестовом режиме</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxServer</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;SANDBOX_TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -83,7 +85,7 @@
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#constructor">constructor</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/Common.ts#L53">Common.ts:53</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/Common.ts#L62">Common.ts:62</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member"><a id="CancelSandboxOrder" class="tsd-anchor"></a>
@@ -103,13 +105,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#cancelsandboxorder">https://tinkoff.github.io/investAPI/sandbox/#cancelsandboxorder</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/SandboxService.ts#L116">SandboxService.ts:116</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L160">SandboxService.ts:160</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="CloseSandboxAccount" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Close<wbr/>Sandbox<wbr/>Account</span><a href="#CloseSandboxAccount" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="CloseSandboxAccount.CloseSandboxAccount-1"><span class="tsd-kind-call-signature">Close<wbr/>Sandbox<wbr/>Account</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/SandboxService.CloseSandboxAccountResponse.html" class="tsd-signature-type tsd-kind-interface">CloseSandboxAccountResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#CloseSandboxAccount.CloseSandboxAccount-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод закрытия счёта в песочнице</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">result</span><span class="hl-1"> = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">sandboxService</span><span class="hl-1">.</span><span class="hl-0">OpenSandboxAccount</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;ad49188f-6d97-4493-8a68-c9adcd15db42&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">result</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -121,14 +125,14 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#closesandboxaccount">https://tinkoff.github.io/investAPI/sandbox/#closesandboxaccount</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/SandboxService.ts#L80">SandboxService.ts:80</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L98">SandboxService.ts:98</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxAccounts" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Accounts</span><a href="#GetSandboxAccounts" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetSandboxAccounts.GetSandboxAccounts-1"><span class="tsd-kind-call-signature">Get<wbr/>Sandbox<wbr/>Accounts</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/UsersService.GetAccountsResponse.html" class="tsd-signature-type tsd-kind-interface">GetAccountsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetSandboxAccounts.GetSandboxAccounts-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения счетов в песочнице</p>
-<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;TOKEN&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">accounts</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">sandboxService</span><span class="hl-1">.</span><span class="hl-0">GetSandboxAccounts</span><span class="hl-1">({})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">accounts</span><span class="hl-1">)</span>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">accounts</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">sandboxService</span><span class="hl-1">.</span><span class="hl-0">GetSandboxAccounts</span><span class="hl-1">({})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">accounts</span><span class="hl-1">)</span>
 </code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
@@ -141,13 +145,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxaccounts">https://tinkoff.github.io/investAPI/sandbox/#getsandboxaccounts</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/SandboxService.ts#L70">SandboxService.ts:70</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L78">SandboxService.ts:78</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxOperations" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Operations</span><a href="#GetSandboxOperations" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetSandboxOperations.GetSandboxOperations-1"><span class="tsd-kind-call-signature">Get<wbr/>Sandbox<wbr/>Operations</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/OperationsService.OperationsResponse.html" class="tsd-signature-type tsd-kind-interface">OperationsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetSandboxOperations.GetSandboxOperations-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения операций в песочнице по номеру счёта</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1">, </span><span class="hl-4">OperationState</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">operations</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">sandboxService</span><span class="hl-1">.</span><span class="hl-0">GetSandboxOperations</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ACCOUNT_ID&gt;&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">from:</span><span class="hl-1"> </span><span class="hl-2">&#39;2023-07-18T00:00:00:000Z&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">to:</span><span class="hl-1"> </span><span class="hl-2">&#39;2023-08-19T00:00:00:000Z&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">state:</span><span class="hl-1"> </span><span class="hl-4">OperationState</span><span class="hl-1">.</span><span class="hl-6">OPERATION_STATE_EXECUTED</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">operations</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -159,13 +165,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxoperations">https://tinkoff.github.io/investAPI/sandbox/#getsandboxoperations</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/SandboxService.ts#L145">SandboxService.ts:145</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L212">SandboxService.ts:212</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxOperationsByCursor" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Operations<wbr/>By<wbr/>Cursor</span><a href="#GetSandboxOperationsByCursor" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetSandboxOperationsByCursor.GetSandboxOperationsByCursor-1"><span class="tsd-kind-call-signature">Get<wbr/>Sandbox<wbr/>Operations<wbr/>By<wbr/>Cursor</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/OperationsService.GetOperationsByCursorResponse.html" class="tsd-signature-type tsd-kind-interface">GetOperationsByCursorResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetSandboxOperationsByCursor.GetSandboxOperationsByCursor-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения операций в песочнице по номеру счета с пагинацией</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1">, </span><span class="hl-4">OperationState</span><span class="hl-1">, </span><span class="hl-4">OperationType</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">operationsByCursor</span><span class="hl-1"> = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">sandboxService</span><span class="hl-1">.</span><span class="hl-0">GetSandboxOperationsByCursor</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ACCOUNT_ID&gt;&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">instrumentId:</span><span class="hl-1"> </span><span class="hl-2">&#39;6afa6f80-03a7-4d83-9cf0-c19d7d021f76&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">from:</span><span class="hl-1"> </span><span class="hl-2">&#39;2023-07-18T00:00:00:000Z&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">to:</span><span class="hl-1"> </span><span class="hl-2">&#39;2023-08-19T00:00:00:000Z&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">cursor:</span><span class="hl-1"> </span><span class="hl-2">&#39;&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">limit:</span><span class="hl-1"> </span><span class="hl-9">10</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">state:</span><span class="hl-1"> </span><span class="hl-4">OperationState</span><span class="hl-1">.</span><span class="hl-6">OPERATION_STATE_CANCELED</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">operationTypes:</span><span class="hl-1"> [</span><br/><span class="hl-1">   </span><span class="hl-4">OperationType</span><span class="hl-1">.</span><span class="hl-6">OPERATION_TYPE_BUY</span><span class="hl-1">,</span><br/><span class="hl-1">   </span><span class="hl-4">OperationType</span><span class="hl-1">.</span><span class="hl-6">OPERATION_TYPE_SELL</span><br/><span class="hl-1"> ],</span><br/><span class="hl-1"> </span><span class="hl-4">withoutCommissions:</span><span class="hl-1"> </span><span class="hl-5">false</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">withoutTrades:</span><span class="hl-1"> </span><span class="hl-5">false</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">withoutOvernights:</span><span class="hl-1"> </span><span class="hl-5">false</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">operationsByCursor</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -177,7 +185,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxoperationsbycursor">https://tinkoff.github.io/investAPI/sandbox/#getsandboxoperationsbycursor</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/SandboxService.ts#L155">SandboxService.ts:155</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L245">SandboxService.ts:245</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxOrderState" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Order<wbr/>State</span><a href="#GetSandboxOrderState" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -197,13 +205,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxorderstate">https://tinkoff.github.io/investAPI/sandbox/#getsandboxorderstate</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/SandboxService.ts#L127">SandboxService.ts:127</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L171">SandboxService.ts:171</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxOrders" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Orders</span><a href="#GetSandboxOrders" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetSandboxOrders.GetSandboxOrders-1"><span class="tsd-kind-call-signature">Get<wbr/>Sandbox<wbr/>Orders</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/OrdersService.GetOrdersResponse.html" class="tsd-signature-type tsd-kind-interface">GetOrdersResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetSandboxOrders.GetSandboxOrders-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения списка активных заявок по счёту в песочнице</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">orders</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">sandboxService</span><span class="hl-1">.</span><span class="hl-0">GetSandboxOrders</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ACCOUNT_ID&gt;&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">orders</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -215,13 +225,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxorders">https://tinkoff.github.io/investAPI/sandbox/#getsandboxorders</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/SandboxService.ts#L108">SandboxService.ts:108</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L152">SandboxService.ts:152</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxPortfolio" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Portfolio</span><a href="#GetSandboxPortfolio" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetSandboxPortfolio.GetSandboxPortfolio-1"><span class="tsd-kind-call-signature">Get<wbr/>Sandbox<wbr/>Portfolio</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/OperationsService.PortfolioResponse.html" class="tsd-signature-type tsd-kind-interface">PortfolioResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetSandboxPortfolio.GetSandboxPortfolio-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения портфолио в песочнице</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1">, </span><span class="hl-4">PortfolioRequestCurrencyRequest</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">portfolio</span><span class="hl-1"> = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">sandboxService</span><span class="hl-1">.</span><span class="hl-0">GetPortfolio</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ACCOUNT_ID&gt;&#39;</span><br/><span class="hl-1"> </span><span class="hl-4">currency</span><span class="hl-1">: </span><span class="hl-4">PortfolioRequestCurrencyRequest</span><span class="hl-1">.</span><span class="hl-6">RUB</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">portfolio</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -233,13 +245,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxportfolio">https://tinkoff.github.io/investAPI/sandbox/#getsandboxportfolio</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/SandboxService.ts#L165">SandboxService.ts:165</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L266">SandboxService.ts:266</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxPositions" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Positions</span><a href="#GetSandboxPositions" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetSandboxPositions.GetSandboxPositions-1"><span class="tsd-kind-call-signature">Get<wbr/>Sandbox<wbr/>Positions</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/OperationsService.PositionsResponse.html" class="tsd-signature-type tsd-kind-interface">PositionsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetSandboxPositions.GetSandboxPositions-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения позиций по виртуальному счёту</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxPositions</span><span class="hl-1"> = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">sandboxService</span><span class="hl-1">.</span><span class="hl-0">GetSandboxPositions</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ACCOUNT_ID&gt;&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">sandboxPositions</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -251,13 +265,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxpositions">https://tinkoff.github.io/investAPI/sandbox/#getsandboxpositions</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/SandboxService.ts#L135">SandboxService.ts:135</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L189">SandboxService.ts:189</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxWithdrawLimits" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Withdraw<wbr/>Limits</span><a href="#GetSandboxWithdrawLimits" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetSandboxWithdrawLimits.GetSandboxWithdrawLimits-1"><span class="tsd-kind-call-signature">Get<wbr/>Sandbox<wbr/>Withdraw<wbr/>Limits</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/OperationsService.WithdrawLimitsResponse.html" class="tsd-signature-type tsd-kind-interface">WithdrawLimitsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetSandboxWithdrawLimits.GetSandboxWithdrawLimits-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения доступного остатка для вывода средств в песочнице</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">withdrawLimits</span><span class="hl-1"> = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">sandboxService</span><span class="hl-1">.</span><span class="hl-0">GetWithdrawLimits</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ACCOUNT_ID&gt;&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">withdrawLimits</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -269,13 +285,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxwithdrawlimits">https://tinkoff.github.io/investAPI/sandbox/#getsandboxwithdrawlimits</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/SandboxService.ts#L185">SandboxService.ts:185</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L296">SandboxService.ts:296</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="OpenSandboxAccount" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Open<wbr/>Sandbox<wbr/>Account</span><a href="#OpenSandboxAccount" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="OpenSandboxAccount.OpenSandboxAccount-1"><span class="tsd-kind-call-signature">Open<wbr/>Sandbox<wbr/>Account</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/SandboxService.OpenSandboxAccountResponse.html" class="tsd-signature-type tsd-kind-interface">OpenSandboxAccountResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#OpenSandboxAccount.OpenSandboxAccount-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод регистрации счёта в песочнице</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">result</span><span class="hl-1"> = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">sandboxService</span><span class="hl-1">.</span><span class="hl-0">OpenSandboxAccount</span><span class="hl-1">({})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">result</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -287,13 +305,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#opensandboxaccount">https://tinkoff.github.io/investAPI/sandbox/#opensandboxaccount</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/SandboxService.ts#L52">SandboxService.ts:52</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L60">SandboxService.ts:60</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="PostSandboxOrder" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Post<wbr/>Sandbox<wbr/>Order</span><a href="#PostSandboxOrder" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="PostSandboxOrder.PostSandboxOrder-1"><span class="tsd-kind-call-signature">Post<wbr/>Sandbox<wbr/>Order</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/OrdersService.PostOrderResponse.html" class="tsd-signature-type tsd-kind-interface">PostOrderResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#PostSandboxOrder.PostSandboxOrder-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод выставления торгового поручения в песочнице</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1">, </span><span class="hl-4">OrderDirection</span><span class="hl-1">, </span><span class="hl-4">OrderType</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">result</span><span class="hl-1"> = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">sandboxService</span><span class="hl-1">.</span><span class="hl-0">PostSandboxOrder</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">quantity:</span><span class="hl-1"> </span><span class="hl-2">&#39;1&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">price:</span><span class="hl-1"> { </span><span class="hl-4">units:</span><span class="hl-1"> </span><span class="hl-2">&#39;1&#39;</span><span class="hl-1">, </span><span class="hl-4">nano:</span><span class="hl-1"> </span><span class="hl-9">0</span><span class="hl-1"> },</span><br/><span class="hl-1"> </span><span class="hl-4">direction:</span><span class="hl-1"> </span><span class="hl-4">OrderDirection</span><span class="hl-1">.</span><span class="hl-6">ORDER_DIRECTION_BUY</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ACCOUNT_ID&gt;&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">orderType:</span><span class="hl-1"> </span><span class="hl-4">OrderType</span><span class="hl-1">.</span><span class="hl-6">ORDER_TYPE_MARKET</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">orderId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">instrumentId:</span><span class="hl-1"> </span><span class="hl-2">&#39;6afa6f80-03a7-4d83-9cf0-c19d7d021f76&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">result</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -305,7 +325,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#postsandboxorder">https://tinkoff.github.io/investAPI/sandbox/#postsandboxorder</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/SandboxService.ts#L90">SandboxService.ts:90</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L124">SandboxService.ts:124</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="ReplaceSandboxOrder" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Replace<wbr/>Sandbox<wbr/>Order</span><a href="#ReplaceSandboxOrder" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -323,7 +343,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#replacesandboxorder">https://tinkoff.github.io/investAPI/sandbox/#replacesandboxorder</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/SandboxService.ts#L98">SandboxService.ts:98</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L132">SandboxService.ts:132</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="SandboxPayIn" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Sandbox<wbr/>Pay<wbr/>In</span><a href="#SandboxPayIn" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -341,13 +361,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#sandboxpayin">https://tinkoff.github.io/investAPI/sandbox/#sandboxpayin</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/SandboxService.ts#L175">SandboxService.ts:175</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L276">SandboxService.ts:276</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-protected tsd-is-inherited"><a id="request" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagProtected">Protected</code> <span>request</span><a href="#request" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-protected tsd-is-inherited">
 <li class="tsd-signature tsd-anchor-link" id="request.request-1"><span class="tsd-kind-call-signature">request</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">service</span>, <span class="tsd-kind-parameter">method</span>, <span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><a href="#request.request-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод <code>HTTP</code> запроса к серверу <strong>Tinkoff Invest API</strong></p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">Common</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">class</span><span class="hl-1"> </span><span class="hl-8">Application</span><span class="hl-1"> </span><span class="hl-5">extends</span><span class="hl-1"> </span><span class="hl-8">Common</span><span class="hl-1"> {</span><br/><span class="hl-1"> </span><span class="hl-5">public</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-4">body</span><span class="hl-1">) {</span><br/><span class="hl-1">   </span><span class="hl-3">return</span><span class="hl-1"> </span><span class="hl-5">this</span><span class="hl-1">.</span><span class="hl-0">request</span><span class="hl-1">(</span><span class="hl-2">&#39;SandboxService&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;GetSandboxOrders&#39;</span><span class="hl-1">, </span><span class="hl-4">body</span><span class="hl-1">)</span><br/><span class="hl-1"> }</span><br/><span class="hl-1">}</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">app</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">Application</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">orders</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">app</span><span class="hl-1">.</span><span class="hl-0">SandboxService</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ACCOUNT_ID&gt;&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">orders</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -371,7 +393,7 @@
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#request">request</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/Common.ts#L61">Common.ts:61</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/Common.ts#L86">Common.ts:86</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -427,8 +449,7 @@
 <li><a href="../interfaces/SandboxService.SandboxPayInRequest.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Sandbox<wbr/>Pay<wbr/>In<wbr/>Request</span></a></li>
 <li><a href="../interfaces/SandboxService.SandboxPayInResponse.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Sandbox<wbr/>Pay<wbr/>In<wbr/>Response</span></a></li></ul></div></details></li>
 <li><a href="../modules/StopOrdersService.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Stop<wbr/>Orders<wbr/>Service</span></a></li>
-<li><a href="../modules/UsersService.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Users<wbr/>Service</span></a></li>
-<li><a href="../modules/index.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>index</span></a></li></ul></nav></div></div></div>
+<li><a href="../modules/UsersService.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Users<wbr/>Service</span></a></li></ul></nav></div></div></div>
 <div class="tsd-generator">
 <p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
 <div class="overlay"></div></body></html>

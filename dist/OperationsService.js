@@ -173,6 +173,20 @@ var PortfolioRequestCurrencyRequest;
 class OperationsService extends Common_1.Common {
     /**
      * Метод получения списка операций по счёту
+     * ```js
+     * import { OperationsService, OperationState } from '@tomasevich/tinkoff'
+     *
+     * const operationsService = new OperationsService('<TOKEN>', true)
+     * const { operations } = await operationsService.GetOperations({
+     *  accountId: '<ACCOUNT_ID>',
+     *  from: '2023-07-18T00:00:00:000Z',
+     *  to: '2023-08-19T00:00:00:000Z',
+     *  state: OperationState.OPERATION_STATE_CANCELED,
+     *  figi: 'BBG00YTS96G2'
+     * })
+     *
+     * console.log(operations)
+     * ```
      * @description При работе с данным методом необходимо учитывать особенности взаимодействия с данным методом
      * @see https://tinkoff.github.io/investAPI/operations/#getoperations
      */
@@ -181,6 +195,17 @@ class OperationsService extends Common_1.Common {
     }
     /**
      * Метод получения портфеля по счёту
+     * ```js
+     * import { OperationsService, PortfolioRequestCurrencyRequest } from '@tomasevich/tinkoff'
+     *
+     * const operationsService = new OperationsService('<TOKEN>', true)
+     * const portfolio = await operationsService.GetPortfolio({
+     *  accountId: '<ACCOUNT_ID>'
+     *  currency: PortfolioRequestCurrencyRequest.RUB
+     * })
+     *
+     * console.log(portfolio)
+     * ```
      * @see https://tinkoff.github.io/investAPI/operations/#getportfolio
      */
     GetPortfolio(body) {
@@ -188,6 +213,16 @@ class OperationsService extends Common_1.Common {
     }
     /**
      * Метод получения списка позиций по счёту
+     * ```js
+     * import { OperationsService } from '@tomasevich/tinkoff'
+     *
+     * const operationsService = new OperationsService('<TOKEN>', true)
+     * const positions = await operationsService.GetPositions({
+     *  accountId: '<ACCOUNT_ID>'
+     * })
+     *
+     * console.log(positions)
+     * ```
      * @see https://tinkoff.github.io/investAPI/operations/#getpositions
      */
     GetPositions(body) {
@@ -195,6 +230,16 @@ class OperationsService extends Common_1.Common {
     }
     /**
      * Метод получения доступного остатка для вывода средств
+     * ```js
+     * import { OperationsService } from '@tomasevich/tinkoff'
+     *
+     * const operationsService = new OperationsService('<TOKEN>', true)
+     * const withdrawLimits = await operationsService.GetWithdrawLimits({
+     *  accountId: '<ACCOUNT_ID>'
+     * })
+     *
+     * console.log(withdrawLimits)
+     * ```
      * @see https://tinkoff.github.io/investAPI/operations/#getwithdrawlimits
      */
     GetWithdrawLimits(body) {
@@ -202,6 +247,21 @@ class OperationsService extends Common_1.Common {
     }
     /**
      * Метод получения брокерского отчёта
+     * ```js
+     * import { OperationsService } from '@tomasevich/tinkoff'
+     *
+     * const operationsService = new OperationsService('<TOKEN>', true)
+     * const brokerReport = await operationsService.GetBrokerReport({
+     *  generateBrokerReportRequest: {
+     *    accountId: '<ACCOUNT_ID>',
+     *    from: '2023-07-18T00:00:00:000Z',
+     *    to: '2023-08-19T00:00:00:000Z'
+     *  },
+     *  getBrokerReportRequest: { taskId: '', page: 0 }
+     * })
+     *
+     * console.log(brokerReport)
+     * ```
      * @see https://tinkoff.github.io/investAPI/operations/#getbrokerreport
      */
     GetBrokerReport(body) {
@@ -209,6 +269,21 @@ class OperationsService extends Common_1.Common {
     }
     /**
      * Метод получения отчёта "Справка о доходах за пределами РФ"
+     * ```js
+     * import { OperationsService } from '@tomasevich/tinkoff'
+     *
+     * const operationsService = new OperationsService('<TOKEN>', true)
+     * const dividendsForeignIssuer = await operationsService.GetDividendsForeignIssuer({
+     *  generateDivForeignIssuerReport: {
+     *    accountId: '<ACCOUNT_ID>',
+     *    from: '2023-07-18T00:00:00:000Z',
+     *    to: '2023-08-19T00:00:00:000Z'
+     *  },
+     *  getDivForeignIssuerReport: { taskId: '', page: 0 }
+     * })
+     *
+     * console.log(dividendsForeignIssuer)
+     * ```
      * @see https://tinkoff.github.io/investAPI/operations/#getdividendsforeignissuer
      */
     GetDividendsForeignIssuer(body) {
@@ -216,6 +291,29 @@ class OperationsService extends Common_1.Common {
     }
     /**
      * Метод получения списка операций по счёту с пагинацией
+     * ```js
+     * import { OperationsService, OperationState, OperationType } from '@tomasevich/tinkoff'
+     *
+     * const operationsService = new OperationsService('<TOKEN>', true)
+     * const operationsByCursor = await operationsService.GetOperationsByCursor({
+     *  accountId: '<ACCOUNT_ID>',
+     *  instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76',
+     *  from: '2023-07-18T00:00:00:000Z',
+     *  to: '2023-08-19T00:00:00:000Z',
+     *  cursor: '',
+     *  limit: 10,
+     *  state: OperationState.OPERATION_STATE_CANCELED,
+     *  operationTypes: [
+     *    OperationType.OPERATION_TYPE_BUY,
+     *    OperationType.OPERATION_TYPE_SELL
+     *  ],
+     *  withoutCommissions: false,
+     *  withoutTrades: false,
+     *  withoutOvernights: false
+     * })
+     *
+     * console.log(operationsByCursor)
+     * ```
      * @description При работе с данным методом необходимо учитывать особенности взаимодействия с данным методом
      * @see https://tinkoff.github.io/investAPI/operations/#getoperationsbycursor
      */

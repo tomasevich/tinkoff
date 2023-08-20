@@ -1,14 +1,22 @@
 {
   "name": "@tomasevich/tinkoff",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "docs": "typedoc",
+    "test": "jest --c=./jest.coverage.config.js",
+    "test:instruments": "jest --testRegex='/test/InstrumentsService/*' --c=./jest.test.config.js",
+    "test:marketdata": "jest --testRegex='/test/MarketDataService/*' --c=./jest.test.config.js",
+    "test:operations": "jest --testRegex='/test/OperationsService/*' --c=./jest.test.config.js",
+    "test:orders": "jest --testRegex='/test/OrdersService/*' --c=./jest.test.config.js",
+    "test:sandbox": "jest --testRegex='/test/SandboxService/*' --c=./jest.test.config.js",
+    "test:stoporders": "jest --testRegex='/test/StopOrdersService/*' --c=./jest.test.config.js",
+    "test:users": "jest --testRegex='/test/UsersService/*' --c=./jest.test.config.js",
     "build": "rm -rf ./dist && tsc",
-    "test": "jest",
-    "prerelease": "npm run build && npm test && npm run docs",
-    "release": "npm publish --access=public"
+    "docs": "typedoc",
+    "prerelease": "npm test && npm run build && npm run docs",
+    "release": "npm publish --access=public",
+    "postrelease": "git add . && git commit -m 'фиксация артефактов релиза'"
   },
   "devDependencies": {
     "@types/jest": "^29.5.3",
@@ -29,7 +37,11 @@
   "homepage": "https://tomasevich.github.io/tinkoff",
   "description": "Неофициальная библиотека для работы с Тинькофф Инвестиции",
   "keywords": [
-    "tinkoff-invest-api"
+    "tinkoff-invest-api",
+    "typedoc",
+    "jest-test",
+    "jest-coverage",
+    "rest-api"
   ],
   "author": "Tomasevich V.S.",
   "license": "MIT"

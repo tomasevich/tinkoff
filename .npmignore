@@ -1,11 +1,16 @@
-# IDE
+# DOT
 .vscode
+.github
 
-# TEST
+# CONFIG
 jest.config.js
+typedoc.config.js
 
 # ENV
+.env
 .env.test
 
-# DOCS
+# ARTFCTS
 docs
+test
+coverage

@@ -200,7 +200,7 @@ export interface Operation {
    * `etf` — фонд;
    * `futures` — фьючерс.
    */
-  instrumentType: string
+  instrumentType: 'bond' | 'share' | 'currency' | 'etf' | 'futures'
   /**
    * Дата и время операции в формате часовом поясе UTC
    * @type `google.protobuf.Timestamp`
@@ -261,10 +261,13 @@ export interface OperationsRequest {
    * @type `google.protobuf.Timestamp`
    */
   to: string
-  /** Статус запрашиваемых операций */
+  /**
+   * Статус запрашиваемых операций
+   * @default OPERATION_STATE_UNSPECIFIED
+   */
   state: OperationState
   /** Figi-идентификатор инструмента для фильтрации */
-  figi: string
+  figi?: string
 }
 
 /**
@@ -284,7 +287,7 @@ export interface PortfolioRequest {
   /** Идентификатор счёта пользователя */
   accountId: string
   /** Валюта, в которой требуется рассчитать портфель */
-  currency: PortfolioRequestCurrencyRequest
+  currency?: PortfolioRequestCurrencyRequest
 }
 
 /**
@@ -1035,6 +1038,20 @@ export interface PositionsMoney {
 export class OperationsService extends Common {
   /**
    * Метод получения списка операций по счёту
+   * ```js
+   * import { OperationsService, OperationState } from '@tomasevich/tinkoff'
+   *
+   * const operationsService = new OperationsService('<TOKEN>', true)
+   * const { operations } = await operationsService.GetOperations({
+   *  accountId: '<ACCOUNT_ID>',
+   *  from: '2023-07-18T00:00:00:000Z',
+   *  to: '2023-08-19T00:00:00:000Z',
+   *  state: OperationState.OPERATION_STATE_CANCELED,
+   *  figi: 'BBG00YTS96G2'
+   * })
+   *
+   * console.log(operations)
+   * ```
    * @description При работе с данным методом необходимо учитывать особенности взаимодействия с данным методом
    * @see https://tinkoff.github.io/investAPI/operations/#getoperations
    */
@@ -1044,6 +1061,17 @@ export class OperationsService extends Common {
 
   /**
    * Метод получения портфеля по счёту
+   * ```js
+   * import { OperationsService, PortfolioRequestCurrencyRequest } from '@tomasevich/tinkoff'
+   *
+   * const operationsService = new OperationsService('<TOKEN>', true)
+   * const portfolio = await operationsService.GetPortfolio({
+   *  accountId: '<ACCOUNT_ID>'
+   *  currency: PortfolioRequestCurrencyRequest.RUB
+   * })
+   *
+   * console.log(portfolio)
+   * ```
    * @see https://tinkoff.github.io/investAPI/operations/#getportfolio
    */
   public GetPortfolio(body: PortfolioRequest): Promise<PortfolioResponse> {
@@ -1052,6 +1080,16 @@ export class OperationsService extends Common {
 
   /**
    * Метод получения списка позиций по счёту
+   * ```js
+   * import { OperationsService } from '@tomasevich/tinkoff'
+   *
+   * const operationsService = new OperationsService('<TOKEN>', true)
+   * const positions = await operationsService.GetPositions({
+   *  accountId: '<ACCOUNT_ID>'
+   * })
+   *
+   * console.log(positions)
+   * ```
    * @see https://tinkoff.github.io/investAPI/operations/#getpositions
    */
   public GetPositions(body: PositionsRequest): Promise<PositionsResponse> {
@@ -1060,6 +1098,16 @@ export class OperationsService extends Common {
 
   /**
    * Метод получения доступного остатка для вывода средств
+   * ```js
+   * import { OperationsService } from '@tomasevich/tinkoff'
+   *
+   * const operationsService = new OperationsService('<TOKEN>', true)
+   * const withdrawLimits = await operationsService.GetWithdrawLimits({
+   *  accountId: '<ACCOUNT_ID>'
+   * })
+   *
+   * console.log(withdrawLimits)
+   * ```
    * @see https://tinkoff.github.io/investAPI/operations/#getwithdrawlimits
    */
   public GetWithdrawLimits(
@@ -1070,6 +1118,21 @@ export class OperationsService extends Common {
 
   /**
    * Метод получения брокерского отчёта
+   * ```js
+   * import { OperationsService } from '@tomasevich/tinkoff'
+   *
+   * const operationsService = new OperationsService('<TOKEN>', true)
+   * const brokerReport = await operationsService.GetBrokerReport({
+   *  generateBrokerReportRequest: {
+   *    accountId: '<ACCOUNT_ID>',
+   *    from: '2023-07-18T00:00:00:000Z',
+   *    to: '2023-08-19T00:00:00:000Z'
+   *  },
+   *  getBrokerReportRequest: { taskId: '', page: 0 }
+   * })
+   *
+   * console.log(brokerReport)
+   * ```
    * @see https://tinkoff.github.io/investAPI/operations/#getbrokerreport
    */
   public GetBrokerReport(
@@ -1080,6 +1143,21 @@ export class OperationsService extends Common {
 
   /**
    * Метод получения отчёта "Справка о доходах за пределами РФ"
+   * ```js
+   * import { OperationsService } from '@tomasevich/tinkoff'
+   *
+   * const operationsService = new OperationsService('<TOKEN>', true)
+   * const dividendsForeignIssuer = await operationsService.GetDividendsForeignIssuer({
+   *  generateDivForeignIssuerReport: {
+   *    accountId: '<ACCOUNT_ID>',
+   *    from: '2023-07-18T00:00:00:000Z',
+   *    to: '2023-08-19T00:00:00:000Z'
+   *  },
+   *  getDivForeignIssuerReport: { taskId: '', page: 0 }
+   * })
+   *
+   * console.log(dividendsForeignIssuer)
+   * ```
    * @see https://tinkoff.github.io/investAPI/operations/#getdividendsforeignissuer
    */
   public GetDividendsForeignIssuer(
@@ -1094,6 +1172,29 @@ export class OperationsService extends Common {
 
   /**
    * Метод получения списка операций по счёту с пагинацией
+   * ```js
+   * import { OperationsService, OperationState, OperationType } from '@tomasevich/tinkoff'
+   *
+   * const operationsService = new OperationsService('<TOKEN>', true)
+   * const operationsByCursor = await operationsService.GetOperationsByCursor({
+   *  accountId: '<ACCOUNT_ID>',
+   *  instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76',
+   *  from: '2023-07-18T00:00:00:000Z',
+   *  to: '2023-08-19T00:00:00:000Z',
+   *  cursor: '',
+   *  limit: 10,
+   *  state: OperationState.OPERATION_STATE_CANCELED,
+   *  operationTypes: [
+   *    OperationType.OPERATION_TYPE_BUY,
+   *    OperationType.OPERATION_TYPE_SELL
+   *  ],
+   *  withoutCommissions: false,
+   *  withoutTrades: false,
+   *  withoutOvernights: false
+   * })
+   *
+   * console.log(operationsByCursor)
+   * ```
    * @description При работе с данным методом необходимо учитывать особенности взаимодействия с данным методом
    * @see https://tinkoff.github.io/investAPI/operations/#getoperationsbycursor
    */

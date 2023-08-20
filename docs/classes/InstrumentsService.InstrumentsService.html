@@ -36,7 +36,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">InstrumentsService</span></li></ul></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2045">InstrumentsService.ts:2045</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2122">InstrumentsService.ts:2122</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -85,6 +85,8 @@
 <li class="tsd-signature tsd-anchor-link" id="constructor.new_InstrumentsService"><span class="tsd-kind-constructor-signature">new <wbr/>Instruments<wbr/>Service</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">token</span>, <span class="tsd-kind-parameter">isSandbox</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="InstrumentsService.InstrumentsService.html" class="tsd-signature-type tsd-kind-class">InstrumentsService</a><a href="#constructor.new_InstrumentsService" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Конструктор</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-7">// Для работы с реальными данными</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">realServer</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;REAL_TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">false</span><span class="hl-1">)</span><br/><br/><span class="hl-7">// Для работы с данными в тестовом режиме</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxServer</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;SANDBOX_TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -103,7 +105,7 @@
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#constructor">constructor</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/Common.ts#L53">Common.ts:53</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/Common.ts#L62">Common.ts:62</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member"><a id="BondBy" class="tsd-anchor"></a>
@@ -112,6 +114,8 @@
 <li class="tsd-signature tsd-anchor-link" id="BondBy.BondBy-1"><span class="tsd-kind-call-signature">Bond<wbr/>By</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.BondResponse.html" class="tsd-signature-type tsd-kind-interface">BondResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#BondBy.BondBy-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения облигации по её идентификатору</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1">, </span><span class="hl-4">InstrumentIdType</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">instrument</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">BondBy</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">idType:</span><span class="hl-1"> </span><span class="hl-4">InstrumentIdType</span><span class="hl-1">.</span><span class="hl-6">INSTRUMENT_ID_TYPE_TICKER</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">classCode:</span><span class="hl-1"> </span><span class="hl-2">&#39;TQCB&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">id:</span><span class="hl-1"> </span><span class="hl-2">&#39;RU000A105WZ4&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">instrument</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -123,13 +127,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#bondby">https://tinkoff.github.io/investAPI/instruments/#bondby</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2060">InstrumentsService.ts:2060</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2161">InstrumentsService.ts:2161</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="Bonds" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Bonds</span><a href="#Bonds" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="Bonds.Bonds-1"><span class="tsd-kind-call-signature">Bonds</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.BondsResponse.html" class="tsd-signature-type tsd-kind-interface">BondsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#Bonds.Bonds-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения списка облигаций</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1">, </span><span class="hl-4">InstrumentStatus</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">instruments</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">Bonds</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">instrumentStatus:</span><span class="hl-1"> </span><span class="hl-4">InstrumentStatus</span><span class="hl-1">.</span><span class="hl-6">INSTRUMENT_STATUS_BASE</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">instruments</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -141,13 +147,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#bonds">https://tinkoff.github.io/investAPI/instruments/#bonds</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2068">InstrumentsService.ts:2068</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2179">InstrumentsService.ts:2179</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="Currencies" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Currencies</span><a href="#Currencies" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="Currencies.Currencies-1"><span class="tsd-kind-call-signature">Currencies</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.CurrenciesResponse.html" class="tsd-signature-type tsd-kind-interface">CurrenciesResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#Currencies.Currencies-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения списка валют</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1">, </span><span class="hl-4">InstrumentStatus</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">instruments</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">Currencies</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">instrumentStatus:</span><span class="hl-1"> </span><span class="hl-4">InstrumentStatus</span><span class="hl-1">.</span><span class="hl-6">INSTRUMENT_STATUS_BASE</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">instruments</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -159,13 +167,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#currencies">https://tinkoff.github.io/investAPI/instruments/#currencies</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2094">InstrumentsService.ts:2094</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2239">InstrumentsService.ts:2239</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="CurrencyBy" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Currency<wbr/>By</span><a href="#CurrencyBy" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="CurrencyBy.CurrencyBy-1"><span class="tsd-kind-call-signature">Currency<wbr/>By</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.CurrencyResponse.html" class="tsd-signature-type tsd-kind-interface">CurrencyResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#CurrencyBy.CurrencyBy-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения валюты по её идентификатору</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1">, </span><span class="hl-4">InstrumentIdType</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">instrument</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">CurrencyBy</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">idType:</span><span class="hl-1"> </span><span class="hl-4">InstrumentIdType</span><span class="hl-1">.</span><span class="hl-6">INSTRUMENT_ID_TYPE_TICKER</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">classCode:</span><span class="hl-1"> </span><span class="hl-2">&#39;CETS&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">id:</span><span class="hl-1"> </span><span class="hl-2">&#39;AMDRUB_TOM&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">instrument</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -177,13 +187,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#currencyby">https://tinkoff.github.io/investAPI/instruments/#currencyby</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2086">InstrumentsService.ts:2086</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2221">InstrumentsService.ts:2221</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="EditFavorites" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Edit<wbr/>Favorites</span><a href="#EditFavorites" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="EditFavorites.EditFavorites-1"><span class="tsd-kind-call-signature">Edit<wbr/>Favorites</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.EditFavoritesResponse.html" class="tsd-signature-type tsd-kind-interface">EditFavoritesResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#EditFavorites.EditFavorites-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод редактирования списка избранных инструментов</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1">, </span><span class="hl-4">EditFavoritesActionType</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">favoriteInstruments</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">EditFavorites</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">instruments:</span><span class="hl-1"> [{ </span><span class="hl-4">figi:</span><span class="hl-1"> </span><span class="hl-2">&#39;BBG00YTS96G2&#39;</span><span class="hl-1"> }],</span><br/><span class="hl-1"> </span><span class="hl-4">actionType:</span><span class="hl-1"> </span><span class="hl-4">EditFavoritesActionType</span><span class="hl-1">.</span><span class="hl-6">EDIT_FAVORITES_ACTION_TYPE_ADD</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">favoriteInstruments</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -195,13 +207,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#editfavorites">https://tinkoff.github.io/investAPI/instruments/#editfavorites</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2240">InstrumentsService.ts:2240</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2546">InstrumentsService.ts:2546</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="EtfBy" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Etf<wbr/>By</span><a href="#EtfBy" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="EtfBy.EtfBy-1"><span class="tsd-kind-call-signature">Etf<wbr/>By</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.EtfResponse.html" class="tsd-signature-type tsd-kind-interface">EtfResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#EtfBy.EtfBy-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения инвестиционного фонда по его идентификатору</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1">, </span><span class="hl-4">InstrumentIdType</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">instrument</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">EtfBy</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">idType:</span><span class="hl-1"> </span><span class="hl-4">InstrumentIdType</span><span class="hl-1">.</span><span class="hl-6">INSTRUMENT_ID_TYPE_TICKER</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">classCode:</span><span class="hl-1"> </span><span class="hl-2">&#39;SPBXM&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">id:</span><span class="hl-1"> </span><span class="hl-2">&#39;DRIV&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">instrument</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -213,13 +227,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#etfby">https://tinkoff.github.io/investAPI/instruments/#etfby</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2102">InstrumentsService.ts:2102</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2259">InstrumentsService.ts:2259</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="Etfs" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Etfs</span><a href="#Etfs" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="Etfs.Etfs-1"><span class="tsd-kind-call-signature">Etfs</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.EtfsResponse.html" class="tsd-signature-type tsd-kind-interface">EtfsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#Etfs.Etfs-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения списка инвестиционных фондов</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1">, </span><span class="hl-4">InstrumentStatus</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">instruments</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">Etfs</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">instrumentStatus:</span><span class="hl-1"> </span><span class="hl-4">InstrumentStatus</span><span class="hl-1">.</span><span class="hl-6">INSTRUMENT_STATUS_BASE</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">instruments</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -231,13 +247,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#etfs">https://tinkoff.github.io/investAPI/instruments/#etfs</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2110">InstrumentsService.ts:2110</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2277">InstrumentsService.ts:2277</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="FindInstrument" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Find<wbr/>Instrument</span><a href="#FindInstrument" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="FindInstrument.FindInstrument-1"><span class="tsd-kind-call-signature">Find<wbr/>Instrument</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.FindInstrumentResponse.html" class="tsd-signature-type tsd-kind-interface">FindInstrumentResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#FindInstrument.FindInstrument-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод поиска инструмента</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1">, </span><span class="hl-4">InstrumentType</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">instruments</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">FindInstrument</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">query:</span><span class="hl-1"> </span><span class="hl-2">&#39;Tinkoff&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">instrumentKind:</span><span class="hl-1"> </span><span class="hl-4">InstrumentType</span><span class="hl-1">.</span><span class="hl-6">INSTRUMENT_TYPE_SHARE</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">apiTradeAvailableFlag:</span><span class="hl-1"> </span><span class="hl-5">true</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">instruments</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -249,13 +267,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#findinstrument">https://tinkoff.github.io/investAPI/instruments/#findinstrument</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2260">InstrumentsService.ts:2260</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2586">InstrumentsService.ts:2586</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="FutureBy" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Future<wbr/>By</span><a href="#FutureBy" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="FutureBy.FutureBy-1"><span class="tsd-kind-call-signature">Future<wbr/>By</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.FutureResponse.html" class="tsd-signature-type tsd-kind-interface">FutureResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#FutureBy.FutureBy-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения фьючерса по его идентификатору</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1">, </span><span class="hl-4">InstrumentIdType</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">instrument</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">FutureBy</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">idType:</span><span class="hl-1"> </span><span class="hl-4">InstrumentIdType</span><span class="hl-1">.</span><span class="hl-6">INSTRUMENT_ID_TYPE_TICKER</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">classCode:</span><span class="hl-1"> </span><span class="hl-2">&#39;SPBFUT&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">id:</span><span class="hl-1"> </span><span class="hl-2">&#39;GKZ3&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">instrument</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -267,13 +287,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#futureby">https://tinkoff.github.io/investAPI/instruments/#futureby</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2118">InstrumentsService.ts:2118</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2297">InstrumentsService.ts:2297</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="Futures" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Futures</span><a href="#Futures" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="Futures.Futures-1"><span class="tsd-kind-call-signature">Futures</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.FuturesResponse.html" class="tsd-signature-type tsd-kind-interface">FuturesResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#Futures.Futures-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения списка фьючерсов</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1">, </span><span class="hl-4">InstrumentStatus</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">instruments</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">Futures</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">instrumentStatus:</span><span class="hl-1"> </span><span class="hl-4">InstrumentStatus</span><span class="hl-1">.</span><span class="hl-6">INSTRUMENT_STATUS_BASE</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">instruments</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -285,13 +307,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#futures">https://tinkoff.github.io/investAPI/instruments/#futures</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2126">InstrumentsService.ts:2126</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2315">InstrumentsService.ts:2315</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetAccruedInterests" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Accrued<wbr/>Interests</span><a href="#GetAccruedInterests" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetAccruedInterests.GetAccruedInterests-1"><span class="tsd-kind-call-signature">Get<wbr/>Accrued<wbr/>Interests</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.GetAccruedInterestsResponse.html" class="tsd-signature-type tsd-kind-interface">GetAccruedInterestsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetAccruedInterests.GetAccruedInterests-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения накопленного купонного дохода по облигации</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">accruedInterests</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">GetAccruedInterests</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">figi:</span><span class="hl-1"> </span><span class="hl-2">&#39;TCS00A105WZ4&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">from:</span><span class="hl-1"> </span><span class="hl-2">&#39;2023-07-12T00:00:00:000Z&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">to:</span><span class="hl-1"> </span><span class="hl-2">&#39;2023-07-13T23:59:59:999Z&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">accruedInterests</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -303,13 +327,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#getaccruedinterests">https://tinkoff.github.io/investAPI/instruments/#getaccruedinterests</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2175">InstrumentsService.ts:2175</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2408">InstrumentsService.ts:2408</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetAssetBy" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Asset<wbr/>By</span><a href="#GetAssetBy" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetAssetBy.GetAssetBy-1"><span class="tsd-kind-call-signature">Get<wbr/>Asset<wbr/>By</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.AssetResponse.html" class="tsd-signature-type tsd-kind-interface">AssetResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetAssetBy.GetAssetBy-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения актива по его идентификатору</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">asset</span><span class="hl-1"> = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">GetAssetBy</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">id:</span><span class="hl-1"> </span><span class="hl-2">&#39;b6a73950-20a8-46c7-8b49-9dfbc14fe0ba&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">asset</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -321,13 +347,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#getassetby">https://tinkoff.github.io/investAPI/instruments/#getassetby</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2213">InstrumentsService.ts:2213</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2490">InstrumentsService.ts:2490</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetAssets" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Assets</span><a href="#GetAssets" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetAssets.GetAssets-1"><span class="tsd-kind-call-signature">Get<wbr/>Assets</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.AssetsResponse.html" class="tsd-signature-type tsd-kind-interface">AssetsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetAssets.GetAssets-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения списка активов</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1">, </span><span class="hl-4">InstrumentType</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">assets</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">GetAssets</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">instrumentType:</span><span class="hl-1"> </span><span class="hl-4">InstrumentType</span><span class="hl-1">.</span><span class="hl-6">INSTRUMENT_TYPE_BOND</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">assets</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -341,13 +369,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#getassets">https://tinkoff.github.io/investAPI/instruments/#getassets</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2222">InstrumentsService.ts:2222</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2509">InstrumentsService.ts:2509</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetBondCoupons" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Bond<wbr/>Coupons</span><a href="#GetBondCoupons" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetBondCoupons.GetBondCoupons-1"><span class="tsd-kind-call-signature">Get<wbr/>Bond<wbr/>Coupons</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.GetBondCouponsResponse.html" class="tsd-signature-type tsd-kind-interface">GetBondCouponsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetBondCoupons.GetBondCoupons-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения графика выплат купонов по облигации</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">events</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">GetBondCoupons</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">figi:</span><span class="hl-1"> </span><span class="hl-2">&#39;TCS00A105WZ4&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">from:</span><span class="hl-1"> </span><span class="hl-2">&#39;2023-07-12T00:00:00:000Z&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">to:</span><span class="hl-1"> </span><span class="hl-2">&#39;2023-07-13T23:59:59:999Z&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">events</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -359,13 +389,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#getbondcoupons">https://tinkoff.github.io/investAPI/instruments/#getbondcoupons</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2076">InstrumentsService.ts:2076</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2199">InstrumentsService.ts:2199</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetBrandBy" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Brand<wbr/>By</span><a href="#GetBrandBy" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetBrandBy.GetBrandBy-1"><span class="tsd-kind-call-signature">Get<wbr/>Brand<wbr/>By</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.Brand.html" class="tsd-signature-type tsd-kind-interface">Brand</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetBrandBy.GetBrandBy-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения бренда по его идентификатору</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">brand</span><span class="hl-1"> = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">GetBrandBy</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">id:</span><span class="hl-1"> </span><span class="hl-2">&#39;8c478c0a-c4e3-412c-ab4d-a2df4648d97f&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">brand</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -377,13 +409,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#getbrandby">https://tinkoff.github.io/investAPI/instruments/#getbrandby</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2278">InstrumentsService.ts:2278</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2622">InstrumentsService.ts:2622</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetBrands" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Brands</span><a href="#GetBrands" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetBrands.GetBrands-1"><span class="tsd-kind-call-signature">Get<wbr/>Brands</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.GetBrandsResponse.html" class="tsd-signature-type tsd-kind-interface">GetBrandsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetBrands.GetBrands-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения списка брендов</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">brands</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">GetBrands</span><span class="hl-1">({})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">brands</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -395,13 +429,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#getbrands">https://tinkoff.github.io/investAPI/instruments/#getbrands</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2270">InstrumentsService.ts:2270</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2604">InstrumentsService.ts:2604</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetCountries" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Countries</span><a href="#GetCountries" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetCountries.GetCountries-1"><span class="tsd-kind-call-signature">Get<wbr/>Countries</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.GetCountriesResponse.html" class="tsd-signature-type tsd-kind-interface">GetCountriesResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetCountries.GetCountries-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения списка стран</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">countries</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">GetCountries</span><span class="hl-1">({})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">countries</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -413,13 +449,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#getcountries">https://tinkoff.github.io/investAPI/instruments/#getcountries</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2250">InstrumentsService.ts:2250</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2564">InstrumentsService.ts:2564</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetDividends" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Dividends</span><a href="#GetDividends" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetDividends.GetDividends-1"><span class="tsd-kind-call-signature">Get<wbr/>Dividends</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.GetDividendsResponse.html" class="tsd-signature-type tsd-kind-interface">GetDividendsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetDividends.GetDividends-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод для получения событий выплаты дивидендов по инструменту</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">dividends</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">GetDividends</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">figi:</span><span class="hl-1"> </span><span class="hl-2">&#39;BBG00YTS96G2&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">from:</span><span class="hl-1"> </span><span class="hl-2">&#39;2023-07-12T00:00:00:000Z&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">to:</span><span class="hl-1"> </span><span class="hl-2">&#39;2023-07-13T23:59:59:999Z&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">dividends</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -431,13 +469,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#getdividends">https://tinkoff.github.io/investAPI/instruments/#getdividends</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2203">InstrumentsService.ts:2203</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2470">InstrumentsService.ts:2470</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetFavorites" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Favorites</span><a href="#GetFavorites" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetFavorites.GetFavorites-1"><span class="tsd-kind-call-signature">Get<wbr/>Favorites</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.GetFavoritesResponse.html" class="tsd-signature-type tsd-kind-interface">GetFavoritesResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetFavorites.GetFavorites-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения списка избранных инструментов</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">favoriteInstruments</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">GetFavorites</span><span class="hl-1">({})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">favoriteInstruments</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -449,13 +489,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#getfavorites">https://tinkoff.github.io/investAPI/instruments/#getfavorites</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2230">InstrumentsService.ts:2230</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2525">InstrumentsService.ts:2525</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetFuturesMargin" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Futures<wbr/>Margin</span><a href="#GetFuturesMargin" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetFuturesMargin.GetFuturesMargin-1"><span class="tsd-kind-call-signature">Get<wbr/>Futures<wbr/>Margin</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.GetFuturesMarginResponse.html" class="tsd-signature-type tsd-kind-interface">GetFuturesMarginResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetFuturesMargin.GetFuturesMargin-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения размера гарантийного обеспечения по фьючерсам</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">futuresMargin</span><span class="hl-1"> = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">GetFuturesMargin</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">figi:</span><span class="hl-1"> </span><span class="hl-2">&#39;FUTGMKN12230&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">futuresMargin</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -467,13 +509,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#getfuturesmargin">https://tinkoff.github.io/investAPI/instruments/#getfuturesmargin</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2185">InstrumentsService.ts:2185</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2428">InstrumentsService.ts:2428</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetInstrumentBy" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Instrument<wbr/>By</span><a href="#GetInstrumentBy" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetInstrumentBy.GetInstrumentBy-1"><span class="tsd-kind-call-signature">Get<wbr/>Instrument<wbr/>By</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.InstrumentResponse.html" class="tsd-signature-type tsd-kind-interface">InstrumentResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetInstrumentBy.GetInstrumentBy-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения основной информации об инструменте</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1">, </span><span class="hl-4">InstrumentIdType</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">instruments</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">GetInstrumentBy</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">idType:</span><span class="hl-1"> </span><span class="hl-4">InstrumentIdType</span><span class="hl-1">.</span><span class="hl-6">INSTRUMENT_ID_TYPE_TICKER</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">classCode:</span><span class="hl-1"> </span><span class="hl-2">&#39;SPBXM&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">id:</span><span class="hl-1"> </span><span class="hl-2">&#39;APA&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">instruments</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -485,7 +529,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#getinstrumentby">https://tinkoff.github.io/investAPI/instruments/#getinstrumentby</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2195">InstrumentsService.ts:2195</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2450">InstrumentsService.ts:2450</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="OptionBy" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Option<wbr/>By</span><a href="#OptionBy" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -503,7 +547,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#optionby">https://tinkoff.github.io/investAPI/instruments/#optionby</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2134">InstrumentsService.ts:2134</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2323">InstrumentsService.ts:2323</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="Options" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Options</span><a href="#Options" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -518,12 +562,14 @@
 <h5><span class="tsd-kind-parameter">body</span>: <a href="../interfaces/InstrumentsService.InstrumentsRequest.html" class="tsd-signature-type tsd-kind-interface">InstrumentsRequest</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.OptionsResponse.html" class="tsd-signature-type tsd-kind-interface">OptionsResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography">
-<h4>Deprecated</h4><p>Deprecated</p>
+<h4>Description</h4><p>В документации указано как <code>Deprecated</code>, хотя метод работает</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1">, </span><span class="hl-4">InstrumentStatus</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">instruments</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">Options</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">instrumentStatus:</span><span class="hl-1"> </span><span class="hl-4">InstrumentStatus</span><span class="hl-1">.</span><span class="hl-6">INSTRUMENT_STATUS_BASE</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">instruments</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#options">https://tinkoff.github.io/investAPI/instruments/#options</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2143">InstrumentsService.ts:2143</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2342">InstrumentsService.ts:2342</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="OptionsBy" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Options<wbr/>By</span><a href="#OptionsBy" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -541,13 +587,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#optionsby">https://tinkoff.github.io/investAPI/instruments/#optionsby</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2151">InstrumentsService.ts:2151</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2350">InstrumentsService.ts:2350</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="ShareBy" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Share<wbr/>By</span><a href="#ShareBy" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="ShareBy.ShareBy-1"><span class="tsd-kind-call-signature">Share<wbr/>By</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.ShareResponse.html" class="tsd-signature-type tsd-kind-interface">ShareResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#ShareBy.ShareBy-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения акции по её идентификатору</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1">, </span><span class="hl-4">InstrumentIdType</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">instruments</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">ShareBy</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">idType:</span><span class="hl-1"> </span><span class="hl-4">InstrumentIdType</span><span class="hl-1">.</span><span class="hl-6">INSTRUMENT_ID_TYPE_TICKER</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">classCode:</span><span class="hl-1"> </span><span class="hl-2">&#39;SPBXM&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">id:</span><span class="hl-1"> </span><span class="hl-2">&#39;APA&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">instruments</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -559,13 +607,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#shareby">https://tinkoff.github.io/investAPI/instruments/#shareby</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2159">InstrumentsService.ts:2159</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2370">InstrumentsService.ts:2370</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="Shares" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Shares</span><a href="#Shares" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="Shares.Shares-1"><span class="tsd-kind-call-signature">Shares</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.SharesResponse.html" class="tsd-signature-type tsd-kind-interface">SharesResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#Shares.Shares-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения списка акций</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1">, </span><span class="hl-4">InstrumentStatus</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">instruments</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">Shares</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">instrumentStatus:</span><span class="hl-1"> </span><span class="hl-4">InstrumentStatus</span><span class="hl-1">.</span><span class="hl-6">INSTRUMENT_STATUS_BASE</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">instruments</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -577,13 +627,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#shares">https://tinkoff.github.io/investAPI/instruments/#shares</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2167">InstrumentsService.ts:2167</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2388">InstrumentsService.ts:2388</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="TradingSchedules" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Trading<wbr/>Schedules</span><a href="#TradingSchedules" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="TradingSchedules.TradingSchedules-1"><span class="tsd-kind-call-signature">Trading<wbr/>Schedules</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/InstrumentsService.TradingSchedulesResponse.html" class="tsd-signature-type tsd-kind-interface">TradingSchedulesResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#TradingSchedules.TradingSchedules-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения расписания торгов торговых площадок</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">InstrumentsService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">instrumentsService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">InstrumentsService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">exchanges</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">instrumentsService</span><span class="hl-1">.</span><span class="hl-0">TradingSchedules</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">from:</span><span class="hl-1"> </span><span class="hl-2">&#39;2023-07-12T00:00:00:000Z&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">to:</span><span class="hl-1"> </span><span class="hl-2">&#39;2023-07-13T23:59:59:999Z&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">exchange:</span><span class="hl-1"> </span><span class="hl-2">&#39;MOEX_MORNING&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">exchanges</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -595,13 +647,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/instruments/#tradingschedules">https://tinkoff.github.io/investAPI/instruments/#tradingschedules</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/InstrumentsService.ts#L2050">InstrumentsService.ts:2050</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/InstrumentsService.ts#L2139">InstrumentsService.ts:2139</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-protected tsd-is-inherited"><a id="request" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagProtected">Protected</code> <span>request</span><a href="#request" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-protected tsd-is-inherited">
 <li class="tsd-signature tsd-anchor-link" id="request.request-1"><span class="tsd-kind-call-signature">request</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">service</span>, <span class="tsd-kind-parameter">method</span>, <span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><a href="#request.request-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод <code>HTTP</code> запроса к серверу <strong>Tinkoff Invest API</strong></p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">Common</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">class</span><span class="hl-1"> </span><span class="hl-8">Application</span><span class="hl-1"> </span><span class="hl-5">extends</span><span class="hl-1"> </span><span class="hl-8">Common</span><span class="hl-1"> {</span><br/><span class="hl-1"> </span><span class="hl-5">public</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-4">body</span><span class="hl-1">) {</span><br/><span class="hl-1">   </span><span class="hl-3">return</span><span class="hl-1"> </span><span class="hl-5">this</span><span class="hl-1">.</span><span class="hl-0">request</span><span class="hl-1">(</span><span class="hl-2">&#39;SandboxService&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;GetSandboxOrders&#39;</span><span class="hl-1">, </span><span class="hl-4">body</span><span class="hl-1">)</span><br/><span class="hl-1"> }</span><br/><span class="hl-1">}</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">app</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">Application</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">orders</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">app</span><span class="hl-1">.</span><span class="hl-0">SandboxService</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ACCOUNT_ID&gt;&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">orders</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -625,7 +679,7 @@
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#request">request</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/b40b752/src/Common.ts#L61">Common.ts:61</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/Common.ts#L86">Common.ts:86</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -771,8 +825,7 @@
 <li><a href="../modules/OrdersService.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Orders<wbr/>Service</span></a></li>
 <li><a href="../modules/SandboxService.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Sandbox<wbr/>Service</span></a></li>
 <li><a href="../modules/StopOrdersService.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Stop<wbr/>Orders<wbr/>Service</span></a></li>
-<li><a href="../modules/UsersService.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Users<wbr/>Service</span></a></li>
-<li><a href="../modules/index.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>index</span></a></li></ul></nav></div></div></div>
+<li><a href="../modules/UsersService.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Users<wbr/>Service</span></a></li></ul></nav></div></div></div>
 <div class="tsd-generator">
 <p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
 <div class="overlay"></div></body></html>

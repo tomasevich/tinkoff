@@ -2,6 +2,14 @@
 
 `Неофициальная` библиотека для работы с [Тинькофф Инвестиции](https://www.tinkoff.ru/invest/)
 
+![npm (scoped)](https://img.shields.io/npm/v/%40tomasevich/tinkoff?color=blue)
+![npm bundle size](https://img.shields.io/bundlephobia/min/%40tomasevich%2Ftinkoff?color=purple)
+![GitHub top language](https://img.shields.io/github/languages/top/tomasevich/tinkoff?color=purple)
+![GitHub](https://img.shields.io/github/license/tomasevich/tinkoff?color=orange)
+![Static Badge](https://img.shields.io/badge/tests-6/9/128-yellow)
+![Static Badge](https://img.shields.io/badge/covarage-320/335-green)
+![Static Badge](https://img.shields.io/badge/docs-true-green)
+
 ## Мотивация
 
 - Отсутствует официальная библиотека для зыков `JavaScript`/`TypeScript`
@@ -12,11 +20,12 @@
 
 ## Приемущества
 
-- Написано на **Typescript**
-- Протестировано с **Jest**
-- Покрыто документацией **TypeDoc**
 - **0** зависимостей
 - Просканировано **CodeQL** и **Dependabot**
+- Написано на **Typescript**
+- [Покрыто](/coverage/lcov-report/) тестами **Jest**
+- Покрыто документацией **TypeDoc**
+- Тонна реальных **Примеров**
 
 ## Сообщество
 
@@ -40,9 +49,9 @@ npm i @tomasevich/tinkoff
 ```js
 import { SandboxService } from '@tomasevich/tinkoff'
 
-const sandboxService = new SandboxService('TOKEN', true)
+const sandboxService = new SandboxService('<TOKEN>', true)
 const { orders } = await sandboxService.GetSandboxOrders({
-  accountId: 'ACCOUNT_ID'
+  accountId: '<ACCOUNT_ID>'
 })
 
 console.log(orders)

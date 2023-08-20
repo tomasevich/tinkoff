@@ -44,12 +44,37 @@ export declare class Common {
     private development;
     /**
      * Конструктор
+     * ```js
+     * import { SandboxService } from '@tomasevich/tinkoff'
+     *
+     * // Для работы с реальными данными
+     * const realServer = new SandboxService('<REAL_TOKEN>', false)
+     *
+     * // Для работы с данными в тестовом режиме
+     * const sandboxServer = new SandboxService('<SANDBOX_TOKEN>', true)
+     * ```
      * @param token Токен приложения
      * @param isSandbox Флаг включения режима `Песочницы`
      */
     constructor(token: string, isSandbox: boolean);
     /**
      * Метод `HTTP` запроса к серверу **Tinkoff Invest API**
+     * ```js
+     * import { Common } from '@tomasevich/tinkoff'
+     *
+     * class Application extends Common {
+     *  public SandboxService(body) {
+     *    return this.request('SandboxService', 'GetSandboxOrders', body)
+     *  }
+     * }
+     *
+     * const app = new Application('<TOKEN>', true)
+     * const { orders } = await app.SandboxService({
+     *  accountId: '<ACCOUNT_ID>'
+     * })
+     *
+     * console.log(orders)
+     * ```
      * @param service Имя сервиса
      * @param method Имя метода
      * @param body Тело запроса
