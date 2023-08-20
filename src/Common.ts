@@ -163,7 +163,7 @@ export class Common {
    * ```
    */
   public static MoneyValueToString(moneyValue: MoneyValue): string {
-    return `${moneyValue.units}.${moneyValue.nano} ${moneyValue.currency}`
+    return `${Common.QuotationToString(moneyValue)} ${moneyValue.currency}`
   }
 
   /**
@@ -177,7 +177,7 @@ export class Common {
    * ```
    */
   public static QuotationToString(quotation: Quotation): string {
-    return `${moneyValue.units}.${moneyValue.nano}`
+    return `${moneyValue.units}.${Math.abs(moneyValue.nano)}`
   }
 
   /**
