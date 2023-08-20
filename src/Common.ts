@@ -190,7 +190,7 @@ export class Common {
    * console.log(Common.StringToMoneyValue(moneyValue)) // { units: '100', nano: 500000000, currency: 'rub' }
    * ```
    */
-  public static StringToMoneyValue(moneyValue: MoneyValue): string {
+  public static StringToMoneyValue(moneyValue: string): MoneyValue {
     /** @todo написать логику */
     return { units: '100', nano: 500000000, currency: 'rub' }
   }
@@ -205,7 +205,7 @@ export class Common {
    * console.log(Common.StringToQuotation(quotation)) // { units: '100', nano: 500000000 }
    * ```
    */
-  public static StringToQuotation(quotation: Quotation): string {
+  public static StringToQuotation(quotation: string): Quotation {
     /** @todo написать логику */
     return { units: '100', nano: 500000000 }
   }
