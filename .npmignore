@@ -4,7 +4,8 @@
 
 # CONFIGS
 tsconfig.js
-jest.config.js
+jest.coverage.config.js
+jest.test.config.js
 typedoc.config.js
 
 # ENV
