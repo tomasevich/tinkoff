@@ -227,6 +227,17 @@ export class SandboxService extends Common {
 
   /**
    * Метод получения портфолио в песочнице
+   * ```js
+   * import { SandboxService, PortfolioRequestCurrencyRequest } from '@tomasevich/tinkoff'
+   *
+   * const sandboxService = new SandboxService('<TOKEN>', true)
+   * const portfolio = await sandboxService.GetPortfolio({
+   *  accountId: '<ACCOUNT_ID>'
+   *  currency: PortfolioRequestCurrencyRequest.RUB
+   * })
+   *
+   * console.log(portfolio)
+   * ```
    * @see https://tinkoff.github.io/investAPI/sandbox/#getsandboxportfolio
    */
   public GetSandboxPortfolio(
@@ -247,6 +258,16 @@ export class SandboxService extends Common {
 
   /**
    * Метод получения доступного остатка для вывода средств в песочнице
+   * ```js
+   * import { SandboxService } from '@tomasevich/tinkoff'
+   *
+   * const sandboxService = new SandboxService('<TOKEN>', true)
+   * const withdrawLimits = await sandboxService.GetWithdrawLimits({
+   *  accountId: '<ACCOUNT_ID>'
+   * })
+   *
+   * console.log(withdrawLimits)
+   * ```
    * @see https://tinkoff.github.io/investAPI/sandbox/#getsandboxwithdrawlimits
    */
   public GetSandboxWithdrawLimits(
