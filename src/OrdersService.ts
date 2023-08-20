@@ -104,7 +104,7 @@ export interface PostOrderRequest {
    * Идентификатор запроса выставления поручения для целей идемпотентности в формате `UID`
    * @description Максимальная длина 36 символов
    */
-  orderId: string
+  orderId?: string
   /** Идентификатор инструмента, принимает значения `Figi` или `InstrumentUid` */
   instrumentId: string
   /**
