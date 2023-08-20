@@ -217,6 +217,29 @@ export class SandboxService extends Common {
 
   /**
    * Метод получения операций в песочнице по номеру счета с пагинацией
+   * ```js
+   * import { SandboxService, OperationState, OperationType } from '@tomasevich/tinkoff'
+   *
+   * const sandboxService = new SandboxService('<TOKEN>', true)
+   * const operationsByCursor = await sandboxService.GetSandboxOperationsByCursor({
+   *  accountId: '<ACCOUNT_ID>',
+   *  instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76',
+   *  from: '2023-07-18T00:00:00:000Z',
+   *  to: '2023-08-19T00:00:00:000Z',
+   *  cursor: '',
+   *  limit: 10,
+   *  state: OperationState.OPERATION_STATE_CANCELED,
+   *  operationTypes: [
+   *    OperationType.OPERATION_TYPE_BUY,
+   *    OperationType.OPERATION_TYPE_SELL
+   *  ],
+   *  withoutCommissions: false,
+   *  withoutTrades: false,
+   *  withoutOvernights: false
+   * })
+   *
+   * console.log(operationsByCursor)
+   * ```
    * @see https://tinkoff.github.io/investAPI/sandbox/#getsandboxoperationsbycursor
    */
   public GetSandboxOperationsByCursor(
