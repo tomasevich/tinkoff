@@ -14,6 +14,7 @@
     "test:users": "jest --testRegex='/test/UsersService/*' --c=./jest.test.config.js",
     "build": "rm -rf ./dist && tsc",
     "docs": "typedoc",
+    "prerelease": "npm test && npm run build && npm run docs",
     "release": "npm publish --access=public",
     "postrelease": "git add . && git commit -m 'фиксация артефактов релиза'"
   },
