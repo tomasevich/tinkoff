@@ -2,7 +2,8 @@
 .vscode
 .github
 
-# CONFIG
+# CONFIGS
+tsconfig.js
 jest.config.js
 typedoc.config.js
 
@@ -13,4 +14,3 @@ typedoc.config.js
 # ARTFCTS
 docs
 test
-coverage
