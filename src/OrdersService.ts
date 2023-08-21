@@ -335,6 +335,23 @@ export interface ReplaceOrderRequest {
 export class OrdersService extends Common {
   /**
    * Метод выставления заявки
+   * ```js
+   * import { OrdersService, OrderDirection, OrderType } from '@tomasevich/tinkoff'
+   *
+   * const ordersService = new OrdersService('TOKEN', false)
+   * const postOrder = await ordersService.PostOrder({
+   *  figi: '',
+   *  quantity: "1",
+   *  price: OrdersService.Quotation('100.1'),
+   *  direction: OrderDirection.STOP_ORDER_DIRECTION_BUY,
+   *  accountId: '<ACCOUNT_ID>',
+   *  orderType: OrderType.ORDER_TYPE_MARKET,
+   *  orderId: '',
+   *  instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+   * })
+   *
+   * console.log(postOrder)
+   * ```
    * @see https://tinkoff.github.io/investAPI/orders/#postorder
    */
   public PostOrder(body: PostOrderRequest): Promise<PostOrderResponse> {
@@ -343,6 +360,17 @@ export class OrdersService extends Common {
 
   /**
    * Метод отмены биржевой заявки
+   * ```js
+   * import { OrdersService, OrderDirection, OrderType } from '@tomasevich/tinkoff'
+   *
+   * const ordersService = new OrdersService('TOKEN', false)
+   * const postOrder = await ordersService.CancelOrder({
+   *  accountId: '<ACCOUNT_ID>',
+   *  orderId: '<ORDER_ID>'
+   * })
+   *
+   * console.log(postOrder)
+   * ```
    * @see https://tinkoff.github.io/investAPI/orders/#cancelorder
    */
   public CancelOrder(body: CancelOrderRequest): Promise<CancelOrderResponse> {
@@ -351,6 +379,17 @@ export class OrdersService extends Common {
 
   /**
    * Метод получения статуса торгового поручения
+   * ```js
+   * import { OrdersService } from '@tomasevich/tinkoff'
+   *
+   * const ordersService = new OrdersService('TOKEN', false)
+   * const orderState = await ordersService.GetOrderState({
+   *  accountId: '<ACCOUNT_ID>',
+   *  orderId: '<ORDER_ID>'
+   * })
+   *
+   * console.log(orderState)
+   * ```
    * @see https://tinkoff.github.io/investAPI/orders/#getorderstate
    */
   public GetOrderState(body: GetOrderStateRequest): Promise<OrderState> {
@@ -359,6 +398,16 @@ export class OrdersService extends Common {
 
   /**
    * Метод получения списка активных заявок по счёту
+   * ```js
+   * import { OrdersService } from '@tomasevich/tinkoff'
+   *
+   * const ordersService = new OrdersService('TOKEN', false)
+   * const { orders } = await ordersService.GetOrders({
+   *  accountId: '<ACCOUNT_ID>'
+   * })
+   *
+   * console.log(orders)
+   * ```
    * @see https://tinkoff.github.io/investAPI/orders/#getorders
    */
   public GetOrders(body: GetOrdersRequest): Promise<GetOrdersResponse> {
@@ -367,6 +416,21 @@ export class OrdersService extends Common {
 
   /**
    * Метод изменения выставленной заявки
+   * ```js
+   * import { OrdersService, PriceType } from '@tomasevich/tinkoff'
+   *
+   * const ordersService = new OrdersService('TOKEN', false)
+   * const replaceOrder = await ordersService.ReplaceOrder({
+   *  quantity: "1",
+   *  price: OrdersService.Quotation('100.1'),
+   *  priceType: PriceType.PRICE_TYPE_CURRENCY,
+   *  accountId: '<ACCOUNT_ID>',
+   *  orderId: '<ORDER_ID>',
+   *  idempotencyKey: ''
+   * })
+   *
+   * console.log(replaceOrder)
+   * ```
    * @see https://tinkoff.github.io/investAPI/orders/#replaceorder
    */
   public ReplaceOrder(body: ReplaceOrderRequest): Promise<PostOrderResponse> {
