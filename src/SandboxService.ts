@@ -24,21 +24,55 @@ import {
 } from './OrdersService'
 import { GetAccountsRequest, GetAccountsResponse } from './UsersService'
 
+/**
+ * Запрос открытия счёта в песочнице
+ * @see https://tinkoff.github.io/investAPI/sandbox/#opensandboxaccountrequest
+ */
 export interface OpenSandboxAccountRequest {}
 
+/**
+ * Номер открытого счёта в песочнице
+ * @see https://tinkoff.github.io/investAPI/sandbox/#opensandboxaccountresponse
+ */
 export interface OpenSandboxAccountResponse {
+  /** Номер счёта */
   accountId: string
 }
 
+/**
+ * Запрос закрытия счёта в песочнице
+ * @see https://tinkoff.github.io/investAPI/sandbox/#closesandboxaccountrequest
+ */
 export interface CloseSandboxAccountRequest {
+  /** Номер счёта */
   accountId: string
 }
 
+/**
+ * Результат закрытия счёта в песочнице
+ * @see https://tinkoff.github.io/investAPI/sandbox/#closesandboxaccountresponse
+ */
 export interface CloseSandboxAccountResponse {}
 
-export interface SandboxPayInRequest {}
+/**
+ * Запрос пополнения счёта в песочнице
+ * @see https://tinkoff.github.io/investAPI/sandbox/#sandboxpayinrequest
+ */
+export interface SandboxPayInRequest {
+  /** Номер счёта */
+  accountId: string
+  /** Сумма пополнения счёта в рублях */
+  amount: MoneyValue
+}
 
-export interface SandboxPayInResponse {}
+/**
+ * Результат пополнения счёта, текущий баланс
+ * @see https://tinkoff.github.io/investAPI/sandbox/#sandboxpayinresponse
+ */
+export interface SandboxPayInResponse {
+  /** Текущий баланс счёта */
+  balance: MoneyValue
+}
 
 /**
  * Сервис для работы с песочницей TINKOFF INVEST API
