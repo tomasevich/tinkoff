@@ -5,6 +5,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "test": "jest --c=./jest.coverage.config.js",
+    "test:common": "jest --testRegex='/test/Common/*' --c=./jest.test.config.js",
     "test:instruments": "jest --testRegex='/test/InstrumentsService/*' --c=./jest.test.config.js",
     "test:marketdata": "jest --testRegex='/test/MarketDataService/*' --c=./jest.test.config.js",
     "test:operations": "jest --testRegex='/test/OperationsService/*' --c=./jest.test.config.js",
