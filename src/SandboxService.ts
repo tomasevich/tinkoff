@@ -143,7 +143,7 @@ export class SandboxService extends Common {
    * const sandboxService = new SandboxService('<TOKEN>', true)
    * const result = await sandboxService.PostSandboxOrder({
    *  quantity: '1',
-   *  price: { units: '1', nano: 0 },
+   *  price: SandboxService.StringToQuotation('1.0'),
    *  direction: OrderDirection.ORDER_DIRECTION_BUY,
    *  accountId: '<ACCOUNT_ID>',
    *  orderType: OrderType.ORDER_TYPE_MARKET,
@@ -167,7 +167,7 @@ export class SandboxService extends Common {
    * const sandboxService = new SandboxService('<TOKEN>', true)
    * const result = await sandboxService.ReplaceSandboxOrder({
    *  quantity: '1',
-   *  price: { units: '1', nano: 0 },
+   *  price: SandboxService.StringToQuotation('1.0'),
    *  accountId: '<ACCOUNT_ID>',
    *  orderId: '',
    *  idempotencyKey: ''
