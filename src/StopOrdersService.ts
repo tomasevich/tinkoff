@@ -129,7 +129,7 @@ export interface PostStopOrderRequest {
    * @description Для ExpirationType = GoodTillDate заполнение обязательно
    * @type `google.protobuf.Timestamp`
    */
-  expireDate: string
+  expireDate?: string
   /** Идентификатор инструмента, принимает значения Figi или instrumentUid */
   instrumentId: string
 }
@@ -194,6 +194,25 @@ export interface CancelStopOrderResponse {
 export class StopOrdersService extends Common {
   /**
    * Метод выставления стоп-заявки
+   * ```js
+   * import { StopOrdersService, StopOrderDirection, StopOrderType } from '@tomasevich/tinkoff'
+   *
+   * const stopOrdersService = new PostStopOrder('TOKEN', false)
+   * const { stopOrderId } = await stopOrdersService.PostStopOrder({
+   *  figi: '',
+   *  quantity: "1",
+   *  price: PostStopOrder.Quotation('100.1'),
+   *  stopPrice: PostStopOrder.Quotation('102.1'),
+   *  direction: StopOrderDirection.STOP_ORDER_DIRECTION_BUY,
+   *  accountId: '<ACCOUNT_ID>'
+   *  expirationType: StopOrderExpirationType.STOP_ORDER_EXPIRATION_TYPE_GOOD_TILL_CANCEL,
+   *  stopOrderType: StopOrderType.STOP_ORDER_TYPE_STOP_LOSS,
+   *  expireDate: ''
+   *  instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+   * })
+   *
+   * console.log(stopOrderId)
+   * ```
    * @see https://tinkoff.github.io/investAPI/stoporders/#poststoporder
    */
   public PostStopOrder(
@@ -204,6 +223,16 @@ export class StopOrdersService extends Common {
 
   /**
    * Метод получения списка активных стоп заявок по счёту
+   * ```js
+   * import { StopOrdersService } from '@tomasevich/tinkoff'
+   *
+   * const stopOrdersService = new PostStopOrder('TOKEN', false)
+   * const { stopOrders } = await stopOrdersService.GetStopOrders({
+   *  accountId: '<ACCOUNT_ID>',
+   * })
+   *
+   * console.log(stopOrders)
+   * ```
    * @see https://tinkoff.github.io/investAPI/stoporders/#getstoporders
    */
   public GetStopOrders(
@@ -214,6 +243,17 @@ export class StopOrdersService extends Common {
 
   /**
    * Метод отмены стоп-заявки
+   * ```js
+   * import { StopOrdersService } from '@tomasevich/tinkoff'
+   *
+   * const stopOrdersService = new PostStopOrder('TOKEN', false)
+   * const { time } = await stopOrdersService.CancelStopOrder({
+   *  accountId: '<ACCOUNT_ID>',
+   *  stopOrderId: '<STOP_ORDER_ID>',
+   * })
+   *
+   * console.log(time)
+   * ```
    * @see https://tinkoff.github.io/investAPI/stoporders/#cancelstoporder
    */
   public CancelStopOrder(
