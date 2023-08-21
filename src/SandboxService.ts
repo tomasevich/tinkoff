@@ -161,6 +161,21 @@ export class SandboxService extends Common {
 
   /**
    * Метод изменения выставленной заявки
+   * ```js
+   * import { SandboxService, PriceType } from '@tomasevich/tinkoff'
+   *
+   * const sandboxService = new SandboxService('<TOKEN>', true)
+   * const result = await sandboxService.ReplaceSandboxOrder({
+   *  quantity: '1',
+   *  price: { units: '1', nano: 0 },
+   *  accountId: '<ACCOUNT_ID>',
+   *  orderId: '',
+   *  idempotencyKey: ''
+   *  priceType: PriceType.PRICE_TYPE_CURRENCY
+   * })
+   *
+   * console.log(result)
+   * ```
    * @see https://tinkoff.github.io/investAPI/sandbox/#replacesandboxorder
    */
   public ReplaceSandboxOrder(
@@ -189,6 +204,17 @@ export class SandboxService extends Common {
 
   /**
    * Метод отмены торгового поручения в песочнице
+   * ```js
+   * import { SandboxService } from '@tomasevich/tinkoff'
+   *
+   * const sandboxService = new SandboxService('<TOKEN>', true)
+   * const { orders } = await sandboxService.CancelSandboxOrder({
+   *  accountId: '<ACCOUNT_ID>',
+   *  orderId: '<ORDER_ID>'
+   * })
+   *
+   * console.log(orders)
+   * ```
    * @see https://tinkoff.github.io/investAPI/sandbox/#cancelsandboxorder
    */
   public CancelSandboxOrder(
@@ -199,6 +225,17 @@ export class SandboxService extends Common {
 
   /**
    * Метод получения статуса заявки в песочнице
+   * ```js
+   * import { SandboxService } from '@tomasevich/tinkoff'
+   *
+   * const sandboxService = new SandboxService('<TOKEN>', true)
+   * const { orders } = await sandboxService.GetSandboxOrderState({
+   *  accountId: '<ACCOUNT_ID>',
+   *  orderId: '<ORDER_ID>'
+   * })
+   *
+   * console.log(orders)
+   * ```
    * @description Заявки хранятся в таблице 7 дней
    * @see https://tinkoff.github.io/investAPI/sandbox/#getsandboxorderstate
    */
@@ -305,6 +342,17 @@ export class SandboxService extends Common {
 
   /**
    * Метод пополнения счёта в песочнице
+   * ```js
+   * import { SandboxService } from '@tomasevich/tinkoff'
+   *
+   * const sandboxService = new SandboxService('<TOKEN>', true)
+   * const { orders } = await sandboxService.SandboxPayIn({
+   *  accountId: '<ACCOUNT_ID>',
+   *  amount: SandboxService.StringToMoneyValue('114,25 rub')
+   * })
+   *
+   * console.log(orders)
+   * ```
    * @see https://tinkoff.github.io/investAPI/sandbox/#sandboxpayin
    */
   public SandboxPayIn(
