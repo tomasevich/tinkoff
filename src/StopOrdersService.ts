@@ -195,14 +195,14 @@ export class StopOrdersService extends Common {
   /**
    * Метод выставления стоп-заявки
    * ```js
-   * import { StopOrdersService, StopOrderDirection, StopOrderType } from '@tomasevich/tinkoff'
+   * import { StopOrdersService, StopOrderDirection, StopOrderType, StopOrderExpirationType } from '@tomasevich/tinkoff'
    *
    * const stopOrdersService = new StopOrdersService('TOKEN', false)
    * const { stopOrderId } = await stopOrdersService.PostStopOrder({
    *  figi: '',
    *  quantity: "1",
-   *  price: PostStopOrder.Quotation('100.1'),
-   *  stopPrice: PostStopOrder.Quotation('102.1'),
+   *  price: StopOrdersService.Quotation('100.1'),
+   *  stopPrice: StopOrdersService.Quotation('102.1'),
    *  direction: StopOrderDirection.STOP_ORDER_DIRECTION_BUY,
    *  accountId: '<ACCOUNT_ID>'
    *  expirationType: StopOrderExpirationType.STOP_ORDER_EXPIRATION_TYPE_GOOD_TILL_CANCEL,
