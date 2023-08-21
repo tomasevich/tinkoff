@@ -197,7 +197,7 @@ export class StopOrdersService extends Common {
    * ```js
    * import { StopOrdersService, StopOrderDirection, StopOrderType } from '@tomasevich/tinkoff'
    *
-   * const stopOrdersService = new PostStopOrder('TOKEN', false)
+   * const stopOrdersService = new StopOrdersService('TOKEN', false)
    * const { stopOrderId } = await stopOrdersService.PostStopOrder({
    *  figi: '',
    *  quantity: "1",
@@ -226,7 +226,7 @@ export class StopOrdersService extends Common {
    * ```js
    * import { StopOrdersService } from '@tomasevich/tinkoff'
    *
-   * const stopOrdersService = new PostStopOrder('TOKEN', false)
+   * const stopOrdersService = new StopOrdersService('TOKEN', false)
    * const { stopOrders } = await stopOrdersService.GetStopOrders({
    *  accountId: '<ACCOUNT_ID>',
    * })
@@ -246,7 +246,7 @@ export class StopOrdersService extends Common {
    * ```js
    * import { StopOrdersService } from '@tomasevich/tinkoff'
    *
-   * const stopOrdersService = new PostStopOrder('TOKEN', false)
+   * const stopOrdersService = new StopOrdersService('TOKEN', false)
    * const { time } = await stopOrdersService.CancelStopOrder({
    *  accountId: '<ACCOUNT_ID>',
    *  stopOrderId: '<STOP_ORDER_ID>',
