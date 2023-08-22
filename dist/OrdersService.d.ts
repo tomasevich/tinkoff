@@ -320,26 +320,90 @@ export interface ReplaceOrderRequest {
 export declare class OrdersService extends Common {
     /**
      * Метод выставления заявки
+     * ```js
+     * import { OrdersService, OrderDirection, OrderType } from '@tomasevich/tinkoff'
+     *
+     * const ordersService = new OrdersService('TOKEN', false)
+     * const postOrder = await ordersService.PostOrder({
+     *  figi: '',
+     *  quantity: "1",
+     *  price: OrdersService.Quotation('100.1'),
+     *  direction: OrderDirection.STOP_ORDER_DIRECTION_BUY,
+     *  accountId: '<ACCOUNT_ID>',
+     *  orderType: OrderType.ORDER_TYPE_MARKET,
+     *  orderId: '',
+     *  instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+     * })
+     *
+     * console.log(postOrder)
+     * ```
      * @see https://tinkoff.github.io/investAPI/orders/#postorder
      */
     PostOrder(body: PostOrderRequest): Promise<PostOrderResponse>;
     /**
      * Метод отмены биржевой заявки
+     * ```js
+     * import { OrdersService, OrderDirection, OrderType } from '@tomasevich/tinkoff'
+     *
+     * const ordersService = new OrdersService('TOKEN', false)
+     * const postOrder = await ordersService.CancelOrder({
+     *  accountId: '<ACCOUNT_ID>',
+     *  orderId: '<ORDER_ID>'
+     * })
+     *
+     * console.log(postOrder)
+     * ```
      * @see https://tinkoff.github.io/investAPI/orders/#cancelorder
      */
     CancelOrder(body: CancelOrderRequest): Promise<CancelOrderResponse>;
     /**
      * Метод получения статуса торгового поручения
+     * ```js
+     * import { OrdersService } from '@tomasevich/tinkoff'
+     *
+     * const ordersService = new OrdersService('TOKEN', false)
+     * const orderState = await ordersService.GetOrderState({
+     *  accountId: '<ACCOUNT_ID>',
+     *  orderId: '<ORDER_ID>'
+     * })
+     *
+     * console.log(orderState)
+     * ```
      * @see https://tinkoff.github.io/investAPI/orders/#getorderstate
      */
     GetOrderState(body: GetOrderStateRequest): Promise<OrderState>;
     /**
      * Метод получения списка активных заявок по счёту
+     * ```js
+     * import { OrdersService } from '@tomasevich/tinkoff'
+     *
+     * const ordersService = new OrdersService('TOKEN', false)
+     * const { orders } = await ordersService.GetOrders({
+     *  accountId: '<ACCOUNT_ID>'
+     * })
+     *
+     * console.log(orders)
+     * ```
      * @see https://tinkoff.github.io/investAPI/orders/#getorders
      */
     GetOrders(body: GetOrdersRequest): Promise<GetOrdersResponse>;
     /**
      * Метод изменения выставленной заявки
+     * ```js
+     * import { OrdersService, PriceType } from '@tomasevich/tinkoff'
+     *
+     * const ordersService = new OrdersService('TOKEN', false)
+     * const replaceOrder = await ordersService.ReplaceOrder({
+     *  quantity: "1",
+     *  price: OrdersService.Quotation('100.1'),
+     *  priceType: PriceType.PRICE_TYPE_CURRENCY,
+     *  accountId: '<ACCOUNT_ID>',
+     *  orderId: '<ORDER_ID>',
+     *  idempotencyKey: ''
+     * })
+     *
+     * console.log(replaceOrder)
+     * ```
      * @see https://tinkoff.github.io/investAPI/orders/#replaceorder
      */
     ReplaceOrder(body: ReplaceOrderRequest): Promise<PostOrderResponse>;

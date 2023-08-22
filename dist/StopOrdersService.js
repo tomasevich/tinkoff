@@ -53,6 +53,25 @@ var StopOrderType;
 class StopOrdersService extends Common_1.Common {
     /**
      * Метод выставления стоп-заявки
+     * ```js
+     * import { StopOrdersService, StopOrderDirection, StopOrderType, StopOrderExpirationType } from '@tomasevich/tinkoff'
+     *
+     * const stopOrdersService = new StopOrdersService('TOKEN', false)
+     * const { stopOrderId } = await stopOrdersService.PostStopOrder({
+     *  figi: '',
+     *  quantity: "1",
+     *  price: StopOrdersService.Quotation('100.1'),
+     *  stopPrice: StopOrdersService.Quotation('102.1'),
+     *  direction: StopOrderDirection.STOP_ORDER_DIRECTION_BUY,
+     *  accountId: '<ACCOUNT_ID>'
+     *  expirationType: StopOrderExpirationType.STOP_ORDER_EXPIRATION_TYPE_GOOD_TILL_CANCEL,
+     *  stopOrderType: StopOrderType.STOP_ORDER_TYPE_STOP_LOSS,
+     *  expireDate: ''
+     *  instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+     * })
+     *
+     * console.log(stopOrderId)
+     * ```
      * @see https://tinkoff.github.io/investAPI/stoporders/#poststoporder
      */
     PostStopOrder(body) {
@@ -60,6 +79,16 @@ class StopOrdersService extends Common_1.Common {
     }
     /**
      * Метод получения списка активных стоп заявок по счёту
+     * ```js
+     * import { StopOrdersService } from '@tomasevich/tinkoff'
+     *
+     * const stopOrdersService = new StopOrdersService('TOKEN', false)
+     * const { stopOrders } = await stopOrdersService.GetStopOrders({
+     *  accountId: '<ACCOUNT_ID>',
+     * })
+     *
+     * console.log(stopOrders)
+     * ```
      * @see https://tinkoff.github.io/investAPI/stoporders/#getstoporders
      */
     GetStopOrders(body) {
@@ -67,6 +96,17 @@ class StopOrdersService extends Common_1.Common {
     }
     /**
      * Метод отмены стоп-заявки
+     * ```js
+     * import { StopOrdersService } from '@tomasevich/tinkoff'
+     *
+     * const stopOrdersService = new StopOrdersService('TOKEN', false)
+     * const { time } = await stopOrdersService.CancelStopOrder({
+     *  accountId: '<ACCOUNT_ID>',
+     *  stopOrderId: '<STOP_ORDER_ID>',
+     * })
+     *
+     * console.log(time)
+     * ```
      * @see https://tinkoff.github.io/investAPI/stoporders/#cancelstoporder
      */
     CancelStopOrder(body) {

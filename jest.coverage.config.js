@@ -5,6 +5,6 @@ module.exports = {
   verbose: false,
   collectCoverage: true,
   collectCoverageFrom: ['./src/**'],
-  coverageDirectory: './coverage',
+  coverageDirectory: './docs/coverage',
   coverageReporters: ['lcov']
 }

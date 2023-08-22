@@ -1,4 +1,4 @@
-import { Common } from './Common'
+import { Common, MoneyValue } from './Common'
 import {
   GetOperationsByCursorRequest,
   GetOperationsByCursorResponse,
@@ -24,21 +24,55 @@ import {
 } from './OrdersService'
 import { GetAccountsRequest, GetAccountsResponse } from './UsersService'
 
+/**
+ * Запрос открытия счёта в песочнице
+ * @see https://tinkoff.github.io/investAPI/sandbox/#opensandboxaccountrequest
+ */
 export interface OpenSandboxAccountRequest {}
 
+/**
+ * Номер открытого счёта в песочнице
+ * @see https://tinkoff.github.io/investAPI/sandbox/#opensandboxaccountresponse
+ */
 export interface OpenSandboxAccountResponse {
+  /** Номер счёта */
   accountId: string
 }
 
+/**
+ * Запрос закрытия счёта в песочнице
+ * @see https://tinkoff.github.io/investAPI/sandbox/#closesandboxaccountrequest
+ */
 export interface CloseSandboxAccountRequest {
+  /** Номер счёта */
   accountId: string
 }
 
+/**
+ * Результат закрытия счёта в песочнице
+ * @see https://tinkoff.github.io/investAPI/sandbox/#closesandboxaccountresponse
+ */
 export interface CloseSandboxAccountResponse {}
 
-export interface SandboxPayInRequest {}
+/**
+ * Запрос пополнения счёта в песочнице
+ * @see https://tinkoff.github.io/investAPI/sandbox/#sandboxpayinrequest
+ */
+export interface SandboxPayInRequest {
+  /** Номер счёта */
+  accountId: string
+  /** Сумма пополнения счёта в рублях */
+  amount: MoneyValue
+}
 
-export interface SandboxPayInResponse {}
+/**
+ * Результат пополнения счёта, текущий баланс
+ * @see https://tinkoff.github.io/investAPI/sandbox/#sandboxpayinresponse
+ */
+export interface SandboxPayInResponse {
+  /** Текущий баланс счёта */
+  balance: MoneyValue
+}
 
 /**
  * Сервис для работы с песочницей TINKOFF INVEST API
@@ -109,7 +143,7 @@ export class SandboxService extends Common {
    * const sandboxService = new SandboxService('<TOKEN>', true)
    * const result = await sandboxService.PostSandboxOrder({
    *  quantity: '1',
-   *  price: { units: '1', nano: 0 },
+   *  price: SandboxService.StringToQuotation('1.0'),
    *  direction: OrderDirection.ORDER_DIRECTION_BUY,
    *  accountId: '<ACCOUNT_ID>',
    *  orderType: OrderType.ORDER_TYPE_MARKET,
@@ -127,6 +161,21 @@ export class SandboxService extends Common {
 
   /**
    * Метод изменения выставленной заявки
+   * ```js
+   * import { SandboxService, PriceType } from '@tomasevich/tinkoff'
+   *
+   * const sandboxService = new SandboxService('<TOKEN>', true)
+   * const result = await sandboxService.ReplaceSandboxOrder({
+   *  quantity: '1',
+   *  price: SandboxService.StringToQuotation('1.0'),
+   *  accountId: '<ACCOUNT_ID>',
+   *  orderId: '',
+   *  idempotencyKey: ''
+   *  priceType: PriceType.PRICE_TYPE_CURRENCY
+   * })
+   *
+   * console.log(result)
+   * ```
    * @see https://tinkoff.github.io/investAPI/sandbox/#replacesandboxorder
    */
   public ReplaceSandboxOrder(
@@ -155,6 +204,17 @@ export class SandboxService extends Common {
 
   /**
    * Метод отмены торгового поручения в песочнице
+   * ```js
+   * import { SandboxService } from '@tomasevich/tinkoff'
+   *
+   * const sandboxService = new SandboxService('<TOKEN>', true)
+   * const { orders } = await sandboxService.CancelSandboxOrder({
+   *  accountId: '<ACCOUNT_ID>',
+   *  orderId: '<ORDER_ID>'
+   * })
+   *
+   * console.log(orders)
+   * ```
    * @see https://tinkoff.github.io/investAPI/sandbox/#cancelsandboxorder
    */
   public CancelSandboxOrder(
@@ -165,6 +225,17 @@ export class SandboxService extends Common {
 
   /**
    * Метод получения статуса заявки в песочнице
+   * ```js
+   * import { SandboxService } from '@tomasevich/tinkoff'
+   *
+   * const sandboxService = new SandboxService('<TOKEN>', true)
+   * const { orders } = await sandboxService.GetSandboxOrderState({
+   *  accountId: '<ACCOUNT_ID>',
+   *  orderId: '<ORDER_ID>'
+   * })
+   *
+   * console.log(orders)
+   * ```
    * @description Заявки хранятся в таблице 7 дней
    * @see https://tinkoff.github.io/investAPI/sandbox/#getsandboxorderstate
    */
@@ -271,6 +342,17 @@ export class SandboxService extends Common {
 
   /**
    * Метод пополнения счёта в песочнице
+   * ```js
+   * import { SandboxService } from '@tomasevich/tinkoff'
+   *
+   * const sandboxService = new SandboxService('<TOKEN>', true)
+   * const { orders } = await sandboxService.SandboxPayIn({
+   *  accountId: '<ACCOUNT_ID>',
+   *  amount: SandboxService.StringToMoneyValue('114,25 rub')
+   * })
+   *
+   * console.log(orders)
+   * ```
    * @see https://tinkoff.github.io/investAPI/sandbox/#sandboxpayin
    */
   public SandboxPayIn(

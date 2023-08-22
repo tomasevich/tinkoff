@@ -2,8 +2,10 @@
 .vscode
 .github
 
-# CONFIG
-jest.config.js
+# CONFIGS
+tsconfig.js
+jest.coverage.config.js
+jest.test.config.js
 typedoc.config.js
 
 # ENV
@@ -13,4 +15,3 @@ typedoc.config.js
 # ARTFCTS
 docs
 test
-coverage

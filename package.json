@@ -1,10 +1,11 @@
 {
   "name": "@tomasevich/tinkoff",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "test": "jest --c=./jest.coverage.config.js",
+    "test:common": "jest --testRegex='/test/Common/*' --c=./jest.test.config.js",
     "test:instruments": "jest --testRegex='/test/InstrumentsService/*' --c=./jest.test.config.js",
     "test:marketdata": "jest --testRegex='/test/MarketDataService/*' --c=./jest.test.config.js",
     "test:operations": "jest --testRegex='/test/OperationsService/*' --c=./jest.test.config.js",
@@ -14,7 +15,7 @@
     "test:users": "jest --testRegex='/test/UsersService/*' --c=./jest.test.config.js",
     "build": "rm -rf ./dist && tsc",
     "docs": "typedoc",
-    "prerelease": "npm test && npm run build && npm run docs",
+    "prerelease": "npm run build && npm run docs && npm test",
     "release": "npm publish --access=public",
     "postrelease": "git add . && git commit -m 'фиксация артефактов релиза'"
   },

@@ -45,7 +45,7 @@ describe('idType as INSTRUMENT_ID_TYPE_POSITION_UID', () => {
     const response = await instrumentsService.GetInstrumentBy({
       idType: InstrumentIdType.INSTRUMENT_ID_TYPE_POSITION_UID,
       classCode: '',
-      id: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+      id: '4a1946eb-5ffb-4ebf-ac8c-44221c9f7a2f'
     })
     expect(response).toHaveProperty('instrument')
   })
