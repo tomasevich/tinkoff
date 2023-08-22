@@ -1,5 +1,6 @@
-import { Common, MoneyValue } from './Common'
 import {
+  Common,
+  MoneyValue,
   GetOperationsByCursorRequest,
   GetOperationsByCursorResponse,
   OperationsRequest,
@@ -9,9 +10,7 @@ import {
   PositionsRequest,
   PositionsResponse,
   WithdrawLimitsRequest,
-  WithdrawLimitsResponse
-} from './OperationsService'
-import {
+  WithdrawLimitsResponse,
   CancelOrderRequest,
   CancelOrderResponse,
   GetOrderStateRequest,
@@ -20,9 +19,10 @@ import {
   OrderState,
   PostOrderRequest,
   PostOrderResponse,
-  ReplaceOrderRequest
-} from './OrdersService'
-import { GetAccountsRequest, GetAccountsResponse } from './UsersService'
+  ReplaceOrderRequest,
+  GetAccountsRequest,
+  GetAccountsResponse
+} from './'
 
 /**
  * Запрос открытия счёта в песочнице

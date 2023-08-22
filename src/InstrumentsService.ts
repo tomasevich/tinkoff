@@ -1,4 +1,4 @@
-import { Common, MoneyValue, Quotation, SecurityTradingStatus } from './Common'
+import { Common, MoneyValue, Quotation, SecurityTradingStatus } from './'
 
 /** Тип инструмента */
 export enum InstrumentType {

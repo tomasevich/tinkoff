@@ -1,4 +1,4 @@
-import { Common, MoneyValue, Quotation } from './Common'
+import { Common, MoneyValue, Quotation } from './'
 
 /**
  * Направление сделки стоп-заявки

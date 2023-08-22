@@ -1,4 +1,4 @@
-import { Common, Quotation, SecurityTradingStatus } from './Common'
+import { Common, Quotation, SecurityTradingStatus } from './'
 
 /**
  * Направление сделки

@@ -1,5 +1,4 @@
-import { Common, MoneyValue, Quotation } from './Common'
-import { InstrumentType } from './InstrumentsService'
+import { Common, MoneyValue, Quotation, InstrumentType } from './'
 
 /**
  * Статус запрашиваемых операций
