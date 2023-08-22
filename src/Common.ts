@@ -55,7 +55,7 @@ export interface MoneyValue {
    * Дробная часть суммы, может быть отрицательным числом
    * @type `int32`
    */
-  nano: string
+  nano: number
 }
 
 /**
@@ -72,7 +72,7 @@ export interface Quotation {
    * Дробная часть суммы, может быть отрицательным числом
    * @type `int32`
    */
-  nano: string
+  nano: number
 }
 
 /**
@@ -211,7 +211,7 @@ export class Common {
   public static StringToQuotation(quotation: string): Quotation {
     const number = Number(quotation.replace(',', '.'))
     const units = number.toFixed(0)
-    const nano = Number(Math.round((number - units) * 1000000000))
+    const nano = Number(Math.round((number - Number(units)) * 1000000000))
     return { units, nano }
   }
 }
