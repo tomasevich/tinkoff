@@ -64,7 +64,6 @@ export interface Account {
     /**
      * Дата закрытия счёта в часовом поясе UTC
      * @type `google.protobuf.Timestamp`
-     * @deprecated ???
      */
     closedDate?: string;
 }
