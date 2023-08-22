@@ -14,7 +14,7 @@ export enum InstrumentType {
   INSTRUMENT_TYPE_ETF,
   /** Фьючерс */
   INSTRUMENT_TYPE_FUTURES,
-  /** @todo Нет описания */
+  /** Структурная нота */
   INSTRUMENT_TYPE_SP,
   /** Опцион */
   INSTRUMENT_TYPE_OPTION,
