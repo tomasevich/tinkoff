@@ -1,8 +1,6 @@
 import { Common, MoneyValue, Quotation, SecurityTradingStatus } from './Common'
 
-/**
- * Тип инструмента
- */
+/** Тип инструмента */
 export enum InstrumentType {
   /** @todo Нет описания */
   INSTRUMENT_TYPE_UNSPECIFIED,
@@ -2318,6 +2316,18 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения опциона по его идентификатору
+   * ```js
+   * import { InstrumentsService } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { instrument } = await instrumentsService.OptionBy({
+   *  idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
+   *  classCode: 'SPBFUT',
+   *  id: 'GKZ3'
+   * })
+   *
+   * console.log(instrument)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#optionby
    */
   public OptionBy(body: InstrumentRequest): Promise<OptionResponse> {
@@ -2345,6 +2355,17 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения списка опционов
+   * ```js
+   * import { InstrumentsService } from '@tomasevich/tinkoff'
+   *
+   * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+   * const { instruments } = await instrumentsService.OptionsBy({
+   *  basicAssetUid: 'b6a73950-20a8-46c7-8b49-9dfbc14fe0ba',
+   *  basicAssetPositionUid: ''
+   * })
+   *
+   * console.log(instruments)
+   * ```
    * @see https://tinkoff.github.io/investAPI/instruments/#optionsby
    */
   public OptionsBy(body: FilterOptionsRequest): Promise<OptionsResponse> {
