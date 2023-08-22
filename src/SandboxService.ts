@@ -1,4 +1,4 @@
-import { Common } from './Common'
+import { Common, MoneyValue } from './Common'
 import {
   GetOperationsByCursorRequest,
   GetOperationsByCursorResponse,
