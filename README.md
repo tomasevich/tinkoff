@@ -7,7 +7,6 @@
 ![GitHub](https://img.shields.io/github/license/tomasevich/tinkoff?color=orange)
 ![Static Badge](https://img.shields.io/badge/tests-22/14/131-yellow)
 ![Static Badge](https://img.shields.io/badge/covarage-329/346-green)
-![Static Badge](https://img.shields.io/badge/docs-true-green)
 
 ## Мотивация
 
@@ -22,7 +21,7 @@
 - **0** зависимостей
 - Просканировано **CodeQL** и **Dependabot**
 - Написано на **Typescript**
-- [Покрыто](/docs/coverage/lcov-report/) тестами **Jest**
+- [Покрыто](https://tomasevich.github.io/tinkoff/coverage/lcov-report/) тестами **Jest**
 - Покрыто документацией **TypeDoc**
 - Тонна реальных **Примеров**
 
@@ -76,4 +75,6 @@ npm test
 
 ### Контрибютерам
 
-Присылаем **PR** & **Issue** без фанатизма, проект `домашний` (некоммерческий)
+1. Прочтите [Кодекс поведения](./.github/CODE_OF_CONDUCT.md)
+2. Прочтите [Руководство по содействию](./.github/CONTRIBUTING.md)
+3. Прочтите [Политика безопасности](./SECURITY.md)

@@ -3,7 +3,7 @@
 .github
 
 # CONFIGS
-tsconfig.js
+tsconfig.json
 jest.coverage.config.js
 jest.test.config.js
 typedoc.config.js
@@ -15,3 +15,6 @@ typedoc.config.js
 # ARTFCTS
 docs
 test
+
+# DOCS
+SECURITY.md
