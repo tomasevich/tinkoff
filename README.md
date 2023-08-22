@@ -22,7 +22,7 @@
 - **0** зависимостей
 - Просканировано **CodeQL** и **Dependabot**
 - Написано на **Typescript**
-- [Покрыто](/coverage/lcov-report/) тестами **Jest**
+- [Покрыто](/docs/coverage/lcov-report/) тестами **Jest**
 - Покрыто документацией **TypeDoc**
 - Тонна реальных **Примеров**
 
