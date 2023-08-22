@@ -2,15 +2,15 @@ import { Common, MoneyValue, Quotation, SecurityTradingStatus } from './Common'
 
 /** Тип инструмента */
 export enum InstrumentType {
-  /** @todo Нет описания */
+  /** Тип инструмента не определн */
   INSTRUMENT_TYPE_UNSPECIFIED,
-  /** @todo Нет описания */
+  /** Облигация */
   INSTRUMENT_TYPE_BOND,
   /** Акция */
   INSTRUMENT_TYPE_SHARE,
   /** Валюта */
   INSTRUMENT_TYPE_CURRENCY,
-  /** @todo Нет описания */
+  /** Инвестиционный фонд */
   INSTRUMENT_TYPE_ETF,
   /** Фьючерс */
   INSTRUMENT_TYPE_FUTURES,
@@ -1787,7 +1787,7 @@ export interface GetBondCouponsRequest {
  * @see https://tinkoff.github.io/investAPI/instruments/#getbondcouponsresponse
  */
 export interface GetBondCouponsResponse {
-  /** @todo Нет описания */
+  /** Список событий */
   events: Coupon[]
 }
 
@@ -1984,7 +1984,7 @@ export interface AssetResponse {
  * @see https://tinkoff.github.io/investAPI/instruments/#assetsrequest
  */
 export interface AssetsRequest {
-  /** @todo Нет описания */
+  /** Тип инструмента */
   instrumentType: InstrumentType
 }
 

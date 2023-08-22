@@ -564,22 +564,24 @@ export interface GenerateBrokerReportResponse {
 }
 
 /**
+ * Запрос отчета брокера
  * @see https://tinkoff.github.io/investAPI/operations/#brokerreportrequest
  */
 export interface BrokerReportRequest {
-  /** @todo Нет описания */
+  /** Сгенерированный запрос отчета брокера */
   generateBrokerReportRequest: GenerateBrokerReportRequest
-  /** @todo Нет описания */
+  /** Полученный запрос отчета брокера */
   getBrokerReportRequest: GetBrokerReportRequest
 }
 
 /**
+ * Ответ отчета брокера
  * @see https://tinkoff.github.io/investAPI/operations/#brokerreportresponse
  */
 export interface BrokerReportResponse {
-  /** @todo Нет описания */
+  /** Сгенерированный ответ отчета брокера */
   generateBrokerReportResponse: GenerateBrokerReportResponse
-  /** @todo Нет описания */
+  /** Полученный ответ отчета брокера */
   getBrokerReportResponse: GetBrokerReportResponse
 }
 
@@ -600,7 +602,7 @@ export interface GetBrokerReportRequest {
  * @see https://tinkoff.github.io/investAPI/operations/#getbrokerreportresponse
  */
 export interface GetBrokerReportResponse {
-  /** @todo Нет описания */
+  /** Отчет брокера */
   brokerReport: BrokerReport[]
   /**
    * Количество записей в отчете
@@ -759,7 +761,7 @@ export interface GenerateDividendsForeignIssuerReportResponse {
  * @see https://tinkoff.github.io/investAPI/operations/#getdividendsforeignissuerreportresponse
  */
 export interface GetDividendsForeignIssuerReportResponse {
-  /** @todo Нет описания */
+  /** Отчет о дивидентах */
   dividendsForeignIssuerReport: DividendsForeignIssuerReport[]
   /**
    * Количество записей в отчете
@@ -962,7 +964,7 @@ export interface OperationItem {
  * @see https://tinkoff.github.io/investAPI/operations/#operationitemtrades
  */
 export interface OperationItemTrades {
-  /** @todo Нет описания */
+  /** Список сделок */
   trades: OperationItemTrade[]
 }
 
