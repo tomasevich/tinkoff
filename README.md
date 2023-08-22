@@ -7,7 +7,6 @@
 ![GitHub](https://img.shields.io/github/license/tomasevich/tinkoff?color=orange)
 ![Static Badge](https://img.shields.io/badge/tests-22/14/131-yellow)
 ![Static Badge](https://img.shields.io/badge/covarage-329/346-green)
-![Static Badge](https://img.shields.io/badge/docs-true-green)
 
 ## Мотивация
 
