@@ -1,3 +1,3 @@
 describe('GetUserTariff', () => {
-  test.skip('Expect return "unaryLimits" & "streamLimits"')
+  test.todo('Expect return "unaryLimits" & "streamLimits"')
 })
