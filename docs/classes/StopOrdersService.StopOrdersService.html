@@ -34,7 +34,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">StopOrdersService</span></li></ul></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/StopOrdersService.ts#L194">StopOrdersService.ts:194</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/StopOrdersService.ts#L194">StopOrdersService.ts:194</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -50,6 +50,10 @@
 <a href="StopOrdersService.StopOrdersService.html#GetStopOrders" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>Get<wbr/>Stop<wbr/>Orders</span></a>
 <a href="StopOrdersService.StopOrdersService.html#PostStopOrder" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>Post<wbr/>Stop<wbr/>Order</span></a>
 <a href="StopOrdersService.StopOrdersService.html#request" class="tsd-index-link tsd-is-protected tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>request</span></a>
+<a href="StopOrdersService.StopOrdersService.html#MoneyValueToString" class="tsd-index-link tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>Money<wbr/>Value<wbr/>To<wbr/>String</span></a>
+<a href="StopOrdersService.StopOrdersService.html#QuotationToString" class="tsd-index-link tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>Quotation<wbr/>To<wbr/>String</span></a>
+<a href="StopOrdersService.StopOrdersService.html#StringToMoneyValue" class="tsd-index-link tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>String<wbr/>To<wbr/>Money<wbr/>Value</span></a>
+<a href="StopOrdersService.StopOrdersService.html#StringToQuotation" class="tsd-index-link tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>String<wbr/>To<wbr/>Quotation</span></a>
 </div></section></div></details></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Constructors</h2>
@@ -79,7 +83,7 @@
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#constructor">constructor</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/Common.ts#L62">Common.ts:62</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/Common.ts#L108">Common.ts:108</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member"><a id="CancelStopOrder" class="tsd-anchor"></a>
@@ -88,6 +92,8 @@
 <li class="tsd-signature tsd-anchor-link" id="CancelStopOrder.CancelStopOrder-1"><span class="tsd-kind-call-signature">Cancel<wbr/>Stop<wbr/>Order</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/StopOrdersService.CancelStopOrderResponse.html" class="tsd-signature-type tsd-kind-interface">CancelStopOrderResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#CancelStopOrder.CancelStopOrder-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод отмены стоп-заявки</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">StopOrdersService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">stopOrdersService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">StopOrdersService</span><span class="hl-1">(</span><span class="hl-2">&#39;TOKEN&#39;</span><span class="hl-1">, </span><span class="hl-5">false</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">time</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">stopOrdersService</span><span class="hl-1">.</span><span class="hl-0">CancelStopOrder</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ACCOUNT_ID&gt;&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">stopOrderId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;STOP_ORDER_ID&gt;&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">time</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -99,13 +105,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/stoporders/#cancelstoporder">https://tinkoff.github.io/investAPI/stoporders/#cancelstoporder</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/StopOrdersService.ts#L219">StopOrdersService.ts:219</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/StopOrdersService.ts#L259">StopOrdersService.ts:259</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetStopOrders" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Stop<wbr/>Orders</span><a href="#GetStopOrders" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetStopOrders.GetStopOrders-1"><span class="tsd-kind-call-signature">Get<wbr/>Stop<wbr/>Orders</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/StopOrdersService.GetStopOrdersResponse.html" class="tsd-signature-type tsd-kind-interface">GetStopOrdersResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetStopOrders.GetStopOrders-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения списка активных стоп заявок по счёту</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">StopOrdersService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">stopOrdersService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">StopOrdersService</span><span class="hl-1">(</span><span class="hl-2">&#39;TOKEN&#39;</span><span class="hl-1">, </span><span class="hl-5">false</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">stopOrders</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">stopOrdersService</span><span class="hl-1">.</span><span class="hl-0">GetStopOrders</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ACCOUNT_ID&gt;&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">stopOrders</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -117,13 +125,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/stoporders/#getstoporders">https://tinkoff.github.io/investAPI/stoporders/#getstoporders</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/StopOrdersService.ts#L209">StopOrdersService.ts:209</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/StopOrdersService.ts#L238">StopOrdersService.ts:238</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="PostStopOrder" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Post<wbr/>Stop<wbr/>Order</span><a href="#PostStopOrder" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="PostStopOrder.PostStopOrder-1"><span class="tsd-kind-call-signature">Post<wbr/>Stop<wbr/>Order</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/StopOrdersService.PostStopOrderResponse.html" class="tsd-signature-type tsd-kind-interface">PostStopOrderResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#PostStopOrder.PostStopOrder-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод выставления стоп-заявки</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">StopOrdersService</span><span class="hl-1">, </span><span class="hl-4">StopOrderDirection</span><span class="hl-1">, </span><span class="hl-4">StopOrderType</span><span class="hl-1">, </span><span class="hl-4">StopOrderExpirationType</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">stopOrdersService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">StopOrdersService</span><span class="hl-1">(</span><span class="hl-2">&#39;TOKEN&#39;</span><span class="hl-1">, </span><span class="hl-5">false</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">stopOrderId</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">stopOrdersService</span><span class="hl-1">.</span><span class="hl-0">PostStopOrder</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">figi:</span><span class="hl-1"> </span><span class="hl-2">&#39;&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">quantity:</span><span class="hl-1"> </span><span class="hl-2">&quot;1&quot;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">price:</span><span class="hl-1"> </span><span class="hl-4">StopOrdersService</span><span class="hl-1">.</span><span class="hl-0">Quotation</span><span class="hl-1">(</span><span class="hl-2">&#39;100.1&#39;</span><span class="hl-1">),</span><br/><span class="hl-1"> </span><span class="hl-4">stopPrice:</span><span class="hl-1"> </span><span class="hl-4">StopOrdersService</span><span class="hl-1">.</span><span class="hl-0">Quotation</span><span class="hl-1">(</span><span class="hl-2">&#39;102.1&#39;</span><span class="hl-1">),</span><br/><span class="hl-1"> </span><span class="hl-4">direction:</span><span class="hl-1"> </span><span class="hl-4">StopOrderDirection</span><span class="hl-1">.</span><span class="hl-6">STOP_ORDER_DIRECTION_BUY</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ACCOUNT_ID&gt;&#39;</span><br/><span class="hl-1"> </span><span class="hl-4">expirationType</span><span class="hl-1">: </span><span class="hl-4">StopOrderExpirationType</span><span class="hl-1">.</span><span class="hl-6">STOP_ORDER_EXPIRATION_TYPE_GOOD_TILL_CANCEL</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">stopOrderType:</span><span class="hl-1"> </span><span class="hl-4">StopOrderType</span><span class="hl-1">.</span><span class="hl-6">STOP_ORDER_TYPE_STOP_LOSS</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">expireDate:</span><span class="hl-1"> </span><span class="hl-2">&#39;&#39;</span><br/><span class="hl-1"> </span><span class="hl-4">instrumentId</span><span class="hl-1">: </span><span class="hl-2">&#39;6afa6f80-03a7-4d83-9cf0-c19d7d021f76&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">stopOrderId</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -135,7 +145,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/stoporders/#poststoporder">https://tinkoff.github.io/investAPI/stoporders/#poststoporder</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/StopOrdersService.ts#L199">StopOrdersService.ts:199</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/StopOrdersService.ts#L218">StopOrdersService.ts:218</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-protected tsd-is-inherited"><a id="request" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagProtected">Protected</code> <span>request</span><a href="#request" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-protected tsd-is-inherited">
@@ -167,7 +177,83 @@
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#request">request</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/Common.ts#L86">Common.ts:86</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/Common.ts#L132">Common.ts:132</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-inherited"><a id="MoneyValueToString" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>Money<wbr/>Value<wbr/>To<wbr/>String</span><a href="#MoneyValueToString" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-inherited">
+<li class="tsd-signature tsd-anchor-link" id="MoneyValueToString.MoneyValueToString-1"><span class="tsd-kind-call-signature">Money<wbr/>Value<wbr/>To<wbr/>String</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">moneyValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><a href="#MoneyValueToString.MoneyValueToString-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Статичный метод конвертирования денежной суммы в определенной валюте в строку</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">Common</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">MoneyValueToString</span><span class="hl-1">({ </span><span class="hl-4">units:</span><span class="hl-1"> </span><span class="hl-2">&#39;114&#39;</span><span class="hl-1">, </span><span class="hl-4">nano:</span><span class="hl-1"> </span><span class="hl-9">250000000</span><span class="hl-1">, </span><span class="hl-4">currency:</span><span class="hl-1"> </span><span class="hl-2">&#39;rub&#39;</span><span class="hl-1"> })) </span><span class="hl-7">// &#39;114,25 rub&#39;</span><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">MoneyValueToString</span><span class="hl-1">({ </span><span class="hl-4">units:</span><span class="hl-1"> </span><span class="hl-2">&#39;-200&#39;</span><span class="hl-1">, </span><span class="hl-4">nano:</span><span class="hl-1"> -</span><span class="hl-9">200000000</span><span class="hl-1">, </span><span class="hl-4">currency:</span><span class="hl-1"> </span><span class="hl-2">&#39;usd&#39;</span><span class="hl-1"> })) </span><span class="hl-7">// &#39;-200,20 usd&#39;</span><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">MoneyValueToString</span><span class="hl-1">({ </span><span class="hl-4">units:</span><span class="hl-1"> </span><span class="hl-2">&#39;-0&#39;</span><span class="hl-1">, </span><span class="hl-4">nano:</span><span class="hl-1"> -</span><span class="hl-9">10000000</span><span class="hl-1">, </span><span class="hl-4">currency:</span><span class="hl-1"> </span><span class="hl-2">&#39;eur&#39;</span><span class="hl-1"> })) </span><span class="hl-7">// &#39;-0,01 eur&#39;</span>
+</code><button>Copy</button></pre>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">moneyValue</span>: <a href="../interfaces/Common.MoneyValue.html" class="tsd-signature-type tsd-kind-interface">MoneyValue</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#MoneyValueToString">MoneyValueToString</a></p>
+<ul>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/Common.ts#L165">Common.ts:165</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-inherited"><a id="QuotationToString" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>Quotation<wbr/>To<wbr/>String</span><a href="#QuotationToString" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-inherited">
+<li class="tsd-signature tsd-anchor-link" id="QuotationToString.QuotationToString-1"><span class="tsd-kind-call-signature">Quotation<wbr/>To<wbr/>String</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">quotation</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><a href="#QuotationToString.QuotationToString-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Статичный метод конвертирования котировки в строку</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">Common</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">QuotationToString</span><span class="hl-1">({ </span><span class="hl-4">units:</span><span class="hl-1"> </span><span class="hl-2">&#39;114&#39;</span><span class="hl-1">, </span><span class="hl-4">nano:</span><span class="hl-1"> </span><span class="hl-9">250000000</span><span class="hl-1"> })) </span><span class="hl-7">// &#39;114,25&#39;</span><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">QuotationToString</span><span class="hl-1">({ </span><span class="hl-4">units:</span><span class="hl-1"> </span><span class="hl-2">&#39;-200&#39;</span><span class="hl-1">, </span><span class="hl-4">nano:</span><span class="hl-1"> -</span><span class="hl-9">200000000</span><span class="hl-1"> })) </span><span class="hl-7">// &#39;-200,20&#39;</span><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">QuotationToString</span><span class="hl-1">({ </span><span class="hl-4">units:</span><span class="hl-1"> </span><span class="hl-2">&#39;-0&#39;</span><span class="hl-1">, </span><span class="hl-4">nano:</span><span class="hl-1"> -</span><span class="hl-9">10000000</span><span class="hl-1"> })) </span><span class="hl-7">// &#39;-0,01&#39;</span>
+</code><button>Copy</button></pre>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">quotation</span>: <a href="../interfaces/Common.Quotation.html" class="tsd-signature-type tsd-kind-interface">Quotation</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#QuotationToString">QuotationToString</a></p>
+<ul>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/Common.ts#L179">Common.ts:179</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-inherited"><a id="StringToMoneyValue" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>String<wbr/>To<wbr/>Money<wbr/>Value</span><a href="#StringToMoneyValue" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-inherited">
+<li class="tsd-signature tsd-anchor-link" id="StringToMoneyValue.StringToMoneyValue-1"><span class="tsd-kind-call-signature">String<wbr/>To<wbr/>Money<wbr/>Value</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">moneyValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/Common.MoneyValue.html" class="tsd-signature-type tsd-kind-interface">MoneyValue</a><a href="#StringToMoneyValue.StringToMoneyValue-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Статичный метод конвертирования строки в денежную сумму в определенной валюте</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">Common</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">StringToMoneyValue</span><span class="hl-1">(</span><span class="hl-2">&#39;114,25 rub&#39;</span><span class="hl-1">)) </span><span class="hl-7">// { units: &#39;114&#39;, nano: 250000000, currency: &#39;rub&#39; }</span><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">StringToMoneyValue</span><span class="hl-1">(</span><span class="hl-2">&#39;-200,20 usd&#39;</span><span class="hl-1">)) </span><span class="hl-7">// { units: &#39;-200&#39;, nano: -200000000, currency: &#39;usd&#39; }</span><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">StringToMoneyValue</span><span class="hl-1">(</span><span class="hl-2">&#39;-0,01 eur&#39;</span><span class="hl-1">)) </span><span class="hl-7">// { units: &#39;-0&#39;, nano: -10000000, currency: &#39;eur&#39; }</span>
+</code><button>Copy</button></pre>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">moneyValue</span>: <span class="tsd-signature-type">string</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <a href="../interfaces/Common.MoneyValue.html" class="tsd-signature-type tsd-kind-interface">MoneyValue</a></h4>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#StringToMoneyValue">StringToMoneyValue</a></p>
+<ul>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/Common.ts#L194">Common.ts:194</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-inherited"><a id="StringToQuotation" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>String<wbr/>To<wbr/>Quotation</span><a href="#StringToQuotation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-inherited">
+<li class="tsd-signature tsd-anchor-link" id="StringToQuotation.StringToQuotation-1"><span class="tsd-kind-call-signature">String<wbr/>To<wbr/>Quotation</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">quotation</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/Common.Quotation.html" class="tsd-signature-type tsd-kind-interface">Quotation</a><a href="#StringToQuotation.StringToQuotation-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Статичный метод конвертирования строки в котировку</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">Common</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">StringToQuotation</span><span class="hl-1">(</span><span class="hl-2">&#39;114,25&#39;</span><span class="hl-1">)) </span><span class="hl-7">// { units: &#39;114&#39;, nano: 250000000 }</span><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">StringToQuotation</span><span class="hl-1">(</span><span class="hl-2">&#39;-200,20&#39;</span><span class="hl-1">)) </span><span class="hl-7">// { units: &#39;-200&#39;, nano: -200000000 }</span><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">StringToQuotation</span><span class="hl-1">(</span><span class="hl-2">&#39;-0,01&#39;</span><span class="hl-1">)) </span><span class="hl-7">// { units: &#39;-0&#39;, nano: -10000000 }</span>
+</code><button>Copy</button></pre>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">quotation</span>: <span class="tsd-signature-type">string</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <a href="../interfaces/Common.Quotation.html" class="tsd-signature-type tsd-kind-interface">Quotation</a></h4>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#StringToQuotation">StringToQuotation</a></p>
+<ul>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/Common.ts#L211">Common.ts:211</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -191,7 +277,11 @@
 <li><a href="#CancelStopOrder" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>Cancel<wbr/>Stop<wbr/>Order</span></a></li>
 <li><a href="#GetStopOrders" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>Get<wbr/>Stop<wbr/>Orders</span></a></li>
 <li><a href="#PostStopOrder" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>Post<wbr/>Stop<wbr/>Order</span></a></li>
-<li><a href="#request" class="tsd-is-protected tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>request</span></a></li></ul></div></details></div>
+<li><a href="#request" class="tsd-is-protected tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>request</span></a></li>
+<li><a href="#MoneyValueToString" class="tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>Money<wbr/>Value<wbr/>To<wbr/>String</span></a></li>
+<li><a href="#QuotationToString" class="tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>Quotation<wbr/>To<wbr/>String</span></a></li>
+<li><a href="#StringToMoneyValue" class="tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>String<wbr/>To<wbr/>Money<wbr/>Value</span></a></li>
+<li><a href="#StringToQuotation" class="tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>String<wbr/>To<wbr/>Quotation</span></a></li></ul></div></details></div>
 <div class="site-menu">
 <nav class="tsd-navigation"><a href="../index.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-4"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-namespace)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.33 16V7.24H10.77L13.446 14.74C13.43 14.54 13.41 14.296 13.386 14.008C13.37 13.712 13.354 13.404 13.338 13.084C13.33 12.756 13.326 12.448 13.326 12.16V7.24H14.37V16H12.93L10.266 8.5C10.282 8.692 10.298 8.936 10.314 9.232C10.33 9.52 10.342 9.828 10.35 10.156C10.366 10.476 10.374 10.784 10.374 11.08V16H9.33Z" fill="var(--color-text)"></path></g></svg><span>@tomasevich/tinkoff</span></a>
 <ul class="tsd-small-nested-navigation">

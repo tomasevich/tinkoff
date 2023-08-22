@@ -29,7 +29,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">SandboxService</span></li></ul></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L47">SandboxService.ts:47</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/SandboxService.ts#L81">SandboxService.ts:81</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -56,6 +56,10 @@
 <a href="SandboxService.SandboxService.html#ReplaceSandboxOrder" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>Replace<wbr/>Sandbox<wbr/>Order</span></a>
 <a href="SandboxService.SandboxService.html#SandboxPayIn" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>Sandbox<wbr/>Pay<wbr/>In</span></a>
 <a href="SandboxService.SandboxService.html#request" class="tsd-index-link tsd-is-protected tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>request</span></a>
+<a href="SandboxService.SandboxService.html#MoneyValueToString" class="tsd-index-link tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>Money<wbr/>Value<wbr/>To<wbr/>String</span></a>
+<a href="SandboxService.SandboxService.html#QuotationToString" class="tsd-index-link tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>Quotation<wbr/>To<wbr/>String</span></a>
+<a href="SandboxService.SandboxService.html#StringToMoneyValue" class="tsd-index-link tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>String<wbr/>To<wbr/>Money<wbr/>Value</span></a>
+<a href="SandboxService.SandboxService.html#StringToQuotation" class="tsd-index-link tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>String<wbr/>To<wbr/>Quotation</span></a>
 </div></section></div></details></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Constructors</h2>
@@ -85,7 +89,7 @@
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#constructor">constructor</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/Common.ts#L62">Common.ts:62</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/Common.ts#L108">Common.ts:108</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member"><a id="CancelSandboxOrder" class="tsd-anchor"></a>
@@ -94,6 +98,8 @@
 <li class="tsd-signature tsd-anchor-link" id="CancelSandboxOrder.CancelSandboxOrder-1"><span class="tsd-kind-call-signature">Cancel<wbr/>Sandbox<wbr/>Order</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/OrdersService.CancelOrderResponse.html" class="tsd-signature-type tsd-kind-interface">CancelOrderResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#CancelSandboxOrder.CancelSandboxOrder-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод отмены торгового поручения в песочнице</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">orders</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">sandboxService</span><span class="hl-1">.</span><span class="hl-0">CancelSandboxOrder</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ACCOUNT_ID&gt;&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">orderId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ORDER_ID&gt;&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">orders</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -105,7 +111,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#cancelsandboxorder">https://tinkoff.github.io/investAPI/sandbox/#cancelsandboxorder</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L160">SandboxService.ts:160</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/SandboxService.ts#L220">SandboxService.ts:220</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="CloseSandboxAccount" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Close<wbr/>Sandbox<wbr/>Account</span><a href="#CloseSandboxAccount" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -125,7 +131,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#closesandboxaccount">https://tinkoff.github.io/investAPI/sandbox/#closesandboxaccount</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L98">SandboxService.ts:98</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/SandboxService.ts#L132">SandboxService.ts:132</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxAccounts" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Accounts</span><a href="#GetSandboxAccounts" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -145,7 +151,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxaccounts">https://tinkoff.github.io/investAPI/sandbox/#getsandboxaccounts</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L78">SandboxService.ts:78</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/SandboxService.ts#L112">SandboxService.ts:112</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxOperations" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Operations</span><a href="#GetSandboxOperations" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -165,7 +171,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxoperations">https://tinkoff.github.io/investAPI/sandbox/#getsandboxoperations</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L212">SandboxService.ts:212</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/SandboxService.ts#L283">SandboxService.ts:283</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxOperationsByCursor" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Operations<wbr/>By<wbr/>Cursor</span><a href="#GetSandboxOperationsByCursor" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -185,13 +191,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxoperationsbycursor">https://tinkoff.github.io/investAPI/sandbox/#getsandboxoperationsbycursor</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L245">SandboxService.ts:245</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/SandboxService.ts#L316">SandboxService.ts:316</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxOrderState" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Order<wbr/>State</span><a href="#GetSandboxOrderState" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="GetSandboxOrderState.GetSandboxOrderState-1"><span class="tsd-kind-call-signature">Get<wbr/>Sandbox<wbr/>Order<wbr/>State</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/OrdersService.OrderState.html" class="tsd-signature-type tsd-kind-interface">OrderState</a><span class="tsd-signature-symbol">&gt;</span><a href="#GetSandboxOrderState.GetSandboxOrderState-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод получения статуса заявки в песочнице</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">orders</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">sandboxService</span><span class="hl-1">.</span><span class="hl-0">GetSandboxOrderState</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ACCOUNT_ID&gt;&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">orderId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ORDER_ID&gt;&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">orders</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -205,7 +213,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxorderstate">https://tinkoff.github.io/investAPI/sandbox/#getsandboxorderstate</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L171">SandboxService.ts:171</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/SandboxService.ts#L242">SandboxService.ts:242</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxOrders" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Orders</span><a href="#GetSandboxOrders" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -225,7 +233,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxorders">https://tinkoff.github.io/investAPI/sandbox/#getsandboxorders</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L152">SandboxService.ts:152</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/SandboxService.ts#L201">SandboxService.ts:201</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxPortfolio" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Portfolio</span><a href="#GetSandboxPortfolio" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -245,7 +253,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxportfolio">https://tinkoff.github.io/investAPI/sandbox/#getsandboxportfolio</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L266">SandboxService.ts:266</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/SandboxService.ts#L337">SandboxService.ts:337</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxPositions" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Positions</span><a href="#GetSandboxPositions" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -265,7 +273,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxpositions">https://tinkoff.github.io/investAPI/sandbox/#getsandboxpositions</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L189">SandboxService.ts:189</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/SandboxService.ts#L260">SandboxService.ts:260</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="GetSandboxWithdrawLimits" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Get<wbr/>Sandbox<wbr/>Withdraw<wbr/>Limits</span><a href="#GetSandboxWithdrawLimits" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -285,7 +293,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#getsandboxwithdrawlimits">https://tinkoff.github.io/investAPI/sandbox/#getsandboxwithdrawlimits</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L296">SandboxService.ts:296</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/SandboxService.ts#L378">SandboxService.ts:378</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="OpenSandboxAccount" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Open<wbr/>Sandbox<wbr/>Account</span><a href="#OpenSandboxAccount" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -305,14 +313,14 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#opensandboxaccount">https://tinkoff.github.io/investAPI/sandbox/#opensandboxaccount</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L60">SandboxService.ts:60</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/SandboxService.ts#L94">SandboxService.ts:94</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="PostSandboxOrder" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Post<wbr/>Sandbox<wbr/>Order</span><a href="#PostSandboxOrder" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="PostSandboxOrder.PostSandboxOrder-1"><span class="tsd-kind-call-signature">Post<wbr/>Sandbox<wbr/>Order</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/OrdersService.PostOrderResponse.html" class="tsd-signature-type tsd-kind-interface">PostOrderResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#PostSandboxOrder.PostSandboxOrder-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод выставления торгового поручения в песочнице</p>
-<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1">, </span><span class="hl-4">OrderDirection</span><span class="hl-1">, </span><span class="hl-4">OrderType</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">result</span><span class="hl-1"> = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">sandboxService</span><span class="hl-1">.</span><span class="hl-0">PostSandboxOrder</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">quantity:</span><span class="hl-1"> </span><span class="hl-2">&#39;1&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">price:</span><span class="hl-1"> { </span><span class="hl-4">units:</span><span class="hl-1"> </span><span class="hl-2">&#39;1&#39;</span><span class="hl-1">, </span><span class="hl-4">nano:</span><span class="hl-1"> </span><span class="hl-9">0</span><span class="hl-1"> },</span><br/><span class="hl-1"> </span><span class="hl-4">direction:</span><span class="hl-1"> </span><span class="hl-4">OrderDirection</span><span class="hl-1">.</span><span class="hl-6">ORDER_DIRECTION_BUY</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ACCOUNT_ID&gt;&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">orderType:</span><span class="hl-1"> </span><span class="hl-4">OrderType</span><span class="hl-1">.</span><span class="hl-6">ORDER_TYPE_MARKET</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">orderId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">instrumentId:</span><span class="hl-1"> </span><span class="hl-2">&#39;6afa6f80-03a7-4d83-9cf0-c19d7d021f76&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">result</span><span class="hl-1">)</span>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1">, </span><span class="hl-4">OrderDirection</span><span class="hl-1">, </span><span class="hl-4">OrderType</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">result</span><span class="hl-1"> = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">sandboxService</span><span class="hl-1">.</span><span class="hl-0">PostSandboxOrder</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">quantity:</span><span class="hl-1"> </span><span class="hl-2">&#39;1&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">price:</span><span class="hl-1"> </span><span class="hl-4">SandboxService</span><span class="hl-1">.</span><span class="hl-0">StringToQuotation</span><span class="hl-1">(</span><span class="hl-2">&#39;1.0&#39;</span><span class="hl-1">),</span><br/><span class="hl-1"> </span><span class="hl-4">direction:</span><span class="hl-1"> </span><span class="hl-4">OrderDirection</span><span class="hl-1">.</span><span class="hl-6">ORDER_DIRECTION_BUY</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ACCOUNT_ID&gt;&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">orderType:</span><span class="hl-1"> </span><span class="hl-4">OrderType</span><span class="hl-1">.</span><span class="hl-6">ORDER_TYPE_MARKET</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">orderId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">instrumentId:</span><span class="hl-1"> </span><span class="hl-2">&#39;6afa6f80-03a7-4d83-9cf0-c19d7d021f76&#39;</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">result</span><span class="hl-1">)</span>
 </code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
@@ -325,13 +333,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#postsandboxorder">https://tinkoff.github.io/investAPI/sandbox/#postsandboxorder</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L124">SandboxService.ts:124</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/SandboxService.ts#L158">SandboxService.ts:158</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="ReplaceSandboxOrder" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Replace<wbr/>Sandbox<wbr/>Order</span><a href="#ReplaceSandboxOrder" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="ReplaceSandboxOrder.ReplaceSandboxOrder-1"><span class="tsd-kind-call-signature">Replace<wbr/>Sandbox<wbr/>Order</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/OrdersService.PostOrderResponse.html" class="tsd-signature-type tsd-kind-interface">PostOrderResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#ReplaceSandboxOrder.ReplaceSandboxOrder-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод изменения выставленной заявки</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1">, </span><span class="hl-4">PriceType</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">result</span><span class="hl-1"> = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">sandboxService</span><span class="hl-1">.</span><span class="hl-0">ReplaceSandboxOrder</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">quantity:</span><span class="hl-1"> </span><span class="hl-2">&#39;1&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">price:</span><span class="hl-1"> </span><span class="hl-4">SandboxService</span><span class="hl-1">.</span><span class="hl-0">StringToQuotation</span><span class="hl-1">(</span><span class="hl-2">&#39;1.0&#39;</span><span class="hl-1">),</span><br/><span class="hl-1"> </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ACCOUNT_ID&gt;&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">orderId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">idempotencyKey:</span><span class="hl-1"> </span><span class="hl-2">&#39;&#39;</span><br/><span class="hl-1"> </span><span class="hl-4">priceType</span><span class="hl-1">: </span><span class="hl-4">PriceType</span><span class="hl-1">.</span><span class="hl-6">PRICE_TYPE_CURRENCY</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">result</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -343,13 +353,15 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#replacesandboxorder">https://tinkoff.github.io/investAPI/sandbox/#replacesandboxorder</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L132">SandboxService.ts:132</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/SandboxService.ts#L181">SandboxService.ts:181</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="SandboxPayIn" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>Sandbox<wbr/>Pay<wbr/>In</span><a href="#SandboxPayIn" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="SandboxPayIn.SandboxPayIn-1"><span class="tsd-kind-call-signature">Sandbox<wbr/>Pay<wbr/>In</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">body</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/SandboxService.SandboxPayInResponse.html" class="tsd-signature-type tsd-kind-interface">SandboxPayInResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#SandboxPayIn.SandboxPayIn-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Метод пополнения счёта в песочнице</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">SandboxService</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">sandboxService</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">SandboxService</span><span class="hl-1">(</span><span class="hl-2">&#39;&lt;TOKEN&gt;&#39;</span><span class="hl-1">, </span><span class="hl-5">true</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-6">orders</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">sandboxService</span><span class="hl-1">.</span><span class="hl-0">SandboxPayIn</span><span class="hl-1">({</span><br/><span class="hl-1"> </span><span class="hl-4">accountId:</span><span class="hl-1"> </span><span class="hl-2">&#39;&lt;ACCOUNT_ID&gt;&#39;</span><span class="hl-1">,</span><br/><span class="hl-1"> </span><span class="hl-4">amount:</span><span class="hl-1"> </span><span class="hl-4">SandboxService</span><span class="hl-1">.</span><span class="hl-0">StringToMoneyValue</span><span class="hl-1">(</span><span class="hl-2">&#39;114,25 rub&#39;</span><span class="hl-1">)</span><br/><span class="hl-1">})</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">orders</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -361,7 +373,7 @@
 <h4>See</h4><p><a href="https://tinkoff.github.io/investAPI/sandbox/#sandboxpayin">https://tinkoff.github.io/investAPI/sandbox/#sandboxpayin</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/SandboxService.ts#L276">SandboxService.ts:276</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/SandboxService.ts#L358">SandboxService.ts:358</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-protected tsd-is-inherited"><a id="request" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagProtected">Protected</code> <span>request</span><a href="#request" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-protected tsd-is-inherited">
@@ -393,7 +405,83 @@
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#request">request</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/0021cab/src/Common.ts#L86">Common.ts:86</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/Common.ts#L132">Common.ts:132</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-inherited"><a id="MoneyValueToString" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>Money<wbr/>Value<wbr/>To<wbr/>String</span><a href="#MoneyValueToString" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-inherited">
+<li class="tsd-signature tsd-anchor-link" id="MoneyValueToString.MoneyValueToString-1"><span class="tsd-kind-call-signature">Money<wbr/>Value<wbr/>To<wbr/>String</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">moneyValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><a href="#MoneyValueToString.MoneyValueToString-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Статичный метод конвертирования денежной суммы в определенной валюте в строку</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">Common</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">MoneyValueToString</span><span class="hl-1">({ </span><span class="hl-4">units:</span><span class="hl-1"> </span><span class="hl-2">&#39;114&#39;</span><span class="hl-1">, </span><span class="hl-4">nano:</span><span class="hl-1"> </span><span class="hl-9">250000000</span><span class="hl-1">, </span><span class="hl-4">currency:</span><span class="hl-1"> </span><span class="hl-2">&#39;rub&#39;</span><span class="hl-1"> })) </span><span class="hl-7">// &#39;114,25 rub&#39;</span><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">MoneyValueToString</span><span class="hl-1">({ </span><span class="hl-4">units:</span><span class="hl-1"> </span><span class="hl-2">&#39;-200&#39;</span><span class="hl-1">, </span><span class="hl-4">nano:</span><span class="hl-1"> -</span><span class="hl-9">200000000</span><span class="hl-1">, </span><span class="hl-4">currency:</span><span class="hl-1"> </span><span class="hl-2">&#39;usd&#39;</span><span class="hl-1"> })) </span><span class="hl-7">// &#39;-200,20 usd&#39;</span><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">MoneyValueToString</span><span class="hl-1">({ </span><span class="hl-4">units:</span><span class="hl-1"> </span><span class="hl-2">&#39;-0&#39;</span><span class="hl-1">, </span><span class="hl-4">nano:</span><span class="hl-1"> -</span><span class="hl-9">10000000</span><span class="hl-1">, </span><span class="hl-4">currency:</span><span class="hl-1"> </span><span class="hl-2">&#39;eur&#39;</span><span class="hl-1"> })) </span><span class="hl-7">// &#39;-0,01 eur&#39;</span>
+</code><button>Copy</button></pre>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">moneyValue</span>: <a href="../interfaces/Common.MoneyValue.html" class="tsd-signature-type tsd-kind-interface">MoneyValue</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#MoneyValueToString">MoneyValueToString</a></p>
+<ul>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/Common.ts#L165">Common.ts:165</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-inherited"><a id="QuotationToString" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>Quotation<wbr/>To<wbr/>String</span><a href="#QuotationToString" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-inherited">
+<li class="tsd-signature tsd-anchor-link" id="QuotationToString.QuotationToString-1"><span class="tsd-kind-call-signature">Quotation<wbr/>To<wbr/>String</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">quotation</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><a href="#QuotationToString.QuotationToString-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Статичный метод конвертирования котировки в строку</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">Common</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">QuotationToString</span><span class="hl-1">({ </span><span class="hl-4">units:</span><span class="hl-1"> </span><span class="hl-2">&#39;114&#39;</span><span class="hl-1">, </span><span class="hl-4">nano:</span><span class="hl-1"> </span><span class="hl-9">250000000</span><span class="hl-1"> })) </span><span class="hl-7">// &#39;114,25&#39;</span><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">QuotationToString</span><span class="hl-1">({ </span><span class="hl-4">units:</span><span class="hl-1"> </span><span class="hl-2">&#39;-200&#39;</span><span class="hl-1">, </span><span class="hl-4">nano:</span><span class="hl-1"> -</span><span class="hl-9">200000000</span><span class="hl-1"> })) </span><span class="hl-7">// &#39;-200,20&#39;</span><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">QuotationToString</span><span class="hl-1">({ </span><span class="hl-4">units:</span><span class="hl-1"> </span><span class="hl-2">&#39;-0&#39;</span><span class="hl-1">, </span><span class="hl-4">nano:</span><span class="hl-1"> -</span><span class="hl-9">10000000</span><span class="hl-1"> })) </span><span class="hl-7">// &#39;-0,01&#39;</span>
+</code><button>Copy</button></pre>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">quotation</span>: <a href="../interfaces/Common.Quotation.html" class="tsd-signature-type tsd-kind-interface">Quotation</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#QuotationToString">QuotationToString</a></p>
+<ul>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/Common.ts#L179">Common.ts:179</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-inherited"><a id="StringToMoneyValue" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>String<wbr/>To<wbr/>Money<wbr/>Value</span><a href="#StringToMoneyValue" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-inherited">
+<li class="tsd-signature tsd-anchor-link" id="StringToMoneyValue.StringToMoneyValue-1"><span class="tsd-kind-call-signature">String<wbr/>To<wbr/>Money<wbr/>Value</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">moneyValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/Common.MoneyValue.html" class="tsd-signature-type tsd-kind-interface">MoneyValue</a><a href="#StringToMoneyValue.StringToMoneyValue-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Статичный метод конвертирования строки в денежную сумму в определенной валюте</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">Common</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">StringToMoneyValue</span><span class="hl-1">(</span><span class="hl-2">&#39;114,25 rub&#39;</span><span class="hl-1">)) </span><span class="hl-7">// { units: &#39;114&#39;, nano: 250000000, currency: &#39;rub&#39; }</span><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">StringToMoneyValue</span><span class="hl-1">(</span><span class="hl-2">&#39;-200,20 usd&#39;</span><span class="hl-1">)) </span><span class="hl-7">// { units: &#39;-200&#39;, nano: -200000000, currency: &#39;usd&#39; }</span><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">StringToMoneyValue</span><span class="hl-1">(</span><span class="hl-2">&#39;-0,01 eur&#39;</span><span class="hl-1">)) </span><span class="hl-7">// { units: &#39;-0&#39;, nano: -10000000, currency: &#39;eur&#39; }</span>
+</code><button>Copy</button></pre>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">moneyValue</span>: <span class="tsd-signature-type">string</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <a href="../interfaces/Common.MoneyValue.html" class="tsd-signature-type tsd-kind-interface">MoneyValue</a></h4>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#StringToMoneyValue">StringToMoneyValue</a></p>
+<ul>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/Common.ts#L194">Common.ts:194</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-inherited"><a id="StringToQuotation" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>String<wbr/>To<wbr/>Quotation</span><a href="#StringToQuotation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-inherited">
+<li class="tsd-signature tsd-anchor-link" id="StringToQuotation.StringToQuotation-1"><span class="tsd-kind-call-signature">String<wbr/>To<wbr/>Quotation</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">quotation</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/Common.Quotation.html" class="tsd-signature-type tsd-kind-interface">Quotation</a><a href="#StringToQuotation.StringToQuotation-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Статичный метод конвертирования строки в котировку</p>
+<pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">Common</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&#39;@tomasevich/tinkoff&#39;</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">StringToQuotation</span><span class="hl-1">(</span><span class="hl-2">&#39;114,25&#39;</span><span class="hl-1">)) </span><span class="hl-7">// { units: &#39;114&#39;, nano: 250000000 }</span><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">StringToQuotation</span><span class="hl-1">(</span><span class="hl-2">&#39;-200,20&#39;</span><span class="hl-1">)) </span><span class="hl-7">// { units: &#39;-200&#39;, nano: -200000000 }</span><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-4">Common</span><span class="hl-1">.</span><span class="hl-0">StringToQuotation</span><span class="hl-1">(</span><span class="hl-2">&#39;-0,01&#39;</span><span class="hl-1">)) </span><span class="hl-7">// { units: &#39;-0&#39;, nano: -10000000 }</span>
+</code><button>Copy</button></pre>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">quotation</span>: <span class="tsd-signature-type">string</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <a href="../interfaces/Common.Quotation.html" class="tsd-signature-type tsd-kind-interface">Quotation</a></h4>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<p>Inherited from <a href="Common.Common.html">Common</a>.<a href="Common.Common.html#StringToQuotation">StringToQuotation</a></p>
+<ul>
+<li>Defined in <a href="https://github.com/tomasevich/tinkoff/blob/287d134/src/Common.ts#L211">Common.ts:211</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -428,7 +516,11 @@
 <li><a href="#PostSandboxOrder" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>Post<wbr/>Sandbox<wbr/>Order</span></a></li>
 <li><a href="#ReplaceSandboxOrder" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>Replace<wbr/>Sandbox<wbr/>Order</span></a></li>
 <li><a href="#SandboxPayIn" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>Sandbox<wbr/>Pay<wbr/>In</span></a></li>
-<li><a href="#request" class="tsd-is-protected tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>request</span></a></li></ul></div></details></div>
+<li><a href="#request" class="tsd-is-protected tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>request</span></a></li>
+<li><a href="#MoneyValueToString" class="tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>Money<wbr/>Value<wbr/>To<wbr/>String</span></a></li>
+<li><a href="#QuotationToString" class="tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>Quotation<wbr/>To<wbr/>String</span></a></li>
+<li><a href="#StringToMoneyValue" class="tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>String<wbr/>To<wbr/>Money<wbr/>Value</span></a></li>
+<li><a href="#StringToQuotation" class="tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>String<wbr/>To<wbr/>Quotation</span></a></li></ul></div></details></div>
 <div class="site-menu">
 <nav class="tsd-navigation"><a href="../index.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-4"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-namespace)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.33 16V7.24H10.77L13.446 14.74C13.43 14.54 13.41 14.296 13.386 14.008C13.37 13.712 13.354 13.404 13.338 13.084C13.33 12.756 13.326 12.448 13.326 12.16V7.24H14.37V16H12.93L10.266 8.5C10.282 8.692 10.298 8.936 10.314 9.232C10.33 9.52 10.342 9.828 10.35 10.156C10.366 10.476 10.374 10.784 10.374 11.08V16H9.33Z" fill="var(--color-text)"></path></g></svg><span>@tomasevich/tinkoff</span></a>
 <ul class="tsd-small-nested-navigation">
