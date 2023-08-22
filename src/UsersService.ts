@@ -60,14 +60,14 @@ export interface Account {
   status: AccountStatus
   /**
    * Дата открытия счёта в часовом поясе UTC
-   * @type `google.protobuf.Timestamp`
+   * @remarks `google.protobuf.Timestamp`
    */
   openedDate: string
   /** Уровень доступа к текущему счёту (определяется токеном) */
   accessLevel: AccessLevel
   /**
    * Дата закрытия счёта в часовом поясе UTC
-   * @type `google.protobuf.Timestamp`
+   * @remarks `google.protobuf.Timestamp`
    */
   closedDate?: string
 }
@@ -131,7 +131,7 @@ export interface GetMarginAttributesResponse {
 export interface UnaryLimit {
   /**
    * Количество unary-запросов в минуту
-   * @type `int32`
+   * @remarks `int32`
    */
   limitPerMinute: number
   /** Названия методов */
@@ -145,14 +145,14 @@ export interface UnaryLimit {
 export interface StreamLimit {
   /**
    * Максимальное количество stream-соединений
-   * @type `int32`
+   * @remarks `int32`
    */
   limit: number
   /** Названия stream-методов */
   streams: string[]
   /**
    * Текущее количество открытых stream-соединений
-   * @type `int32`
+   * @remarks `int32`
    */
   open: number
 }

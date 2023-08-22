@@ -75,12 +75,12 @@ export interface HistoricCandle {
   close: Quotation
   /**
    * Объём торгов в лотах
-   * @type `int64`
+   * @remarks `int64`
    */
   volume: string
   /**
    * Время свечи в часовом поясе UTC
-   * @type `google.protobuf.Timestamp`
+   * @remarks `google.protobuf.Timestamp`
    */
   time: string
   /**
@@ -104,7 +104,7 @@ export interface LastPrice {
   price: Quotation
   /**
    * Время получения последней цены в часовом поясе UTC по времени биржи
-   * @type `google.protobuf.Timestamp`
+   * @remarks `google.protobuf.Timestamp`
    */
   time: string
   /** Uid инструмента */
@@ -123,12 +123,12 @@ export interface GetCandlesRequest {
   figi?: string
   /**
    * Начало запрашиваемого периода в часовом поясе UTC
-   * @type `google.protobuf.Timestamp`
+   * @remarks `google.protobuf.Timestamp`
    */
   from: string
   /**
    * Окончание запрашиваемого периода в часовом поясе UTC
-   * @type `google.protobuf.Timestamp`
+   * @remarks `google.protobuf.Timestamp`
    */
   to: string
   /** Интервал запрошенных свечей */
@@ -149,7 +149,7 @@ export interface Order {
   price: Quotation
   /**
    * Количество в лотах
-   * @type `int64`
+   * @remarks `int64`
    */
   quantity: string
 }
@@ -170,12 +170,12 @@ export interface Trade {
   price: Quotation
   /**
    * Количество лотов
-   * @type `int64`
+   * @remarks `int64`
    */
   quantity: string
   /**
    * Время сделки в часовом поясе UTC по времени биржи
-   * @type `google.protobuf.Timestamp`
+   * @remarks `google.protobuf.Timestamp`
    */
   time: string
   /** Uid инструмента */
@@ -226,7 +226,7 @@ export interface GetOrderBookRequest {
   figi?: string
   /**
    * Глубина стакана
-   * @type `int32`
+   * @remarks `int32`
    */
   depth: number
   /** Идентификатор инструмента, принимает значение figi или instrumentUid */
@@ -242,7 +242,7 @@ export interface GetOrderBookResponse {
   figi: string
   /**
    * Глубина стакана
-   * @type `int32`
+   * @remarks `int32`
    */
   depth: number
   /** Множество пар значений на покупку */
@@ -271,17 +271,17 @@ export interface GetOrderBookResponse {
   limitDown: Quotation
   /**
    * Время получения цены последней сделки
-   * @type `google.protobuf.Timestamp`
+   * @remarks `google.protobuf.Timestamp`
    */
   lastPriceTs: string
   /**
    * Время получения цены закрытия
-   * @type `google.protobuf.Timestamp`
+   * @remarks `google.protobuf.Timestamp`
    */
   closePriceTs: string
   /**
    * Время формирования стакана на бирже
-   * @type `google.protobuf.Timestamp`
+   * @remarks `google.protobuf.Timestamp`
    */
   orderbookTs: string
   /** Uid инструмента */
@@ -351,12 +351,12 @@ export interface GetLastTradesRequest {
   figi?: string
   /**
    * Начало запрашиваемого периода в часовом поясе UTC
-   * @type `google.protobuf.Timestamp`
+   * @remarks `google.protobuf.Timestamp`
    */
   from: string
   /**
    * Окончание запрашиваемого периода в часовом поясе UTC
-   * @type `google.protobuf.Timestamp`
+   * @remarks `google.protobuf.Timestamp`
    */
   to: string
   /** Идентификатор инструмента, принимает значение figi или instrumentUid */
@@ -412,7 +412,7 @@ export interface InstrumentClosePriceResponse {
   price: Quotation
   /**
    * Дата совершения торгов
-   * @type `google.protobuf.Timestamp`
+   * @remarks `google.protobuf.Timestamp`
    */
   time: string
 }
