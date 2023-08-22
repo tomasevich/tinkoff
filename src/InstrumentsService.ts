@@ -2336,7 +2336,6 @@ export class InstrumentsService extends Common {
 
   /**
    * Метод получения списка опционов
-   * @description В документации указано как `Deprecated`, хотя метод работает
    * ```js
    * import { InstrumentsService, InstrumentStatus } from '@tomasevich/tinkoff'
    *
@@ -2347,6 +2346,7 @@ export class InstrumentsService extends Common {
    *
    * console.log(instruments)
    * ```
+   * @description В документации указано как `Deprecated`, хотя метод работает
    * @see https://tinkoff.github.io/investAPI/instruments/#options
    */
   public Options(body: InstrumentsRequest): Promise<OptionsResponse> {
