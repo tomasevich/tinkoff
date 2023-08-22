@@ -1068,7 +1068,7 @@ export class OperationsService extends Common {
    *
    * const operationsService = new OperationsService('<TOKEN>', true)
    * const portfolio = await operationsService.GetPortfolio({
-   *  accountId: '<ACCOUNT_ID>'
+   *  accountId: '<ACCOUNT_ID>',,
    *  currency: PortfolioRequestCurrencyRequest.RUB
    * })
    *

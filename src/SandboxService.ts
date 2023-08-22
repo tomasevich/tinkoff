@@ -170,7 +170,7 @@ export class SandboxService extends Common {
    *  price: SandboxService.StringToQuotation('1.0'),
    *  accountId: '<ACCOUNT_ID>',
    *  orderId: '',
-   *  idempotencyKey: ''
+   *  idempotencyKey: '',
    *  priceType: PriceType.PRICE_TYPE_CURRENCY
    * })
    *
@@ -326,7 +326,7 @@ export class SandboxService extends Common {
    *
    * const sandboxService = new SandboxService('<TOKEN>', true)
    * const portfolio = await sandboxService.GetPortfolio({
-   *  accountId: '<ACCOUNT_ID>'
+   *  accountId: '<ACCOUNT_ID>',
    *  currency: PortfolioRequestCurrencyRequest.RUB
    * })
    *
