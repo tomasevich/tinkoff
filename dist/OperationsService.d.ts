@@ -1,5 +1,4 @@
-import { Common, MoneyValue, Quotation } from './Common';
-import { InstrumentType } from './InstrumentsService';
+import { Common, MoneyValue, Quotation, InstrumentType } from './';
 /**
  * Статус запрашиваемых операций
  * @see https://tinkoff.github.io/investAPI/operations/#operationstate
@@ -178,12 +177,12 @@ export interface Operation {
     state: OperationState;
     /**
      * Количество единиц инструмента
-     * @type `int64`
+     * @remarks `int64`
      */
     quantity: string;
     /**
      * Неисполненный остаток по сделке
-     * @type `int64`
+     * @remarks `int64`
      */
     quantityRest: string;
     /** Figi-идентификатор инструмента, связанного с операцией */
@@ -199,7 +198,7 @@ export interface Operation {
     instrumentType: 'bond' | 'share' | 'currency' | 'etf' | 'futures';
     /**
      * Дата и время операции в формате часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     date: string;
     /** Текстовое описание типа операции */
@@ -224,12 +223,12 @@ export interface OperationTrade {
     tradeId: string;
     /**
      * Дата и время сделки в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     dateTime: string;
     /**
      * Количество инструментов
-     * @type `int64`
+     * @remarks `int64`
      */
     quantity: string;
     /**
@@ -247,12 +246,12 @@ export interface OperationsRequest {
     accountId: string;
     /**
      * Начало периода (по UTC).
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     from: string;
     /**
      * Окончание периода (по UTC).
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     to: string;
     /**
@@ -391,7 +390,7 @@ export interface VirtualPortfolioPosition {
     expectedYieldFifo: Quotation;
     /**
      * Дата до которой нужно продать виртуальные бумаги, после этой даты виртуальная позиция "сгорит"
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     expireDate: string;
     /**
@@ -414,12 +413,12 @@ export interface PositionsSecurities {
     figi: string;
     /**
      * Количество бумаг заблокированных выставленными заявками
-     * @type `int64`
+     * @remarks `int64`
      */
     blocked: string;
     /**
      * Текущий незаблокированный баланс
-     * @type `int64`
+     * @remarks `int64`
      */
     balance: string;
     /** Уникальный идентификатор позиции */
@@ -440,12 +439,12 @@ export interface PositionsFutures {
     figi: string;
     /**
      * Количество бумаг заблокированных выставленными заявками
-     * @type `int64`
+     * @remarks `int64`
      */
     blocked: string;
     /**
      * Текущий незаблокированный баланс
-     * @type `int64`
+     * @remarks `int64`
      */
     balance: string;
     /** Уникальный идентификатор позиции */
@@ -463,12 +462,12 @@ export interface PositionsOptions {
     instrumentUid: string;
     /**
      * Количество бумаг заблокированных выставленными заявками
-     * @type `int64`
+     * @remarks `int64`
      */
     blocked: string;
     /**
      * Текущий незаблокированный баланс
-     * @type `int64`
+     * @remarks `int64`
      */
     balance: string;
 }
@@ -526,12 +525,12 @@ export interface GenerateBrokerReportRequest {
     accountId: string;
     /**
      * Начало периода в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     from: string;
     /**
      * Окончание периода в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     to: string;
 }
@@ -543,21 +542,23 @@ export interface GenerateBrokerReportResponse {
     taskId: string;
 }
 /**
+ * Запрос отчета брокера
  * @see https://tinkoff.github.io/investAPI/operations/#brokerreportrequest
  */
 export interface BrokerReportRequest {
-    /** @todo Нет описания */
+    /** Сгенерированный запрос отчета брокера */
     generateBrokerReportRequest: GenerateBrokerReportRequest;
-    /** @todo Нет описания */
+    /** Полученный запрос отчета брокера */
     getBrokerReportRequest: GetBrokerReportRequest;
 }
 /**
+ * Ответ отчета брокера
  * @see https://tinkoff.github.io/investAPI/operations/#brokerreportresponse
  */
 export interface BrokerReportResponse {
-    /** @todo Нет описания */
+    /** Сгенерированный ответ отчета брокера */
     generateBrokerReportResponse: GenerateBrokerReportResponse;
-    /** @todo Нет описания */
+    /** Полученный ответ отчета брокера */
     getBrokerReportResponse: GetBrokerReportResponse;
 }
 /**
@@ -568,7 +569,7 @@ export interface GetBrokerReportRequest {
     taskId: string;
     /**
      * Номер страницы отчета (начинается с 1), значение по умолчанию: 0
-     * @type `int32`
+     * @remarks `int32`
      */
     page: number;
 }
@@ -576,21 +577,21 @@ export interface GetBrokerReportRequest {
  * @see https://tinkoff.github.io/investAPI/operations/#getbrokerreportresponse
  */
 export interface GetBrokerReportResponse {
-    /** @todo Нет описания */
+    /** Отчет брокера */
     brokerReport: BrokerReport[];
     /**
      * Количество записей в отчете
-     * @type `int32`
+     * @remarks `int32`
      */
     itemsCount: number;
     /**
      * Количество страниц с данными отчета (начинается с 0)
-     * @type `int32`
+     * @remarks `int32`
      */
     pagesCount: number;
     /**
      * Текущая страница (начинается с 0)
-     * @type `int32`
+     * @remarks `int32`
      */
     page: number;
 }
@@ -608,7 +609,7 @@ export interface BrokerReport {
     executeSign: string;
     /**
      * Дата и время заключения в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     tradeDatetime: string;
     /** Торговая площадка */
@@ -627,7 +628,7 @@ export interface BrokerReport {
     price: MoneyValue;
     /**
      * Количество
-     * @type `int64`
+     * @remarks `int64`
      */
     quantity: string;
     /** Сумма (без НКД) */
@@ -648,12 +649,12 @@ export interface BrokerReport {
     party: string;
     /**
      * Дата расчётов в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     clearValueDate: string;
     /**
      * Дата поставки в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     secValueDate: string;
     /** Статус брокера */
@@ -694,12 +695,12 @@ export interface GenerateDividendsForeignIssuerReportRequest {
     accountId: string;
     /**
      * Начало периода (по UTC).
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     from: string;
     /**
      * Окончание периода (по UTC).
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     to: string;
 }
@@ -712,7 +713,7 @@ export interface GetDividendsForeignIssuerReportRequest {
     taskId: string;
     /**
      * Номер страницы отчета (начинается с 0), значение по умолчанию: 0
-     * @type `int32`
+     * @remarks `int32`
      */
     page: number;
 }
@@ -728,21 +729,21 @@ export interface GenerateDividendsForeignIssuerReportResponse {
  * @see https://tinkoff.github.io/investAPI/operations/#getdividendsforeignissuerreportresponse
  */
 export interface GetDividendsForeignIssuerReportResponse {
-    /** @todo Нет описания */
+    /** Отчет о дивидентах */
     dividendsForeignIssuerReport: DividendsForeignIssuerReport[];
     /**
      * Количество записей в отчете
-     * @type `int32`
+     * @remarks `int32`
      */
     itemsCount: number;
     /**
      * Количество страниц с данными отчета (начинается с 0)
-     * @type `int32`
+     * @remarks `int32`
      */
     pagesCount: number;
     /**
      * Текущая страница (начинается с 0)
-     * @type `int32`
+     * @remarks `int32`
      */
     page: number;
 }
@@ -753,12 +754,12 @@ export interface GetDividendsForeignIssuerReportResponse {
 export interface DividendsForeignIssuerReport {
     /**
      * Дата фиксации реестра.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     recordDate: string;
     /**
      * Дата выплаты.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     paymentDate: string;
     /** Наименование ценной бумаги */
@@ -772,7 +773,7 @@ export interface DividendsForeignIssuerReport {
     issuerCountry: string;
     /**
      * Количество ценных бумаг
-     * @type `int64`
+     * @remarks `int64`
      */
     quantity: string;
     /** Выплаты на одну бумаг */
@@ -802,12 +803,12 @@ export interface GetOperationsByCursorRequest {
     instrumentId: string;
     /**
      * Начало периода (по UTC).
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     from: string;
     /**
      * Окончание периода (по UTC).
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     to: string;
     /** Идентификатор элемента, с которого начать формировать ответ */
@@ -815,7 +816,7 @@ export interface GetOperationsByCursorRequest {
     /**
      * Лимит количества операций
      * @description По умолчанию устанавливается значение 100, максимальное значение 1000
-     * @type `int32`
+     * @remarks `int32`
      */
     limit: number;
     /**
@@ -861,7 +862,7 @@ export interface OperationItem {
     name: string;
     /**
      * Дата поручения.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     date: string;
     /** Тип операции */
@@ -896,22 +897,22 @@ export interface OperationItem {
     accruedInt: MoneyValue;
     /**
      * Количество единиц инструмента
-     * @type `int64`
+     * @remarks `int64`
      */
     quantity: string;
     /**
      * Неисполненный остаток по сделке
-     * @type `int64`
+     * @remarks `int64`
      */
     quantityRest: string;
     /**
      * Исполненный остаток
-     * @type `int64`
+     * @remarks `int64`
      */
     quantityDone: string;
     /**
      * Дата и время снятия заявки.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     cancelDateTime: string;
     /** Причина отмены операции */
@@ -926,7 +927,7 @@ export interface OperationItem {
  * @see https://tinkoff.github.io/investAPI/operations/#operationitemtrades
  */
 export interface OperationItemTrades {
-    /** @todo Нет описания */
+    /** Список сделок */
     trades: OperationItemTrade[];
 }
 /**
@@ -938,12 +939,12 @@ export interface OperationItemTrade {
     num: string;
     /**
      * Дата сделки
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     date: string;
     /**
      * Количество в единицах
-     * @type `int64`
+     * @remarks `int64`
      */
     quantity: string;
     /**
@@ -972,7 +973,7 @@ export interface PositionData {
     options: PositionsOptions[];
     /**
      * Дата и время операции в формате UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     date: string;
 }
@@ -1023,7 +1024,7 @@ export declare class OperationsService extends Common {
      *
      * const operationsService = new OperationsService('<TOKEN>', true)
      * const portfolio = await operationsService.GetPortfolio({
-     *  accountId: '<ACCOUNT_ID>'
+     *  accountId: '<ACCOUNT_ID>',,
      *  currency: PortfolioRequestCurrencyRequest.RUB
      * })
      *

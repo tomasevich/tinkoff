@@ -1,25 +1,23 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InstrumentsService = exports.RiskLevel = exports.RealExchange = exports.EditFavoritesActionType = exports.StructuredProductType = exports.AssetType = exports.ShareType = exports.InstrumentStatus = exports.InstrumentIdType = exports.OptionSettlementType = exports.OptionStyle = exports.OptionPaymentType = exports.OptionDirection = exports.CouponType = exports.InstrumentType = void 0;
-const Common_1 = require("./Common");
-/**
- * Тип инструмента
- */
+const _1 = require("./");
+/** Тип инструмента */
 var InstrumentType;
 (function (InstrumentType) {
-    /** @todo Нет описания */
+    /** Тип инструмента не определн */
     InstrumentType[InstrumentType["INSTRUMENT_TYPE_UNSPECIFIED"] = 0] = "INSTRUMENT_TYPE_UNSPECIFIED";
-    /** @todo Нет описания */
+    /** Облигация */
     InstrumentType[InstrumentType["INSTRUMENT_TYPE_BOND"] = 1] = "INSTRUMENT_TYPE_BOND";
     /** Акция */
     InstrumentType[InstrumentType["INSTRUMENT_TYPE_SHARE"] = 2] = "INSTRUMENT_TYPE_SHARE";
     /** Валюта */
     InstrumentType[InstrumentType["INSTRUMENT_TYPE_CURRENCY"] = 3] = "INSTRUMENT_TYPE_CURRENCY";
-    /** @todo Нет описания */
+    /** Инвестиционный фонд */
     InstrumentType[InstrumentType["INSTRUMENT_TYPE_ETF"] = 4] = "INSTRUMENT_TYPE_ETF";
     /** Фьючерс */
     InstrumentType[InstrumentType["INSTRUMENT_TYPE_FUTURES"] = 5] = "INSTRUMENT_TYPE_FUTURES";
-    /** @todo Нет описания */
+    /** Структурная нота */
     InstrumentType[InstrumentType["INSTRUMENT_TYPE_SP"] = 6] = "INSTRUMENT_TYPE_SP";
     /** Опцион */
     InstrumentType[InstrumentType["INSTRUMENT_TYPE_OPTION"] = 7] = "INSTRUMENT_TYPE_OPTION";
@@ -239,7 +237,7 @@ var RiskLevel;
  * 5. дивидендов по ценной бумаге.
  * @see https://tinkoff.github.io/investAPI/instruments/#instrumentsservice
  */
-class InstrumentsService extends Common_1.Common {
+class InstrumentsService extends _1.Common {
     /**
      * Метод получения расписания торгов торговых площадок
      * ```js
@@ -424,6 +422,18 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения опциона по его идентификатору
+     * ```js
+     * import { InstrumentsService } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { instrument } = await instrumentsService.OptionBy({
+     *  idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
+     *  classCode: 'SPBFUT',
+     *  id: 'GKZ3'
+     * })
+     *
+     * console.log(instrument)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#optionby
      */
     OptionBy(body) {
@@ -431,7 +441,6 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения списка опционов
-     * @description В документации указано как `Deprecated`, хотя метод работает
      * ```js
      * import { InstrumentsService, InstrumentStatus } from '@tomasevich/tinkoff'
      *
@@ -442,6 +451,7 @@ class InstrumentsService extends Common_1.Common {
      *
      * console.log(instruments)
      * ```
+     * @description В документации указано как `Deprecated`, хотя метод работает
      * @see https://tinkoff.github.io/investAPI/instruments/#options
      */
     Options(body) {
@@ -449,6 +459,17 @@ class InstrumentsService extends Common_1.Common {
     }
     /**
      * Метод получения списка опционов
+     * ```js
+     * import { InstrumentsService } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { instruments } = await instrumentsService.OptionsBy({
+     *  basicAssetUid: 'b6a73950-20a8-46c7-8b49-9dfbc14fe0ba',
+     *  basicAssetPositionUid: ''
+     * })
+     *
+     * console.log(instruments)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#optionsby
      */
     OptionsBy(body) {

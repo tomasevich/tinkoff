@@ -1,21 +1,19 @@
-import { Common, MoneyValue, Quotation, SecurityTradingStatus } from './Common';
-/**
- * Тип инструмента
- */
+import { Common, MoneyValue, Quotation, SecurityTradingStatus } from './';
+/** Тип инструмента */
 export declare enum InstrumentType {
-    /** @todo Нет описания */
+    /** Тип инструмента не определн */
     INSTRUMENT_TYPE_UNSPECIFIED = 0,
-    /** @todo Нет описания */
+    /** Облигация */
     INSTRUMENT_TYPE_BOND = 1,
     /** Акция */
     INSTRUMENT_TYPE_SHARE = 2,
     /** Валюта */
     INSTRUMENT_TYPE_CURRENCY = 3,
-    /** @todo Нет описания */
+    /** Инвестиционный фонд */
     INSTRUMENT_TYPE_ETF = 4,
     /** Фьючерс */
     INSTRUMENT_TYPE_FUTURES = 5,
-    /** @todo Нет описания */
+    /** Структурная нота */
     INSTRUMENT_TYPE_SP = 6,
     /** Опцион */
     INSTRUMENT_TYPE_OPTION = 7,
@@ -230,74 +228,74 @@ export interface TradingSchedule {
 export interface TradingDay {
     /**
      * Дата
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     date: string;
     /** Признак торгового дня на бирже */
     isTradingDay: boolean;
     /**
      * Время начала торгов по часовому поясу UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     startTime?: string;
     /**
      * Время окончания торгов по часовому поясу UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     endTime?: string;
     /**
      * Время начала аукциона открытия в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     openingAuctionStartTime?: string;
     /**
      * Время окончания аукциона закрытия в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     closingAuctionEndTime?: string;
     /**
      * Время начала аукциона открытия вечерней сессии в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     eveningOpeningAuctionStartTime?: string;
     /**
      * Время начала вечерней сессии в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     eveningStartTime?: string;
     /**
      * Время окончания вечерней сессии в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     eveningEndTime?: string;
     /**
      * Время начала основного клиринга в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     clearingStartTime?: string;
     /**
      * Время окончания основного клиринга в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     clearingEndTime?: string;
     /**
      * Время начала премаркета в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     premarketStartTime?: string;
     /**
      * Время окончания премаркета в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     premarketEndTime?: string;
     /**
      * Время начала аукциона закрытия в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     closingAuctionStartTime?: string;
     /**
      * Время окончания аукциона открытия в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     openingAuctionEndTime?: string;
 }
@@ -310,12 +308,12 @@ export interface Coupon {
     figi: string;
     /**
      * Дата выплаты купона
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     couponDate: string;
     /**
      * Номер купона
-     * @type `int64`
+     * @remarks `int64`
      */
     couponNumber: string;
     /** Выплата на одну облигацию */
@@ -324,22 +322,22 @@ export interface Coupon {
     couponType: CouponType;
     /**
      * Начало купонного периода
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     couponStartDate: string;
     /**
      * Окончание купонного периода
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     couponEndDate: string;
     /**
      * Купонный период в днях
-     * @type `int32`
+     * @remarks `int32`
      */
     couponPeriod: number;
     /**
      * Дата фиксации реестра для выплаты купона
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     fixDate?: string;
 }
@@ -393,7 +391,7 @@ export interface Option {
     sector: string;
     /**
      * Количество бумаг в лоте
-     * @type `int32`
+     * @remarks `int32`
      */
     lot: number;
     /** Размер основного актива */
@@ -422,27 +420,27 @@ export interface Option {
     strikePrice: MoneyValue;
     /**
      * Дата истечения срока в формате UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     expirationDate: string;
     /**
      * Дата начала обращения контракта в формате UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     firstTradeDate: string;
     /**
      * Дата исполнения в формате UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     lastTradeDate: string;
     /**
      * Дата первой минутной свечи в формате UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     first1minCandleDate: string;
     /**
      * Дата первой дневной свечи в формате UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     first1dayCandleDate: string;
     /** Признак доступности для операций шорт */
@@ -480,7 +478,7 @@ export interface Bond {
     /**
      * Лотность инструмента
      * @description Возможно совершение операций только на количества ценной бумаги, кратные параметру lot
-     * @type `int32`
+     * @remarks `int32`
      */
     lot: number;
     /** Валюта расчётов */
@@ -511,12 +509,12 @@ export interface Bond {
     exchange: string;
     /**
      * Количество выплат по купонам в год
-     * @type `int32`
+     * @remarks `int32`
      */
     couponQuantityPerYear: number;
     /**
      * Дата погашения облигации в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     maturityDate: string;
     /** Номинал облигации */
@@ -525,12 +523,12 @@ export interface Bond {
     initialNominal: MoneyValue;
     /**
      * Дата выпуска облигации в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     stateRegDate?: string;
     /**
      * Дата размещения в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     placementDate: string;
     /** Цена размещения */
@@ -551,12 +549,12 @@ export interface Bond {
     issueKind: 'documentary' | 'nonDocumentary';
     /**
      * Размер выпуска
-     * @type `int64`
+     * @remarks `int64`
      */
     issueSize: string;
     /**
      * Плановый размер выпуска
-     * @type `int64`
+     * @remarks `int64`
      */
     issueSizePlan: string;
     /** Текущий режим торгов инструмента */
@@ -597,12 +595,12 @@ export interface Bond {
     liquidityFlag: boolean;
     /**
      * Дата первой минутной свечи.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     first1minCandleDate?: string;
     /**
      * Дата первой дневной свечи.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     first1dayCandleDate?: string;
     /** Уровень риска */
@@ -624,7 +622,7 @@ export interface Currency {
     /**
      * Лотность инструмента
      * @description Возможно совершение операций только на количества ценной бумаги, кратные параметру lot
-     * @type `int32`
+     * @remarks `int32`
      */
     lot: number;
     /** Валюта расчётов */
@@ -689,12 +687,12 @@ export interface Currency {
     blockedTcaFlag: boolean;
     /**
      * Дата первой минутной свечи.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     first1minCandleDate: string;
     /**
      * Дата первой дневной свечи.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     first1dayCandleDate: string;
 }
@@ -713,7 +711,7 @@ export interface Etf {
     isin: string;
     /**
      * Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру lot
-     * @type `int32`
+     * @remarks `int32`
      */
     lot: number;
     /** Валюта расчётов */
@@ -759,7 +757,7 @@ export interface Etf {
     focusType: 'equity' | 'fixedIncome' | 'mixedAllocation' | 'moneyMarket' | 'realEstate' | 'commodity' | 'specialty' | 'privateEquity' | 'alternativeInvestment';
     /**
      * Дата выпуска в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     releasedDate: string;
     /** Количество акций фонда в обращении */
@@ -802,12 +800,12 @@ export interface Etf {
     liquidityFlag: boolean;
     /**
      * Дата первой минутной свечи.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     first1minCandleDate: string;
     /**
      * Дата первой дневной свечи.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     first1dayCandleDate: string;
 }
@@ -824,7 +822,7 @@ export interface Future {
     classCode: string;
     /**
      * Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру lot
-     * @type `int32`
+     * @remarks `int32`
      */
     lot: number;
     /** Валюта расчётов */
@@ -855,12 +853,12 @@ export interface Future {
     exchange: string;
     /**
      * Дата начала обращения контракта в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     firstTradeDate: string;
     /**
      * Дата в часовом поясе UTC, до которой возможно проведение операций с фьючерсом.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     lastTradeDate: string;
     /**
@@ -889,7 +887,7 @@ export interface Future {
     sector: string;
     /**
      * Дата истечения срока в часов поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     expirationDate: string;
     /** Текущий режим торгов инструмента */
@@ -922,12 +920,12 @@ export interface Future {
     blockedTcaFlag: boolean;
     /**
      * Дата первой минутной свечи.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     first1minCandleDate: string;
     /**
      * Дата первой дневной свечи.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     first1dayCandleDate: string;
 }
@@ -946,7 +944,7 @@ export interface Share {
     isin: string;
     /**
      * Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру lot
-     * @type `int32`
+     * @remarks `int32`
      */
     lot: number;
     /** Валюта расчётов */
@@ -977,12 +975,12 @@ export interface Share {
     exchange: string;
     /**
      * Дата IPO акции в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     ipoDate: string;
     /**
      * Размер выпуска
-     * @type `int64`
+     * @remarks `int64`
      */
     issueSize: string;
     /** Код страны риска, т.е. страны, в которой компания ведёт основной бизнес */
@@ -993,7 +991,7 @@ export interface Share {
     sector: string;
     /**
      * Плановый размер выпуска
-     * @type `int64`
+     * @remarks `int64`
      */
     issueSizePlan: string;
     /** Номинал */
@@ -1032,12 +1030,12 @@ export interface Share {
     liquidityFlag: boolean;
     /**
      * Дата первой минутной свечи.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     first1minCandleDate: string;
     /**
      * Дата первой дневной свечи.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     first1dayCandleDate: string;
 }
@@ -1070,7 +1068,7 @@ export interface Brand {
 export interface AccruedInterest {
     /**
      * Дата и время выплаты в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     date: string;
     /** Величина выплаты */
@@ -1125,12 +1123,12 @@ export interface Instrument {
     instrumentKind: InstrumentType;
     /**
      * Дата первой минутной свечи.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     first1minCandleDate: string;
     /**
      * Дата первой дневной свечи.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     first1dayCandleDate: string;
 }
@@ -1143,24 +1141,24 @@ export interface Dividend {
     dividendNet: MoneyValue;
     /**
      * Дата фактических выплат в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     paymentDate: string;
     /**
      * Дата объявления дивидендов в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     declaredDate: string;
     /**
      * Последний день (включительно) покупки для получения выплаты в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     lastBuyDate: string;
     /** Тип выплаты. Возможные значения: Regular Cash – регулярные выплаты, Cancelled – выплата отменена, Daily Accrual – ежедневное начисление, Return of Capital – возврат капитала, прочие типы выплат */
     dividendType: string;
     /**
      * Дата фиксации реестра в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     recordDate: string;
     /** Регулярность выплаты. Возможные значения: Annual – ежегодная, Semi-Anl – каждые полгода, прочие типы выплат */
@@ -1171,7 +1169,7 @@ export interface Dividend {
     yieldValue: Quotation;
     /**
      * Дата и время создания записи в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     createdAt: string;
 }
@@ -1191,7 +1189,7 @@ export interface AssetFull {
     description: string;
     /**
      * Дата и время удаления актива.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     deletedAt: string;
     /** Тестирование клиентов */
@@ -1212,7 +1210,7 @@ export interface AssetFull {
     brand: Brand;
     /**
      * Дата и время последнего обновления записи.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     updatedAt: string;
     /** Код типа ц.б. по классификации Банка России */
@@ -1302,12 +1300,12 @@ export interface AssetShare {
     preferredShareType: string;
     /**
      * Дата IPO.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     ipoDate: string;
     /**
      * Дата регистрации.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     registryDate: string;
     /** Признак наличия дивидендной доходности */
@@ -1316,7 +1314,7 @@ export interface AssetShare {
     issueKind: string;
     /**
      * Дата размещения акции
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     placementDate: string;
     /** ISIN базового актива */
@@ -1347,7 +1345,7 @@ export interface AssetBond {
     interestKind: string;
     /**
      * Количество выплат в год
-     * @type `int32`
+     * @remarks `int32`
      */
     couponQuantityPerYear: number;
     /** Признак облигации с индексируемым номиналом */
@@ -1366,19 +1364,19 @@ export interface AssetBond {
     perpetualFlag: boolean;
     /**
      * Дата погашения облигации
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     maturityDate: string;
     /** Описание и условия получения дополнительного дохода */
     returnCondition: string;
     /**
      * Дата выпуска облигации
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     stateRegDate: string;
     /**
      * Дата размещения облигации
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     placementDate: string;
     /** Цена размещения облигации */
@@ -1409,7 +1407,7 @@ export interface AssetStructuredProduct {
     safetyBarrier: Quotation;
     /**
      * Дата погашения.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     maturityDate: string;
     /** Объявленное количество шт */
@@ -1418,7 +1416,7 @@ export interface AssetStructuredProduct {
     issueSize: Quotation;
     /**
      * Дата размещения ноты
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     placementDate: string;
     /** Форма выпуска */
@@ -1463,7 +1461,7 @@ export interface AssetEtf {
     ucitsFlag: boolean;
     /**
      * Дата выпуска
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     releasedDate: string;
     /** Описание фонда */
@@ -1488,7 +1486,7 @@ export interface AssetEtf {
     taxRate: string;
     /**
      * Даты ребалансировок
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     rebalancingDates: string[];
     /** Форма выпуска */
@@ -1599,12 +1597,12 @@ export interface InstrumentShort {
     forIisFlag: boolean;
     /**
      * Дата первой минутной свечи.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     first1minCandleDate: string;
     /**
      * Дата первой дневной свечи.
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     first1dayCandleDate: string;
     /** Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов */
@@ -1621,12 +1619,12 @@ export interface InstrumentShort {
 export interface TradingSchedulesRequest {
     /**
      * Начало периода по часовому поясу UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     from: string;
     /**
      * Окончание периода по часовому поясу UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     to: string;
     /**
@@ -1715,12 +1713,12 @@ export interface GetBondCouponsRequest {
     figi: string;
     /**
      * Начало запрашиваемого периода в часовом поясе UTC Фильтрация по couponDate (дата выплаты купона)
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     from: string;
     /**
      * Окончание запрашиваемого периода в часовом поясе UTC Фильтрация по couponDate (дата выплаты купона)
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     to: string;
 }
@@ -1729,7 +1727,7 @@ export interface GetBondCouponsRequest {
  * @see https://tinkoff.github.io/investAPI/instruments/#getbondcouponsresponse
  */
 export interface GetBondCouponsResponse {
-    /** @todo Нет описания */
+    /** Список событий */
     events: Coupon[];
 }
 /**
@@ -1821,12 +1819,12 @@ export interface GetAccruedInterestsRequest {
     figi: string;
     /**
      * Начало запрашиваемого периода в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     from: string;
     /**
      * Окончание запрашиваемого периода в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     to: string;
 }
@@ -1869,12 +1867,12 @@ export interface GetDividendsRequest {
     figi: string;
     /**
      * Начало запрашиваемого периода в часовом поясе UTC Фильтрация происходит по параметру recordDate (дата фиксации реестра).
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     from: string;
     /**
      * Окончание запрашиваемого периода в часовом поясе UTC Фильтрация происходит по параметру recordDate (дата фиксации реестра).
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     to: string;
 }
@@ -1907,7 +1905,7 @@ export interface AssetResponse {
  * @see https://tinkoff.github.io/investAPI/instruments/#assetsrequest
  */
 export interface AssetsRequest {
-    /** @todo Нет описания */
+    /** Тип инструмента */
     instrumentType: InstrumentType;
 }
 /**
@@ -2194,12 +2192,23 @@ export declare class InstrumentsService extends Common {
     Futures(body: InstrumentsRequest): Promise<FuturesResponse>;
     /**
      * Метод получения опциона по его идентификатору
+     * ```js
+     * import { InstrumentsService } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { instrument } = await instrumentsService.OptionBy({
+     *  idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
+     *  classCode: 'SPBFUT',
+     *  id: 'GKZ3'
+     * })
+     *
+     * console.log(instrument)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#optionby
      */
     OptionBy(body: InstrumentRequest): Promise<OptionResponse>;
     /**
      * Метод получения списка опционов
-     * @description В документации указано как `Deprecated`, хотя метод работает
      * ```js
      * import { InstrumentsService, InstrumentStatus } from '@tomasevich/tinkoff'
      *
@@ -2210,11 +2219,23 @@ export declare class InstrumentsService extends Common {
      *
      * console.log(instruments)
      * ```
+     * @description В документации указано как `Deprecated`, хотя метод работает
      * @see https://tinkoff.github.io/investAPI/instruments/#options
      */
     Options(body: InstrumentsRequest): Promise<OptionsResponse>;
     /**
      * Метод получения списка опционов
+     * ```js
+     * import { InstrumentsService } from '@tomasevich/tinkoff'
+     *
+     * const instrumentsService = new InstrumentsService('<TOKEN>', true)
+     * const { instruments } = await instrumentsService.OptionsBy({
+     *  basicAssetUid: 'b6a73950-20a8-46c7-8b49-9dfbc14fe0ba',
+     *  basicAssetPositionUid: ''
+     * })
+     *
+     * console.log(instruments)
+     * ```
      * @see https://tinkoff.github.io/investAPI/instruments/#optionsby
      */
     OptionsBy(body: FilterOptionsRequest): Promise<OptionsResponse>;

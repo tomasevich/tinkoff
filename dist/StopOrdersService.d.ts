@@ -1,4 +1,4 @@
-import { Common, MoneyValue, Quotation } from './Common';
+import { Common, MoneyValue, Quotation } from './';
 /**
  * Направление сделки стоп-заявки
  * @see https://tinkoff.github.io/investAPI/stoporders/#stoporderdirection
@@ -46,7 +46,7 @@ export interface StopOrder {
     stopOrderId: string;
     /**
      * Запрошено лотов
-     * @type `int64`
+     * @remarks `int64`
      */
     lotsRequested: string;
     /** Figi-идентификатор инструмента */
@@ -59,17 +59,17 @@ export interface StopOrder {
     orderType: StopOrderType;
     /**
      * Дата и время выставления заявки в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     createDate: string;
     /**
      * Дата и время конвертации стоп-заявки в биржевую в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     activationDateTime: string;
     /**
      * Дата и время снятия заявки в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     expirationTime: string;
     /**
@@ -98,7 +98,7 @@ export interface PostStopOrderRequest {
     figi?: string;
     /**
      * Количество лотов
-     * @type `int64`
+     * @remarks `int64`
      */
     quantity: string;
     /**
@@ -122,7 +122,7 @@ export interface PostStopOrderRequest {
     /**
      * Дата и время окончания действия стоп-заявки в часовом поясе UTC
      * @description Для ExpirationType = GoodTillDate заполнение обязательно
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     expireDate?: string;
     /** Идентификатор инструмента, принимает значения Figi или instrumentUid */
@@ -169,7 +169,7 @@ export interface CancelStopOrderRequest {
 export interface CancelStopOrderResponse {
     /**
      * Время отмены заявки в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     time: string;
 }

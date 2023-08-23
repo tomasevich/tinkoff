@@ -47,12 +47,12 @@ export interface MoneyValue {
     currency: string;
     /**
      * Целая часть суммы, может быть отрицательным числом
-     * @type `int64`
+     * @remarks `int64`
      */
     units: string;
     /**
      * Дробная часть суммы, может быть отрицательным числом
-     * @type `int32`
+     * @remarks `int32`
      */
     nano: number;
 }
@@ -63,12 +63,12 @@ export interface MoneyValue {
 export interface Quotation {
     /**
      * Целая часть суммы, может быть отрицательным числом
-     * @type `int64`
+     * @remarks `int64`
      */
     units: string;
     /**
      * Дробная часть суммы, может быть отрицательным числом
-     * @type `int32`
+     * @remarks `int32`
      */
     nano: number;
 }

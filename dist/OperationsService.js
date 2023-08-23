@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OperationsService = exports.PortfolioRequestCurrencyRequest = exports.OperationType = exports.OperationState = void 0;
-const Common_1 = require("./Common");
+const _1 = require("./");
 /**
  * Статус запрашиваемых операций
  * @see https://tinkoff.github.io/investAPI/operations/#operationstate
@@ -170,7 +170,7 @@ var PortfolioRequestCurrencyRequest;
  * 5. получения различных отчётов.
  * @see https://tinkoff.github.io/investAPI/operations/#operationsservice
  */
-class OperationsService extends Common_1.Common {
+class OperationsService extends _1.Common {
     /**
      * Метод получения списка операций по счёту
      * ```js
@@ -200,7 +200,7 @@ class OperationsService extends Common_1.Common {
      *
      * const operationsService = new OperationsService('<TOKEN>', true)
      * const portfolio = await operationsService.GetPortfolio({
-     *  accountId: '<ACCOUNT_ID>'
+     *  accountId: '<ACCOUNT_ID>',,
      *  currency: PortfolioRequestCurrencyRequest.RUB
      * })
      *
