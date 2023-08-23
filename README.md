@@ -2,11 +2,11 @@
 
 `Неофициальная` библиотека для работы с [Тинькофф Инвестиции](https://www.tinkoff.ru/invest/)
 
-![npm (scoped)](https://img.shields.io/npm/v/%40tomasevich/tinkoff?color=blue)
-![npm bundle size](https://img.shields.io/bundlephobia/min/%40tomasevich%2Ftinkoff?color=purple)
-![GitHub](https://img.shields.io/github/license/tomasevich/tinkoff?color=orange)
-![Static Badge](https://img.shields.io/badge/tests-22/14/131-yellow)
-![Static Badge](https://img.shields.io/badge/covarage-329/346-green)
+![npm (scoped)](https://img.shields.io/npm/v/%40tomasevich/tinkoff?color=blue&logo=npm)
+![npm bundle size](https://img.shields.io/bundlephobia/min/%40tomasevich%2Ftinkoff?color=purple&logo=npm)
+![GitHub](https://img.shields.io/github/license/tomasevich/tinkoff?color=orange&logo=github)
+![Static Badge](https://img.shields.io/badge/tests-22/14/131-yellow?logo=github)
+![Static Badge](https://img.shields.io/badge/covarage-329/346-green?logo=github)
 
 ## Мотивация
 
