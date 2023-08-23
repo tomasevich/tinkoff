@@ -5,7 +5,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "test:coverage": "jest --c=./jest.coverage.config.js",
-    "test:single": "jest --testRegex='/test/Instruments_Bonds.test.ts' --c=./jest.test.config.js",
+    "test:single": "jest --testRegex='/test/InstrumentsService/Bonds.test.ts' --c=./jest.test.config.js",
     "build": "rm -rf ./dist && tsc",
     "docs": "typedoc",
     "prerelease": "npm run build && npm run docs && npm run test:coverage",
