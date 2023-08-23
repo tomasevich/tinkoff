@@ -126,18 +126,18 @@ export class Common {
    * console.log(orders)
    * ```
    * @param service Имя сервиса
-   * @param method Имя метода
+   * @param operation Имя операции
    * @param body Тело запроса
    */
   protected async request(
     service: string,
-    method: string,
+    operation: string,
     body: any
   ): Promise<any> {
     const server = this.isSandbox ? this.development : this.production
     const contract = '/rest/tinkoff.public.invest.api.contract.v1.'
 
-    const url = server + contract + service + '/' + method
+    const url = server + contract + service + '/' + operation
     const opt = {
       method: 'POST',
       headers: {
