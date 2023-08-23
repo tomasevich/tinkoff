@@ -1,5 +1,6 @@
-import { Common, MoneyValue } from './Common'
 import {
+  Common,
+  MoneyValue,
   GetOperationsByCursorRequest,
   GetOperationsByCursorResponse,
   OperationsRequest,
@@ -9,9 +10,7 @@ import {
   PositionsRequest,
   PositionsResponse,
   WithdrawLimitsRequest,
-  WithdrawLimitsResponse
-} from './OperationsService'
-import {
+  WithdrawLimitsResponse,
   CancelOrderRequest,
   CancelOrderResponse,
   GetOrderStateRequest,
@@ -20,9 +19,10 @@ import {
   OrderState,
   PostOrderRequest,
   PostOrderResponse,
-  ReplaceOrderRequest
-} from './OrdersService'
-import { GetAccountsRequest, GetAccountsResponse } from './UsersService'
+  ReplaceOrderRequest,
+  GetAccountsRequest,
+  GetAccountsResponse
+} from './'
 
 /**
  * Запрос открытия счёта в песочнице
@@ -170,7 +170,7 @@ export class SandboxService extends Common {
    *  price: SandboxService.StringToQuotation('1.0'),
    *  accountId: '<ACCOUNT_ID>',
    *  orderId: '',
-   *  idempotencyKey: ''
+   *  idempotencyKey: '',
    *  priceType: PriceType.PRICE_TYPE_CURRENCY
    * })
    *
@@ -326,7 +326,7 @@ export class SandboxService extends Common {
    *
    * const sandboxService = new SandboxService('<TOKEN>', true)
    * const portfolio = await sandboxService.GetPortfolio({
-   *  accountId: '<ACCOUNT_ID>'
+   *  accountId: '<ACCOUNT_ID>',
    *  currency: PortfolioRequestCurrencyRequest.RUB
    * })
    *

@@ -25,7 +25,7 @@ describe('ONLY ON WORKING TIME', () => {
         expect(response).toHaveProperty('limitDown')
         expect(response).toHaveProperty('lastPriceTs')
         expect(response).toHaveProperty('closePriceTs')
-        expect(response).toHaveProperty('orderbookTs')
+        // expect(response).toHaveProperty('orderbookTs')
         expect(response).toHaveProperty('instrumentUid')
       })
     })

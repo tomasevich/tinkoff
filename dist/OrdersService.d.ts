@@ -1,4 +1,4 @@
-import { Common, MoneyValue, Quotation } from './Common';
+import { Common, MoneyValue, Quotation } from './';
 /**
  * Направление операции
  * @see https://tinkoff.github.io/investAPI/orders/#orderdirection
@@ -67,7 +67,7 @@ export interface OrderStage {
     price: MoneyValue;
     /**
      * Количество лотов
-     * @type `int64`
+     * @remarks `int64`
      */
     quantity: string;
     /** Идентификатор сделки */
@@ -80,7 +80,7 @@ export interface OrderStage {
 export interface PostOrderRequest {
     /**
      * Количество лотов
-     * @type `int64`
+     * @remarks `int64`
      */
     quantity: string;
     /**
@@ -118,12 +118,12 @@ export interface PostOrderResponse {
     executionReportStatus: OrderExecutionReportStatus;
     /**
      * Запрошено лотов
-     * @type `int64`
+     * @remarks `int64`
      */
     lotsRequested: string;
     /**
      * Исполнено лотов
-     * @type `int64`
+     * @remarks `int64`
      */
     lotsExecuted: string;
     /**
@@ -182,7 +182,7 @@ export interface CancelOrderRequest {
 export interface CancelOrderResponse {
     /**
      * Дата и время отмены заявки в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     time: string;
 }
@@ -207,12 +207,12 @@ export interface OrderState {
     executionReportStatus: OrderExecutionReportStatus;
     /**
      * Запрошено лотов
-     * @type `int64`
+     * @remarks `int64`
      */
     lotsRequested: string;
     /**
      * Исполнено лотов
-     * @type `int64`
+     * @remarks `int64`
      */
     lotsExecuted: string;
     /**
@@ -255,7 +255,7 @@ export interface OrderState {
     orderType: OrderType;
     /**
      * Дата и время выставления заявки в часовом поясе UTC
-     * @type `google.protobuf.Timestamp`
+     * @remarks `google.protobuf.Timestamp`
      */
     orderDate: string;
     /** UID идентификатор инструмента */
@@ -298,7 +298,7 @@ export interface ReplaceOrderRequest {
     idempotencyKey: string;
     /**
      * Количество лотов
-     * @type `int64`
+     * @remarks `int64`
      */
     quantity: string;
     /**

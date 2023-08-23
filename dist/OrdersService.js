@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrdersService = exports.PriceType = exports.OrderExecutionReportStatus = exports.OrderType = exports.OrderDirection = void 0;
-const Common_1 = require("./Common");
+const _1 = require("./");
 /**
  * Направление операции
  * @see https://tinkoff.github.io/investAPI/orders/#orderdirection
@@ -71,7 +71,7 @@ var PriceType;
  * 5. получение списка заявок.
  * @see https://tinkoff.github.io/investAPI/orders/#ordersservice
  */
-class OrdersService extends Common_1.Common {
+class OrdersService extends _1.Common {
     /**
      * Метод выставления заявки
      * ```js

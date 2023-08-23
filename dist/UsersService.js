@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersService = exports.AccessLevel = exports.AccountStatus = exports.AccountType = void 0;
-const Common_1 = require("./Common");
+const _1 = require("./");
 /**
  * Тип счёта
  * @see https://tinkoff.github.io/investAPI/users/#accounttype
@@ -53,7 +53,7 @@ var AccessLevel;
  * 2. маржинальных показателей по счёту.
  * @see https://tinkoff.github.io/investAPI/users/#usersservice
  */
-class UsersService extends Common_1.Common {
+class UsersService extends _1.Common {
     /**
      * Метод получения счетов пользователя
      * ```js

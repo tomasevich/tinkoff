@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MarketDataService = exports.CandleInterval = exports.TradeDirection = void 0;
-const Common_1 = require("./Common");
+const _1 = require("./");
 /**
  * Направление сделки
  * @see https://tinkoff.github.io/investAPI/marketdata/#tradedirection
@@ -58,7 +58,7 @@ var CandleInterval;
  * 4. лента сделок.
  * @see https://tinkoff.github.io/investAPI/marketdata/#marketdataservice
  */
-class MarketDataService extends Common_1.Common {
+class MarketDataService extends _1.Common {
     /**
      * Метод запроса исторических свечей по инструменту
      * ```js

@@ -1,7 +1,4 @@
-import { Common, MoneyValue } from './Common';
-import { GetOperationsByCursorRequest, GetOperationsByCursorResponse, OperationsRequest, OperationsResponse, PortfolioRequest, PortfolioResponse, PositionsRequest, PositionsResponse, WithdrawLimitsRequest, WithdrawLimitsResponse } from './OperationsService';
-import { CancelOrderRequest, CancelOrderResponse, GetOrderStateRequest, GetOrdersRequest, GetOrdersResponse, OrderState, PostOrderRequest, PostOrderResponse, ReplaceOrderRequest } from './OrdersService';
-import { GetAccountsRequest, GetAccountsResponse } from './UsersService';
+import { Common, MoneyValue, GetOperationsByCursorRequest, GetOperationsByCursorResponse, OperationsRequest, OperationsResponse, PortfolioRequest, PortfolioResponse, PositionsRequest, PositionsResponse, WithdrawLimitsRequest, WithdrawLimitsResponse, CancelOrderRequest, CancelOrderResponse, GetOrderStateRequest, GetOrdersRequest, GetOrdersResponse, OrderState, PostOrderRequest, PostOrderResponse, ReplaceOrderRequest, GetAccountsRequest, GetAccountsResponse } from './';
 /**
  * Запрос открытия счёта в песочнице
  * @see https://tinkoff.github.io/investAPI/sandbox/#opensandboxaccountrequest
@@ -126,7 +123,7 @@ export declare class SandboxService extends Common {
      *  price: SandboxService.StringToQuotation('1.0'),
      *  accountId: '<ACCOUNT_ID>',
      *  orderId: '',
-     *  idempotencyKey: ''
+     *  idempotencyKey: '',
      *  priceType: PriceType.PRICE_TYPE_CURRENCY
      * })
      *
@@ -251,7 +248,7 @@ export declare class SandboxService extends Common {
      *
      * const sandboxService = new SandboxService('<TOKEN>', true)
      * const portfolio = await sandboxService.GetPortfolio({
-     *  accountId: '<ACCOUNT_ID>'
+     *  accountId: '<ACCOUNT_ID>',
      *  currency: PortfolioRequestCurrencyRequest.RUB
      * })
      *

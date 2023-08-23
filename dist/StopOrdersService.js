@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StopOrdersService = exports.StopOrderType = exports.StopOrderExpirationType = exports.StopOrderDirection = void 0;
-const Common_1 = require("./Common");
+const _1 = require("./");
 /**
  * Направление сделки стоп-заявки
  * @see https://tinkoff.github.io/investAPI/stoporders/#stoporderdirection
@@ -50,7 +50,7 @@ var StopOrderType;
  * 3. получение списка стоп-заявок.
  * @see https://tinkoff.github.io/investAPI/stoporders/#stopordersservice
  */
-class StopOrdersService extends Common_1.Common {
+class StopOrdersService extends _1.Common {
     /**
      * Метод выставления стоп-заявки
      * ```js

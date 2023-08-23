@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SandboxService = void 0;
-const Common_1 = require("./Common");
+const _1 = require("./");
 /**
  * Сервис для работы с песочницей TINKOFF INVEST API
  * @see https://tinkoff.github.io/investAPI/sandbox/#sandboxservice
  */
-class SandboxService extends Common_1.Common {
+class SandboxService extends _1.Common {
     /**
      * Метод регистрации счёта в песочнице
      * ```js
@@ -88,7 +88,7 @@ class SandboxService extends Common_1.Common {
      *  price: SandboxService.StringToQuotation('1.0'),
      *  accountId: '<ACCOUNT_ID>',
      *  orderId: '',
-     *  idempotencyKey: ''
+     *  idempotencyKey: '',
      *  priceType: PriceType.PRICE_TYPE_CURRENCY
      * })
      *
@@ -227,7 +227,7 @@ class SandboxService extends Common_1.Common {
      *
      * const sandboxService = new SandboxService('<TOKEN>', true)
      * const portfolio = await sandboxService.GetPortfolio({
-     *  accountId: '<ACCOUNT_ID>'
+     *  accountId: '<ACCOUNT_ID>',
      *  currency: PortfolioRequestCurrencyRequest.RUB
      * })
      *
