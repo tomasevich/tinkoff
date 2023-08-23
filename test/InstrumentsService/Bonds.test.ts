@@ -1,11 +1,18 @@
 import dotenv from 'dotenv'
 
-import { InstrumentStatus, InstrumentsService } from '../../src'
+import {
+  InstrumentStatus,
+  InstrumentIdType,
+  InstrumentsService,
+  Bond
+} from '../../src'
 
 dotenv.config({ path: './.env.test' })
 
 const TOKEN = process.env.TINKOFF_INVEST_API_TOKEN ?? ''
 const instrumentsService = new InstrumentsService(TOKEN, true)
+
+let instrument: Bond
 
 describe('Запрашиваем список облигаций', () => {
   test.each([
@@ -18,14 +25,45 @@ describe('Запрашиваем список облигаций', () => {
   })
 })
 
-describe('Запрашиваем конкретную облигацию', () => {
+describe('Запрашиваем конкретную облигацию из списка', () => {
   beforeAll(async () => {
     const response = await instrumentsService.Bonds({
       instrumentStatus: InstrumentStatus.INSTRUMENT_STATUS_BASE
     })
-    this.instrument = response.instruments[0]
+    instrument = response.instruments[0]
+    expect(response).toHaveProperty('instruments')
   })
 
+  test('Получаем конкретную облигацию с параметрами ($idType, $classCode, $id)', async () => {
+    ;[
+      {
+        idType: InstrumentIdType.INSTRUMENT_ID_TYPE_FIGI,
+        classCode: '',
+        id: instrument.figi
+      },
+      {
+        idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
+        classCode: instrument.classCode,
+        id: instrument.ticker
+      },
+      {
+        idType: InstrumentIdType.INSTRUMENT_ID_TYPE_UID,
+        classCode: '',
+        id: instrument.uid
+      },
+      {
+        idType: InstrumentIdType.INSTRUMENT_ID_TYPE_POSITION_UID,
+        classCode: '',
+        id: instrument.positionUid
+      }
+    ].forEach(async param => {
+      const response = await instrumentsService.BondBy(param)
+      expect(response).toHaveProperty('instrument')
+    })
+  })
+})
+
+describe('Запрашиваем конкретную облигацию с ошибкой', () => {
   test.each([
     {
       idType: InstrumentIdType.INSTRUMENT_ID_UNSPECIFIED,
@@ -45,39 +83,6 @@ describe('Запрашиваем конкретную облигацию', () =>
       expect(response).toHaveProperty('description')
     }
   )
-
-  test.each([
-    {
-      idType: InstrumentIdType.INSTRUMENT_ID_TYPE_FIGI,
-      classCode: '',
-      id: this.instrument.figi
-    },
-    {
-      idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
-      classCode: this.instrument.classCode,
-      id: this.instrument.ticker
-    },
-    {
-      idType: InstrumentIdType.INSTRUMENT_ID_TYPE_UID,
-      classCode: '',
-      id: this.instrument.uid
-    },
-    {
-      idType: InstrumentIdType.INSTRUMENT_ID_TYPE_POSITION_UID,
-      classCode: '',
-      id: this.instrument.positionUid
-    }
-  ])(
-    'Получаем конкретную облигацию с параметрами ($idType, $classCode, $id)',
-    async ({ idType, classCode, id }) => {
-      const response = await instrumentsService.BondBy({
-        idType,
-        classCode,
-        id
-      })
-      expect(response).toHaveProperty('instrument')
-    }
-  )
 })
 
 describe('Запрашиваем конкретный график выплат купонов по облигации', () => {
@@ -85,7 +90,9 @@ describe('Запрашиваем конкретный график выплат 
     const response = await instrumentsService.Bonds({
       instrumentStatus: InstrumentStatus.INSTRUMENT_STATUS_BASE
     })
-    this.instrument = response.instruments[0]
+    expect(response).toHaveProperty('instruments')
+
+    instrument = response.instruments[0]
   })
 
   test('Получаем конкретный графика выплат купонов по облигации', async () => {
@@ -94,7 +101,7 @@ describe('Запрашиваем конкретный график выплат 
     nextTime.setDate(currTime.getDate() + 1)
 
     const response = await instrumentsService.GetBondCoupons({
-      figi: this.instrument.figi,
+      figi: instrument.figi,
       from: currTime.toISOString(),
       to: nextTime.toISOString()
     })
