@@ -75,6 +75,6 @@ npm run test:coverage
 
 ### Контрибютерам
 
-1. Прочтите [Кодекс поведения](./.github/CODE_OF_CONDUCT.md)
-2. Прочтите [Руководство по содействию](./.github/CONTRIBUTING.md)
-3. Прочтите [Политика безопасности](./SECURITY.md)
+1. [Кодекс поведения](./.github/CODE_OF_CONDUCT.md)
+2. [Руководство по содействию](./.github/CONTRIBUTING.md)
+3. [Политика безопасности](./SECURITY.md)
