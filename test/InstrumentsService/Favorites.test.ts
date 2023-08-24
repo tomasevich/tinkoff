@@ -16,10 +16,12 @@ let instrument: Share
 
 describe('Редактируем избранные инструменты', () => {
   beforeAll(async () => {
-    const response = await instrumentsService.Shares({
-      instrumentStatus: InstrumentStatus.INSTRUMENT_STATUS_BASE
+    const response = await instrumentsService.ShareBy({
+      idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
+      classCode: 'TQBR',
+      id: 'TCSG'
     })
-    instrument = response.instruments[0]
+    instrument = response.instrument
   })
 
   test('Получаем ошибку сервера (не указав тип)', async () => {
