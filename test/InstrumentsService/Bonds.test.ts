@@ -100,4 +100,19 @@ describe('Запрашиваем списки облигаций', () => {
       expect(response).toHaveProperty('events')
     })
   })
+
+  describe('Запрашиваем накопленный купонн дохода по облигации', () => {
+    test('Получаем накопленный купонн дохода по облигации ', async () => {
+      const currTime = new Date()
+      const nextTime = new Date(currTime)
+      nextTime.setDate(currTime.getDate() + 1)
+
+      const response = await instrumentsService.GetAccruedInterests({
+        figi: instrument.figi,
+        from: currTime.toISOString(),
+        to: nextTime.toISOString()
+      })
+      expect(response).toHaveProperty('accruedInterests')
+    })
+  })
 })
