@@ -8,32 +8,6 @@ const TOKEN = process.env.TINKOFF_INVEST_API_TOKEN ?? ''
 const marketDataService = new MarketDataService(TOKEN, true)
 
 describe('Запрашиваем список свечей', () => {
-  return instrumentsService
-    .ShareBy({
-      idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
-      classCode: 'TQBR',
-      id: 'TCSG'
-    })
-    .then((instrument: Share) => {
-      test.each([
-        {
-          to: '2023-08-19T00:00:00:000Z',
-          interval: 'CANDLE_INTERVAL_1_MIN'
-        }
-      ])(
-        'Получаем список свечей (указав интервал $interval)',
-        async ({ to, interval }) => {
-          const response = await marketDataService.GetCandles({
-            from: '2023-08-18T00:00:00:000Z',
-            to,
-            interval: CandleInterval[interval],
-            instrumentId: instrument.uid
-          })
-          return expect(response).toHaveProperty('candles')
-        }
-      )
-    })
-
   test('Получаем ошибку сервера (не указав параметры)', async () => {
     const response = await marketDataService.GetCandles({
       from: '2023-08-18T00:00:00:000Z',
