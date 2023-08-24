@@ -9,7 +9,7 @@ describe('Открываем счёт', () => {
 })
 
 describe('Запрашиваем список счётов', () => {
-  test.todo('Получаем список счетов', GetSandboxAccounts)
+  test('Получаем список счетов', GetSandboxAccounts)
 })
 
 describe('Пополняем баланс', () => {
