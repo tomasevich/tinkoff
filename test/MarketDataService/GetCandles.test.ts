@@ -4,6 +4,7 @@ import {
   CandleInterval,
   MarketDataService,
   InstrumentsService,
+  InstrumentIdType,
   Share
 } from '../../src'
 
