@@ -1,9 +1,15 @@
+import dotenv from 'dotenv'
+
+dotenv.config({ path: './.env.test' })
+
+import GetSandboxAccounts from './GetSandboxAccounts'
+
 describe('Открываем счёт', () => {
   test.todo('Убеждаемся, что счет открыт')
 })
 
 describe('Запрашиваем список счётов', () => {
-  test.todo('Получаем список счетов')
+  test.todo('Получаем список счетов', GetSandboxAccounts)
 })
 
 describe('Пополняем баланс', () => {
