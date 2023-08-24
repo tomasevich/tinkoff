@@ -44,6 +44,8 @@ npm i @tomasevich/tinkoff
 
 ## Использование
 
+> Остальные примеры можно найти в описании к методам
+
 ```js
 import { SandboxService } from '@tomasevich/tinkoff'
 
