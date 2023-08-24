@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 
 dotenv.config({ path: './.env.test' })
 
-import { SandboxService, Account } from '../../src'
+import { SandboxService } from '../../src'
 
 const TOKEN = process.env.TINKOFF_INVEST_API_TOKEN ?? ''
 const sandboxService = new SandboxService(TOKEN, true)
@@ -32,7 +32,13 @@ describe('Открываем счёт', () => {
   })
 
   describe('Пополняем баланс', () => {
-    test.todo('Получаем данные о текущем балансе')
+    test('Получаем данные о текущем балансе', async () => {
+      const response = await sandboxService.SandboxPayIn({
+        accountId,
+        amount: SandboxService.StringToMoneyValue('10000.5 rub')
+      })
+      expect(response).toHaveProperty('balance')
+    })
   })
 
   describe('Выставляем ордера', () => {
