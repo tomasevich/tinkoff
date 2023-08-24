@@ -16,7 +16,7 @@ describe('Открываем и закрываем счёт', () => {
   test('Должен закрыть счёт', async () => {
     const { accounts } = await sandboxService.GetSandboxAccounts({})
     const response = await sandboxService.CloseSandboxAccount({
-      accountId: accounts[1]
+      accountId: accounts[1].id
     })
     expect(response).toEqual({})
   })

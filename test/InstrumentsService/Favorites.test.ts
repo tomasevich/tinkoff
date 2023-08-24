@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 
 import {
   EditFavoritesActionType,
-  InstrumentStatus,
+  InstrumentIdType,
   InstrumentsService,
   Share
 } from '../../src'
