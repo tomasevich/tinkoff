@@ -90,7 +90,7 @@ describe('Запрашиваем списки инструментов', () => {
 
   describe('Запрашиваем конкретную акцию', () => {
     test('Получаем ошибку сервера (без указания типа)', async () => {
-      const response = await instrumentsService.ShareBy({
+      const response = await instrumentsService.GetInstrumentBy({
         idType: InstrumentIdType.INSTRUMENT_ID_UNSPECIFIED,
         classCode: '',
         id: ''
@@ -101,7 +101,7 @@ describe('Запрашиваем списки инструментов', () => {
     })
 
     test('Получаем акцию (указав фиги)', async () => {
-      const response = await instrumentsService.ShareBy({
+      const response = await instrumentsService.GetInstrumentBy({
         idType: InstrumentIdType.INSTRUMENT_ID_TYPE_FIGI,
         classCode: '',
         id: instrument.figi
@@ -110,7 +110,7 @@ describe('Запрашиваем списки инструментов', () => {
     })
 
     test('Получаем акцию (указав тикер)', async () => {
-      const response = await instrumentsService.ShareBy({
+      const response = await instrumentsService.GetInstrumentBy({
         idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
         classCode: instrument.classCode,
         id: instrument.ticker
@@ -119,7 +119,7 @@ describe('Запрашиваем списки инструментов', () => {
     })
 
     test('Получаем акцию (указав айди)', async () => {
-      const response = await instrumentsService.ShareBy({
+      const response = await instrumentsService.GetInstrumentBy({
         idType: InstrumentIdType.INSTRUMENT_ID_TYPE_UID,
         classCode: '',
         id: instrument.uid
@@ -128,7 +128,7 @@ describe('Запрашиваем списки инструментов', () => {
     })
 
     test('Получаем акцию (указав позицию)', async () => {
-      const response = await instrumentsService.ShareBy({
+      const response = await instrumentsService.GetInstrumentBy({
         idType: InstrumentIdType.INSTRUMENT_ID_TYPE_POSITION_UID,
         classCode: '',
         id: instrument.positionUid
