@@ -7,22 +7,20 @@ import { SandboxService, Account } from '../../src'
 const TOKEN = process.env.TINKOFF_INVEST_API_TOKEN ?? ''
 const sandboxService = new SandboxService(TOKEN, true)
 
-let accounts: Account[]
-let account: Account
 let accountId: string
 
 describe('Открываем счёт', () => {
   test('Убеждаемся, что счет открыт', async () => {
     const response = await sandboxService.OpenSandboxAccount({})
     expect(response).toHaveProperty('accountId')
+    accountId = response.accountId
   })
 
   describe('Запрашиваем список счётов', () => {
     test('Получаем список счетов', async () => {
       const response = await sandboxService.GetSandboxAccounts({})
       expect(response).toHaveProperty('accounts')
-      accounts = response.accounts
-      account = accounts[accounts.length - 1] // Крайний счёт
+      const account = response.accounts[accounts.length - 1] // Крайний счёт
       expect(account).toHaveProperty('id')
       expect(account).toHaveProperty('type')
       expect(account).toHaveProperty('name')
@@ -30,7 +28,6 @@ describe('Открываем счёт', () => {
       expect(account).toHaveProperty('openedDate')
       expect(account).toHaveProperty('accessLevel')
       expect(account).not.toHaveProperty('closedDate') // <- почему-то не возвращает это свойство
-      accountId = account.id
     })
   })
 
