@@ -1,13 +1,13 @@
 import dotenv from 'dotenv'
 
-import { InstrumentType, InstrumentsService, AssetFull } from '../../src'
+import { InstrumentType, InstrumentsService, Asset } from '../../src'
 
 dotenv.config({ path: './.env.test' })
 
 const TOKEN = process.env.TINKOFF_INVEST_API_TOKEN ?? ''
 const instrumentsService = new InstrumentsService(TOKEN, true)
 
-let asset: AssetFull
+let asset: Asset
 
 describe('Запрашиваем список активов', () => {
   test('Получаем список активов (без указания типа)', async () => {
@@ -81,7 +81,7 @@ describe('Запрашиваем список активов', () => {
   describe('Запрашиваем конкретный актив', () => {
     test('Получаем конкретный актив (указав акцию)', async () => {
       const response = await instrumentsService.GetAssetBy({
-        id: asset.id
+        id: asset.uid
       })
       expect(response).toHaveProperty('asset')
     })

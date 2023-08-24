@@ -4,7 +4,7 @@ import {
   InstrumentStatus,
   InstrumentIdType,
   InstrumentsService,
-  Currency
+  Option
 } from '../../src'
 
 dotenv.config({ path: './.env.test' })
@@ -12,7 +12,7 @@ dotenv.config({ path: './.env.test' })
 const TOKEN = process.env.TINKOFF_INVEST_API_TOKEN ?? ''
 const instrumentsService = new InstrumentsService(TOKEN, true)
 
-let instrument: Currency
+let instrument: Option
 
 describe('Запрашиваем списки опционов', () => {
   test('Получаем (весь) список опционов', async () => {
@@ -49,13 +49,15 @@ describe('Запрашиваем списки опционов', () => {
       expect(response).toHaveProperty('description')
     })
 
-    test('Получаем опцион (указав фиги)', async () => {
+    test('Получаем опцион (указав несуществующий фиги)', async () => {
       const response = await instrumentsService.OptionBy({
         idType: InstrumentIdType.INSTRUMENT_ID_TYPE_FIGI,
         classCode: '',
-        id: instrument.figi
+        id: ''
       })
-      expect(response).toHaveProperty('instrument')
+      expect(response).toHaveProperty('code')
+      expect(response).toHaveProperty('message')
+      expect(response).toHaveProperty('description')
     })
 
     test('Получаем опцион (указав тикер)', async () => {

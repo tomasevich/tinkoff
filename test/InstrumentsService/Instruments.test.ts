@@ -1,13 +1,18 @@
 import dotenv from 'dotenv'
 
-import { InstrumentIdType, InstrumentsService, Share } from '../../src'
+import {
+  InstrumentIdType,
+  InstrumentType,
+  InstrumentsService,
+  Share
+} from '../../src'
 
 dotenv.config({ path: './.env.test' })
 
 const TOKEN = process.env.TINKOFF_INVEST_API_TOKEN ?? ''
 const instrumentsService = new InstrumentsService(TOKEN, true)
 
-let instrument: Share
+let instrument: any
 
 describe('Запрашиваем списки инструментов', () => {
   test('Получаем список инструментов (не указав тип)', async () => {
@@ -79,7 +84,7 @@ describe('Запрашиваем списки инструментов', () => {
       instrumentKind: InstrumentType.INSTRUMENT_TYPE_SHARE,
       apiTradeAvailableFlag: true
     })
-    instrument = response.instrument[0]
+    instrument = response.instruments[0]
     expect(response).toHaveProperty('instruments')
   })
 

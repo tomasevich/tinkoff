@@ -19,7 +19,7 @@ describe('Запрашиваем список брендов', () => {
   describe('Запрашиваем конкретный бренд', () => {
     test('Получаем конкретный бренд (указав айди)', async () => {
       const response = await instrumentsService.GetBrandBy({
-        id: brand.id
+        id: brand.uid
       })
       expect(response).toHaveProperty('uid')
       expect(response).toHaveProperty('name')
