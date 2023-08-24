@@ -1,13 +1,30 @@
 import dotenv from 'dotenv'
 
-import { CandleInterval, MarketDataService, Share } from '../../src'
+import {
+  CandleInterval,
+  MarketDataService,
+  InstrumentsService,
+  Share
+} from '../../src'
 
 dotenv.config({ path: './.env.test' })
 
 const TOKEN = process.env.TINKOFF_INVEST_API_TOKEN ?? ''
 const marketDataService = new MarketDataService(TOKEN, true)
+const instrumentsService = new InstrumentsService(TOKEN, true)
+
+let instrument: Share
 
 describe('Запрашиваем список свечей', () => {
+  beforeAll(async () => {
+    const response = await instrumentsService.ShareBy({
+      idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
+      classCode: 'TQBR',
+      id: 'TCSG'
+    })
+    instrument = response.instrument
+  })
+
   test('Получаем ошибку сервера (не указав параметры)', async () => {
     const response = await marketDataService.GetCandles({
       from: '2023-08-18T00:00:00:000Z',
