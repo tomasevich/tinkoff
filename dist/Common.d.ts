@@ -122,10 +122,10 @@ export declare class Common {
      * console.log(orders)
      * ```
      * @param service Имя сервиса
-     * @param method Имя метода
+     * @param operation Имя операции
      * @param body Тело запроса
      */
-    protected request(service: string, method: string, body: any): Promise<any>;
+    protected request(service: string, operation: string, body: any): Promise<any>;
     /**
      * Статичный метод конвертирования денежной суммы в определенной валюте в строку
      * ```js

@@ -2,11 +2,11 @@
 
 `Неофициальная` библиотека для работы с [Тинькофф Инвестиции](https://www.tinkoff.ru/invest/)
 
-![npm (scoped)](https://img.shields.io/npm/v/%40tomasevich/tinkoff?color=blue)
-![npm bundle size](https://img.shields.io/bundlephobia/min/%40tomasevich%2Ftinkoff?color=purple)
-![GitHub](https://img.shields.io/github/license/tomasevich/tinkoff?color=orange)
-![Static Badge](https://img.shields.io/badge/tests-22/14/131-yellow)
-![Static Badge](https://img.shields.io/badge/covarage-329/346-green)
+![npm (scoped)](https://img.shields.io/npm/v/%40tomasevich/tinkoff?color=blue&logo=npm)
+![npm bundle size](https://img.shields.io/bundlephobia/min/%40tomasevich%2Ftinkoff?color=purple&logo=npm)
+![GitHub](https://img.shields.io/github/license/tomasevich/tinkoff?color=orange&logo=github)
+![Static Badge](https://img.shields.io/badge/tests-22/14/131-yellow?logo=github)
+![Static Badge](https://img.shields.io/badge/covarage-329/346-green?logo=github)
 
 ## Мотивация
 
@@ -44,6 +44,8 @@ npm i @tomasevich/tinkoff
 
 ## Использование
 
+> Остальные примеры можно найти в описании к методам
+
 ```js
 import { SandboxService } from '@tomasevich/tinkoff'
 
@@ -67,14 +69,14 @@ console.log(orders)
 cp .env .env.test
 ```
 
-2. Заполняем поля своими данными и запускаем тесты
+2. Заполняем поля своими данными и запускаем тесты (с покрытием)
 
 ```sh
-npm test
+npm run test:coverage
 ```
 
 ### Контрибютерам
 
-1. Прочтите [Кодекс поведения](./.github/CODE_OF_CONDUCT.md)
-2. Прочтите [Руководство по содействию](./.github/CONTRIBUTING.md)
-3. Прочтите [Политика безопасности](./SECURITY.md)
+1. [Кодекс поведения](./.github/CODE_OF_CONDUCT.md)
+2. [Руководство по содействию](./.github/CONTRIBUTING.md)
+3. [Политика безопасности](./SECURITY.md)

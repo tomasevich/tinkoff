@@ -1,175 +1,169 @@
 import dotenv from 'dotenv'
 
-import { CandleInterval, MarketDataService } from '../../src'
+import {
+  CandleInterval,
+  MarketDataService,
+  InstrumentsService,
+  InstrumentIdType,
+  Share
+} from '../../src'
 
 dotenv.config({ path: './.env.test' })
 
 const TOKEN = process.env.TINKOFF_INVEST_API_TOKEN ?? ''
 const marketDataService = new MarketDataService(TOKEN, true)
+const instrumentsService = new InstrumentsService(TOKEN, true)
 
-describe('interval as CANDLE_INTERVAL_UNSPECIFIED', () => {
-  test('Expect "response" to have property "description"', async () => {
+let instrument: Share
+
+describe('Запрашиваем список свечей', () => {
+  beforeAll(async () => {
+    const response = await instrumentsService.ShareBy({
+      idType: InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER,
+      classCode: 'TQBR',
+      id: 'TCSG'
+    })
+    instrument = response.instrument
+  })
+
+  test('Получаем ошибку сервера (не указав параметры)', async () => {
     const response = await marketDataService.GetCandles({
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_UNSPECIFIED,
-      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+      instrumentId: instrument.uid
     })
+    expect(response).toHaveProperty('code')
+    expect(response).toHaveProperty('message')
     expect(response).toHaveProperty('description')
   })
-})
 
-describe('interval as CANDLE_INTERVAL_1_MIN', () => {
-  test('Expect "response" to have property "candles"', async () => {
+  test('Получаем список свечей (указав интервал 1 миин)', async () => {
     const response = await marketDataService.GetCandles({
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_1_MIN,
-      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+      instrumentId: instrument.uid
     })
     expect(response).toHaveProperty('candles')
   })
-})
 
-describe('interval as CANDLE_INTERVAL_2_MIN', () => {
-  test('Expect "response" to have property "candles"', async () => {
+  test('Получаем список свечей (указав интервал 2 миин)', async () => {
     const response = await marketDataService.GetCandles({
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_2_MIN,
-      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+      instrumentId: instrument.uid
     })
     expect(response).toHaveProperty('candles')
   })
-})
 
-describe('interval as CANDLE_INTERVAL_3_MIN', () => {
-  test('Expect "response" to have property "candles"', async () => {
+  test('Получаем список свечей (указав интервал 3 миин)', async () => {
     const response = await marketDataService.GetCandles({
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_3_MIN,
-      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+      instrumentId: instrument.uid
     })
     expect(response).toHaveProperty('candles')
   })
-})
 
-describe('interval as CANDLE_INTERVAL_5_MIN', () => {
-  test('Expect "response" to have property "candles"', async () => {
+  test('Получаем список свечей (указав интервал 5 миин)', async () => {
     const response = await marketDataService.GetCandles({
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_5_MIN,
-      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+      instrumentId: instrument.uid
     })
     expect(response).toHaveProperty('candles')
   })
-})
 
-describe('interval as CANDLE_INTERVAL_10_MIN', () => {
-  test('Expect "response" to have property "candles"', async () => {
+  test('Получаем список свечей (указав интервал 10 миин)', async () => {
     const response = await marketDataService.GetCandles({
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_10_MIN,
-      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+      instrumentId: instrument.uid
     })
     expect(response).toHaveProperty('candles')
   })
-})
 
-describe('interval as CANDLE_INTERVAL_15_MIN', () => {
-  test('Expect "response" to have property "candles"', async () => {
+  test('Получаем список свечей (указав интервал 15 миин)', async () => {
     const response = await marketDataService.GetCandles({
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_15_MIN,
-      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+      instrumentId: instrument.uid
     })
     expect(response).toHaveProperty('candles')
   })
-})
 
-describe('interval as CANDLE_INTERVAL_30_MIN', () => {
-  test('Expect "response" to have property "candles"', async () => {
+  test('Получаем список свечей (указав интервал 30 миин)', async () => {
     const response = await marketDataService.GetCandles({
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_30_MIN,
-      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+      instrumentId: instrument.uid
     })
     expect(response).toHaveProperty('candles')
   })
-})
 
-describe('interval as CANDLE_INTERVAL_HOUR', () => {
-  test('Expect "response" to have property "candles"', async () => {
+  test('Получаем список свечей (указав интервал 1 час)', async () => {
     const response = await marketDataService.GetCandles({
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_HOUR,
-      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+      instrumentId: instrument.uid
     })
     expect(response).toHaveProperty('candles')
   })
-})
 
-describe('interval as CANDLE_INTERVAL_2_HOUR', () => {
-  test('Expect "response" to have property "candles"', async () => {
+  test('Получаем список свечей (указав интервал 2 часа)', async () => {
     const response = await marketDataService.GetCandles({
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_2_HOUR,
-      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+      instrumentId: instrument.uid
     })
     expect(response).toHaveProperty('candles')
   })
-})
 
-describe('interval as CANDLE_INTERVAL_4_HOUR', () => {
-  test('Expect "response" to have property "candles"', async () => {
+  test('Получаем список свечей (указав интервал 4 часа)', async () => {
     const response = await marketDataService.GetCandles({
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_4_HOUR,
-      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+      instrumentId: instrument.uid
     })
     expect(response).toHaveProperty('candles')
   })
-})
 
-describe('interval as CANDLE_INTERVAL_DAY', () => {
-  test('Expect "response" to have property "candles"', async () => {
+  test('Получаем список свечей (указав интервал 1 день)', async () => {
     const response = await marketDataService.GetCandles({
       from: '2023-08-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_DAY,
-      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+      instrumentId: instrument.uid
     })
     expect(response).toHaveProperty('candles')
   })
-})
 
-describe('interval as CANDLE_INTERVAL_WEEK', () => {
-  test('Expect "response" to have property "candles"', async () => {
+  test('Получаем список свечей (указав интервал 1 неделя)', async () => {
     const response = await marketDataService.GetCandles({
       from: '2023-07-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_WEEK,
-      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+      instrumentId: instrument.uid
     })
     expect(response).toHaveProperty('candles')
   })
-})
 
-describe('interval as CANDLE_INTERVAL_MONTH', () => {
-  test('Expect "response" to have property "candles"', async () => {
+  test('Получаем список свечей (указав интервал 1 месяц)', async () => {
     const response = await marketDataService.GetCandles({
       from: '2023-07-18T00:00:00:000Z',
       to: '2023-08-19T00:00:00:000Z',
       interval: CandleInterval.CANDLE_INTERVAL_MONTH,
-      instrumentId: '6afa6f80-03a7-4d83-9cf0-c19d7d021f76'
+      instrumentId: instrument.uid
     })
     expect(response).toHaveProperty('candles')
   })

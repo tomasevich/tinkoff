@@ -102,14 +102,14 @@ class Common {
      * console.log(orders)
      * ```
      * @param service Имя сервиса
-     * @param method Имя метода
+     * @param operation Имя операции
      * @param body Тело запроса
      */
-    request(service, method, body) {
+    request(service, operation, body) {
         return __awaiter(this, void 0, void 0, function* () {
             const server = this.isSandbox ? this.development : this.production;
             const contract = '/rest/tinkoff.public.invest.api.contract.v1.';
-            const url = server + contract + service + '/' + method;
+            const url = server + contract + service + '/' + operation;
             const opt = {
                 method: 'POST',
                 headers: {

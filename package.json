@@ -1,23 +1,16 @@
 {
   "name": "@tomasevich/tinkoff",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "jest --c=./jest.coverage.config.js",
-    "test:common": "jest --testRegex='/test/Common/*' --c=./jest.test.config.js",
-    "test:instruments": "jest --testRegex='/test/InstrumentsService/*' --c=./jest.test.config.js",
-    "test:marketdata": "jest --testRegex='/test/MarketDataService/*' --c=./jest.test.config.js",
-    "test:operations": "jest --testRegex='/test/OperationsService/*' --c=./jest.test.config.js",
-    "test:orders": "jest --testRegex='/test/OrdersService/*' --c=./jest.test.config.js",
-    "test:sandbox": "jest --testRegex='/test/SandboxService/*' --c=./jest.test.config.js",
-    "test:stoporders": "jest --testRegex='/test/StopOrdersService/*' --c=./jest.test.config.js",
-    "test:users": "jest --testRegex='/test/UsersService/*' --c=./jest.test.config.js",
+    "test:coverage": "jest --c=./jest.coverage.config.js",
+    "test:single": "jest --testRegex='/test/MarketDataService/GetCandles.test.ts' --c=./jest.test.config.js",
     "build": "rm -rf ./dist && tsc",
     "docs": "typedoc",
-    "prerelease": "npm run build && npm run docs && npm test",
+    "prerelease": "npm run build && npm run docs && npm run test:coverage",
     "release": "npm publish --access=public",
-    "postrelease": "git add . && git commit -m 'фиксация артефактов релиза'"
+    "postrelease": "git add . && git commit -m 'фиксация артефактов релиза' && git push"
   },
   "devDependencies": {
     "@types/jest": "^29.5.3",
