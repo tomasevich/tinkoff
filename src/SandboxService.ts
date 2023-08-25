@@ -94,7 +94,7 @@ export class SandboxService extends Common {
   public OpenSandboxAccount(
     body: OpenSandboxAccountRequest
   ): Promise<OpenSandboxAccountResponse> {
-    return this.request('SandboxService', '  OpenSandboxAccount', body)
+    return this.request('SandboxService', 'OpenSandboxAccount', body)
   }
 
   /**

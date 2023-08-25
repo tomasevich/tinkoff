@@ -6,7 +6,7 @@ dotenv.config({ path: './.env.test' })
 
 describe.each([
   {
-    received: '114,25 rub',
+    received: '114.25 rub',
     expected: {
       units: '114',
       nano: 250000000,
@@ -14,7 +14,7 @@ describe.each([
     }
   },
   {
-    received: '-200,2 eur',
+    received: '-200.2 eur',
     expected: {
       units: '-200',
       nano: -200000000,
@@ -22,7 +22,7 @@ describe.each([
     }
   },
   {
-    received: '-0,01 usd',
+    received: '-0.01 usd',
     expected: {
       units: '-0',
       nano: -10000000,
