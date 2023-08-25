@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 
 dotenv.config({ path: './.env.test' })
 
-import { SandboxService } from '../../src'
+import { SandboxService, PortfolioRequestCurrencyRequest } from '../../src'
 
 const TOKEN = process.env.TINKOFF_INVEST_API_TOKEN ?? ''
 const sandboxService = new SandboxService(TOKEN, true)
@@ -20,7 +20,7 @@ describe('Открываем счёт', () => {
     test('Получаем список счетов', async () => {
       const response = await sandboxService.GetSandboxAccounts({})
       expect(response).toHaveProperty('accounts')
-      const account = response.accounts[accounts.length - 1] // Крайний счёт
+      const account = response.accounts[0] // Один из
       expect(account).toHaveProperty('id')
       expect(account).toHaveProperty('type')
       expect(account).toHaveProperty('name')
@@ -47,7 +47,33 @@ describe('Открываем счёт', () => {
     test.todo('Убеждаемся, что ордер №3 открыт')
 
     describe('Запрашиваем список ордеров', () => {
-      test.todo('Получаем список ордеров')
+      test('Получаем список ордеров', async () => {
+        const response = await sandboxService.GetSandboxOrders({
+          accountId
+        })
+        expect(response).toHaveProperty('orders')
+        const order = response.orders[0] // Один из
+        expect(order).toHaveProperty('orderId')
+        expect(order).toHaveProperty('executionReportStatus')
+        expect(order).toHaveProperty('lotsRequested')
+        expect(order).toHaveProperty('lotsExecuted')
+        expect(order).toHaveProperty('initialOrderPrice')
+        expect(order).toHaveProperty('executedOrderPrice')
+        expect(order).toHaveProperty('totalOrderAmount')
+        expect(order).toHaveProperty('averagePositionPrice')
+        expect(order).toHaveProperty('initialCommission')
+        expect(order).toHaveProperty('executedCommission')
+        expect(order).toHaveProperty('figi')
+        expect(order).toHaveProperty('direction')
+        expect(order).toHaveProperty('initialSecurityPrice')
+        expect(order).toHaveProperty('stages')
+        expect(order).toHaveProperty('serviceCommission')
+        expect(order).toHaveProperty('currency')
+        expect(order).toHaveProperty('orderType')
+        expect(order).toHaveProperty('orderDate')
+        expect(order).toHaveProperty('instrumentUid')
+        expect(order).toHaveProperty('orderRequestId')
+      })
     })
 
     describe('Запрашиваем информацию по конкретному ордеру', () => {
@@ -55,7 +81,17 @@ describe('Открываем счёт', () => {
     })
 
     describe('Запрашиваем позицию по счёту', () => {
-      test.todo('Получаем позицию по счёту')
+      test('Получаем позицию по счёту', async () => {
+        const response = await sandboxService.GetSandboxPositions({
+          accountId
+        })
+        expect(response).toHaveProperty('money')
+        expect(response).toHaveProperty('blocked')
+        expect(response).toHaveProperty('securities')
+        expect(response).toHaveProperty('limitsLoadingInProgress')
+        expect(response).toHaveProperty('futures')
+        expect(response).toHaveProperty('options')
+      })
     })
   })
 
@@ -71,11 +107,73 @@ describe('Открываем счёт', () => {
     })
 
     describe('Запрашиваем портфолио', () => {
-      test.todo('Получаем портфолио')
+      test('Получаем портфолио в рублях', async () => {
+        const response = await sandboxService.GetSandboxPortfolio({
+          accountId,
+          currency: PortfolioRequestCurrencyRequest.RUB
+        })
+        expect(response).toHaveProperty('totalAmountShares')
+        expect(response).toHaveProperty('totalAmountBonds')
+        expect(response).toHaveProperty('totalAmountEtf')
+        expect(response).toHaveProperty('totalAmountCurrencies')
+        expect(response).toHaveProperty('totalAmountFutures')
+        expect(response).not.toHaveProperty('expectedYield')
+        expect(response).toHaveProperty('positions')
+        expect(response).toHaveProperty('accountId')
+        expect(response).toHaveProperty('totalAmountOptions')
+        expect(response).toHaveProperty('totalAmountSp')
+        expect(response).toHaveProperty('totalAmountPortfolio')
+        expect(response).toHaveProperty('virtualPositions')
+      })
+
+      test('Получаем портфолио в евро', async () => {
+        const response = await sandboxService.GetSandboxPortfolio({
+          accountId,
+          currency: PortfolioRequestCurrencyRequest.EUR
+        })
+        expect(response).toHaveProperty('totalAmountShares')
+        expect(response).toHaveProperty('totalAmountBonds')
+        expect(response).toHaveProperty('totalAmountEtf')
+        expect(response).toHaveProperty('totalAmountCurrencies')
+        expect(response).toHaveProperty('totalAmountFutures')
+        expect(response).not.toHaveProperty('expectedYield')
+        expect(response).toHaveProperty('positions')
+        expect(response).toHaveProperty('accountId')
+        expect(response).toHaveProperty('totalAmountOptions')
+        expect(response).toHaveProperty('totalAmountSp')
+        expect(response).toHaveProperty('totalAmountPortfolio')
+        expect(response).toHaveProperty('virtualPositions')
+      })
+
+      test('Получаем портфолио в долларах', async () => {
+        const response = await sandboxService.GetSandboxPortfolio({
+          accountId,
+          currency: PortfolioRequestCurrencyRequest.USD
+        })
+        expect(response).toHaveProperty('totalAmountShares')
+        expect(response).toHaveProperty('totalAmountBonds')
+        expect(response).toHaveProperty('totalAmountEtf')
+        expect(response).toHaveProperty('totalAmountCurrencies')
+        expect(response).toHaveProperty('totalAmountFutures')
+        expect(response).not.toHaveProperty('expectedYield')
+        expect(response).toHaveProperty('positions')
+        expect(response).toHaveProperty('accountId')
+        expect(response).toHaveProperty('totalAmountOptions')
+        expect(response).toHaveProperty('totalAmountSp')
+        expect(response).toHaveProperty('totalAmountPortfolio')
+        expect(response).toHaveProperty('virtualPositions')
+      })
     })
 
     describe('Запрашиваем остаток по счёту', () => {
-      test.todo('Получаем остаток по счёту')
+      test('Получаем остаток по счёту', async () => {
+        const response = await sandboxService.GetSandboxWithdrawLimits({
+          accountId
+        })
+        expect(response).toHaveProperty('money')
+        expect(response).toHaveProperty('blocked')
+        expect(response).toHaveProperty('blockedGuarantee')
+      })
     })
   })
 
