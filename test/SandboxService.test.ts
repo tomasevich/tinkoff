@@ -5,14 +5,14 @@ dotenv.config({ path: './.env.test' })
 import {
   InstrumentsService,
   InstrumentType,
-  MarketDataService,
   SandboxService,
   PortfolioRequestCurrencyRequest,
   OperationState,
   OperationType,
   OrderDirection,
-  OrderType
-} from '../../src'
+  OrderType,
+  PriceType
+} from '../src'
 
 const TOKEN = process.env.TINKOFF_INVEST_API_TOKEN ?? ''
 const sandboxService = new SandboxService(TOKEN, true)
@@ -174,7 +174,34 @@ describe('Открываем счёт', () => {
   })
 
   describe('Изменяем выставленный ордер', () => {
-    test.todo('Убеждаемся, что ордер изменен')
+    test('Убеждаемся, что ордер изменен', async () => {
+      const response = await sandboxService.ReplaceSandboxOrder({
+        accountId,
+        orderId: canceledOrderId,
+        idempotencyKey: canceledOrderId,
+        quantity: '1',
+        price: SandboxService.StringToQuotation('4000.0'),
+        priceType: PriceType.PRICE_TYPE_CURRENCY
+      })
+      expect(response).toHaveProperty('orderId')
+      canceledOrderId = response.orderId
+      expect(response).toHaveProperty('executionReportStatus')
+      expect(response).toHaveProperty('lotsRequested')
+      expect(response).toHaveProperty('lotsExecuted')
+      expect(response).toHaveProperty('initialOrderPrice')
+      expect(response).toHaveProperty('executedOrderPrice')
+      expect(response).toHaveProperty('totalOrderAmount')
+      expect(response).toHaveProperty('initialCommission')
+      expect(response).toHaveProperty('executedCommission')
+      expect(response).not.toHaveProperty('aciValue')
+      expect(response).toHaveProperty('figi')
+      expect(response).toHaveProperty('direction')
+      expect(response).toHaveProperty('initialSecurityPrice')
+      expect(response).toHaveProperty('orderType')
+      expect(response).toHaveProperty('message')
+      expect(response).not.toHaveProperty('initialOrderPricePt')
+      expect(response).toHaveProperty('instrumentUid')
+    })
 
     describe('Запрашиваем список операций', () => {
       // OPERATION_STATE_PROGRESS
