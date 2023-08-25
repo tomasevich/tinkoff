@@ -178,7 +178,7 @@ describe('Открываем счёт', () => {
       // OPERATION_STATE_PROGRESS
       // OPERATION_STATE_UNSPECIFIED
       // OPERATION_STATE_CANCELED
-      test('Получаем список обрабатываемых операций', async () => {
+      test('Получаем список выполненных операций', async () => {
         const fromDate = new Date()
         fromDate.setHours(fromDate.getHours() - 1)
         const toDate = new Date()
@@ -187,7 +187,7 @@ describe('Открываем счёт', () => {
           accountId,
           from: fromDate.toISOString(),
           to: toDate.toISOString(),
-          state: OperationState.OPERATION_STATE_PROGRESS
+          state: OperationState.OPERATION_STATE_EXECUTED
         })
         expect(response).toHaveProperty('operations')
 
@@ -216,7 +216,7 @@ describe('Открываем счёт', () => {
       // OPERATION_STATE_PROGRESS
       // OPERATION_STATE_UNSPECIFIED
       // OPERATION_STATE_CANCELED
-      test('Получаем список обрабатываемых операций с навигацией', async () => {
+      test('Получаем список выполненных операций с навигацией', async () => {
         const fromDate = new Date()
         fromDate.setHours(fromDate.getHours() - 1)
         const toDate = new Date()
@@ -228,7 +228,7 @@ describe('Открываем счёт', () => {
           to: toDate.toISOString(),
           cursor: '',
           limit: 10,
-          state: OperationState.OPERATION_STATE_PROGRESS,
+          state: OperationState.OPERATION_STATE_EXECUTED,
           operationTypes: [
             OperationType.OPERATION_TYPE_BUY,
             OperationType.OPERATION_TYPE_SELL
