@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 
-import { UsersService, Account } from '../../src'
+import { UsersService, Account } from '../src'
 
 dotenv.config({ path: './.env.test' })
 
@@ -26,7 +26,7 @@ describe('Запрашиваем список аккаунтов', () => {
   })
 
   describe('Запрашиваем расчёт маржинальных показателей по счёту', () => {
-    test('Получаем расчёт маржинальных показателей по счёту', () => {
+    test('Получаем расчёт маржинальных показателей по счёту', async () => {
       const response = await usersService.GetMarginAttributes({
         accountId: account.id
       })
