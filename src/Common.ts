@@ -157,9 +157,9 @@ export class Common {
    * ```js
    * import { Common } from '@tomasevich/tinkoff'
    *
-   * console.log(Common.MoneyValueToString({ units: '114', nano: 250000000, currency: 'rub' })) // '114,25 rub'
-   * console.log(Common.MoneyValueToString({ units: '-200', nano: -200000000, currency: 'usd' })) // '-200,20 usd'
-   * console.log(Common.MoneyValueToString({ units: '-0', nano: -10000000, currency: 'eur' })) // '-0,01 eur'
+   * console.log(Common.MoneyValueToString({ units: '114', nano: 250000000, currency: 'rub' })) // '114.25 rub'
+   * console.log(Common.MoneyValueToString({ units: '-200', nano: -200000000, currency: 'usd' })) // '-200.20 usd'
+   * console.log(Common.MoneyValueToString({ units: '-0', nano: -10000000, currency: 'eur' })) // '-0.01 eur'
    * ```
    */
   public static MoneyValueToString(moneyValue: MoneyValue): string {
@@ -171,9 +171,9 @@ export class Common {
    * ```js
    * import { Common } from '@tomasevich/tinkoff'
    *
-   * console.log(Common.QuotationToString({ units: '114', nano: 250000000 })) // '114,25'
-   * console.log(Common.QuotationToString({ units: '-200', nano: -200000000 })) // '-200,20'
-   * console.log(Common.QuotationToString({ units: '-0', nano: -10000000 })) // '-0,01'
+   * console.log(Common.QuotationToString({ units: '114', nano: 250000000 })) // '114.25'
+   * console.log(Common.QuotationToString({ units: '-200', nano: -200000000 })) // '-200.20'
+   * console.log(Common.QuotationToString({ units: '-0', nano: -10000000 })) // '-0.01'
    * ```
    */
   public static QuotationToString(quotation: Quotation): string {
@@ -186,9 +186,9 @@ export class Common {
    * ```js
    * import { Common } from '@tomasevich/tinkoff'
    *
-   * console.log(Common.StringToMoneyValue('114,25 rub')) // { units: '114', nano: 250000000, currency: 'rub' }
-   * console.log(Common.StringToMoneyValue('-200,20 usd')) // { units: '-200', nano: -200000000, currency: 'usd' }
-   * console.log(Common.StringToMoneyValue('-0,01 eur')) // { units: '-0', nano: -10000000, currency: 'eur' }
+   * console.log(Common.StringToMoneyValue('114.25 rub')) // { units: '114', nano: 250000000, currency: 'rub' }
+   * console.log(Common.StringToMoneyValue('-200.20 usd')) // { units: '-200', nano: -200000000, currency: 'usd' }
+   * console.log(Common.StringToMoneyValue('-0.01 eur')) // { units: '-0', nano: -10000000, currency: 'eur' }
    * ```
    */
   public static StringToMoneyValue(moneyValue: string): MoneyValue {
@@ -203,9 +203,9 @@ export class Common {
    * ```js
    * import { Common } from '@tomasevich/tinkoff'
    *
-   * console.log(Common.StringToQuotation('114,25')) // { units: '114', nano: 250000000 }
-   * console.log(Common.StringToQuotation('-200,20')) // { units: '-200', nano: -200000000 }
-   * console.log(Common.StringToQuotation('-0,01')) // { units: '-0', nano: -10000000 }
+   * console.log(Common.StringToQuotation('114.25')) // { units: '114', nano: 250000000 }
+   * console.log(Common.StringToQuotation('-200.20')) // { units: '-200', nano: -200000000 }
+   * console.log(Common.StringToQuotation('-0.01')) // { units: '-0', nano: -10000000 }
    * ```
    */
   public static StringToQuotation(quotation: string): Quotation {
