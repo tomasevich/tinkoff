@@ -65,8 +65,34 @@ describe('Открываем счёт', () => {
   })
 
   describe('Выставляем ордера', () => {
-    test.todo('Убеждаемся, что ордер №2 открыт')
-    test.todo('Убеждаемся, что ордер №3 открыт')
+    test('Убеждаемся, что ордер на покупку по рыночной цене открыт', async () => {
+      const response = await sandboxService.PostSandboxOrder({
+        quantity: '1',
+        price: SandboxService.StringToQuotation('5000.0'),
+        direction: OrderDirection.ORDER_DIRECTION_BUY,
+        accountId,
+        orderType: OrderType.ORDER_TYPE_MARKET,
+        orderId: '',
+        instrumentId
+      })
+      expect(response).toHaveProperty('orderId')
+      expect(response).toHaveProperty('executionReportStatus')
+      expect(response).toHaveProperty('lotsRequested')
+      expect(response).toHaveProperty('lotsExecuted')
+      expect(response).toHaveProperty('initialOrderPrice')
+      expect(response).toHaveProperty('executedOrderPrice')
+      expect(response).toHaveProperty('totalOrderAmount')
+      expect(response).toHaveProperty('initialCommission')
+      expect(response).toHaveProperty('executedCommission')
+      expect(response).not.toHaveProperty('aciValue')
+      expect(response).toHaveProperty('figi')
+      expect(response).toHaveProperty('direction')
+      expect(response).toHaveProperty('initialSecurityPrice')
+      expect(response).toHaveProperty('orderType')
+      expect(response).toHaveProperty('message')
+      expect(response).not.toHaveProperty('initialOrderPricePt')
+      expect(response).toHaveProperty('instrumentUid')
+    })
 
     test('Убеждаемся, что ордер на покупку по лимитной цене открыт', async () => {
       const response = await sandboxService.PostSandboxOrder({
@@ -211,7 +237,7 @@ describe('Открываем счёт', () => {
         const fromDate = new Date()
         fromDate.setHours(fromDate.getHours() - 1)
         const toDate = new Date()
-        fromDate.setHours(fromDate.getHours() + 1)
+
         const response = await sandboxService.GetSandboxOperations({
           accountId,
           from: fromDate.toISOString(),
@@ -219,28 +245,24 @@ describe('Открываем счёт', () => {
           state: OperationState.OPERATION_STATE_EXECUTED
         })
         expect(response).toHaveProperty('operations')
-
-        /**
-         * @todo Для тестирования списка операций, нужно убедиться, что ордер был открыт
-         */
-        // const operation = response.operations[0] // Один из
-        // expect(operation).toHaveProperty('id')
-        // expect(operation).toHaveProperty('parentOperationId')
-        // expect(operation).toHaveProperty('currency')
-        // expect(operation).toHaveProperty('payment')
-        // expect(operation).toHaveProperty('price')
-        // expect(operation).toHaveProperty('state')
-        // expect(operation).toHaveProperty('quantity')
-        // expect(operation).toHaveProperty('quantityRest')
-        // expect(operation).toHaveProperty('figi')
-        // expect(operation).toHaveProperty('instrumentType')
-        // expect(operation).toHaveProperty('date')
-        // expect(operation).toHaveProperty('type')
-        // expect(operation).toHaveProperty('operationType')
-        // expect(operation).toHaveProperty('trades')
-        // expect(operation).toHaveProperty('assetUid')
-        // expect(operation).toHaveProperty('positionUid')
-        // expect(operation).toHaveProperty('instrumentUid')
+        const operation = response.operations[0] // Один из
+        expect(operation).toHaveProperty('id')
+        expect(operation).toHaveProperty('parentOperationId')
+        expect(operation).toHaveProperty('currency')
+        expect(operation).toHaveProperty('payment')
+        expect(operation).toHaveProperty('price')
+        expect(operation).toHaveProperty('state')
+        expect(operation).toHaveProperty('quantity')
+        expect(operation).toHaveProperty('quantityRest')
+        expect(operation).toHaveProperty('figi')
+        expect(operation).toHaveProperty('instrumentType')
+        expect(operation).toHaveProperty('date')
+        expect(operation).toHaveProperty('type')
+        expect(operation).toHaveProperty('operationType')
+        expect(operation).toHaveProperty('trades')
+        expect(operation).toHaveProperty('assetUid')
+        expect(operation).toHaveProperty('positionUid')
+        expect(operation).toHaveProperty('instrumentUid')
       })
     })
 
@@ -252,7 +274,6 @@ describe('Открываем счёт', () => {
         const fromDate = new Date()
         fromDate.setHours(fromDate.getHours() - 1)
         const toDate = new Date()
-        fromDate.setHours(fromDate.getHours() + 1)
         const response = await sandboxService.GetSandboxOperationsByCursor({
           accountId,
           instrumentId,
@@ -272,38 +293,34 @@ describe('Открываем счёт', () => {
         expect(response).toHaveProperty('hasNext')
         expect(response).toHaveProperty('nextCursor')
         expect(response).toHaveProperty('items')
-
-        /**
-         * @todo Для тестирования списка операций, нужно убедиться, что ордер был открыт
-         */
-        // const item = response.items[0] // Один из
-        // expect(item).toHaveProperty('cursor')
-        // expect(item).toHaveProperty('brokerAccountId')
-        // expect(item).toHaveProperty('id')
-        // expect(item).toHaveProperty('parentOperationId')
-        // expect(item).toHaveProperty('name')
-        // expect(item).toHaveProperty('date')
-        // expect(item).toHaveProperty('type')
-        // expect(item).toHaveProperty('description')
-        // expect(item).toHaveProperty('state')
-        // expect(item).toHaveProperty('instrumentUid')
-        // expect(item).toHaveProperty('figi')
-        // expect(item).toHaveProperty('instrumentType')
-        // expect(item).toHaveProperty('instrumentKind')
-        // expect(item).toHaveProperty('positionUid')
-        // expect(item).toHaveProperty('payment')
-        // expect(item).toHaveProperty('price')
-        // expect(item).toHaveProperty('commission')
-        // expect(item).toHaveProperty('yield')
-        // expect(item).toHaveProperty('yieldRelative')
-        // expect(item).toHaveProperty('accruedInt')
-        // expect(item).toHaveProperty('quantity')
-        // expect(item).toHaveProperty('quantityRest')
-        // expect(item).toHaveProperty('quantityDone')
-        // expect(item).toHaveProperty('cancelDateTime')
-        // expect(item).toHaveProperty('cancelReason')
-        // expect(item).toHaveProperty('tradesInfo')
-        // expect(item).toHaveProperty('assetUid')
+        const item = response.items[0] // Один из
+        expect(item).toHaveProperty('cursor')
+        expect(item).toHaveProperty('brokerAccountId')
+        expect(item).toHaveProperty('id')
+        expect(item).toHaveProperty('parentOperationId')
+        expect(item).toHaveProperty('name')
+        expect(item).toHaveProperty('date')
+        expect(item).toHaveProperty('type')
+        expect(item).toHaveProperty('description')
+        expect(item).toHaveProperty('state')
+        expect(item).toHaveProperty('instrumentUid')
+        expect(item).toHaveProperty('figi')
+        expect(item).toHaveProperty('instrumentType')
+        expect(item).toHaveProperty('instrumentKind')
+        expect(item).toHaveProperty('positionUid')
+        expect(item).toHaveProperty('payment')
+        expect(item).toHaveProperty('price')
+        expect(item).not.toHaveProperty('commission')
+        expect(item).not.toHaveProperty('yield')
+        expect(item).not.toHaveProperty('yieldRelative')
+        expect(item).not.toHaveProperty('accruedInt')
+        expect(item).toHaveProperty('quantity')
+        expect(item).toHaveProperty('quantityRest')
+        expect(item).toHaveProperty('quantityDone')
+        expect(item).not.toHaveProperty('cancelDateTime')
+        expect(item).toHaveProperty('cancelReason')
+        expect(item).not.toHaveProperty('tradesInfo')
+        expect(item).toHaveProperty('assetUid')
       })
     })
 
