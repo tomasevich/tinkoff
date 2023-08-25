@@ -25,8 +25,8 @@ let canceledOrderId: string // Бронируем ордер для будуще
 describe('Открываем счёт', () => {
   beforeAll(async () => {
     const response = await instrumentsService.FindInstrument({
-      query: 'Tinkoff',
-      instrumentKind: InstrumentType.INSTRUMENT_TYPE_UNSPECIFIED,
+      query: 'TCSG', // Акции Тинькофф
+      instrumentKind: InstrumentType.INSTRUMENT_TYPE_SHARE,
       apiTradeAvailableFlag: false
     })
     instrumentId = response.instruments[0].instrumentId
