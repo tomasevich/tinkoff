@@ -70,7 +70,7 @@ describe('Открываем счёт', () => {
     test('Убеждаемся, что ордер на покупку по рыночной цене открыт', async () => {
       const response = await sandboxService.PostSandboxOrder({
         quantity: '1',
-        price: SandboxService.StringToQuotation('1000.0'),
+        price: SandboxService.StringToQuotation('5000.0'),
         direction: OrderDirection.ORDER_DIRECTION_BUY,
         accountId,
         orderType: OrderType.ORDER_TYPE_MARKET,
