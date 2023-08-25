@@ -5,10 +5,12 @@ dotenv.config({ path: './.env.test' })
 import {
   InstrumentsService,
   InstrumentType,
+  MarketDatasService,
   SandboxService,
   PortfolioRequestCurrencyRequest,
   OperationState,
   OperationType,
+  CandleInterval,
   OrderDirection,
   OrderType
 } from '../../src'
@@ -16,20 +18,27 @@ import {
 const TOKEN = process.env.TINKOFF_INVEST_API_TOKEN ?? ''
 const sandboxService = new SandboxService(TOKEN, true)
 const instrumentsService = new InstrumentsService(TOKEN, true)
+const marketDatasService = new MarketDatasService(TOKEN, true)
 
 let accountId: string
 let instrumentId: string
+let price: any // Цена нужна для открытия ордера
 let postOrderId: string
 let canceledOrderId: string // Бронируем ордер для будущей отмены
 
 describe('Открываем счёт', () => {
   beforeAll(async () => {
-    const response = await instrumentsService.FindInstrument({
+    const { instruments } = await instrumentsService.FindInstrument({
       query: 'TCSG', // Акции Тинькофф
       instrumentKind: InstrumentType.INSTRUMENT_TYPE_SHARE,
       apiTradeAvailableFlag: false
     })
-    instrumentId = response.instruments[0].uid
+    instrumentId = instruments[0].uid
+
+    const { lastPrices } = await marketDatasService.GetLastPrices({
+      instrumentId: [instrumentId]
+    })
+    price = lastPrices[0].price
   })
 
   test('Убеждаемся, что счет открыт', async () => {
@@ -67,13 +76,17 @@ describe('Открываем счёт', () => {
     test.todo('Убеждаемся, что ордер №2 открыт')
     test.todo('Убеждаемся, что ордер №3 открыт')
 
-    test('Убеждаемся, что ордер на покупку по рыночной цене открыт', async () => {
+    test('Убеждаемся, что ордер на покупку по лимитной цене открыт', async () => {
+      // Добавляем к цене 10% для покупке чуть дороже "последней цены"
+      const currPrice = Number(SandboxService.QuotationToString(price))
+      const tenPercent = (currPrice / 100) * 10
+
       const response = await sandboxService.PostSandboxOrder({
         quantity: '1',
-        price: SandboxService.StringToQuotation('5000.0'),
+        price: SandboxService.StringToQuotation(currPrice + tenPercent),
         direction: OrderDirection.ORDER_DIRECTION_BUY,
         accountId,
-        orderType: OrderType.ORDER_TYPE_MARKET,
+        orderType: OrderType.ORDER_TYPE_LIMIT,
         orderId: '',
         instrumentId
       })
@@ -103,6 +116,9 @@ describe('Открываем счёт', () => {
           accountId
         })
         expect(response).toHaveProperty('orders')
+        /**
+         * @todo Для тестирования списка ордеров, нужно создать отложенный ордер
+         */
         // const order = response.orders[0] // Один из
         // expect(order).toHaveProperty('orderId')
         // expect(order).toHaveProperty('executionReportStatus')
@@ -191,6 +207,9 @@ describe('Открываем счёт', () => {
         })
         expect(response).toHaveProperty('operations')
 
+        /**
+         * @todo Для тестирования списка операций, нужно убедиться, что ордер был открыт
+         */
         // const operation = response.operations[0] // Один из
         // expect(operation).toHaveProperty('id')
         // expect(operation).toHaveProperty('parentOperationId')
@@ -241,6 +260,9 @@ describe('Открываем счёт', () => {
         expect(response).toHaveProperty('nextCursor')
         expect(response).toHaveProperty('items')
 
+        /**
+         * @todo Для тестирования списка операций, нужно убедиться, что ордер был открыт
+         */
         // const item = response.items[0] // Один из
         // expect(item).toHaveProperty('cursor')
         // expect(item).toHaveProperty('brokerAccountId')
