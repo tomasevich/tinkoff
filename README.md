@@ -5,8 +5,8 @@
 ![npm (scoped)](https://img.shields.io/npm/v/%40tomasevich/tinkoff?color=blue&logo=npm)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/%40tomasevich%2Ftinkoff?color=purple&logo=npm)
 ![GitHub](https://img.shields.io/github/license/tomasevich/tinkoff?color=orange&logo=github)
-![Static Badge](https://img.shields.io/badge/tests-5/3/146-yellow?logo=github)
-![Static Badge](https://img.shields.io/badge/covarage-338/346-green?logo=github)
+![Static Badge](https://img.shields.io/badge/tests-155-green?logo=github)
+![Static Badge](https://img.shields.io/badge/covarage-346-green?logo=github)
 
 ## Мотивация
 
