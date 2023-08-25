@@ -5,7 +5,6 @@ dotenv.config({ path: './.env.test' })
 import {
   InstrumentsService,
   InstrumentType,
-  SandboxService,
   PortfolioRequestCurrencyRequest,
   OperationState,
   OperationType,
@@ -74,7 +73,7 @@ describe('Запрашиваем инструмент и айди аккаунт
     test('Убеждаемся, что ордер на покупку по лимитной цене открыт', async () => {
       const response = await ordersService.PostOrder({
         quantity: '1',
-        price: SandboxService.StringToQuotation('5000.0'),
+        price: OrdersService.StringToQuotation('5000.0'),
         direction: OrderDirection.ORDER_DIRECTION_BUY,
         accountId,
         orderType: OrderType.ORDER_TYPE_LIMIT,
@@ -183,7 +182,7 @@ describe('Запрашиваем инструмент и айди аккаунт
         orderId: canceledOrderId,
         idempotencyKey: canceledOrderId,
         quantity: '1',
-        price: SandboxService.StringToQuotation('4000.0'),
+        price: OrdersService.StringToQuotation('4000.0'),
         priceType: PriceType.PRICE_TYPE_CURRENCY
       })
       expect(response).toHaveProperty('orderId')
