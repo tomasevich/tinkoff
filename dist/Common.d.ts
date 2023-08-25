@@ -89,7 +89,7 @@ export declare class Common {
      */
     private development;
     /**
-     * Конструктор
+     * Инициализация класса
      * ```js
      * import { SandboxService } from '@tomasevich/tinkoff'
      *

@@ -58,7 +58,7 @@ var SecurityTradingStatus;
  */
 class Common {
     /**
-     * Конструктор
+     * Инициализация класса
      * ```js
      * import { SandboxService } from '@tomasevich/tinkoff'
      *
