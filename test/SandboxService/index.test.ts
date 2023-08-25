@@ -5,12 +5,11 @@ dotenv.config({ path: './.env.test' })
 import {
   InstrumentsService,
   InstrumentType,
-  MarketDatasService,
+  MarketDataService,
   SandboxService,
   PortfolioRequestCurrencyRequest,
   OperationState,
   OperationType,
-  CandleInterval,
   OrderDirection,
   OrderType
 } from '../../src'
@@ -18,11 +17,9 @@ import {
 const TOKEN = process.env.TINKOFF_INVEST_API_TOKEN ?? ''
 const sandboxService = new SandboxService(TOKEN, true)
 const instrumentsService = new InstrumentsService(TOKEN, true)
-const marketDatasService = new MarketDatasService(TOKEN, true)
 
 let accountId: string
 let instrumentId: string
-let price: any // Цена нужна для открытия ордера
 let postOrderId: string
 let canceledOrderId: string // Бронируем ордер для будущей отмены
 
@@ -34,11 +31,6 @@ describe('Открываем счёт', () => {
       apiTradeAvailableFlag: false
     })
     instrumentId = instruments[0].uid
-
-    const { lastPrices } = await marketDatasService.GetLastPrices({
-      instrumentId: [instrumentId]
-    })
-    price = lastPrices[0].price
   })
 
   test('Убеждаемся, что счет открыт', async () => {
@@ -77,13 +69,9 @@ describe('Открываем счёт', () => {
     test.todo('Убеждаемся, что ордер №3 открыт')
 
     test('Убеждаемся, что ордер на покупку по лимитной цене открыт', async () => {
-      // Добавляем к цене 10% для покупке чуть дороже "последней цены"
-      const currPrice = Number(SandboxService.QuotationToString(price))
-      const tenPercent = (currPrice / 100) * 10
-
       const response = await sandboxService.PostSandboxOrder({
         quantity: '1',
-        price: SandboxService.StringToQuotation(currPrice + tenPercent),
+        price: SandboxService.StringToQuotation('5000.0'),
         direction: OrderDirection.ORDER_DIRECTION_BUY,
         accountId,
         orderType: OrderType.ORDER_TYPE_LIMIT,
@@ -116,30 +104,28 @@ describe('Открываем счёт', () => {
           accountId
         })
         expect(response).toHaveProperty('orders')
-        /**
-         * @todo Для тестирования списка ордеров, нужно создать отложенный ордер
-         */
-        // const order = response.orders[0] // Один из
-        // expect(order).toHaveProperty('orderId')
-        // expect(order).toHaveProperty('executionReportStatus')
-        // expect(order).toHaveProperty('lotsRequested')
-        // expect(order).toHaveProperty('lotsExecuted')
-        // expect(order).toHaveProperty('initialOrderPrice')
-        // expect(order).toHaveProperty('executedOrderPrice')
-        // expect(order).toHaveProperty('totalOrderAmount')
-        // expect(order).toHaveProperty('averagePositionPrice')
-        // expect(order).toHaveProperty('initialCommission')
-        // expect(order).toHaveProperty('executedCommission')
-        // expect(order).toHaveProperty('figi')
-        // expect(order).toHaveProperty('direction')
-        // expect(order).toHaveProperty('initialSecurityPrice')
-        // expect(order).toHaveProperty('stages')
-        // expect(order).toHaveProperty('serviceCommission')
-        // expect(order).toHaveProperty('currency')
-        // expect(order).toHaveProperty('orderType')
-        // expect(order).toHaveProperty('orderDate')
-        // expect(order).toHaveProperty('instrumentUid')
-        // expect(order).toHaveProperty('orderRequestId')
+        const order = response.orders[0] // Один из
+        expect(order).toHaveProperty('orderId')
+        canceledOrderId = order.orderId
+        expect(order).toHaveProperty('executionReportStatus')
+        expect(order).toHaveProperty('lotsRequested')
+        expect(order).toHaveProperty('lotsExecuted')
+        expect(order).toHaveProperty('initialOrderPrice')
+        expect(order).toHaveProperty('executedOrderPrice')
+        expect(order).toHaveProperty('totalOrderAmount')
+        expect(order).toHaveProperty('averagePositionPrice')
+        expect(order).toHaveProperty('initialCommission')
+        expect(order).toHaveProperty('executedCommission')
+        expect(order).toHaveProperty('figi')
+        expect(order).toHaveProperty('direction')
+        expect(order).toHaveProperty('initialSecurityPrice')
+        expect(order).toHaveProperty('stages')
+        expect(order).toHaveProperty('serviceCommission')
+        expect(order).toHaveProperty('currency')
+        expect(order).toHaveProperty('orderType')
+        expect(order).toHaveProperty('orderDate')
+        expect(order).toHaveProperty('instrumentUid')
+        expect(order).toHaveProperty('orderRequestId')
       })
     })
 
@@ -366,7 +352,13 @@ describe('Открываем счёт', () => {
   })
 
   describe('Отменяем выставленный ордер', () => {
-    test.todo('Убеждаемся, что ордел отменен')
+    test('Убеждаемся, что ордел отменен', async () => {
+      const response = await sandboxService.CancelSandboxOrder({
+        accountId,
+        orderId: canceledOrderId
+      })
+      expect(response).toHaveProperty('time')
+    })
   })
 })
 
