@@ -20,7 +20,7 @@ class SandboxService extends _1.Common {
      * @see https://tinkoff.github.io/investAPI/sandbox/#opensandboxaccount
      */
     OpenSandboxAccount(body) {
-        return this.request('SandboxService', '  OpenSandboxAccount', body);
+        return this.request('SandboxService', 'OpenSandboxAccount', body);
     }
     /**
      * Метод получения счетов в песочнице
