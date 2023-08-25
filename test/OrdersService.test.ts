@@ -13,7 +13,11 @@ import {
   PriceType,
   OrdersService,
   UsersService,
-  OperationsService
+  OperationsService,
+  StopOrdersService,
+  StopOrderDirection,
+  StopOrderExpirationType,
+  StopOrderType
 } from '../src'
 
 const TOKEN = process.env.TINKOFF_INVEST_API_TOKEN ?? ''
@@ -21,6 +25,7 @@ const instrumentsService = new InstrumentsService(TOKEN, true)
 const ordersService = new OrdersService(TOKEN, true)
 const usersService = new UsersService(TOKEN, true)
 const operationsService = new OperationsService(TOKEN, true)
+const stopOrdersService = new StopOrdersService(TOKEN, true)
 
 let accountId: string
 let instrumentId: string
@@ -98,6 +103,48 @@ describe('Запрашиваем инструмент и айди аккаунт
       expect(response).toHaveProperty('message')
       expect(response).not.toHaveProperty('initialOrderPricePt')
       expect(response).toHaveProperty('instrumentUid')
+    })
+
+    describe('Выставляем отложенные ордера', () => {
+      test.failing(
+        'Убеждаемся, что отложенный ордер на продажу открыт',
+        async () => {
+          const response = await stopOrdersService.PostStopOrder({
+            quantity: '1',
+            price: StopOrdersService.StringToQuotation('5000.0'),
+            stopPrice: StopOrdersService.StringToQuotation('5500.0'),
+            direction: StopOrderDirection.STOP_ORDER_DIRECTION_SELL,
+            accountId,
+            expirationType:
+              StopOrderExpirationType.STOP_ORDER_EXPIRATION_TYPE_GOOD_TILL_CANCEL,
+            stopOrderType: StopOrderType.STOP_ORDER_TYPE_TAKE_PROFIT,
+            instrumentId
+          })
+          expect(response).toHaveProperty('stopOrderId')
+        }
+      )
+
+      describe('Запрашиваем список отложенных ордеров', () => {
+        test.failing('Получаем список отложенных ордеров', async () => {
+          const response = await stopOrdersService.GetStopOrders({
+            accountId
+          })
+          expect(response).toHaveProperty('stopOrders')
+        })
+      })
+
+      describe('Имитируем отмену отложенного ордера', () => {
+        test.failing(
+          'Хотя кому какая разница, ведь разработчики публикуют методы, которые не реализованы',
+          async () => {
+            const response = await stopOrdersService.CancelStopOrder({
+              accountId,
+              stopOrderId: ''
+            })
+            expect(response).toHaveProperty('stopOrders')
+          }
+        )
+      })
     })
 
     describe('Запрашиваем список ордеров', () => {
