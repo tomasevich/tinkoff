@@ -2,14 +2,33 @@ import dotenv from 'dotenv'
 
 dotenv.config({ path: './.env.test' })
 
-import { SandboxService, PortfolioRequestCurrencyRequest } from '../../src'
+import {
+  InstrumentsService,
+  InstrumentType,
+  SandboxService,
+  PortfolioRequestCurrencyRequest,
+  OperationState,
+  OperationType
+} from '../../src'
 
 const TOKEN = process.env.TINKOFF_INVEST_API_TOKEN ?? ''
 const sandboxService = new SandboxService(TOKEN, true)
+const instrumentsService = new InstrumentsService(TOKEN, true)
 
 let accountId: string
+let instrumentId: string
+let orderId: string
 
 describe('Открываем счёт', () => {
+  beforeAll(async () => {
+    const response = await instrumentsService.FindInstrument({
+      query: 'Tinkoff',
+      instrumentKind: InstrumentType.INSTRUMENT_TYPE_UNSPECIFIED,
+      apiTradeAvailableFlag: false
+    })
+    instrumentId = response.instruments[0].instrumentId
+  })
+
   test('Убеждаемся, что счет открыт', async () => {
     const response = await sandboxService.OpenSandboxAccount({})
     expect(response).toHaveProperty('accountId')
@@ -54,6 +73,7 @@ describe('Открываем счёт', () => {
         expect(response).toHaveProperty('orders')
         const order = response.orders[0] // Один из
         expect(order).toHaveProperty('orderId')
+        orderId = order.orderId // Запоминаем айди ордера для отддельного теста (ниже)
         expect(order).toHaveProperty('executionReportStatus')
         expect(order).toHaveProperty('lotsRequested')
         expect(order).toHaveProperty('lotsExecuted')
@@ -77,7 +97,32 @@ describe('Открываем счёт', () => {
     })
 
     describe('Запрашиваем информацию по конкретному ордеру', () => {
-      test.todo('Получаем информацию по конкретному ордеру')
+      test('Получаем информацию по конкретному ордеру', async () => {
+        const response = await sandboxService.GetSandboxOrderState({
+          accountId,
+          orderId
+        })
+        expect(response).toHaveProperty('orderId')
+        expect(response).toHaveProperty('executionReportStatus')
+        expect(response).toHaveProperty('lotsRequested')
+        expect(response).toHaveProperty('lotsExecuted')
+        expect(response).toHaveProperty('initialOrderPrice')
+        expect(response).toHaveProperty('executedOrderPrice')
+        expect(response).toHaveProperty('totalOrderAmount')
+        expect(response).toHaveProperty('averagePositionPrice')
+        expect(response).toHaveProperty('initialCommission')
+        expect(response).toHaveProperty('executedCommission')
+        expect(response).toHaveProperty('figi')
+        expect(response).toHaveProperty('direction')
+        expect(response).toHaveProperty('initialSecurityPrice')
+        expect(response).toHaveProperty('stages')
+        expect(response).toHaveProperty('serviceCommission')
+        expect(response).toHaveProperty('currency')
+        expect(response).toHaveProperty('orderType')
+        expect(response).toHaveProperty('orderDate')
+        expect(response).toHaveProperty('instrumentUid')
+        expect(response).toHaveProperty('orderRequestId')
+      })
     })
 
     describe('Запрашиваем позицию по счёту', () => {
@@ -99,11 +144,99 @@ describe('Открываем счёт', () => {
     test.todo('Убеждаемся, что ордер изменен')
 
     describe('Запрашиваем список операций', () => {
-      test.todo('Получаем список операций')
+      // OPERATION_STATE_PROGRESS
+      // OPERATION_STATE_UNSPECIFIED
+      // OPERATION_STATE_CANCELED
+      test('Получаем список выполненных операций', async () => {
+        const fromDate = new Date()
+        fromDate.setHours(fromDate.getHours() - 1)
+        const toDate = new Date()
+        fromDate.setHours(fromDate.getHours() + 1)
+        const response = await sandboxService.GetSandboxOperations({
+          accountId,
+          from: fromDate.toISOString(),
+          to: toDate.toISOString(),
+          state: OperationState.OPERATION_STATE_EXECUTED
+        })
+        expect(response).toHaveProperty('operations')
+        const operation = response.operations[0] // Один из
+        expect(operation).toHaveProperty('id')
+        expect(operation).toHaveProperty('parentOperationId')
+        expect(operation).toHaveProperty('currency')
+        expect(operation).toHaveProperty('payment')
+        expect(operation).toHaveProperty('price')
+        expect(operation).toHaveProperty('state')
+        expect(operation).toHaveProperty('quantity')
+        expect(operation).toHaveProperty('quantityRest')
+        expect(operation).toHaveProperty('figi')
+        expect(operation).toHaveProperty('instrumentType')
+        expect(operation).toHaveProperty('date')
+        expect(operation).toHaveProperty('type')
+        expect(operation).toHaveProperty('operationType')
+        expect(operation).toHaveProperty('trades')
+        expect(operation).toHaveProperty('assetUid')
+        expect(operation).toHaveProperty('positionUid')
+        expect(operation).toHaveProperty('instrumentUid')
+      })
     })
 
     describe('Запрашиваем список операций с навигацией', () => {
-      test.todo('Получаем список операций с навигацией')
+      // OPERATION_STATE_PROGRESS
+      // OPERATION_STATE_UNSPECIFIED
+      // OPERATION_STATE_CANCELED
+      test('Получаем список выполненных операций с навигацией', async () => {
+        const fromDate = new Date()
+        fromDate.setHours(fromDate.getHours() - 1)
+        const toDate = new Date()
+        fromDate.setHours(fromDate.getHours() + 1)
+        const response = await sandboxService.GetSandboxOperationsByCursor({
+          accountId,
+          instrumentId,
+          from: fromDate.toISOString(),
+          to: toDate.toISOString(),
+          cursor: '',
+          limit: 10,
+          state: OperationState.OPERATION_STATE_EXECUTED,
+          operationTypes: [
+            OperationType.OPERATION_TYPE_BUY,
+            OperationType.OPERATION_TYPE_SELL
+          ],
+          withoutCommissions: false,
+          withoutTrades: false,
+          withoutOvernights: false
+        })
+        expect(response).toHaveProperty('hasNext')
+        expect(response).toHaveProperty('nextCursor')
+        expect(response).toHaveProperty('items')
+        const item = response.items[0] // Один из
+        expect(item).toHaveProperty('cursor')
+        expect(item).toHaveProperty('brokerAccountId')
+        expect(item).toHaveProperty('id')
+        expect(item).toHaveProperty('parentOperationId')
+        expect(item).toHaveProperty('name')
+        expect(item).toHaveProperty('date')
+        expect(item).toHaveProperty('type')
+        expect(item).toHaveProperty('description')
+        expect(item).toHaveProperty('state')
+        expect(item).toHaveProperty('instrumentUid')
+        expect(item).toHaveProperty('figi')
+        expect(item).toHaveProperty('instrumentType')
+        expect(item).toHaveProperty('instrumentKind')
+        expect(item).toHaveProperty('positionUid')
+        expect(item).toHaveProperty('payment')
+        expect(item).toHaveProperty('price')
+        expect(item).toHaveProperty('commission')
+        expect(item).toHaveProperty('yield')
+        expect(item).toHaveProperty('yieldRelative')
+        expect(item).toHaveProperty('accruedInt')
+        expect(item).toHaveProperty('quantity')
+        expect(item).toHaveProperty('quantityRest')
+        expect(item).toHaveProperty('quantityDone')
+        expect(item).toHaveProperty('cancelDateTime')
+        expect(item).toHaveProperty('cancelReason')
+        expect(item).toHaveProperty('tradesInfo')
+        expect(item).toHaveProperty('assetUid')
+      })
     })
 
     describe('Запрашиваем портфолио', () => {
