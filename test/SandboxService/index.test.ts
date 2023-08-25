@@ -8,7 +8,9 @@ import {
   SandboxService,
   PortfolioRequestCurrencyRequest,
   OperationState,
-  OperationType
+  OperationType,
+  OrderDirection,
+  OrderType
 } from '../../src'
 
 const TOKEN = process.env.TINKOFF_INVEST_API_TOKEN ?? ''
@@ -18,6 +20,7 @@ const instrumentsService = new InstrumentsService(TOKEN, true)
 let accountId: string
 let instrumentId: string
 let orderId: string
+let canceledOrderId: string // Бронируем ордер для будущей отмены
 
 describe('Открываем счёт', () => {
   beforeAll(async () => {
@@ -61,9 +64,37 @@ describe('Открываем счёт', () => {
   })
 
   describe('Выставляем ордера', () => {
-    test.todo('Убеждаемся, что ордер №1 открыт')
     test.todo('Убеждаемся, что ордер №2 открыт')
     test.todo('Убеждаемся, что ордер №3 открыт')
+
+    test('Убеждаемся, что ордер на покупку по рыночной цене открыт', async () => {
+      const response = await sandboxService.PostSandboxOrder({
+        quantity: '1',
+        price: SandboxService.StringToQuotation('1000.0'),
+        direction: OrderDirection.ORDER_DIRECTION_BUY,
+        accountId,
+        orderType: OrderType.ORDER_TYPE_MARKET,
+        orderId: '',
+        instrumentId
+      })
+      expect(response).toHaveProperty('orderId')
+      expect(response).toHaveProperty('executionReportStatus')
+      expect(response).toHaveProperty('lotsRequested')
+      expect(response).toHaveProperty('lotsExecuted')
+      expect(response).toHaveProperty('initialOrderPrice')
+      expect(response).toHaveProperty('executedOrderPrice')
+      expect(response).toHaveProperty('totalOrderAmount')
+      expect(response).toHaveProperty('initialCommission')
+      expect(response).toHaveProperty('executedCommission')
+      expect(response).not.toHaveProperty('aciValue')
+      expect(response).toHaveProperty('figi')
+      expect(response).toHaveProperty('direction')
+      expect(response).toHaveProperty('initialSecurityPrice')
+      expect(response).toHaveProperty('orderType')
+      expect(response).toHaveProperty('message')
+      expect(response).not.toHaveProperty('initialOrderPricePt')
+      expect(response).toHaveProperty('instrumentUid')
+    })
 
     describe('Запрашиваем список ордеров', () => {
       test('Получаем список ордеров', async () => {
