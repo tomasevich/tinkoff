@@ -75,11 +75,6 @@ export interface Quotation {
   nano: number
 }
 
-/**
- * Общий класс
- * 1. Позволяет сделать `HTTP` запрос к серверу **Tinkoff Invest API**
- * 2. Конвертировать `MoneyValue` и `Quotation` в обе стороны
- */
 export class Common {
   /**
    * Продуктивный сервер
@@ -92,7 +87,9 @@ export class Common {
   private development = 'https://sandbox-invest-public-api.tinkoff.ru'
 
   /**
-   * Конструктор
+   * Общий класс
+   * 1. Позволяет сделать `HTTP` запрос к серверу **Tinkoff Invest API**
+   * 2. Конвертировать `MoneyValue` и `Quotation` в обе стороны
    * ```js
    * import { SandboxService } from '@tomasevich/tinkoff'
    *
